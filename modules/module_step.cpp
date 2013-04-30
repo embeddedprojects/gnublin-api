@@ -1,4 +1,6 @@
 #include "module_step.h"
+#include "../include/includes.h"
+#include "../drivers/i2c.cpp"
 
 //------------------Konstruktor------------------
 // set irun and vmax to the default values 
@@ -99,7 +101,7 @@ int gnublin_module_step::setVmin(unsigned int newVmin){
 // return:		[int]  1			success
 // 				[int] -1			failure
 
-int gnublin_module_step::writeTMC(char *TxBuf, int num){
+int gnublin_module_step::writeTMC(unsigned char *TxBuf, int num){
 	if(!i2c.send(TxBuf, num)){
 	    return -1;
    	}
@@ -113,7 +115,7 @@ int gnublin_module_step::writeTMC(char *TxBuf, int num){
 // return:		[int]  1			success
 // 				[int] -1			failure
 
-int gnublin_module_step::readTMC(char *RxBuf, int num){
+int gnublin_module_step::readTMC(unsigned char *RxBuf, int num){
    	if(!i2c.receive(RxBuf, num)){
        	return -1;
     }
@@ -130,7 +132,7 @@ int gnublin_module_step::readTMC(char *RxBuf, int num){
 int gnublin_module_step::burnNewAddress(int new_address){
 	
 	//SetOTPParam
-	char buffer[5];
+	unsigned char buffer[5];
 	int new_ad = 0;
 	int old_ad = 0;
 	int slave_address=i2c.getAddress();
@@ -145,15 +147,15 @@ int gnublin_module_step::burnNewAddress(int new_address){
 		return -1;
  	}
  	else{
-  		old_ad = (slave_address & 0b0011110) >> 1;
-  		new_ad = (new_address & 0b0011110) >> 1;
-  		if(((new_ad & 0b0001)<(old_ad & 0b0001))|((new_ad & 0b0010)<(old_ad & 0b0010))|((new_ad & 0b0100)<(old_ad & 0b0100))|((new_ad & 0b1000)<(old_ad & 0b1000))){
+  		old_ad = (slave_address & 0x1e) >> 1;
+  		new_ad = (new_address & 0x1e) >> 1;
+  		if(((new_ad & 0x1)<(old_ad & 0x1))|((new_ad & 0x2)<(old_ad & 0x2))|((new_ad & 0x4)<(old_ad & 0x4))|((new_ad & 0x8)<(old_ad & 0x8))){
         		printf("\tThis address could not be set, because the '1' cant be undone!\n"
         			"\told OTP AD: 0x%x\n"
         			"\tnew OTP AD: 0x%x\n",old_ad, new_ad);
         		return -1;
   		}
-	  	if((new_address & 0b00000001) == 1){
+	  	if((new_address & 0x01) == 1){
 			printf("\tThe LSB address bit is set by the jumper on the module-step\n");
 			new_address --;
 			printf("\tThe new address will be set to: 0x%x \n", new_address);
@@ -169,10 +171,13 @@ int gnublin_module_step::burnNewAddress(int new_address){
 			buffer[3] = 0x02; //set AD3 AD2 AD1 AD0
 			buffer[4] = (unsigned char) new_ad;
 
-			writeTMC(buffer, 5);
-
-			printf("\tNew Address was successfully set to: 0x%x\n\tPlease replug the module.\n\n", new_address);
-			return 1;
+		   	if(!i2c.send(buffer, 5)){
+			   	return -1;
+			}
+			else {
+				printf("\tNew Address was successfully set to: 0x%x\n\tPlease replug the module.\n\n", new_address);
+				return 1;
+			}
 	    	}
 	  	else{
 			printf("\tYou didn't type 'YES'\n");
@@ -239,7 +244,7 @@ int gnublin_module_step::runInit(){
 
 
 int gnublin_module_step::setMotorParam(){
-	char buffer[8];
+	unsigned char buffer[8];
 	//SetMotorParam
 	buffer[0] = 0x89; //SetMotorParam
 	buffer[1] = 0xff; //N/A
@@ -262,7 +267,7 @@ int gnublin_module_step::setMotorParam(unsigned int newIrun, unsigned int newIho
 	vmax=newVmax;
 	vmin=newVmin;
 
-	char buffer[8];
+	unsigned char buffer[8];
 	//SetMotorParam
 	buffer[0] = 0x89; //SetMotorParam
 	buffer[1] = 0xff; //N/A
@@ -330,7 +335,7 @@ int gnublin_module_step::resetPosition(){
 // 				[int] -1			failure
 
 int gnublin_module_step::setPosition(int position){
-	char buffer[5];
+	unsigned char buffer[5];
 	buffer[0] = 0x8B;   // SetPosition Command
 	buffer[1] = 0xff;   // not avialable
 	buffer[2] = 0xff;   // not avialable
@@ -380,7 +385,7 @@ int gnublin_module_step::drive(int steps){
 //	-1			failure
 
 int gnublin_module_step::getMotionStatus(){
-	char RxBuf[8];
+	unsigned char RxBuf[8];
 	int motionStatus = -1;
 	getFullStatus1();
 	
@@ -401,8 +406,8 @@ int gnublin_module_step::getMotionStatus(){
 // 				[int] -1			failure
 
 int gnublin_module_step::getSwitch(){
-		char RxBuf[8];    	
-		int swi = 0;
+	unsigned char RxBuf[8];    	
+	int swi = 0;
 
     	getFullStatus1();
 
@@ -427,7 +432,7 @@ int gnublin_module_step::getSwitch(){
 // 				[int] -1				failure
 
 int gnublin_module_step::getActualPosition(){
-	char RxBuf[8];	
+	unsigned char RxBuf[8];	
 	int actualPosition=-1;
 	
 	if(getFullStatus2()==-1)

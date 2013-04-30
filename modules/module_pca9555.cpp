@@ -1,6 +1,5 @@
 #include "module_pca9555.h"
 
-
 //*******************************************************************
 //Class for accessing GNUBLIN Module-Portexpander or any PCA9555
 //*******************************************************************
@@ -56,8 +55,8 @@ void gnublin_module_pca9555::setDevicefile(std::string filename){
 // 					[int] -1		failure
 int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 	error_flag=false;
-	char TxBuf[1];
-	char RxBuf[1];
+	unsigned char TxBuf[1];
+	unsigned char RxBuf[1];
 
 	if (pin < 0 || pin > 15){
 		error_flag=true;
@@ -65,9 +64,9 @@ int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 		return -1;
 	}
 
-	TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
-
 	if(pin >= 0 && pin <= 7){ // Port 0
+
+			TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
 
 			if (i2c.receive(0x06, RxBuf, 1)>0){ //read the current state
 
@@ -107,6 +106,8 @@ int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 			}
 	}
 	else if(pin >= 8 && pin <= 15){ // Port 1
+
+			TxBuf[0]=pow(2, (pin-8)); //convert pin into its binary form e. g. Pin 3 = 8
 
 			if(i2c.receive(0x07, RxBuf, 1)>0){ //read the current state
 			
@@ -157,7 +158,7 @@ int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 
 int gnublin_module_pca9555::portMode(int port, std::string direction){
 	error_flag=false;
-	char TxBuf[1];
+	unsigned char TxBuf[1];
 
 	if (port < 0 || port > 1){
 		error_flag=true;
@@ -238,8 +239,8 @@ int gnublin_module_pca9555::portMode(int port, std::string direction){
 
 int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	error_flag=false;
-	char TxBuf[1];
-	char RxBuf[1];
+	unsigned char TxBuf[1];
+	unsigned char RxBuf[1];
 
 	if (pin < 0 || pin > 15){
 		error_flag=true;
@@ -247,9 +248,10 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 		return -1;
 	}
 
-	TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
 
 	if(pin >= 0 && pin <= 7){ // Port 0
+
+			TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
 
 			if (i2c.receive(0x02, RxBuf, 1)>0){ //read the current state
 
@@ -290,9 +292,11 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	}
 	else if(pin >= 8 && pin <= 15){ // Port 1
 
+			TxBuf[0]=pow(2, (pin-8)); //convert pin into its binary form e. g. Pin 3 = 8
+
 			if(i2c.receive(0x03, RxBuf, 1)>0){ //read the current state
-			
 				if (value==0){
+					
 					TxBuf[0]=RxBuf[0] & ~TxBuf[0];
 					if(i2c.send(0x03, TxBuf, 1)>0){
 					return 1;
@@ -316,7 +320,7 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 				}
 				else{
 					error_flag=true;
-					ErrorMessage="direction != IN/OUTPUT";				
+					ErrorMessage="value != HIGH/LOW";				
 					return -1;			
 				}
 			}
@@ -329,6 +333,46 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	else return -1;
 }
 
+//-------------------write port----------------
+// Writes one byte to a complete port
+// parameters:	[int]port 0/1 		Number of the port
+//				[unsigned char]value	Byte to write
+//							
+// returns:		[int]  1		succsess
+// 				[int] -1		failure
+
+int gnublin_module_pca9555::writePort(int port, unsigned char value){
+	error_flag=false;
+	unsigned char buffer[1];
+	buffer[0]=value;
+
+	if(port==0){ // Port 0
+		if(i2c.send(0x02, buffer, 1)>0){
+			return 1;
+		}
+		else {
+			error_flag=true;
+			ErrorMessage="i2c.send Error";
+			return -1;
+		}
+	}
+	else if(port==1){
+		if(i2c.send(0x03, buffer, 1)>0){
+			return 1;
+		}
+		else {
+			error_flag=true;
+			ErrorMessage="i2c.send Error";
+			return -1;
+		}
+	}		
+	else{
+		error_flag=true;
+		ErrorMessage="Pin Number is not between 0-1";
+		return -1;		
+	}
+	
+}
 
 //-------------------digital read----------------
 // reads the state of the inputs and returns it
@@ -339,19 +383,19 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 
 int gnublin_module_pca9555::digitalRead(int pin) {
 	error_flag=false;
-	char RxBuf[1];
+	unsigned char RxBuf[1];
 
 	if (pin < 0 || pin > 15){
 		error_flag=true;
 		ErrorMessage="Pin Number is not between 0-15\n";
 		return -1;
 	}
+	
+	if(pin >= 0 && pin <= 7){ // Port 0		
+		if(i2c.receive(0x00, RxBuf, 1)>0){
 
-	if(i2c.receive(0x00, RxBuf, 1)>0){
-
-		RxBuf[0]<<=(7-pin); // MSB is now the pin you want to read from
-
-		if(pin >= 0 && pin <= 7){ // Port 0		
+				RxBuf[0]<<=(7-pin); // MSB is now the pin you want to read from
+				RxBuf[0]&=128; // set all bits to 0 except the MSB
 		
 				if(RxBuf[0]==0){
 					return 0;
@@ -362,12 +406,21 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 				else{
 					error_flag=true;
 					ErrorMessage="bitshift failed\n";
-					
 					return -1;
 				}
 		}
-		else if(pin >= 8 && pin <= 15){ // Port 1
-				
+		else{
+			error_flag=true;
+			ErrorMessage="i2c.receive Error";
+			return -1;
+		}
+	}
+	else if(pin >= 8 && pin <= 15){ // Port 1
+		if(i2c.receive(0x01, RxBuf, 1)>0){
+
+				RxBuf[0]<<=(15-pin); // MSB is now the pin you want to read from
+				RxBuf[0]&=128;	// set all bits to 0 except the MSB	
+		
 				if(RxBuf[0]==0){
 					return 0;
 				}
@@ -380,9 +433,13 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 					return -1;
 				}
 		}
+		else{
+			error_flag=true;
+			ErrorMessage="i2c.receive Error";
+			return -1;
+		}
 	}
 	error_flag=true;
-	ErrorMessage="i2c.receive Error";
+	ErrorMessage="something went wrong";
 	return -1;
-
 }

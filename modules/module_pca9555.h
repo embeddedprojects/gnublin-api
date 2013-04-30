@@ -1,5 +1,5 @@
 #include "../include/includes.h"
-#include "../drivers/gpio.cpp"
+#include "../drivers/i2c.cpp"
 
 //*******************************************************************
 //Class for accessing GNUBLIN Module-Portexpander or any PCA9555
@@ -18,5 +18,6 @@ public:
 		int pinMode(int pin, std::string direction);
 		int portMode(int port, std::string direction);
 		int digitalWrite(int pin, int value);
-		int digitalRead(int pin);		
+		int digitalRead(int pin);
+		int writePort(int port, unsigned char value);
 };

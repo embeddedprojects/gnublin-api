@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 04/23/13 14:08
+//build date: 04/30/13 15:25
 //******************************************** 
 
 #include"gnublin.h"
@@ -214,7 +214,7 @@ void gnublin_i2c::setDevicefile(std::string filename){
 // receive(0x12, buf, 3);
 //---------------------------------------------------------------------------
 
-int gnublin_i2c::receive(char *RxBuf, int length){
+int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 	error_flag=false;
 	int fd;
 
@@ -244,7 +244,7 @@ int gnublin_i2c::receive(char *RxBuf, int length){
 	return 1;
 }
 
-int gnublin_i2c::receive(unsigned char RegisterAddress, char *RxBuf, int length){
+int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length){
 	error_flag=false;	
 	int fd;
 
@@ -299,7 +299,7 @@ int gnublin_i2c::receive(unsigned char RegisterAddress, char *RxBuf, int length)
 // send 3 bytes from buf to a register with the address 0x12
 // send (0x12, buf, 3);
 //---------------------------------------------------------------------------
-int gnublin_i2c::send(char *TxBuf, int length){
+int gnublin_i2c::send(unsigned char *TxBuf, int length){
 	error_flag=false;	
 	int fd; 
 
@@ -328,7 +328,7 @@ int gnublin_i2c::send(char *TxBuf, int length){
 	return 1;
 }
 
-int gnublin_i2c::send(unsigned char RegisterAddress, char *TxBuf, int length){
+int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int length){
 	error_flag=false;	
 	int fd, i;
 	unsigned char data[length+1];
@@ -913,7 +913,9 @@ int gnublin_module_dogm::print(char* buffer, int line, int off){
 int gnublin_module_dogm::offset(int num){
 	__u8 tmp;
 	if(!init_flag){
+		char init_str[2] = " ";
 		init();
+		print(init_str);
 	}
 	if (num >= 0 && num < 16){
 		tmp = num + 128;
@@ -1091,7 +1093,7 @@ void gnublin_module_lm75::setDevicefile(std::string filename){
 int gnublin_module_lm75::getTemp(){
 	short value=0;
 	int temp;	
-	char rx_buf[2];
+	unsigned char rx_buf[2];
 	error_flag=false;
 
 	if(i2c.receive(0x00, rx_buf, 2)>0){
@@ -1138,7 +1140,7 @@ int gnublin_module_lm75::getTemp(){
 float gnublin_module_lm75::getTempFloat(){
 	short value=0;
 	float temp;	
-	char rx_buf[2];
+	unsigned char rx_buf[2];
 	error_flag=false;
 
 	if(i2c.receive(0x00, rx_buf, 2)>0){
@@ -1184,7 +1186,7 @@ float gnublin_module_lm75::getTempFloat(){
 
 short gnublin_module_lm75::getValue(){
 	short value=0;
-	char rx_buf[2];
+	unsigned char rx_buf[2];
 	error_flag=false;
 	if(i2c.receive(0x00, rx_buf, 2)>0){
 		
@@ -1215,9 +1217,10 @@ short gnublin_module_lm75::getValue(){
 //*****************************************************************************
 
 gnublin_module_adc::gnublin_module_adc() {
-	system("modprobe ads7828 >/dev/null");
-	adress = "0x48";
-	i2cbus = "1";
+	i2c.setAddress(0x48);
+	referenceValue = 2.5;
+	reference_flag = 1;
+	error_flag = false;
 }
 
 //-------------get Error Message-------------
@@ -1229,33 +1232,201 @@ const char *gnublin_module_adc::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
-gnublin_module_adc::gnublin_module_adc(int adr){
-	adress = numberToString(adr);
-	system("modprobe ads7828 >/dev/null");
-	i2cbus = "1";
+
+//------------ fail() -----------------------
+// get error_flag
+// parameters:		NONE
+// return:		[bool] error_flag
+
+bool gnublin_module_adc::fail() {
+	return error_flag;
 }
 
 
-gnublin_module_adc::gnublin_module_adc(int bus, int adr) {
-	i2cbus = numberToString(bus);
-	adress = numberToString(adr);
-	system("modprobe ads7828 >/dev/null");
-}
+//-------------setAddress-------------
+// set the slave address
+// parameters:		[int]address	i2c slave Address
+// return:		NONE
 
-
-int gnublin_module_adc::getValue(int channel) {
-	if (channel > 7 || channel < 0){
+int gnublin_module_adc::setAddress(int address) {
+	i2c.setAddress(address);
+	if (i2c.fail()) {
+		error_flag = true;
 		return -1;
 	}
-	std::string value;
-	std::string channel_str = numberToString(channel);
-	std::string device = "/sys/module/ads7828/drivers/i2c:ads7828/" + i2cbus + "-00" + adress.erase(0, 2) + "/in" + channel_str + "_input";
-	std::ifstream file(device.c_str());
-	file >> value;
-	file.close();
-	return stringToNumber(value);
+	error_flag = false;
+	return 1;
 }
 
+
+//-------------------setDevicefile----------------
+// set the i2c device file. default is "/dev/i2c-1"
+// parameters:		[string]filename	path to the dev file
+// return:		NONE
+
+int gnublin_module_adc::setDevicefile(std::string filename) {
+	i2c.setDevicefile(filename);
+	if (i2c.fail()) {
+		error_flag = true;
+		return -1;
+	}
+	error_flag = false;
+	return 1;
+}
+
+//-------------------setReference() ----------------
+// set reverence voltage to internal or external
+// parameters:		[int] value	1 = internal (2.5V); 0 = external (3.3V)
+// return:		NONE
+
+int gnublin_module_adc::setReference(int value) {
+	if (value == 0) {
+		referenceValue = 3.3;
+		reference_flag = 0;
+	}
+	else if (value == 1) {
+		referenceValue = 2.5;
+		reference_flag = 1;
+	}
+	else {
+		error_flag = true;
+		return -1;
+	}
+	error_flag = false;
+	return 1;
+}
+
+
+//---------------------- getValue() -----------------------
+// get ADC Value of channel in reference to GND
+// parameters:		[int] channel		ADC-Port
+// return:		[int] value		value of ADC-channel
+
+int gnublin_module_adc::getValue(int channel) {
+	int command;
+	unsigned char value[1];
+	
+	if (reference_flag == 0){
+		switch (channel) {
+			case 1: command = 0x87; break;
+			case 2: command = 0xC7; break;
+			case 3: command = 0x97; break;
+			case 4: command = 0xD7; break;
+			case 5: command = 0xA7; break;
+			case 6: command = 0xE7; break;
+			case 7: command = 0xB7; break;
+			case 8: command = 0xF7; break;
+			default: error_flag = true; return -1; break;
+		}
+	}
+	else {
+		switch (channel) {
+			case 1: command = 0x8F; break;
+			case 2: command = 0xCF; break;
+			case 3: command = 0x9F; break;
+			case 4: command = 0xDF; break;
+			case 5: command = 0xAF; break;
+			case 6: command = 0xEF; break;
+			case 7: command = 0xBF; break;
+			case 8: command = 0xFF; break;
+			default: error_flag = true; return -1; break;
+		}
+	}
+	
+	i2c.send(command);
+	if (i2c.fail()) {
+		error_flag = true;
+		return -1;
+	}
+
+	i2c.receive(value, 1);
+	if (i2c.fail()) {
+		error_flag = true;
+		return -1;
+	}
+	error_flag = false;
+	return atoi((const char*)value);	
+}
+
+
+int gnublin_module_adc::getValue(int channel1, int channel2) {
+	int command;
+	unsigned char value[1];
+	
+	for (int i = 1; i<9; i=i+2) {
+		if (channel1 == i && channel2 == (i+1)){
+			switch(i) {
+				case 1: command = 0x00; break;
+				case 3: command = 0x10; break;
+				case 5: command = 0x20; break;
+				case 7: command = 0x30; break;
+			}
+		}
+		else if (channel2 == i && channel1 == (i+1)) {
+			switch(i) {
+				case 1: command = 0x40; break;
+				case 3: command = 0x50; break;
+				case 5: command = 0x60; break;
+				case 7: command = 0x70; break;
+			}
+		}
+		else {
+			error_flag = true;
+			return -1;
+		}
+	}
+	if (reference_flag == 0) {
+		command += 0x7;
+	}
+	else {
+		command += 0xF;
+	}
+
+	i2c.send(command);
+	if (i2c.fail()) {
+		error_flag = true;
+		return -1;
+	}
+
+	i2c.receive(value, 1);
+	if (i2c.fail()) {
+		error_flag = true;
+		return -1;
+	}
+	error_flag = false;
+	return atoi((const char*)value);
+}
+
+
+//---------------------- getVoltage() -----------------------
+// get ADC Value of channel in reference to GND
+// parameters:		[int] channel		ADC-Port
+// return:		[int] voltage		voltage of ADC-channel in mV
+
+int gnublin_module_adc::getVoltage(int channel) {
+	error_flag = false;
+	int voltage;
+	int value = getValue(channel);
+	if (error_flag) {
+		return -1;
+	}
+	
+	voltage = value * referenceValue / 255;
+	return voltage;
+}
+
+
+int gnublin_module_adc::getVoltage(int channel1, int channel2) {
+	error_flag = false;
+	int voltage;
+	int value = getValue(channel1, channel2);
+	if (error_flag) {
+		return -1;
+	}
+	
+	voltage = value * referenceValue / 255;
+	return voltage;
+}
 
 //*******************************************************************
 //Class for accessing GNUBLIN Module-Portexpander or any PCA9555
@@ -1312,8 +1483,8 @@ void gnublin_module_pca9555::setDevicefile(std::string filename){
 // 					[int] -1		failure
 int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 	error_flag=false;
-	char TxBuf[1];
-	char RxBuf[1];
+	unsigned char TxBuf[1];
+	unsigned char RxBuf[1];
 
 	if (pin < 0 || pin > 15){
 		error_flag=true;
@@ -1321,9 +1492,9 @@ int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 		return -1;
 	}
 
-	TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
-
 	if(pin >= 0 && pin <= 7){ // Port 0
+
+			TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
 
 			if (i2c.receive(0x06, RxBuf, 1)>0){ //read the current state
 
@@ -1363,6 +1534,8 @@ int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 			}
 	}
 	else if(pin >= 8 && pin <= 15){ // Port 1
+
+			TxBuf[0]=pow(2, (pin-8)); //convert pin into its binary form e. g. Pin 3 = 8
 
 			if(i2c.receive(0x07, RxBuf, 1)>0){ //read the current state
 			
@@ -1413,7 +1586,7 @@ int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 
 int gnublin_module_pca9555::portMode(int port, std::string direction){
 	error_flag=false;
-	char TxBuf[1];
+	unsigned char TxBuf[1];
 
 	if (port < 0 || port > 1){
 		error_flag=true;
@@ -1494,8 +1667,8 @@ int gnublin_module_pca9555::portMode(int port, std::string direction){
 
 int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	error_flag=false;
-	char TxBuf[1];
-	char RxBuf[1];
+	unsigned char TxBuf[1];
+	unsigned char RxBuf[1];
 
 	if (pin < 0 || pin > 15){
 		error_flag=true;
@@ -1503,9 +1676,10 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 		return -1;
 	}
 
-	TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
 
 	if(pin >= 0 && pin <= 7){ // Port 0
+
+			TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
 
 			if (i2c.receive(0x02, RxBuf, 1)>0){ //read the current state
 
@@ -1546,9 +1720,11 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	}
 	else if(pin >= 8 && pin <= 15){ // Port 1
 
+			TxBuf[0]=pow(2, (pin-8)); //convert pin into its binary form e. g. Pin 3 = 8
+
 			if(i2c.receive(0x03, RxBuf, 1)>0){ //read the current state
-			
 				if (value==0){
+					
 					TxBuf[0]=RxBuf[0] & ~TxBuf[0];
 					if(i2c.send(0x03, TxBuf, 1)>0){
 					return 1;
@@ -1572,7 +1748,7 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 				}
 				else{
 					error_flag=true;
-					ErrorMessage="direction != IN/OUTPUT";				
+					ErrorMessage="value != HIGH/LOW";				
 					return -1;			
 				}
 			}
@@ -1585,6 +1761,46 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	else return -1;
 }
 
+//-------------------write port----------------
+// Writes one byte to a complete port
+// parameters:	[int]port 0/1 		Number of the port
+//				[unsigned char]value	Byte to write
+//							
+// returns:		[int]  1		succsess
+// 				[int] -1		failure
+
+int gnublin_module_pca9555::writePort(int port, unsigned char value){
+	error_flag=false;
+	unsigned char buffer[1];
+	buffer[0]=value;
+
+	if(port==0){ // Port 0
+		if(i2c.send(0x02, buffer, 1)>0){
+			return 1;
+		}
+		else {
+			error_flag=true;
+			ErrorMessage="i2c.send Error";
+			return -1;
+		}
+	}
+	else if(port==1){
+		if(i2c.send(0x03, buffer, 1)>0){
+			return 1;
+		}
+		else {
+			error_flag=true;
+			ErrorMessage="i2c.send Error";
+			return -1;
+		}
+	}		
+	else{
+		error_flag=true;
+		ErrorMessage="Pin Number is not between 0-1";
+		return -1;		
+	}
+	
+}
 
 //-------------------digital read----------------
 // reads the state of the inputs and returns it
@@ -1595,19 +1811,19 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 
 int gnublin_module_pca9555::digitalRead(int pin) {
 	error_flag=false;
-	char RxBuf[1];
+	unsigned char RxBuf[1];
 
 	if (pin < 0 || pin > 15){
 		error_flag=true;
 		ErrorMessage="Pin Number is not between 0-15\n";
 		return -1;
 	}
+	
+	if(pin >= 0 && pin <= 7){ // Port 0		
+		if(i2c.receive(0x00, RxBuf, 1)>0){
 
-	if(i2c.receive(0x00, RxBuf, 1)>0){
-
-		RxBuf[0]<<=(7-pin); // MSB is now the pin you want to read from
-
-		if(pin >= 0 && pin <= 7){ // Port 0		
+				RxBuf[0]<<=(7-pin); // MSB is now the pin you want to read from
+				RxBuf[0]&=128; // set all bits to 0 except the MSB
 		
 				if(RxBuf[0]==0){
 					return 0;
@@ -1618,12 +1834,21 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 				else{
 					error_flag=true;
 					ErrorMessage="bitshift failed\n";
-					
 					return -1;
 				}
 		}
-		else if(pin >= 8 && pin <= 15){ // Port 1
-				
+		else{
+			error_flag=true;
+			ErrorMessage="i2c.receive Error";
+			return -1;
+		}
+	}
+	else if(pin >= 8 && pin <= 15){ // Port 1
+		if(i2c.receive(0x01, RxBuf, 1)>0){
+
+				RxBuf[0]<<=(15-pin); // MSB is now the pin you want to read from
+				RxBuf[0]&=128;	// set all bits to 0 except the MSB	
+		
 				if(RxBuf[0]==0){
 					return 0;
 				}
@@ -1636,12 +1861,93 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 					return -1;
 				}
 		}
+		else{
+			error_flag=true;
+			ErrorMessage="i2c.receive Error";
+			return -1;
+		}
 	}
 	error_flag=true;
-	ErrorMessage="i2c.receive Error";
+	ErrorMessage="something went wrong";
 	return -1;
-
 }
+
+
+//****************************************************************************
+// Class for easy use of the GNUBLIN Module-Relay
+//****************************************************************************
+
+
+//------------------Konstruktor------------------
+// set Port 0 to OUTPUT and LOW
+// set Error Flag flase
+// set standard i2c Address 0x20
+
+gnublin_module_relay::gnublin_module_relay() {
+	error_flag=false;
+	pca9555.setAddress(0x20);	
+	pca9555.writePort(0, 0x00);
+	pca9555.portMode(0, OUTPUT);
+}
+
+
+//-------------get Error Message-------------
+// get the last ErrorMessage
+// parameters:		NONE
+// return:		[const char*]ErrorMessage	Error Message as c-string
+
+const char *gnublin_module_relay::getErrorMessage(){
+	return ErrorMessage.c_str();
+}
+
+//-------------------------------Fail-------------------------------
+//returns the error flag. if something went wrong, the flag is true
+bool gnublin_module_relay::fail(){
+	return error_flag;
+}
+
+//-------------set Address-------------
+// set the slave address
+// parameters:		[int]Address	i2c slave Address
+// return:			NONE
+
+void gnublin_module_relay::setAddress(int Address){
+	pca9555.setAddress(Address);
+}
+
+
+//-------------------set devicefile----------------
+// set the i2c device file. default is "/dev/i2c-1"
+// parameters:		[string]filename	path to the dev file
+// return:			NONE
+
+void gnublin_module_relay::setDevicefile(std::string filename){
+	pca9555.setDevicefile(filename);
+}
+
+//-------------------switch Pin----------------
+// switches 1 relay pin, error_flag is set on failure
+// parameters:		[int]pin	Pin 1-8
+//					[int]value	HIGH or LOW
+// return:			[int]1		success
+//					[int]-1		failure
+int gnublin_module_relay::switchPin(int pin, int value) {
+	error_flag=false;
+
+	if (pin < 1 || pin > 8) {
+		error_flag=true;
+		ErrorMessage="pin is not between 1-8!\n";
+		return -1;
+	}
+	if (pca9555.digitalWrite((pin-1), value) < 0) {
+		error_flag=true;
+		ErrorMessage="pca9555.digitalWrite failed! Address correct?\n";		
+		return -1;
+	}
+	return 1;
+}
+
+
 
 //------------------Konstruktor------------------
 // set irun and vmax to the default values 
@@ -1742,7 +2048,7 @@ int gnublin_module_step::setVmin(unsigned int newVmin){
 // return:		[int]  1			success
 // 				[int] -1			failure
 
-int gnublin_module_step::writeTMC(char *TxBuf, int num){
+int gnublin_module_step::writeTMC(unsigned char *TxBuf, int num){
 	if(!i2c.send(TxBuf, num)){
 	    return -1;
    	}
@@ -1756,7 +2062,7 @@ int gnublin_module_step::writeTMC(char *TxBuf, int num){
 // return:		[int]  1			success
 // 				[int] -1			failure
 
-int gnublin_module_step::readTMC(char *RxBuf, int num){
+int gnublin_module_step::readTMC(unsigned char *RxBuf, int num){
    	if(!i2c.receive(RxBuf, num)){
        	return -1;
     }
@@ -1773,7 +2079,7 @@ int gnublin_module_step::readTMC(char *RxBuf, int num){
 int gnublin_module_step::burnNewAddress(int new_address){
 	
 	//SetOTPParam
-	char buffer[5];
+	unsigned char buffer[5];
 	int new_ad = 0;
 	int old_ad = 0;
 	int slave_address=i2c.getAddress();
@@ -1788,15 +2094,15 @@ int gnublin_module_step::burnNewAddress(int new_address){
 		return -1;
  	}
  	else{
-  		old_ad = (slave_address & 0b0011110) >> 1;
-  		new_ad = (new_address & 0b0011110) >> 1;
-  		if(((new_ad & 0b0001)<(old_ad & 0b0001))|((new_ad & 0b0010)<(old_ad & 0b0010))|((new_ad & 0b0100)<(old_ad & 0b0100))|((new_ad & 0b1000)<(old_ad & 0b1000))){
+  		old_ad = (slave_address & 0x1e) >> 1;
+  		new_ad = (new_address & 0x1e) >> 1;
+  		if(((new_ad & 0x1)<(old_ad & 0x1))|((new_ad & 0x2)<(old_ad & 0x2))|((new_ad & 0x4)<(old_ad & 0x4))|((new_ad & 0x8)<(old_ad & 0x8))){
         		printf("\tThis address could not be set, because the '1' cant be undone!\n"
         			"\told OTP AD: 0x%x\n"
         			"\tnew OTP AD: 0x%x\n",old_ad, new_ad);
         		return -1;
   		}
-	  	if((new_address & 0b00000001) == 1){
+	  	if((new_address & 0x01) == 1){
 			printf("\tThe LSB address bit is set by the jumper on the module-step\n");
 			new_address --;
 			printf("\tThe new address will be set to: 0x%x \n", new_address);
@@ -1812,10 +2118,13 @@ int gnublin_module_step::burnNewAddress(int new_address){
 			buffer[3] = 0x02; //set AD3 AD2 AD1 AD0
 			buffer[4] = (unsigned char) new_ad;
 
-			writeTMC(buffer, 5);
-
-			printf("\tNew Address was successfully set to: 0x%x\n\tPlease replug the module.\n\n", new_address);
-			return 1;
+		   	if(!i2c.send(buffer, 5)){
+			   	return -1;
+			}
+			else {
+				printf("\tNew Address was successfully set to: 0x%x\n\tPlease replug the module.\n\n", new_address);
+				return 1;
+			}
 	    	}
 	  	else{
 			printf("\tYou didn't type 'YES'\n");
@@ -1882,7 +2191,7 @@ int gnublin_module_step::runInit(){
 
 
 int gnublin_module_step::setMotorParam(){
-	char buffer[8];
+	unsigned char buffer[8];
 	//SetMotorParam
 	buffer[0] = 0x89; //SetMotorParam
 	buffer[1] = 0xff; //N/A
@@ -1905,7 +2214,7 @@ int gnublin_module_step::setMotorParam(unsigned int newIrun, unsigned int newIho
 	vmax=newVmax;
 	vmin=newVmin;
 
-	char buffer[8];
+	unsigned char buffer[8];
 	//SetMotorParam
 	buffer[0] = 0x89; //SetMotorParam
 	buffer[1] = 0xff; //N/A
@@ -1973,7 +2282,7 @@ int gnublin_module_step::resetPosition(){
 // 				[int] -1			failure
 
 int gnublin_module_step::setPosition(int position){
-	char buffer[5];
+	unsigned char buffer[5];
 	buffer[0] = 0x8B;   // SetPosition Command
 	buffer[1] = 0xff;   // not avialable
 	buffer[2] = 0xff;   // not avialable
@@ -2023,7 +2332,7 @@ int gnublin_module_step::drive(int steps){
 //	-1			failure
 
 int gnublin_module_step::getMotionStatus(){
-	char RxBuf[8];
+	unsigned char RxBuf[8];
 	int motionStatus = -1;
 	getFullStatus1();
 	
@@ -2044,8 +2353,8 @@ int gnublin_module_step::getMotionStatus(){
 // 				[int] -1			failure
 
 int gnublin_module_step::getSwitch(){
-		char RxBuf[8];    	
-		int swi = 0;
+	unsigned char RxBuf[8];    	
+	int swi = 0;
 
     	getFullStatus1();
 
@@ -2070,7 +2379,7 @@ int gnublin_module_step::getSwitch(){
 // 				[int] -1				failure
 
 int gnublin_module_step::getActualPosition(){
-	char RxBuf[8];	
+	unsigned char RxBuf[8];	
 	int actualPosition=-1;
 	
 	if(getFullStatus2()==-1)
@@ -2082,3 +2391,288 @@ int gnublin_module_step::getActualPosition(){
 	return actualPosition;
 }
 
+
+//*******************************************************************
+//Class for accessing GNUBLIN Module-LCD 4x20
+//*******************************************************************
+
+//-------------Konstruktor-------------
+// set error flag=false
+
+gnublin_module_lcd::gnublin_module_lcd() 
+{
+	version = (char *) "0.3";
+	error_flag=false;
+}
+
+
+//-------------get Error Message-------------
+// get the last ErrorMessage
+// parameters:		NONE
+// return:			[const char*]ErrorMessage	Error Message as c-string
+
+const char *gnublin_module_lcd::getErrorMessage(){
+	return ErrorMessage.c_str();
+}
+
+//-------------------------------Fail-------------------------------
+//returns the error flag. if something went wrong, the flag is true
+bool gnublin_module_lcd::fail(){
+	return error_flag;
+}
+
+//-------------set Address-------------
+// set the slave address
+// parameters:		[int]Address	i2c slave Address
+// return:			NONE
+
+void gnublin_module_lcd::setAddress(int Address){
+	pca.setAddress(Address);
+}
+
+
+//-------------------set devicefile----------------
+// set the i2c device file. default is "/dev/i2c-1"
+// parameters:		[string]filename	path to the dev file
+// return:			NONE
+
+void gnublin_module_lcd::setDevicefile(std::string filename){
+	pca.setDevicefile(filename);
+}
+
+//-------------------lcd out----------------
+// sends the given data and RS/RW pings to the pca9555
+// parameters:		[unsigned char]rsrw		contains the RS/RW pins
+//					[unsigned char]data		contains the data to send
+// returns:			[int]  1		success
+// 					[int] -1		failure
+int gnublin_module_lcd::lcd_out(unsigned char rsrw, unsigned char data ){
+	if(!pca.writePort(0, data)){			//send data on Port 0
+		error_flag=true;
+		ErrorMessage = pca.getErrorMessage();
+		return -1;
+	}
+	if(!pca.writePort(1, rsrw)){			//send RS/RW bits on Port 1
+		error_flag=true;
+		ErrorMessage = pca.getErrorMessage();
+		return -1;
+	}
+	if(!pca.writePort(1, (rsrw | LCD_EN))){	//enable on
+		error_flag=true;
+		ErrorMessage = pca.getErrorMessage();
+		return -1;
+	}
+	usleep(LCD_ENABLE_US);
+	if(!pca.writePort(1, rsrw)){			//enable off
+		error_flag=true;
+		ErrorMessage = pca.getErrorMessage();
+		return -1;
+	}
+	return 1;
+}
+
+//-------------------lcd data----------------
+// sends the given char to the display
+// parameters:		[unsigned char]data		contains the char to send
+// returns:			[int]  1		success
+// 					[int] -1		failure
+int gnublin_module_lcd::lcd_data(unsigned char data){
+        if(!lcd_out(LCD_RS, (unsigned char) data)){
+			return -1;
+		}
+        usleep(LCD_WRITEDATA_US);
+        return 1;
+}
+
+//-------------------lcd command----------------
+// sends the given command to the display
+// parameters:		[unsigned char]data		contains the command to send
+// returns:			[int]  1		success
+// 					[int] -1		failure
+int gnublin_module_lcd::lcd_command(unsigned char data){
+        if(!lcd_out(0x00, (unsigned char) data)){
+		    return -1;
+		}
+        usleep(LCD_COMMAND_US);
+        return 1;
+}
+
+//-------------------clear command----------------
+// sends the clear command to the display
+// parameters:		none
+// returns:			[int]  1		success
+// 					[int] -1		failure
+int gnublin_module_lcd::lcd_clear(){
+        if(!lcd_command(LCD_CLEAR_DISPLAY)){
+			return -1;
+		}
+        usleep(LCD_CLEAR_DISPLAY_MS);
+        return 1;
+}
+
+//-------------------cursor home command----------------
+// sends the home command to the display
+// parameters:		none
+// returns:			[int]  1		success
+// 					[int] -1		failure
+int gnublin_module_lcd::lcd_home(){
+        if(!lcd_command(LCD_CURSOR_HOME)){
+			return -1;
+		}
+        usleep(LCD_CURSOR_HOME_MS);
+        return 1;
+}
+
+//-------------------set display command----------------
+// sends the set display command to the display
+// parameters:		[int]cursor		if = 1, the cursor is visible
+//					[int]blink		if = 1, the cursor blinks
+// returns:			[int]  1		success
+// 					[int] -1		failure
+int gnublin_module_lcd::lcd_setdisplay(int cursor, int blink){
+        unsigned char set_display;
+        //Display ON/OFF Control
+        set_display = LCD_SET_DISPLAY + LCD_DISPLAY_ON;
+        if(cursor) set_display = set_display + LCD_CURSOR_ON;
+        if(blink) set_display = set_display + LCD_BLINKING_ON;
+        if(!lcd_command(set_display))
+        	return -1;
+        return 1;
+}
+
+//-------------------set cursor command----------------
+// sends the set cursor command to the display
+// parameters:		[int]x			set the cursor to x - position
+//					[int]y			set the cursor to y - position
+// returns:			[int]  1		success
+// 					[int] -1		failure
+int gnublin_module_lcd::lcd_setcursor(unsigned char x, unsigned char y){
+        unsigned char data;
+        switch(x){
+                case 1: //1. Zeile
+                        data = LCD_SET_DDADR + LCD_DDADR_LINE1 + y;
+                        break;
+
+                case 2:    // 2. Zeile
+                        data = LCD_SET_DDADR + LCD_DDADR_LINE2 + y;
+                        break;
+
+                case 3:    // 3. Zeile
+                        data = LCD_SET_DDADR + LCD_DDADR_LINE3 + y;
+                        break;
+
+                case 4:    // 4. Zeile
+                        data = LCD_SET_DDADR + LCD_DDADR_LINE4 + y;
+                         break;
+
+                default:
+                		error_flag=true;
+						ErrorMessage = "Wrong line/column";
+                        return -1;
+        }
+        if(!lcd_command(data)){
+        	return -1;
+        }
+        return 1;
+}
+
+//-------------------string----------------
+// sends the sting to the display
+// parameters:		[const char *]data	the string to send
+// returns:			[int]  1		success
+// 					[int] -1		failure
+int gnublin_module_lcd::lcd_string(const char *data){
+        while(*data != '\0'){
+                if(!lcd_data( *data++)){
+                	return -1;
+                }
+        }
+        return 1;
+}
+
+
+//-------------------init----------------
+// initializes the display
+// parameters:		none
+// returns:			[int]  1		success
+// 					[int] -1		failure
+int gnublin_module_lcd::lcd_init(){
+	//Set Ports as output
+	if(!pca.portMode(0, "out")){ 	//Port 0 as Output
+		error_flag=true;
+		ErrorMessage = pca.getErrorMessage();
+		return -1;
+	}
+	if(!pca.portMode(1, "out")){ 	//Port 1 as Output
+		error_flag=true;
+		ErrorMessage = pca.getErrorMessage();
+		return -1;
+	}
+
+	//// initial alle Ausgänge auf Null
+	if(!pca.writePort(0, 0x00)){
+		error_flag=true;
+		ErrorMessage = pca.getErrorMessage();
+		return -1;
+	}
+	if(!pca.writePort(1, 0x00)){
+		error_flag=true;
+		ErrorMessage = pca.getErrorMessage();
+		return -1;
+	}
+	
+	usleep(LCD_BOOTUP_MS);
+
+	//function set
+	if(!lcd_command(LCD_SET_FUNCTION |
+                        LCD_FUNCTION_8BIT |
+                        LCD_FUNCTION_2LINE |
+                        LCD_FUNCTION_5X7)){
+		return -1;
+	}
+	usleep(LCD_SET_8BITMODE_MS);
+
+	//Display ON/OFF Control
+	if(!lcd_setdisplay(0, 0)){
+		return -1;
+	}
+
+	if(!lcd_clear()){
+		return -1;
+	}
+	
+	//entry mode set
+	if(!lcd_command(LCD_SET_ENTRY |
+						LCD_ENTRY_INCREASE |
+						LCD_ENTRY_NOSHIFT)){
+		return -1;
+	}
+	if(!lcd_setcursor(1, 1)){
+		return -1;
+	}
+	if(!lcd_string("embedded-projects")){
+		return -1;
+	}
+	if(!lcd_setcursor(2, 4)){
+		return -1;
+	}
+	if(!lcd_string("GNUBLIN-LCD")){
+		return -1;
+	}
+	if(!lcd_setcursor(3, 2)){
+		return -1;
+	}
+	if(!lcd_string("www.gnublin.org")){
+		return -1;
+	}
+	if(!lcd_setcursor(4, 4)){
+		return -1;
+	}
+	if(!lcd_string("Version ")){
+		return -1;
+	}
+	if(!lcd_string(version)){
+		return -1;
+	}
+	return 1;
+}

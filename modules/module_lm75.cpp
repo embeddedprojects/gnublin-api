@@ -53,7 +53,7 @@ void gnublin_module_lm75::setDevicefile(std::string filename){
 int gnublin_module_lm75::getTemp(){
 	short value=0;
 	int temp;	
-	char rx_buf[2];
+	unsigned char rx_buf[2];
 	error_flag=false;
 
 	if(i2c.receive(0x00, rx_buf, 2)>0){
@@ -100,7 +100,7 @@ int gnublin_module_lm75::getTemp(){
 float gnublin_module_lm75::getTempFloat(){
 	short value=0;
 	float temp;	
-	char rx_buf[2];
+	unsigned char rx_buf[2];
 	error_flag=false;
 
 	if(i2c.receive(0x00, rx_buf, 2)>0){
@@ -146,7 +146,7 @@ float gnublin_module_lm75::getTempFloat(){
 
 short gnublin_module_lm75::getValue(){
 	short value=0;
-	char rx_buf[2];
+	unsigned char rx_buf[2];
 	error_flag=false;
 	if(i2c.receive(0x00, rx_buf, 2)>0){
 		

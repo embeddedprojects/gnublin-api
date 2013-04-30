@@ -73,7 +73,7 @@ void gnublin_i2c::setDevicefile(std::string filename){
 // receive(0x12, buf, 3);
 //---------------------------------------------------------------------------
 
-int gnublin_i2c::receive(char *RxBuf, int length){
+int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 	error_flag=false;
 	int fd;
 
@@ -103,7 +103,7 @@ int gnublin_i2c::receive(char *RxBuf, int length){
 	return 1;
 }
 
-int gnublin_i2c::receive(unsigned char RegisterAddress, char *RxBuf, int length){
+int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length){
 	error_flag=false;	
 	int fd;
 
@@ -158,7 +158,7 @@ int gnublin_i2c::receive(unsigned char RegisterAddress, char *RxBuf, int length)
 // send 3 bytes from buf to a register with the address 0x12
 // send (0x12, buf, 3);
 //---------------------------------------------------------------------------
-int gnublin_i2c::send(char *TxBuf, int length){
+int gnublin_i2c::send(unsigned char *TxBuf, int length){
 	error_flag=false;	
 	int fd; 
 
@@ -187,7 +187,7 @@ int gnublin_i2c::send(char *TxBuf, int length){
 	return 1;
 }
 
-int gnublin_i2c::send(unsigned char RegisterAddress, char *TxBuf, int length){
+int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int length){
 	error_flag=false;	
 	int fd, i;
 	unsigned char data[length+1];

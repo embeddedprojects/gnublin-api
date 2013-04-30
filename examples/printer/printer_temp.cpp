@@ -14,7 +14,7 @@ void my_handler(int s){
 	gpio.pinMode(18, OUTPUT);
 	gpio.digitalWrite(18, LOW);
 	display.clear();
-	display.print("Heizung: aus", 2);
+	display.print((char*)"Heizung: aus", 2);
 	exit(1); 
 }
 
@@ -69,8 +69,8 @@ int main(int argc, char **argv){
 					heating = 0;
 				}
 			}
-			if(heating)display.print("Heizung: ein", 2);
-			if(!heating)display.print("Heizung: aus", 2);
+			if(heating)display.print((char*)"Heizung: ein", 2);
+			if(!heating)display.print((char*)"Heizung: aus", 2);
 		}
 		sleep(2);
     	}

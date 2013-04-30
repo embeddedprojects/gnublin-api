@@ -1,28 +1,22 @@
-#include "module_reley.h""
+#include "module_relay.h""
 
 
 //****************************************************************************
 // Class for easy use of the GNUBLIN Module-Relay
 //****************************************************************************
 
-gnublin_module_relay::gnublin_module_relay(int adr) {
-	int i;
-	pca9555 = new gnublin_module_pca9555(adr);
-	for (i=0; i<=7; i++) {
-		pca9555->pinMode(i, OUTPUT);
-	}
-}
 
-int gnublin_module_relay::switchPin(int pin, int value) {
-	if (pin < 0 || pin > 7) {
-		return -1;
-	}
-	if (pca9555->digitalWrite(pin, value) < 0) {
-		return -1;
-	}
-	return 1;
-}
+//------------------Konstruktor------------------
+// set Port 0 to OUTPUT and LOW
+// set Error Flag flase
+// set standard i2c Address 0x20
 
+gnublin_module_relay::gnublin_module_relay() {
+	error_flag=false;
+	pca9555.setAddress(0x20);	
+	pca9555.writePort(0, 0x00);
+	pca9555.portMode(0, OUTPUT);
+}
 
 
 //-------------get Error Message-------------
@@ -33,4 +27,52 @@ int gnublin_module_relay::switchPin(int pin, int value) {
 const char *gnublin_module_relay::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
+
+//-------------------------------Fail-------------------------------
+//returns the error flag. if something went wrong, the flag is true
+bool gnublin_module_relay::fail(){
+	return error_flag;
+}
+
+//-------------set Address-------------
+// set the slave address
+// parameters:		[int]Address	i2c slave Address
+// return:			NONE
+
+void gnublin_module_relay::setAddress(int Address){
+	pca9555.setAddress(Address);
+}
+
+
+//-------------------set devicefile----------------
+// set the i2c device file. default is "/dev/i2c-1"
+// parameters:		[string]filename	path to the dev file
+// return:			NONE
+
+void gnublin_module_relay::setDevicefile(std::string filename){
+	pca9555.setDevicefile(filename);
+}
+
+//-------------------switch Pin----------------
+// switches 1 relay pin, error_flag is set on failure
+// parameters:		[int]pin	Pin 1-8
+//					[int]value	HIGH or LOW
+// return:			[int]1		success
+//					[int]-1		failure
+int gnublin_module_relay::switchPin(int pin, int value) {
+	error_flag=false;
+
+	if (pin < 1 || pin > 8) {
+		error_flag=true;
+		ErrorMessage="pin is not between 1-8!\n";
+		return -1;
+	}
+	if (pca9555.digitalWrite((pin-1), value) < 0) {
+		error_flag=true;
+		ErrorMessage="pca9555.digitalWrite failed! Address correct?\n";		
+		return -1;
+	}
+	return 1;
+}
+
 

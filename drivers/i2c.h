@@ -15,9 +15,9 @@ public:
 	int getAddress();
 	const char *getErrorMessage();
 	void setDevicefile(std::string filename);
-	int receive(char *RxBuf, int length);
-	int receive(unsigned char RegisterAddress, char *RxBuf, int length);
-	int send(char *TxBuf, int length);
-	int send(unsigned char RegisterAddress, char *TxBuf, int length);
+	int receive(unsigned char *RxBuf, int length);
+	int receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length);
+	int send(unsigned char *TxBuf, int length);
+	int send(unsigned char RegisterAddress, unsigned char *TxBuf, int length);
 	int send(int value);
 };

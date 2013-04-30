@@ -1,5 +1,5 @@
 #include "../include/includes.h"
-#include "pca9555.cpp"
+#include "module_pca9555.cpp"
 
 
 //****************************************************************************
@@ -7,12 +7,15 @@
 //****************************************************************************
 
 class gnublin_module_relay {
-	public:
-		gnublin_module_relay(int adr);
-		int switchPin(int pin, int value);
-		const char *getErrorMessage();
-	private:
-		gnublin_module_pca9555* pca9555;
+		gnublin_module_pca9555 pca9555;
+		bool error_flag;
 		std::string ErrorMessage;
+	public:
+		gnublin_module_relay();
+		const char *getErrorMessage();
+		bool fail();
+		void setAddress(int Address);
+		void setDevicefile(std::string filename);
+		int switchPin(int pin, int value);
 };
 

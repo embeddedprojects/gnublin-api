@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 04/23/13 14:08
+//build date: 04/30/13 15:25
 //******************************************** 
 
 #ifndef INCLUDE_FILE
@@ -72,10 +72,10 @@ public:
 	int getAddress();
 	const char *getErrorMessage();
 	void setDevicefile(std::string filename);
-	int receive(char *RxBuf, int length);
-	int receive(unsigned char RegisterAddress, char *RxBuf, int length);
-	int send(char *TxBuf, int length);
-	int send(unsigned char RegisterAddress, char *TxBuf, int length);
+	int receive(unsigned char *RxBuf, int length);
+	int receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length);
+	int send(unsigned char *TxBuf, int length);
+	int send(unsigned char RegisterAddress, unsigned char *TxBuf, int length);
 	int send(int value);
 };
 //***** NEW BLOCK *****
@@ -187,14 +187,21 @@ public:
 class gnublin_module_adc {
 	public:
 		gnublin_module_adc();
-		gnublin_module_adc(int adr);
-		gnublin_module_adc(int bus, int adr);
+		int setAddress(int adr);
+		int setDevicefile(std::string file);
+		int setReference(int value);
 		int getValue(int channel);
+		int getValue(int channel1, int channel2);
+		int getVoltage(int channel);
+		int getVoltage(int channel1, int channel2);
+		bool fail();
 		const char *getErrorMessage();
 	private:
-		std::string adress;
-		std::string i2cbus;
+		gnublin_i2c i2c;
+		bool error_flag;
 		std::string ErrorMessage;
+		int reference_flag; // (1 = intern, 0 extern)
+		float referenceValue;
 };
 //***** NEW BLOCK *****
 
@@ -215,10 +222,28 @@ public:
 		int pinMode(int pin, std::string direction);
 		int portMode(int port, std::string direction);
 		int digitalWrite(int pin, int value);
-		int digitalRead(int pin);		
+		int digitalRead(int pin);
+		int writePort(int port, unsigned char value);
 };
 //***** NEW BLOCK *****
 
+
+//****************************************************************************
+// Class for easy use of the GNUBLIN Module-Relay
+//****************************************************************************
+
+class gnublin_module_relay {
+		gnublin_module_pca9555 pca9555;
+		bool error_flag;
+		std::string ErrorMessage;
+	public:
+		gnublin_module_relay();
+		const char *getErrorMessage();
+		bool fail();
+		void setAddress(int Address);
+		void setDevicefile(std::string filename);
+		int switchPin(int pin, int value);
+};
 
 class gnublin_module_step {
 	gnublin_i2c i2c;
@@ -236,8 +261,8 @@ public:
 	int setIhold(unsigned int newIhold);
 	int setVmax(unsigned int newVmax);
 	int setVmin(unsigned int newVmin);
-	int writeTMC(char *buffer, int num);
-	int readTMC(char *RxBuf, int num);
+	int writeTMC(unsigned char *buffer, int num);
+	int readTMC(unsigned char *RxBuf, int num);
 	int burnNewAddress(int new_address);
 	int getFullStatus1();
 	int getFullStatus2();
@@ -253,5 +278,110 @@ public:
 	int drive(int steps);
 	int getMotionStatus();
 	const char *getErrorMessage();
+};
+////////////////////////////////////////////////////////////////////////////////
+//connection on the Portexpander Port 0
+#define LCD_EN			0x04
+#define LCD_RS			0x01
+#define LCD_RW			0x02
+////////////////////////////////////////////////////////////////////////////////
+// LCD Timings
+#define LCD_BOOTUP_MS           15000
+#define LCD_ENABLE_US           20
+#define LCD_WRITEDATA_US        46
+#define LCD_COMMAND_US          42
+
+#define LCD_SOFT_RESET_MS       5000
+#define LCD_SET_8BITMODE_MS     5000
+
+#define LCD_CLEAR_DISPLAY_MS    2000
+#define LCD_CURSOR_HOME_MS      2000
+
+////////////////////////////////////////////////////////////////////////////////
+//definitions of the lines of an 4x20 Display
+
+#define LCD_DDADR_LINE1         0x00
+#define LCD_DDADR_LINE2         0x40
+#define LCD_DDADR_LINE3         0x14
+#define LCD_DDADR_LINE4         0x54
+
+////////////////////////////////////////////////////////////////////////////////
+// LCD instructions and arguments
+// to use with lcd_command
+
+// Clear Display -------------- 0b00000001
+#define LCD_CLEAR_DISPLAY       0x01
+
+// Cursor Home ---------------- 0b0000001x
+#define LCD_CURSOR_HOME         0x02
+
+// Set Entry Mode ------------- 0b000001xx
+#define LCD_SET_ENTRY           0x04
+
+#define LCD_ENTRY_DECREASE      0x00
+#define LCD_ENTRY_INCREASE      0x02
+#define LCD_ENTRY_NOSHIFT       0x00
+#define LCD_ENTRY_SHIFT         0x01
+
+// Set Display ---------------- 0b00001xxx
+#define LCD_SET_DISPLAY         0x08
+
+#define LCD_DISPLAY_OFF         0x00
+#define LCD_DISPLAY_ON          0x04
+#define LCD_CURSOR_OFF          0x00
+#define LCD_CURSOR_ON           0x02
+#define LCD_BLINKING_OFF        0x00
+#define LCD_BLINKING_ON         0x01
+
+// Set Shift ------------------ 0b0001xxxx
+#define LCD_SET_SHIFT           0x10
+
+#define LCD_CURSOR_MOVE         0x00
+#define LCD_DISPLAY_SHIFT       0x08
+#define LCD_SHIFT_LEFT          0x00
+#define LCD_SHIFT_RIGHT         0x04
+
+// Set Function --------------- 0b001xxxxx
+#define LCD_SET_FUNCTION        0x20
+
+#define LCD_FUNCTION_4BIT       0x00
+#define LCD_FUNCTION_8BIT       0x10
+#define LCD_FUNCTION_1LINE      0x00
+#define LCD_FUNCTION_2LINE      0x08
+#define LCD_FUNCTION_5X7        0x00
+#define LCD_FUNCTION_5X10       0x04
+
+#define LCD_SOFT_RESET          0x30
+
+// Set DD RAM Address --------- 0b1xxxxxxx  (Display Data RAM)
+#define LCD_SET_DDADR           0x80
+
+
+
+//*******************************************************************
+//Class for accessing GNUBLIN Module-LCD 4x20
+//*******************************************************************
+
+class gnublin_module_lcd {
+		bool error_flag;
+		gnublin_module_pca9555 pca;
+		std::string ErrorMessage;
+		const char *version;
+public:
+		gnublin_module_lcd();
+		const char *getErrorMessage();
+		bool fail();
+		void setAddress(int Address);
+		void setDevicefile(std::string filename);
+		int lcd_out(unsigned char rsrw, unsigned char data );
+		int lcd_data(unsigned char data);
+		int lcd_command(unsigned char data);
+		int lcd_clear();
+		int lcd_home();
+		int lcd_setdisplay(int cursor, int blink);
+		int lcd_setcursor(unsigned char x, unsigned char y);
+		int lcd_string(const char *data);
+		int lcd_init();
+		
 };
 #endif

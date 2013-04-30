@@ -1,7 +1,3 @@
-#include "../include/includes.h"
-#include "../drivers/i2c.cpp"
-
-
 class gnublin_module_step {
 	gnublin_i2c i2c;
 
@@ -18,8 +14,8 @@ public:
 	int setIhold(unsigned int newIhold);
 	int setVmax(unsigned int newVmax);
 	int setVmin(unsigned int newVmin);
-	int writeTMC(char *buffer, int num);
-	int readTMC(char *RxBuf, int num);
+	int writeTMC(unsigned char *buffer, int num);
+	int readTMC(unsigned char *RxBuf, int num);
 	int burnNewAddress(int new_address);
 	int getFullStatus1();
 	int getFullStatus2();

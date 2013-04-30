@@ -7,6 +7,7 @@ int main()
    dogm.setRsPin(14);
    dogm.setCS(11);
  
+   dogm.offset(2);
    dogm.print("Hallo Welt");
  
    sleep(2);

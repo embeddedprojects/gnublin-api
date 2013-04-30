@@ -182,7 +182,9 @@ int gnublin_module_dogm::print(char* buffer, int line, int off){
 int gnublin_module_dogm::offset(int num){
 	__u8 tmp;
 	if(!init_flag){
+		char init_str[2] = " ";
 		init();
+		print(init_str);
 	}
 	if (num >= 0 && num < 16){
 		tmp = num + 128;
