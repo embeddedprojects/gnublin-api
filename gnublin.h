@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 04/30/13 15:25
+//build date: 05/02/13 10:06
 //******************************************** 
 
 #ifndef INCLUDE_FILE
@@ -31,6 +31,8 @@
 #define HIGH	1
 #define ON	1
 #define OFF	0
+#define IN	1
+#define OUT	0
 
  
 int stringToNumber(std::string str);
@@ -201,7 +203,7 @@ class gnublin_module_adc {
 		bool error_flag;
 		std::string ErrorMessage;
 		int reference_flag; // (1 = intern, 0 extern)
-		float referenceValue;
+		int referenceValue;
 };
 //***** NEW BLOCK *****
 

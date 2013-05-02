@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 04/30/13 15:25
+//build date: 05/02/13 10:06
 //******************************************** 
 
 #include"gnublin.h"
@@ -1218,7 +1218,7 @@ short gnublin_module_lm75::getValue(){
 
 gnublin_module_adc::gnublin_module_adc() {
 	i2c.setAddress(0x48);
-	referenceValue = 2.5;
+	referenceValue = 2500;
 	reference_flag = 1;
 	error_flag = false;
 }
@@ -1281,11 +1281,11 @@ int gnublin_module_adc::setDevicefile(std::string filename) {
 
 int gnublin_module_adc::setReference(int value) {
 	if (value == 0) {
-		referenceValue = 3.3;
+		referenceValue = 3300;
 		reference_flag = 0;
 	}
 	else if (value == 1) {
-		referenceValue = 2.5;
+		referenceValue = 2500;
 		reference_flag = 1;
 	}
 	else {
@@ -1345,7 +1345,7 @@ int gnublin_module_adc::getValue(int channel) {
 		return -1;
 	}
 	error_flag = false;
-	return atoi((const char*)value);	
+	return value[0];	
 }
 
 
@@ -1394,7 +1394,7 @@ int gnublin_module_adc::getValue(int channel1, int channel2) {
 		return -1;
 	}
 	error_flag = false;
-	return atoi((const char*)value);
+	return value[0];
 }
 
 

@@ -24,5 +24,5 @@ class gnublin_module_adc {
 		bool error_flag;
 		std::string ErrorMessage;
 		int reference_flag; // (1 = intern, 0 extern)
-		float referenceValue;
+		int referenceValue;
 };

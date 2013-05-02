@@ -27,5 +27,7 @@
 #define HIGH	1
 #define ON	1
 #define OFF	0
+#define IN	1
+#define OUT	0
 
 #endif
