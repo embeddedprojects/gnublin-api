@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/02/13 10:06
+//build date: 05/02/13 14:37
 //******************************************** 
 
 #include"gnublin.h"
@@ -1219,7 +1219,7 @@ short gnublin_module_lm75::getValue(){
 gnublin_module_adc::gnublin_module_adc() {
 	i2c.setAddress(0x48);
 	referenceValue = 2500;
-	reference_flag = 1;
+	reference_flag = IN;
 	error_flag = false;
 }
 
@@ -1350,10 +1350,10 @@ int gnublin_module_adc::getValue(int channel) {
 
 
 int gnublin_module_adc::getValue(int channel1, int channel2) {
-	int command;
+	int command = -1;
 	unsigned char value[1];
 	
-	for (int i = 1; i<9; i=i+2) {
+	for (int i = 1; i<9; i += 2 ) {
 		if (channel1 == i && channel2 == (i+1)){
 			switch(i) {
 				case 1: command = 0x00; break;
@@ -1362,7 +1362,7 @@ int gnublin_module_adc::getValue(int channel1, int channel2) {
 				case 7: command = 0x30; break;
 			}
 		}
-		else if (channel2 == i && channel1 == (i+1)) {
+		if (channel2 == i && channel1 == (i+1)) {
 			switch(i) {
 				case 1: command = 0x40; break;
 				case 3: command = 0x50; break;
@@ -1370,10 +1370,10 @@ int gnublin_module_adc::getValue(int channel1, int channel2) {
 				case 7: command = 0x70; break;
 			}
 		}
-		else {
-			error_flag = true;
-			return -1;
-		}
+	}
+	if (command == -1){
+		error_flag = true;
+		return -1;
 	}
 	if (reference_flag == 0) {
 		command += 0x7;
@@ -1381,7 +1381,6 @@ int gnublin_module_adc::getValue(int channel1, int channel2) {
 	else {
 		command += 0xF;
 	}
-
 	i2c.send(command);
 	if (i2c.fail()) {
 		error_flag = true;

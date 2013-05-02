@@ -31,7 +31,7 @@ int error_msg(char* msg){
 		printf("{\"error_msg:\" : \"%s not successful\", \"result\" : \"-1\",}\n", msg);
 	}
 	else {
-		printf("Error: %s not successful", msg);
+		printf("Error: %s not successful\n", msg);
 	}
 	exit (1);
 }
