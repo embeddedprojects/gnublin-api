@@ -1,6 +1,6 @@
 #include "../include/includes.h"
 
-
+#ifndef BOARD_RASPBERYPI
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
@@ -17,3 +17,5 @@ class gnublin_adc {
 		bool error_flag;
 		std::string ErrorMessage;
 };
+
+#endif

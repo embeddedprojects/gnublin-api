@@ -1,6 +1,6 @@
 #include "adc.h"
 
-
+#ifndef BOARD_RASPERYPI
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
@@ -57,3 +57,5 @@ int gnublin_adc::setReference(int ref){
 bool gnublin_adc::fail(){
 	return error_flag;
 }
+
+#endif
