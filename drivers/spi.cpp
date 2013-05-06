@@ -19,7 +19,7 @@ gnublin_spi::gnublin_spi(){
 	#endif
 	fd = open(device.c_str(), O_RDWR);
 	if (fd < 0) {
-		#ifdef BOARD_RASPBERYPI
+		#ifdef BOARD_RASPBERRYPI
 		system("modprobe spi-bcm2708");
 		#else
 		system("modprobe spidev cs_pin=11");
