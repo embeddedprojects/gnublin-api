@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/02/13 14:37
+//build date: 05/06/13 09:21
 //******************************************** 
 
 #include"gnublin.h"
@@ -1679,11 +1679,11 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	if(pin >= 0 && pin <= 7){ // Port 0
 
 			TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
-
+			printf("TxBuf: %x\n", TxBuf[0]);
 			if (i2c.receive(0x02, RxBuf, 1)>0){ //read the current state
-
+				printf("RxBuf: %x\n", RxBuf[0]);
 				if (value==0){
-					TxBuf[0]=RxBuf[0] & ~TxBuf[0]; // at low you have to invert the pin you want to set and do a AND to change only the pin you want 
+					TxBuf[0]=(RxBuf[0] & ~TxBuf[0]); // at low you have to invert the pin you want to set and do a AND to change only the pin you want 
 					if(i2c.send(0x02, TxBuf, 1)>0){
 					return 1;
 					}
@@ -1695,7 +1695,7 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 									
 				}
 				else if (value==1){
-					TxBuf[0]=RxBuf[0] | TxBuf[0]; // at high you just have to do a OR
+					TxBuf[0]=(RxBuf[0] | TxBuf[0]); // at high you just have to do a OR
 					if(i2c.send(0x02, TxBuf, 1)>0){
 					return 1;
 					}
@@ -1885,8 +1885,8 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
 	pca9555.setAddress(0x20);	
-	pca9555.writePort(0, 0x00);
-	pca9555.portMode(0, OUTPUT);
+//	pca9555.writePort(0, 0x00);
+//	pca9555.portMode(0, OUTPUT);
 }
 
 

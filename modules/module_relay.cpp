@@ -13,9 +13,7 @@
 
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
-	pca9555.setAddress(0x20);	
-	pca9555.writePort(0, 0x00);
-	pca9555.portMode(0, OUTPUT);
+	pca9555.setAddress(0x20);
 }
 
 
