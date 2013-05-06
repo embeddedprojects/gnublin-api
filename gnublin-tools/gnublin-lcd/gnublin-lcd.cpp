@@ -66,6 +66,30 @@ int main (int argc, char **argv) {
 			cout << lcd.getErrorMessage();
 			return -1;
 		}
+		if(!lcd.setcursor(1, 1)){
+			return -1;
+		}
+		if(!lcd.string("embedded-projects")){
+			return -1;
+		}
+		if(!lcd.setcursor(2, 4)){
+			return -1;
+		}
+		if(!lcd.string("GNUBLIN-LCD")){
+			return -1;
+		}
+		if(!lcd.setcursor(3, 2)){
+			return -1;
+		}
+		if(!lcd.string("www.gnublin.org")){
+			return -1;
+		}
+		if(!lcd.setcursor(4, 4)){
+			return -1;
+		}
+		if(!lcd.string("Version 0.3")){
+			return -1;
+		}
 	}
 	if(clear){
 		lcd.clear();
