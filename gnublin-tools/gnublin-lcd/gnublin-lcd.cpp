@@ -62,22 +62,22 @@ int main (int argc, char **argv) {
 	lcd.setAddress(slave_address);
 	
 	if(init){
-		if(!lcd.lcd_init()){
+		if(!lcd.init()){
 			cout << lcd.getErrorMessage();
 			return -1;
 		}
 	}
 	if(clear){
-		lcd.lcd_clear();
+		lcd.clear();
 	}
 	if(xpos > 0 || ypos > 0){
-		lcd.lcd_setcursor(ypos, xpos);
+		lcd.setcursor(ypos, xpos);
 	}
 	if(setdisplay){
-		lcd.lcd_setdisplay(cursor,blink);
+		lcd.setdisplay(cursor,blink);
 	}
 	if(setstring){
-		lcd.lcd_string(lcdstring);
+		lcd.string(lcdstring);
 	}
 }
 

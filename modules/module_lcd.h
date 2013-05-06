@@ -96,14 +96,14 @@ public:
 		bool fail();
 		void setAddress(int Address);
 		void setDevicefile(std::string filename);
-		int lcd_out(unsigned char rsrw, unsigned char data );
-		int lcd_data(unsigned char data);
-		int lcd_command(unsigned char data);
-		int lcd_clear();
-		int lcd_home();
-		int lcd_setdisplay(int cursor, int blink);
-		int lcd_setcursor(unsigned char x, unsigned char y);
-		int lcd_string(const char *data);
-		int lcd_init();
+		int out(unsigned char rsrw, unsigned char data );
+		int sendData(unsigned char data);
+		int command(unsigned char data);
+		int clear();
+		int home();
+		int setdisplay(int cursor, int blink);
+		int setcursor(unsigned char x, unsigned char y);
+		int string(const char *data);
+		int init();
 		
 };

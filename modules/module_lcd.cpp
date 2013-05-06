@@ -1,6 +1,6 @@
 #include "module_lcd.h"
 #include "../include/includes.h"
-#include "../drivers/i2c.cpp"
+#include "module_pca9555.cpp"
 
 //*******************************************************************
 //Class for accessing GNUBLIN Module-LCD 4x20
@@ -99,7 +99,7 @@ void gnublin_module_lcd::setDevicefile(std::string filename){
 * @param data Daten die an das Display gesendet werden sollen
 * @return Erfolg: 1, Fehler: -1
 */
-int gnublin_module_lcd::lcd_out(unsigned char rsrw, unsigned char data ){
+int gnublin_module_lcd::out(unsigned char rsrw, unsigned char data ){
 	if(!pca.writePort(0, data)){			//send data on Port 0
 		error_flag=true;
 		ErrorMessage = pca.getErrorMessage();
@@ -138,8 +138,8 @@ int gnublin_module_lcd::lcd_out(unsigned char rsrw, unsigned char data ){
 * @param data Daten die an das Display gesendet werden sollen
 * @return Erfolg: 1, Fehler: -1
 */
-int gnublin_module_lcd::lcd_data(unsigned char data){
-        if(!lcd_out(LCD_RS, (unsigned char) data)){
+int gnublin_module_lcd::sendData(unsigned char data){
+        if(!out(LCD_RS, (unsigned char) data)){
 			return -1;
 		}
         usleep(LCD_WRITEDATA_US);
@@ -160,64 +160,95 @@ int gnublin_module_lcd::lcd_data(unsigned char data){
 * @param data Befehl die an das Display gesendet werden sollen
 * @return Erfolg: 1, Fehler: -1
 */
-int gnublin_module_lcd::lcd_command(unsigned char data){
-        if(!lcd_out(0x00, (unsigned char) data)){
+int gnublin_module_lcd::command(unsigned char data){
+        if(!out(0x00, (unsigned char) data)){
 		    return -1;
 		}
         usleep(LCD_COMMAND_US);
         return 1;
 }
 
-//-------------------clear command----------------
-// sends the clear command to the display
-// parameters:		none
-// returns:			[int]  1		success
-// 					[int] -1		failure
-int gnublin_module_lcd::lcd_clear(){
-        if(!lcd_command(LCD_CLEAR_DISPLAY)){
+
+/** @~english 
+* @brief Clear the LCD.
+*
+* Everythin on the Display will be erased
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Bereinigt das Display
+*
+* Alles was auf dem Display angezeigt wird, wird gelöscht.
+* @return Erfolg: 1, Fehler: -1
+*/
+int gnublin_module_lcd::clear(){
+        if(!command(LCD_CLEAR_DISPLAY)){
 			return -1;
 		}
         usleep(LCD_CLEAR_DISPLAY_MS);
         return 1;
 }
 
-//-------------------cursor home command----------------
-// sends the home command to the display
-// parameters:		none
-// returns:			[int]  1		success
-// 					[int] -1		failure
-int gnublin_module_lcd::lcd_home(){
-        if(!lcd_command(LCD_CURSOR_HOME)){
+
+/** @~english 
+* @brief Curse home command.
+*
+* Returns the Cursor to the first possition.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Setzt den Cursor auf Anfangsposition oben links  
+*
+* @return Erfolg: 1, Fehler: -1
+*/
+int gnublin_module_lcd::home(){
+        if(!command(LCD_CURSOR_HOME)){
 			return -1;
 		}
         usleep(LCD_CURSOR_HOME_MS);
         return 1;
 }
 
-//-------------------set display command----------------
-// sends the set display command to the display
-// parameters:		[int]cursor		if = 1, the cursor is visible
-//			[int]blink		if = 1, the cursor blinks
-// returns:		[int]  1		success
-// 			[int] -1		failure
-int gnublin_module_lcd::lcd_setdisplay(int cursor, int blink){
+
+/** @~english 
+* @brief Set display command.
+*
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Display Einstellungen Befehl.
+*
+* Mit dieser Funktion können Cursor-Einstellungen am Display vorgenommen werden. Wenn die Übergabe cursor == 1 ist, wird der Cursor am Display an der momentanen Stelle angezeigt(_). Wird blink == 1 übergeben, blinkt ein viereckiger Cursor. 
+* @return Erfolg: 1, Fehler: -1
+*/
+int gnublin_module_lcd::setdisplay(int cursor, int blink){
         unsigned char set_display;
         //Display ON/OFF Control
         set_display = LCD_SET_DISPLAY + LCD_DISPLAY_ON;
         if(cursor) set_display = set_display + LCD_CURSOR_ON;
         if(blink) set_display = set_display + LCD_BLINKING_ON;
-        if(!lcd_command(set_display))
+        if(!command(set_display))
         	return -1;
         return 1;
 }
 
-//-------------------set cursor command----------------
-// sends the set cursor command to the display
-// parameters:		[int]x			set the cursor to x - position
-//					[int]y			set the cursor to y - position
-// returns:			[int]  1		success
-// 					[int] -1		failure
-int gnublin_module_lcd::lcd_setcursor(unsigned char x, unsigned char y){
+
+/** @~english 
+* @brief Set Cursor Command.
+*
+* Sets the Cursor to the given Position on the Display.
+* @param x The Line 
+* @param y The Column 
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Setzt den Cursor an die übergebene Position auf das Display. 
+*
+* @param x Die Zeile 
+* @param y Die Spalte
+* @return Erfolg: 1, Fehler: -1
+*/
+int gnublin_module_lcd::setcursor(unsigned char x, unsigned char y){
         unsigned char data;
         switch(x){
                 case 1: //1. Zeile
@@ -241,20 +272,29 @@ int gnublin_module_lcd::lcd_setcursor(unsigned char x, unsigned char y){
 						ErrorMessage = "Wrong line/column";
                         return -1;
         }
-        if(!lcd_command(data)){
+        if(!command(data)){
         	return -1;
         }
         return 1;
 }
 
-//-------------------string----------------
-// sends the sting to the display
-// parameters:		[const char *]data	the string to send
-// returns:			[int]  1		success
-// 					[int] -1		failure
-int gnublin_module_lcd::lcd_string(const char *data){
+
+/** @~english 
+* @brief Sends the string to the display.
+*
+* @param data string to send 
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Sendet den String an das Display. 
+*
+* Dieser Funktion kann ein String übergeben werden, welcher auf dem Display angezeigt werden soll. 
+* @param data String zum senden 
+* @return Erfolg: 1, Fehler: -1
+*/
+int gnublin_module_lcd::string(const char *data){
         while(*data != '\0'){
-                if(!lcd_data( *data++)){
+                if(!sendData( *data++)){
                 	return -1;
                 }
         }
@@ -262,12 +302,18 @@ int gnublin_module_lcd::lcd_string(const char *data){
 }
 
 
-//-------------------init----------------
-// initializes the display
-// parameters:		none
-// returns:			[int]  1		success
-// 					[int] -1		failure
-int gnublin_module_lcd::lcd_init(){
+/** @~english 
+* @brief Initializes the LCD.
+*
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Initialisiert das LCD.
+*
+* Wenn diese Funktion aufgerufen wird, wird der pca9555 so eingestellt, um das Display ansteuern zu können. Außerdem werden einige Befehle an das Display gesendet, um es auf das Anzeigen von Text vorbereitet. 
+* @return Erfolg: 1, Fehler: -1
+*/
+int gnublin_module_lcd::init(){
 	//Set Ports as output
 	if(!pca.portMode(0, "out")){ 	//Port 0 as Output
 		error_flag=true;
@@ -295,7 +341,7 @@ int gnublin_module_lcd::lcd_init(){
 	usleep(LCD_BOOTUP_MS);
 
 	//function set
-	if(!lcd_command(LCD_SET_FUNCTION |
+	if(!command(LCD_SET_FUNCTION |
                         LCD_FUNCTION_8BIT |
                         LCD_FUNCTION_2LINE |
                         LCD_FUNCTION_5X7)){
@@ -304,46 +350,20 @@ int gnublin_module_lcd::lcd_init(){
 	usleep(LCD_SET_8BITMODE_MS);
 
 	//Display ON/OFF Control
-	if(!lcd_setdisplay(0, 0)){
+	if(!setdisplay(0, 0)){
 		return -1;
 	}
 
-	if(!lcd_clear()){
+	if(!clear()){
 		return -1;
 	}
 	
 	//entry mode set
-	if(!lcd_command(LCD_SET_ENTRY |
+	if(!command(LCD_SET_ENTRY |
 						LCD_ENTRY_INCREASE |
 						LCD_ENTRY_NOSHIFT)){
 		return -1;
 	}
-	if(!lcd_setcursor(1, 1)){
-		return -1;
-	}
-	if(!lcd_string("embedded-projects")){
-		return -1;
-	}
-	if(!lcd_setcursor(2, 4)){
-		return -1;
-	}
-	if(!lcd_string("GNUBLIN-LCD")){
-		return -1;
-	}
-	if(!lcd_setcursor(3, 2)){
-		return -1;
-	}
-	if(!lcd_string("www.gnublin.org")){
-		return -1;
-	}
-	if(!lcd_setcursor(4, 4)){
-		return -1;
-	}
-	if(!lcd_string("Version ")){
-		return -1;
-	}
-	if(!lcd_string(version)){
-		return -1;
-	}
+	
 	return 1;
 }
