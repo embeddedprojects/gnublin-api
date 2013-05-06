@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 05/06/13 10:18
+//build date: 05/06/13 15:40
 //******************************************** 
 
 #ifndef INCLUDE_FILE
@@ -22,7 +22,6 @@
 #include <time.h>
 #include <unistd.h>
 #include <math.h>
-
 
 
 #define OUTPUT 	"out"
@@ -112,7 +111,7 @@ class gnublin_spi{
 };
 //***** NEW BLOCK *****
 
-#ifndef BOARD_RASPBERYPI
+#ifndef BOARD_RASPBERRYPI
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
