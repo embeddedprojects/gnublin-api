@@ -15,7 +15,12 @@ echo "//********************************************
 //build date: $build_time
 //******************************************** \n" > gnublin.h
 
-cat include/includes.h >> gnublin.h
+#touch include_tmp.h
+cat include/includes.h >> include_tmp.h
+sed -i "/#endif/d" include_tmp.h
+cat include_tmp.h >> gnublin.h
+rm include_tmp.h
+
 cat include/functions.h >> gnublin.h
 
 cat drivers/gpio.h >> gnublin.h
@@ -33,7 +38,6 @@ cat modules/module_lcd.h >> gnublin.h
 
 sed -i "s/#include \"..\/include\/includes.h\"/\/\/***** NEW BLOCK *****/g" gnublin.h
 sed -i "/^#include \"/d" gnublin.h
-sed -i "s/#endif/ /g" gnublin.h
 echo \#endif >> gnublin.h
 
 #################################################

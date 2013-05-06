@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/06/13 09:21
+//build date: 05/06/13 10:18
 //******************************************** 
 
 #include"gnublin.h"
@@ -72,10 +72,12 @@ const char *gnublin_gpio::getErrorMessage(){
 }
 
 int gnublin_gpio::pinMode(int pin, std::string direction){
+	#ifndef BOARD_RASPBERYPI
 	if (pin == 4 && direction == "out"){
 		error_flag = true;
 		return -1;
 	}
+	#endif
 	std::string pin_str = numberToString(pin);
 	std::string dir = "/sys/class/gpio/export";
 	std::ofstream file (dir.c_str());
@@ -407,10 +409,18 @@ int gnublin_i2c::send(int value){
 
 gnublin_spi::gnublin_spi(){
 	error_flag = false;
+	#ifdef BOARD_RASPBERYPI
+	std::string device = "/dev/spidev0.0";
+	#else
 	std::string device = "/dev/spidev0.11";
+	#endif
 	fd = open(device.c_str(), O_RDWR);
 	if (fd < 0) {
+		#ifdef BOARD_RASPBERYPI
+		system("modprobe spi-bcm2708");
+		#else
 		system("modprobe spidev cs_pin=11");
+		#endif
 		sleep(1);
 		fd = open(device.c_str(), O_RDWR);
 	}
@@ -454,7 +464,11 @@ int gnublin_spi::setCS(int cs){
 	std::string device = "/dev/spidev0." + cs_str;
 	fd = open(device.c_str(), O_RDWR);
 	if (fd < 0) {
+		#ifdef BOARD_RASPBERYPI
+		std::string command = "modprobe spi-bcm2708 cs_pin=" + cs_str;
+		#else
 		std::string command = "modprobe spidev cs_pin=" + cs_str;
+		#endif
 		system(command.c_str());
 		sleep(1);
 		fd = open(device.c_str(), O_RDWR);
@@ -673,7 +687,7 @@ int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, in
 }
 
 
-
+#ifndef BOARD_RASPERYPI
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
@@ -730,6 +744,8 @@ int gnublin_adc::setReference(int ref){
 bool gnublin_adc::fail(){
 	return error_flag;
 }
+
+#endif
 
 //***************************************************************************
 // Class for accesing the GNUBLIN MODULE-DISPLAY 2x16
@@ -1679,9 +1695,9 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	if(pin >= 0 && pin <= 7){ // Port 0
 
 			TxBuf[0]=pow(2, pin); //convert pin into its binary form e. g. Pin 3 = 8
-			printf("TxBuf: %x\n", TxBuf[0]);
+
 			if (i2c.receive(0x02, RxBuf, 1)>0){ //read the current state
-				printf("RxBuf: %x\n", RxBuf[0]);
+
 				if (value==0){
 					TxBuf[0]=(RxBuf[0] & ~TxBuf[0]); // at low you have to invert the pin you want to set and do a AND to change only the pin you want 
 					if(i2c.send(0x02, TxBuf, 1)>0){
@@ -1884,9 +1900,7 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
-	pca9555.setAddress(0x20);	
-//	pca9555.writePort(0, 0x00);
-//	pca9555.portMode(0, OUTPUT);
+	pca9555.setAddress(0x20);
 }
 
 
