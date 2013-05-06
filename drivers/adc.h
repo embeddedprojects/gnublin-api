@@ -1,6 +1,6 @@
 #include "../include/includes.h"
 
-#ifndef BOARD_RASPBERYPI
+#ifndef BOARD_RASPBERRYPI
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************

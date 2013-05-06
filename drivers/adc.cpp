@@ -1,6 +1,6 @@
 #include "adc.h"
 
-#ifndef BOARD_RASPERYPI
+#ifndef BOARD_RASPBERRYPI
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
