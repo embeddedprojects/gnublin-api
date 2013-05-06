@@ -19,7 +19,7 @@ int jasonflag=0;
 using namespace std;
 gnublin_module_lcd lcd;
 
-int parse_opts(int argc, char **argv){
+void parse_opts(int argc, char **argv){
 	while((c = getopt(argc,argv,"hjf:a:o:x:y:ics:b:u:")) != -1){
 		switch(c){
 			case 'h' : hflag = 1;                               	break;	/* help */
@@ -35,7 +35,7 @@ int parse_opts(int argc, char **argv){
 		}
 
 	}
-	if (hflag | argc<=1){
+	if (hflag | (argc<=1)){
 		printf("This program is designed, to easily interact with a 4x20 Display connected to the GNUBLIN.\n\n"),
 		printf("-h Show this help\n"
 			"-f <device> Specify the i2c-device.default=/dev/i2c-1\n"
@@ -57,10 +57,6 @@ int parse_opts(int argc, char **argv){
 
 
 int main (int argc, char **argv) {
-
-	unsigned char buffer[128];
-	unsigned char rx_buf[128];
-	unsigned int n, err;
 
 	parse_opts(argc, argv);
 	lcd.setAddress(slave_address);

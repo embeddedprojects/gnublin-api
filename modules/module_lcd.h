@@ -77,10 +77,14 @@
 
 
 
-//*******************************************************************
-//Class for accessing GNUBLIN Module-LCD 4x20
-//*******************************************************************
-
+/**
+* @class gnublin_module_lcd
+* @~english
+* @brief Class for accessing GNUBLIN Module-LCD 4x20
+* @~german 
+* @brief Klasse für den zugriff auf das GNUBLIN Module-LCD 4x20
+* 
+*/ 
 class gnublin_module_lcd {
 		bool error_flag;
 		gnublin_module_pca9555 pca;

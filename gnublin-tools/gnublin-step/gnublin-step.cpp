@@ -46,7 +46,7 @@ void parse_opts(int argc, char **argv)
 		}
 
         }
-        if (hflag | argc == 1)
+        if (hflag | (argc == 1))
         {
                 printf("This program is designed, to easily interact with a stepper-motor connected to the GNUBLIN.\n\n"
                 	"-h Show this help\n"

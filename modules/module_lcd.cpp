@@ -16,46 +16,89 @@ gnublin_module_lcd::gnublin_module_lcd()
 }
 
 
-//-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:			[const char*]ErrorMessage	Error Message as c-string
-
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This Funktion returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
 const char *gnublin_module_lcd::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
-//-------------------------------Fail-------------------------------
-//returns the error flag. if something went wrong, the flag is true
+
+/** @~english 
+* @brief Returns the error flag. 
+*
+* If something went wrong, the flag is true.
+* @return bool error_flag
+*
+* @~german 
+* @brief Gibt das Error Flag zurück.
+*
+* Falls das Error Flag in der Klasse gesetzt wurde, wird true zurück gegeben, anderenfalls false.
+* @return bool error_flag
+*/
 bool gnublin_module_lcd::fail(){
 	return error_flag;
 }
 
-//-------------set Address-------------
-// set the slave address
-// parameters:		[int]Address	i2c slave Address
-// return:			NONE
 
+/** @~english 
+* @brief Set the slave address 
+*
+* With this function you can set the individual I2C Slave-Address of the module.
+* @param Address new I2C slave Address
+*
+* @~german 
+* @brief Gibt das Error Flag zurück.
+*
+* Mit dieser Funktion kann die individuelle I2C Slave-Adresse des Moduls gesetzt werden.
+* @param Address neue I2C slave Adresse
+*/
 void gnublin_module_lcd::setAddress(int Address){
 	pca.setAddress(Address);
 }
 
 
-//-------------------set devicefile----------------
-// set the i2c device file. default is "/dev/i2c-1"
-// parameters:		[string]filename	path to the dev file
-// return:			NONE
-
+/** @~english 
+* @brief Set devicefile.
+*
+* With this function you can change the I2C device file. Default is "/dev/i2c-1"
+* @param filename path to the I2C device file
+*
+* @~german 
+* @brief Setzt Device Datei.
+*
+* Mit dieser Funktion kann die I2C Gerätedatei geändert werden. Standartmäßig wird "/dev/i2c-1" benutzt.
+* @param filename Pfad zur I2C Gerätedatei
+*/
 void gnublin_module_lcd::setDevicefile(std::string filename){
 	pca.setDevicefile(filename);
 }
 
-//-------------------lcd out----------------
-// sends the given data and RS/RW pings to the pca9555
-// parameters:		[unsigned char]rsrw		contains the RS/RW pins
-//					[unsigned char]data		contains the data to send
-// returns:			[int]  1		success
-// 					[int] -1		failure
+/** @~english 
+* @brief LCD out.
+*
+* This Funktion sends the given data and RS/RW pins to the pca9555 chip.
+* @param rsrw contains the RS/RW pins
+* @param data contains the data to send
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Sendet Daten
+*
+* Diese Funktion sendet die übergebenen Daten und die RS/RW pins an den pca9555.
+* @param rsrw beinhalten die RS/RW pins
+* @param data Daten die an das Display gesendet werden sollen
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_lcd::lcd_out(unsigned char rsrw, unsigned char data ){
 	if(!pca.writePort(0, data)){			//send data on Port 0
 		error_flag=true;
@@ -81,11 +124,20 @@ int gnublin_module_lcd::lcd_out(unsigned char rsrw, unsigned char data ){
 	return 1;
 }
 
-//-------------------lcd data----------------
-// sends the given char to the display
-// parameters:		[unsigned char]data		contains the char to send
-// returns:			[int]  1		success
-// 					[int] -1		failure
+/** @~english 
+* @brief Send Data to the LCD
+*
+* This Funktion sends the given char to the display.
+* @param data contains the data to send
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Sendet Daten an das Display.
+*
+* Diese Funktion sendet die übergebenen Daten an das Display.
+* @param data Daten die an das Display gesendet werden sollen
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_lcd::lcd_data(unsigned char data){
         if(!lcd_out(LCD_RS, (unsigned char) data)){
 			return -1;
@@ -94,11 +146,20 @@ int gnublin_module_lcd::lcd_data(unsigned char data){
         return 1;
 }
 
-//-------------------lcd command----------------
-// sends the given command to the display
-// parameters:		[unsigned char]data		contains the command to send
-// returns:			[int]  1		success
-// 					[int] -1		failure
+/** @~english 
+* @brief Send command to the LCD
+*
+* This Funktion sends an command to the display.
+* @param data the command to send
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Sendet einen Befehl an das Display.
+*
+* Diese Funktion sendet die übergebenen Befehle an das Display.
+* @param data Befehl die an das Display gesendet werden sollen
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_lcd::lcd_command(unsigned char data){
         if(!lcd_out(0x00, (unsigned char) data)){
 		    return -1;
@@ -136,9 +197,9 @@ int gnublin_module_lcd::lcd_home(){
 //-------------------set display command----------------
 // sends the set display command to the display
 // parameters:		[int]cursor		if = 1, the cursor is visible
-//					[int]blink		if = 1, the cursor blinks
-// returns:			[int]  1		success
-// 					[int] -1		failure
+//			[int]blink		if = 1, the cursor blinks
+// returns:		[int]  1		success
+// 			[int] -1		failure
 int gnublin_module_lcd::lcd_setdisplay(int cursor, int blink){
         unsigned char set_display;
         //Display ON/OFF Control
