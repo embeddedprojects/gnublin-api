@@ -12,7 +12,7 @@
 
 gnublin_spi::gnublin_spi(){
 	error_flag = false;
-	#ifdef BOARD_RASPBERYPI
+	#ifdef BOARD_RASPBERRYPI
 	std::string device = "/dev/spidev0.0";
 	#else
 	std::string device = "/dev/spidev0.11";
