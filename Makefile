@@ -13,7 +13,7 @@ build:
 	sh build-API.sh
 
 gnublin.o: gnublin.cpp gnublin.h
-	$(CXX) $(CXXFLAGS) -c gnublin.cpp
+	$(CXX) $(CXXFLAGS) $(APIDEFS) -c gnublin.cpp
 
 gnublin.a: gnublin.o 
 	ar rcs gnublin.a gnublin.o
