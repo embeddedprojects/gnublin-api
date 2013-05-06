@@ -33,10 +33,12 @@ const char *gnublin_gpio::getErrorMessage(){
 }
 
 int gnublin_gpio::pinMode(int pin, std::string direction){
+	#ifndef BOARD_RASPBERYPI
 	if (pin == 4 && direction == "out"){
 		error_flag = true;
 		return -1;
 	}
+	#endif
 	std::string pin_str = numberToString(pin);
 	std::string dir = "/sys/class/gpio/export";
 	std::ofstream file (dir.c_str());
