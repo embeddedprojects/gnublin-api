@@ -12,14 +12,14 @@
 
 gnublin_spi::gnublin_spi(){
 	error_flag = false;
-	#ifdef BOARD_RASPBERYPI
+	#ifdef BOARD_RASPBERRYPI
 	std::string device = "/dev/spidev0.0";
 	#else
 	std::string device = "/dev/spidev0.11";
 	#endif
 	fd = open(device.c_str(), O_RDWR);
 	if (fd < 0) {
-		#ifdef BOARD_RASPBERYPI
+		#ifdef BOARD_RASPBERRYPI
 		system("modprobe spi-bcm2708");
 		#else
 		system("modprobe spidev cs_pin=11");
@@ -67,7 +67,7 @@ int gnublin_spi::setCS(int cs){
 	std::string device = "/dev/spidev0." + cs_str;
 	fd = open(device.c_str(), O_RDWR);
 	if (fd < 0) {
-		#ifdef BOARD_RASPBERYPI
+		#ifdef BOARD_RASPBERRYPI
 		std::string command = "modprobe spi-bcm2708 cs_pin=" + cs_str;
 		#else
 		std::string command = "modprobe spidev cs_pin=" + cs_str;

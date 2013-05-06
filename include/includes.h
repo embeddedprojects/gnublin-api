@@ -20,7 +20,6 @@
 
 #include "functions.h"
 
-
 #define OUTPUT 	"out"
 #define INPUT	"in"
 #define LOW	0
