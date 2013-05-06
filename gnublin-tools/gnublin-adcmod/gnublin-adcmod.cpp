@@ -19,7 +19,6 @@ int json_flag = 0;
 int dif_flag = 0;
 int address = 0x48;
 int channel = 1;
-int channel2;
 
 
 int error_msg(char* msg){
@@ -44,7 +43,7 @@ void pars_opts(int argc, char **argv) {
 			case 'b' : bare_flag = 1; break;
 			case 'j' : json_flag = 1; break;
 			case 'a' : address = atoi(optarg); break;
-			case 'd' : channel2 = atoi(optarg); dif_flag=1; break;
+			case 'd' : dif_flag=1; break;
 		}
 	}
 
@@ -54,7 +53,8 @@ void pars_opts(int argc, char **argv) {
 		"-b show raw output\n"
 		"-j Convert output to json format\n"
 		"-c <x> Select ADC Channel (1 - 8 possible, default is 1) \n"
-		"-d <x> Select second ADC Channel for differential mesurement\n"
+		"-d enables differential mesurement between pears, only possible [1,2], [3,4], [5,6] [7,8]\n"
+		"     first channel is given by -c, second channel is selectet automaticaly\n"
 		"-a I2C-Address of the module (default is 0x48)\n\n"
 
 		"Example:\n\n"
@@ -84,13 +84,13 @@ int main(int argc, char **argv) {
 	}
 	if (dif_flag) {
 		if (bare_flag){
-			value = adc.getValue(channel, channel2);
+			value = adc.getValue(channel, channel+1);
 			if (adc.fail()) {
 				error_msg((char*)"getting value");
 			}
 		}
 		else {
-			value = adc.getVoltage(channel, channel2);
+			value = adc.getVoltage(channel, channel+1);
 			if (adc.fail()) {
 				error_msg((char*)"getting value");
 			}
