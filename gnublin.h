@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 05/02/13 14:37
+//build date: 05/06/13 09:59
 //******************************************** 
 
 #ifndef INCLUDE_FILE
@@ -34,7 +34,6 @@
 #define IN	1
 #define OUT	0
 
- 
 int stringToNumber(std::string str);
 std::string numberToString(int num);
 int hexstringToNumber(std::string str);
@@ -113,7 +112,7 @@ class gnublin_spi{
 };
 //***** NEW BLOCK *****
 
-
+#ifndef BOARD_RASPBERYPI
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
@@ -130,6 +129,8 @@ class gnublin_adc {
 		bool error_flag;
 		std::string ErrorMessage;
 };
+
+#endif
 //***** NEW BLOCK *****
 
 //***************************************************************************
