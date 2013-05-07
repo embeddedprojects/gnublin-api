@@ -266,7 +266,7 @@ int gnublin_spi::getLength(){
 
 
 //************************* setSpeed ****************************************
-		* [int] -1  	for failure
+
 /**
 * @~english
 * @brief Set the speed of the SPI-Bus
