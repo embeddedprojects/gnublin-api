@@ -19,7 +19,7 @@ int jasonflag=0;
 using namespace std;
 gnublin_module_lcd lcd;
 
-int parse_opts(int argc, char **argv){
+void parse_opts(int argc, char **argv){
 	while((c = getopt(argc,argv,"hjf:a:o:x:y:ics:b:u:")) != -1){
 		switch(c){
 			case 'h' : hflag = 1;                               	break;	/* help */
@@ -35,7 +35,7 @@ int parse_opts(int argc, char **argv){
 		}
 
 	}
-	if (hflag | argc<=1){
+	if (hflag | (argc<=1)){
 		printf("This program is designed, to easily interact with a 4x20 Display connected to the GNUBLIN.\n\n"),
 		printf("-h Show this help\n"
 			"-f <device> Specify the i2c-device.default=/dev/i2c-1\n"
@@ -58,30 +58,50 @@ int parse_opts(int argc, char **argv){
 
 int main (int argc, char **argv) {
 
-	unsigned char buffer[128];
-	unsigned char rx_buf[128];
-	unsigned int n, err;
-
 	parse_opts(argc, argv);
 	lcd.setAddress(slave_address);
 	
 	if(init){
-		if(!lcd.lcd_init()){
+		if(!lcd.init()){
 			cout << lcd.getErrorMessage();
+			return -1;
+		}
+		if(!lcd.setcursor(1, 1)){
+			return -1;
+		}
+		if(!lcd.string("embedded-projects")){
+			return -1;
+		}
+		if(!lcd.setcursor(2, 4)){
+			return -1;
+		}
+		if(!lcd.string("GNUBLIN-LCD")){
+			return -1;
+		}
+		if(!lcd.setcursor(3, 2)){
+			return -1;
+		}
+		if(!lcd.string("www.gnublin.org")){
+			return -1;
+		}
+		if(!lcd.setcursor(4, 4)){
+			return -1;
+		}
+		if(!lcd.string("Version 0.3")){
 			return -1;
 		}
 	}
 	if(clear){
-		lcd.lcd_clear();
+		lcd.clear();
 	}
 	if(xpos > 0 || ypos > 0){
-		lcd.lcd_setcursor(ypos, xpos);
+		lcd.setcursor(ypos, xpos);
 	}
 	if(setdisplay){
-		lcd.lcd_setdisplay(cursor,blink);
+		lcd.setdisplay(cursor,blink);
 	}
 	if(setstring){
-		lcd.lcd_string(lcdstring);
+		lcd.string(lcdstring);
 	}
 }
 
