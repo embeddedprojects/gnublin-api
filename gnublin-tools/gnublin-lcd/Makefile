@@ -1,4 +1,4 @@
-objects = gnublin-lm75
+objects = gnublin-lcd
 path = ../../
 include ../../variables.mk
 
