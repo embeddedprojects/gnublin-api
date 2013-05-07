@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/07/13 17:11
+//build date: 05/08/13 00:37
 //******************************************** 
 
 #include"gnublin.h"
@@ -241,8 +241,13 @@ int gnublin_gpio::digitalRead(int pin) {
 //*******************************************************************
 
 //------------------Konstruktor------------------
-// set error flag false and default i2c dev file
-
+/** @~english 
+* @brief Sets the error_flag to "false" and the devicefile to "/dev/i2c-1"
+*
+* @~german 
+* @brief Setzt das error_flag auf "false" und das devicefile auf standardmäßig "/dev/i2c-1"
+*
+*/
 gnublin_i2c::gnublin_i2c()
 {
 	devicefile="/dev/i2c-1";
@@ -250,65 +255,112 @@ gnublin_i2c::gnublin_i2c()
 }
 
 //-------------------------------Fail-------------------------------
-//returns the error flag. if something went wrong, the flag is true
-
+/** @~english 
+* @brief returns the error flag to check if the last operation went wrong
+*
+* @return error_flag as boolean
+*
+* @~german 
+* @brief Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist
+*
+* @return error_flag als bool
+*/
 bool gnublin_i2c::fail(){
 	return error_flag;
 }
 
 //-------------set Address-------------
-// set the slave address
-// parameters:		[int]Address	i2c slave Address
-// return:		NONE
-
+/** @~english 
+* @brief Set the i2c slave address 
+*
+* With this function you can set the individual I2C Slave-Address.
+* @param Address new I2C slave Address
+*
+* @~german 
+* @brief Setzt die i2c slave Adresse
+*
+* Mit dieser Funktion kann die individuelle I2C Slave-Adresse gesetzt werden.
+* @param Address neue I2C slave Adresse
+*/
 void gnublin_i2c::setAddress(int Address){
 	slave_address = Address;
 }
 
 //-------------get Address-------------
-// get the slave address
-// parameters:		NONE
-// return:		[int]Address	i2c slave Address
-
+/** @~english 
+* @brief Get the i2c slave address 
+*
+* With this function you can get the set Slave-Address.
+* @return Address I2C slave Address
+*
+* @~german 
+* @brief gibt die gesetzte I2C Slave Adresse zurück
+*
+* Mit dieser Funktion kann die gesetzte I2C Slave-Adresse ausgelesen werden.
+* @return Address I2C slave Address
+*/
 int gnublin_i2c::getAddress(){
 	return slave_address;
 }
 
 //-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
-
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This function returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
 const char *gnublin_i2c::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 //-------------------set devicefile----------------
-// set the i2c device file. default is "/dev/i2c-1"
-// parameters:		[string]filename	path to the dev file
-// return:		NONE
-
+/** @~english
+* @brief set i2c the device file. default is "/dev/i2c-1"
+*
+* This function sets the devicefile you want to access. by default "/dev/i2c-1" is set.
+* @param filename path to the devicefile e.g. "/dev/i2c-0"
+*
+* @~german
+* @brief setzt die I2C Device Datei. Standard ist die "/dev/i2c-1"
+*
+* Diese Funktion setzt die Geräte Datei, auf die man zugreifen möchte. Standardmäßig ist bereits "/dev/i2c-1" gesetzt.
+* @param filename Dateipfad zur Geräte Datei, z.B. "/dev/i2c-0"
+*/
 void gnublin_i2c::setDevicefile(std::string filename){
 	devicefile = filename;
 }
 
 
 //----------------------------------receive----------------------------------
-// read from the i2c Bus			
-// parameters:		[unsigned char]RegisterAddress 	specify the address of a register you want to read from
-//			[char*]RxBuf 			receive buffer. The read bytes will be stored in it
-// 			[int]length			amount of bytes that will be read
-// return:		[int]  1			success
-// 			[int] -1			failure
-// 
-// e.g.
-// read 2 bytes into buf
-// receive(buf, 2);
-// 
-// read 3 bytes into buf from a register with the address 0x12
-// receive(0x12, buf, 3);
-//---------------------------------------------------------------------------
-
+/** @~english 
+* @brief receive bytes from the I2C bus.
+*
+* This function reads "length" number of bytes from the i2c bus and stores them into the "RxBuf". At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* read 2 bytes into buf<br>
+* receive(buf, 2);
+* @param RxBuf Receive buffer. The read bytes will be stored in it.
+* @param length Amount of bytes that will be read.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Empfängt Bytes vom I2C Bus.
+*
+* Diese Funktion liest "length" Anzahl an Bytes vom I2C Bus und speichert diese in "RxBuf". Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiele:<br>
+* Lese 2 Bytes und speichere diese in "buf":<br>
+* receive(buf, 2);
+* @param RxBuf Empfangs Puffer. Die gelesenen Bytes werden hier gespeichert.
+* @param length Anzahl der zu lesenden Bytes.
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 	error_flag=false;
 	int fd;
@@ -339,6 +391,37 @@ int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 	return 1;
 }
 
+//----------------------------------receive----------------------------------
+/** @~english 
+* @brief receive bytes from the I2C bus.
+*
+* This function reads "length" number of bytes from the register "RegisterAddress" and stores them into the "RxBuf". At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* read 2 bytes into buf<br>
+* receive(buf, 2);<br><br>
+* 
+* read 3 bytes into buf from a register with the address 0x12<br>
+* receive(0x12, buf, 3);
+* @param RegisterAddress Address of the register you want to read from
+* @param RxBuf Receive buffer. The read bytes will be stored in it.
+* @param length Amount of bytes that will be read.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Empfängt Bytes vom I2C Bus.
+*
+* Diese Funktion liest "length" Anzahl an Bytes aus dem Register "RegisterAddress" und speichert diese in "RxBuf". Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiele:<br>
+* Lese 2 Bytes und speichere diese in "buf":<br>
+* receive(buf, 2);<br><br>
+*
+* Lese 3 Bytes aus Register 0x12 und speichere sie in "buf":<br>
+* receive(0x12, buf, 3);
+* @param RegisterAddress Adresse des zu lesenden Registers.
+* @param RxBuf Empfangs Puffer. Die gelesenen Bytes werden hier gespeichert.
+* @param length Anzahl der zu lesenden Bytes.
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length){
 	error_flag=false;	
 	int fd;
@@ -376,24 +459,29 @@ int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, in
 	return 1;
 }
 
-
-//-----------------------------------send-----------------------------------
-// send data to the i2c Bus
-//
-// parameters:		[unsigned char]RegisterAddress 	specify the address of a register you want to write to
-//			[char*]TxBuf 			transmit buffer. the data you want to send is stored in it
-// 			[int]length			amount of bytes that will be sent.
-// return:		[int]  1			success
-// 			[int] -1			failure
-//
-//
-// e.g.
-// send 2 bytes from buf
-// send (buf, 2);
-// 
-// send 3 bytes from buf to a register with the address 0x12
-// send (0x12, buf, 3);
-//---------------------------------------------------------------------------
+//----------------------------------send----------------------------------
+/** @~english 
+* @brief send bytes to the I2C bus.
+*
+* This function sends "length" number of bytes from the "TxBuf" to the i2c bus. At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* send 2 bytes from buf to the I2C bus<br>
+* send (buf, 2);
+* @param TxBuf Transmit buffer. The bytes you want to send are stored in it.
+* @param length Amount of bytes that will be send.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief sendet Bytes an den I2C Bus.
+*
+* Diese Funktion sendet "length" Anzahl an Bytes aus dem "TxBuf" an den I2C Bus. Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiele:<br>
+* Sende 2 Bytes von "buf" an den i2c Bus:
+* send(buf, 2);
+* @param RxBuf Sende Puffer. Die zu sendenden Bytes sind hier gespeichert.
+* @param length Anzahl der zu sendenden Bytes.
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_i2c::send(unsigned char *TxBuf, int length){
 	error_flag=false;	
 	int fd; 
@@ -423,6 +511,37 @@ int gnublin_i2c::send(unsigned char *TxBuf, int length){
 	return 1;
 }
 
+//----------------------------------send----------------------------------
+/** @~english 
+* @brief send bytes to the I2C bus.
+*
+* This function sends "length" number of bytes from the "TxBuf" to the register "RegisterAddress". At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* send 2 bytes from buf to the I2C bus<br>
+* send (buf, 2);<br><br>
+*
+* send 3 bytes from buf to a register with the address 0x12<br>
+* send (0x12, buf, 3);
+* @param RegisterAddress Address of the register you want to send the bytes to
+* @param TxBuf Transmit buffer. The bytes you want to send are stored in it.
+* @param length Amount of bytes that will be send.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief sendet Bytes an den I2C Bus.
+*
+* Diese Funktion sendet "length" Anzahl an Bytes aus dem "TxBuf" an das Register "RegisterAddress". Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiele:<br>
+* Sende 2 Bytes von "buf" an den i2c Bus:
+* send(buf, 2);<br><br>
+*
+* Sende 3 Bytes aus "buf" an das Register mit der Adresse 0x12:<br>
+* send(0x12, buf, 3);
+* @param RegisterAddress Adresse des Registers in das man schreiben will.
+* @param RxBuf Sende Puffer. Die zu sendenden Bytes sind hier gespeichert.
+* @param length Anzahl der zu sendenden Bytes.
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int length){
 	error_flag=false;	
 	int fd, i;
@@ -459,6 +578,27 @@ int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int l
 	return 1;
 }
 
+//----------------------------------send----------------------------------
+/** @~english 
+* @brief send a byte to the I2C bus.
+*
+* This function sends a byte to the i2c bus. At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* send 0xff to the I2C bus<br>
+* send (0xff);
+* @param value byte that will be send.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief sendet 1 Byte an den I2C Bus.
+*
+* Diese Funktion sendet ein byte an den i2c Bus. Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiel:<br>
+* Sende 0xff an den i2c Bus:<br>
+* send(0xff);
+* @param value Byte das gesendet wird.
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_i2c::send(int value){
 	error_flag=false;
 	int buffer[1];
@@ -576,13 +716,13 @@ const char *gnublin_spi::getErrorMessage(){
 * @~english
 * @brief Set the custom chipselect pin
 *
-* @param Number of the chipselect-pin
+* @param cs Number of the chipselect-pin
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt den benutzerdefinierten Chipselect-Pin.
 *
-* @param Nummer des Chipselect-Pin
+* @param cs Nummer des Chipselect-Pin
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setCS(int cs){
@@ -614,13 +754,13 @@ int gnublin_spi::setCS(int cs){
 * @~english
 * @brief Set the SPI-mode
 *
-* @param Number of the SPI-Mode
+* @param mode Number of the SPI-Mode
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt den SPI-Modus
 *
-* @param Nummer SPI-Modus
+* @param mode Nummer SPI-Modus
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setMode(unsigned char mode){
@@ -663,13 +803,13 @@ int gnublin_spi::getMode(){
 * @~english
 * @brief Set the LSB-mode
 *
-* @param 0: MSB first, 1 LSB first
+* @param lsb 0: MSB first, 1 LSB first
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt den LSB-Modus.
 *
-* @param 0: MSB zuerst; 1 LSB zuerst
+* @param lsb 0: MSB zuerst; 1 LSB zuerst
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setLSB(unsigned char lsb){
@@ -712,13 +852,13 @@ int gnublin_spi::getLSB(){
 * @~english
 * @brief Set the lenght of the words which will be send
 *
-* @param Number of bits of each word
+* @param bits Number of bits of each word
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Legt die Länge der gesendeten Wörter fest
 *
-* @param Anzahl der Bits je Word
+* @param bits Anzahl der Bits je Word
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setLength(unsigned char bits){
@@ -761,13 +901,13 @@ int gnublin_spi::getLength(){
 * @~english
 * @brief Set the speed of the SPI-Bus
 *
-* @param Speed in Hz
+* @param speed Speed in Hz
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Legt die Geschwindigkeit des SPI-Buses fest.
 *
-* @param Geschwindigkeit in Hz
+* @param speed Geschwindigkeit in Hz
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setSpeed(unsigned int speed){
@@ -809,15 +949,15 @@ int gnublin_spi::getSpeed(){
 * @~english
 * @brief Receive data from SPI Bus
 *
-* @param Buffer for recived datas
-* @param Length of recived data
+* @param buffer Buffer for recived datas
+* @param len Length of recived data
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Empfängt Daten über den SPI-Bus
 *
-* @param Buffer für die empfangenen Daten
-* @param Anzahl der zu empfangenden Zeichen
+* @param buffer Buffer für die empfangenen Daten
+* @param len Anzahl der zu empfangenden Zeichen
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::receive(char* buffer, int len){
@@ -835,15 +975,15 @@ int gnublin_spi::receive(char* buffer, int len){
 * @~english
 * @brief Send data over the SPI Bus
 *
-* @param Datas which will be send
-* @param Length of datas
+* @param tx Datas which will be send
+* @param length Length of datas
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Sendet Daten über den SPI-Bus
 *
-* @param Zu sendende Daten
-* @param Anzahl der zu sendenden Zeichen
+* @param tx Zu sendende Daten
+* @param length Anzahl der zu sendenden Zeichen
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::send(unsigned char* tx, int length){
@@ -866,30 +1006,24 @@ int gnublin_spi::send(unsigned char* tx, int length){
 
 
 //****************************** message() ********************************
-// send and read data over SPI bus (half duplex)
-// paramters:	* [__u8*] tx	data which will be send
-//		* [int] tx_length	length of data which will be send
-//		* [__u8*] rx	buffer for data which will be recived
-//		* [int] rx_length	length of data which will be recived
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
+
 /**
 * @~english
 * @brief Send and recive data over the SPI-Bus (half duplex)
 *
-* @param Data which will be send
-* @param Length of data which will be send
-* @param Buffer for recived datas
-* @param length of recived datas
+* @param tx Data which will be send
+* @param tx_length Length of data which will be send
+* @param rx Buffer for recived datas
+* @param rx_length length of recived datas
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Sendet und empfängt daten über den SPI-Bus (halb duplex).
 *
-* @param Zu sendende Daten
-* @param Anzahl der zu sendenden Zeichen
-* @param Buffer für den Datenempfang
-* @param Anzahl der zu empfangenden Zeichen
+* @param tx Zu sendende Daten
+* @param tx_length Anzahl der zu sendenden Zeichen
+* @param rx Buffer für den Datenempfang
+* @param rx_length Anzahl der zu empfangenden Zeichen
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, int rx_length){
@@ -1162,13 +1296,13 @@ const char *gnublin_module_dogm::getErrorMessage(){
 * @~english
 * @brief Set the custom RS pin
 *
-* @param Number of the RS-pin
+* @param pin Number of the RS-pin
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt den benutzerdefinierten RS-Pin.
 *
-* @param Nummer des RS-Pin
+* @param pin Nummer des RS-Pin
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_dogm::setRsPin(int pin){
@@ -1184,13 +1318,13 @@ int gnublin_module_dogm::setRsPin(int pin){
 * @~english
 * @brief Set the custom chipselect pin
 *
-* @param Number of the chipselect-pin
+* @param cs Number of the chipselect-pin
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt den benutzerdefinierten Chipselect-Pin.
 *
-* @param Nummer des Chipselect-Pin
+* @param cs Nummer des Chipselect-Pin
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_dogm::setCS(int cs){
@@ -1209,13 +1343,13 @@ int gnublin_module_dogm::setCS(int cs){
 * @~english
 * @brief Print string on display
 *
-* @param buffor of the string
+* @param buffer buffor of the string
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Schreibt String auf das Display
 *
-* @param Buffer für den String
+* @param buffer Buffer für den String
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_dogm::print(char* buffer){
@@ -1245,15 +1379,15 @@ int gnublin_module_dogm::print(char* buffer){
 * @~english
 * @brief Print string on a specific line of the display
 *
-* @param buffor of the string
-* @param number of the line (1,2)
+* @param buffer buffor of the string
+* @param line number of the line (1,2)
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Schreibt String in eine bestimmte Zeile des Displays
 *
-* @param Buffer für den String
-* @param Zeilenenummer (1,2)
+* @param buffer Buffer für den String
+* @param line Zeilenenummer (1,2)
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_dogm::print(char* buffer, int line){
@@ -1285,17 +1419,17 @@ int gnublin_module_dogm::print(char* buffer, int line){
 * @~english
 * @brief Print string on a specific line with given offset on the display
 *
-* @param buffor of the string
-* @param number of the line (1,2)
-* @param number of elements for the offset
+* @param buffer buffor of the string
+* @param line number of the line (1,2)
+* @param off number of elements for the offset
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Schreibt String in eine bestimmte Zeile mit gegebenem Offset auf das Displays
 *
-* @param Buffer für den String
-* @param Zeilenenummer (1,2)
-* @param Anzahl der Positionen, um die verschoben werden soll
+* @param buffer Buffer für den String
+* @param line Zeilenenummer (1,2)
+* @param off Anzahl der Positionen, um die verschoben werden soll
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_dogm::print(char* buffer, int line, int off){
@@ -1327,13 +1461,13 @@ int gnublin_module_dogm::print(char* buffer, int line, int off){
 * @~english
 * @brief Set an offset to the display
 *
-* @param Number of the element on which the cursor will be set
+* @param num Number of the element on which the cursor will be set
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt den Cursor an eine bestimmte Position
 *
-* @param Nummber der Zeichnposition an die der Cursor gesetzt werden soll
+* @param num Nummber der Zeichnposition an die der Cursor gesetzt werden soll
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_dogm::offset(int num){
@@ -1420,13 +1554,13 @@ int gnublin_module_dogm::returnHome(){
 * @~english
 * @brief Shift the whole display
 *
-* @param Number of shifts, positive: right, negativ: left
+* @param num Number of shifts, positive: right, negativ: left
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Verschiebt das ganze Display
 *
-* @param Anzahl der zu verschiebenden Positionen, positiv: rechts, negativ: left
+* @param num Anzahl der zu verschiebenden Positionen, positiv: rechts, negativ: left
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_dogm::shift(int num){
@@ -1467,17 +1601,17 @@ int gnublin_module_dogm::shift(int num){
 * @~english
 * @brief Set display parameters
 *
-* @param switch display on(1) or off(0)  (not the chontrollerchip)
-* @param switch cursor on(1) or off(0)
-* @param switch the vlinking of the cursor on(1) or off(0)
+* @param power switch display on(1) or off(0)  (not the chontrollerchip)
+* @param cursor switch cursor on(1) or off(0)
+* @param blink switch the vlinking of the cursor on(1) or off(0)
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt Displayparameter.
 *
-* @param Display an(1) oder aus(0) schalten (nicht den Displaycontroller)
-* @param Schatet den Cursor an(1) oder aus(0)
-* @param Schaltet das Blinken des Cursors an(1) oder aus(0)
+* @param power Display an(1) oder aus(0) schalten (nicht den Displaycontroller)
+* @param cursor Schatet den Cursor an(1) oder aus(0)
+* @param blink Schaltet das Blinken des Cursors an(1) oder aus(0)
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_dogm::controlDisplay(int power, int cursor, int blink) {
@@ -1501,10 +1635,18 @@ int gnublin_module_dogm::controlDisplay(int power, int cursor, int blink) {
 	error_flag = false;
 	return 1;
 }
+//*******************************************************************
+//Class for accessing the LM75 IC via I2C
+//*******************************************************************
 
-//-------------Konstruktor-------------
-// set error flag=false
-
+//------------------Konstruktor------------------
+/** @~english 
+* @brief Sets the error_flag to "false"
+*
+* @~german 
+* @brief Setzt das error_flag auf "false"
+*
+*/
 gnublin_module_lm75::gnublin_module_lm75()
 {
 	error_flag=false;
@@ -1512,35 +1654,68 @@ gnublin_module_lm75::gnublin_module_lm75()
 
 
 //-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
-
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This function returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
 const char *gnublin_module_lm75::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 //-------------------------------Fail-------------------------------
-//returns the error flag. if something went wrong, the flag is true
+/** @~english 
+* @brief returns the error flag to check if the last operation went wrong
+*
+* @return error_flag as boolean
+*
+* @~german 
+* @brief Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist
+*
+* @return error_flag als bool
+*/
 bool gnublin_module_lm75::fail(){
 	return error_flag;
 }
 
 //-------------set Address-------------
-// set the slave address
-// parameters:		[int]Address	i2c slave Address
-// return:			NONE
-
+/** @~english 
+* @brief Set the i2c slave address 
+*
+* With this function you can set the individual I2C Slave-Address.
+* @param Address new I2C slave Address
+*
+* @~german 
+* @brief Setzt die i2c slave Adresse
+*
+* Mit dieser Funktion kann die individuelle I2C Slave-Adresse gesetzt werden.
+* @param Address neue I2C slave Adresse
+*/
 void gnublin_module_lm75::setAddress(int Address){
 	i2c.setAddress(Address);
 }
 
 
 //-------------------set devicefile----------------
-// set the i2c device file. default is "/dev/i2c-1"
-// parameters:		[string]filename	path to the dev file
-// return:			NONE
-
+/** @~english
+* @brief set i2c the device file. default is "/dev/i2c-1"
+*
+* This function sets the devicefile you want to access. by default "/dev/i2c-1" is set.
+* @param filename path to the devicefile e.g. "/dev/i2c-0"
+*
+* @~german
+* @brief setzt die I2C Device Datei. Standard ist die "/dev/i2c-1"
+*
+* Diese Funktion setzt die Geräte Datei, auf die man zugreifen möchte. Standardmäßig ist bereits "/dev/i2c-1" gesetzt.
+* @param filename Dateipfad zur Geräte Datei, z.B. "/dev/i2c-0"
+*/
 void gnublin_module_lm75::setDevicefile(std::string filename){
 	i2c.setDevicefile(filename);
 }
@@ -1551,7 +1726,17 @@ void gnublin_module_lm75::setDevicefile(std::string filename){
 // parameters:		NONE
 // return:			[int] temp		temperature in °C
 
-
+//-------------------get Temp----------------
+/** @~english
+* @brief reads the raw data via i2c from the LM75 chip and calculates the temperature
+*
+* @return Returns the Temperature 
+*
+* @~german
+* @brief liest die Roh-Daten aus dem LM75 und berechnet die Temperatur
+*
+* @return Temperatur, im Fehlerfall 0 (überprüfen mit fail() und getErrorMessage())
+*/
 int gnublin_module_lm75::getTemp(){
 	short value=0;
 	int temp;	
@@ -1739,13 +1924,13 @@ bool gnublin_module_adc::fail() {
 * @~english
 * @brief Set the I2C Address
 *
-* @param I2C Address
+* @param address I2C Address
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt die I2C Adresse.
 *
-* @param I2C Adresse
+* @param address I2C Adresse
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_adc::setAddress(int address) {
@@ -1768,14 +1953,14 @@ int gnublin_module_adc::setAddress(int address) {
 * @brief Set a custom I2C devicefile
 *
 * default devicefile: "/dev/i2c-1"
-* @param path of the devicefile
+* @param filename path of the devicefile
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt ein benutzerdefiniertes Devicefile.
 *
 * Standard Devicefile ist "/dev/i2c-1"
-* @param Pfad zum Devicefile
+* @param filename Pfad zum Devicefile
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_adc::setDevicefile(std::string filename) {
@@ -1794,13 +1979,13 @@ int gnublin_module_adc::setDevicefile(std::string filename) {
 * @~english
 * @brief Set the reverencevoltage to intern or extern
 *
-* @param IN (1) for intern (2.5V), OUT (0) for extern (3.3V)
+* @param value IN (1) for intern (2.5V), OUT (0) for extern (3.3V)
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt die referenzspannung auf intern oder extern.
 *
-* @param IN (1) für intern (2,5V), OUT (0) für extern (3,3V)
+* @param value IN (1) für intern (2,5V), OUT (0) für extern (3,3V)
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_adc::setReference(int value) {
@@ -1827,13 +2012,13 @@ int gnublin_module_adc::setReference(int value) {
 * @~english
 * @brief Get a value of an ADC channel in reference to GND
 *
-* @param Number of the ADC-channel (1-8)
+* @param channel Number of the ADC-channel (1-8)
 * @return value
 *
 * @~german
 * @brief Liefert den Wert eine ADC Ports bezogen zu GND
 *
-* @param Nummer des ADC-Ports (1-8)
+* @param channel Nummer des ADC-Ports (1-8)
 * @return Wert
 */
 int gnublin_module_adc::getValue(int channel) {
@@ -1895,8 +2080,8 @@ int gnublin_module_adc::getValue(int channel) {
 * 4 - 3<br>
 * 6 - 5<br>
 * 8 - 7<br>
-* @param Number of the first ADC-channel 
-* @param Number of the second ADC-channel
+* @param channel1 Number of the first ADC-channel 
+* @param channel2 Number of the second ADC-channel
 * @return value
 *
 * @~german
@@ -1911,8 +2096,8 @@ int gnublin_module_adc::getValue(int channel) {
 * 4 - 3<br>
 * 6 - 5<br>
 * 8 - 7<br>
-* @param Nummer des ersten ADC-Ports
-* @param Nummer des zweiten ADC-Ports
+* @param channel1 Nummer des ersten ADC-Ports
+* @param channel2 Nummer des zweiten ADC-Ports
 * @return Wert
 */
 int gnublin_module_adc::getValue(int channel1, int channel2) {
@@ -1971,13 +2156,13 @@ int gnublin_module_adc::getValue(int channel1, int channel2) {
 * @~english
 * @brief Get the voltage of an ADC channel in reference to GND in mV
 *
-* @param Number of the ADC-channel (1-8)
+* @param channel Number of the ADC-channel (1-8)
 * @return value in mV
 *
 * @~german
 * @brief Liefert den Wert eine ADC Ports bezogen zu GND in mV
 *
-* @param Nummer des ADC-Ports (1-8)
+* @param channel Nummer des ADC-Ports (1-8)
 * @return Wert in mV
 */
 int gnublin_module_adc::getVoltage(int channel) {
@@ -2005,8 +2190,8 @@ int gnublin_module_adc::getVoltage(int channel) {
 * 4 - 3<br>
 * 6 - 5<br>
 * 8 - 7<br>
-* @param Number of the first ADC-channel 
-* @param Number of the second ADC-channel
+* @param channel1 Number of the first ADC-channel 
+* @param channel2 Number of the second ADC-channel
 * @return voltage in mV
 *
 * @~german
@@ -2021,8 +2206,8 @@ int gnublin_module_adc::getVoltage(int channel) {
 * 4 - 3<br>
 * 6 - 5<br>
 * 8 - 7<br>
-* @param Nummer des ersten ADC-Ports
-* @param Nummer des zweiten ADC-Ports
+* @param channel1 Nummer des ersten ADC-Ports
+* @param channel2 Nummer des zweiten ADC-Ports
 * @return Wert in mV
 */
 int gnublin_module_adc::getVoltage(int channel1, int channel2) {
@@ -2488,56 +2673,107 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 
 
 //------------------Konstruktor------------------
-// set Port 0 to OUTPUT and LOW
-// set Error Flag flase
-// set standard i2c Address 0x20
-
+/** @~english 
+* @brief Set standards.
+*
+* Set standard i2c address 0x20, set ErrorFlag false
+* @~german 
+* @brief Setze Standartwerte.
+*
+* Setze standard i2c Adresse 0x20 und setze das ErrorFlag auf false.
+*/
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
 	pca9555.setAddress(0x20);
 }
 
 
-//-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
-
+//-------------getErrorMessage-------------
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This Funktion returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
 const char *gnublin_module_relay::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
-//-------------------------------Fail-------------------------------
-//returns the error flag. if something went wrong, the flag is true
+//-------------------------------fail-------------------------------
+/** @~english 
+* @brief Returns the error flag. 
+*
+* If something went wrong, the flag is true.
+* @return bool error_flag
+*
+* @~german 
+* @brief Gibt das Error Flag zurück.
+*
+* Falls das Error Flag in der Klasse gesetzt wurde, wird true zurück gegeben, anderenfalls false.
+* @return bool error_flag
+*/
 bool gnublin_module_relay::fail(){
 	return error_flag;
 }
 
-//-------------set Address-------------
-// set the slave address
-// parameters:		[int]Address	i2c slave Address
-// return:			NONE
-
+//-------------setAddress-------------
+/** @~english 
+* @brief Set the slave address 
+*
+* With this function you can set the individual I2C Slave-Address of the module.
+* @param Address new I2C slave Address
+*
+* @~german 
+* @brief Setzt Slave Adresse.
+*
+* Mit dieser Funktion kann die individuelle I2C Slave-Adresse des Moduls gesetzt werden.
+* @param Address neue I2C slave Adresse
+*/
 void gnublin_module_relay::setAddress(int Address){
 	pca9555.setAddress(Address);
 }
 
 
-//-------------------set devicefile----------------
-// set the i2c device file. default is "/dev/i2c-1"
-// parameters:		[string]filename	path to the dev file
-// return:			NONE
-
+//-------------setDevicefile-------------
+/** @~english 
+* @brief Set devicefile.
+*
+* With this function you can change the I2C device file. Default is "/dev/i2c-1"
+* @param filename path to the I2C device file
+*
+* @~german 
+* @brief Setzt Device Datei.
+*
+* Mit dieser Funktion kann die I2C Gerätedatei geändert werden. Standartmäßig wird "/dev/i2c-1" benutzt.
+* @param filename Pfad zur I2C Gerätedatei
+*/
 void gnublin_module_relay::setDevicefile(std::string filename){
 	pca9555.setDevicefile(filename);
 }
 
 //-------------------switch Pin----------------
-// switches 1 relay pin, error_flag is set on failure
-// parameters:		[int]pin	Pin 1-8
-//					[int]value	HIGH or LOW
-// return:			[int]1		success
-//					[int]-1		failure
+/** @~english 
+* @brief Switch pin.
+*
+* This function sets the given relay to the given value.
+* @param pin Number of the relay to switch (1-8)
+* @param value close (1) or open (0) the relay (ON, OFF)
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Schalte Pin.
+*
+* Schalten der einzelnen Relays. 
+* @param pin Nummer des anzusteuernden Relays (1-8)
+* @param value schließen (1) oder öffnen (0) des Relays (ON, OFF)
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_relay::switchPin(int pin, int value) {
 	error_flag=false;
 

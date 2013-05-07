@@ -19,23 +19,6 @@ gnublin_module_step::gnublin_module_step()
 	vmax = 8;
 }
 
-//-------------fail-------------
-/** @~english 
-* @brief Returns the error flag. 
-*
-* If something went wrong, the flag is true.
-* @return bool error_flag
-*
-* @~german 
-* @brief Gibt das Error Flag zurück.
-*
-* Falls das Error Flag in der Klasse gesetzt wurde, wird true zurück gegeben, anderenfalls false.
-* @return bool error_flag
-*/
-bool gnublin_module_step::fail(){
-	return error_flag;
-}
-
 //-------------getErrorMessage-------------
 /** @~english 
 * @brief Get the last Error Message.

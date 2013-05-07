@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 05/07/13 17:11
+//build date: 05/08/13 00:37
 //******************************************** 
 
 #ifndef INCLUDE_FILE
@@ -70,6 +70,17 @@ class gnublin_gpio {
 //*******************************************************************
 //Class for accessing GNUBLIN i2c Bus
 //*******************************************************************
+/**
+* @class gnublin_i2c
+* @~english
+* @brief Class for accessing GNUBLIN i2c bus
+*
+* The GNUBLIN I2C bus can easily accessed with this class
+* @~german 
+* @brief Klasse für den zugriff auf den GNUBLIN I2C Bus
+*
+* Die GNUBLIN I2C Klasse gewährt einfachen Zugriff auf den I2C Bus
+*/ 
 
 class gnublin_i2c {
 	bool error_flag;
@@ -204,7 +215,18 @@ class gnublin_module_dogm{
 
 };
 //***** NEW BLOCK *****
-
+//*******************************************************************
+//Class for accessing the LM75 IC via I2C
+//*******************************************************************
+/**
+* @class gnublin_module_lm75
+* @~english
+* @brief Class for accessing the LM75 IC via I2C
+*
+* @~german 
+* @brief Klasse für den zugriff auf den LM75 IC via I2C Bus
+*
+*/ 
 
 class gnublin_module_lm75 {
 	bool error_flag;
@@ -284,7 +306,17 @@ public:
 //****************************************************************************
 // Class for easy use of the GNUBLIN Module-Relay
 //****************************************************************************
-
+/**
+* @class gnublin_module_relay
+* @~english
+* @brief Class for accessing GNUBLIN module-relay
+*
+* The GNUBLIN Module-relay can be easily controlled with the gnublin_step API. The Module uses the I2C-Bus.
+* @~german 
+* @brief Klasse für den zugriff auf das GNUBLIN module-relay
+*
+* Das GNUBLIN module-relay lässt sich mit Hilfe der gnublin_relay API ganz einfach ansteuern. Das Modul nutzt die I2C-Schnittstelle.  
+*/ 
 class gnublin_module_relay {
 		gnublin_module_pca9555 pca9555;
 		bool error_flag;
@@ -321,6 +353,7 @@ public:
 	gnublin_module_step();
 	void setAddress(int Address);
 	void setDevicefile(std::string filename);
+	bool fail();
 	int setIrun(unsigned int newIrun);
 	int setIhold(unsigned int newIhold);
 	int setVmax(unsigned int newVmax);
