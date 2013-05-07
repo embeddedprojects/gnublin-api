@@ -1,6 +1,17 @@
 #include "../include/includes.h"
 #include "../drivers/i2c.cpp"
-
+//*******************************************************************
+//Class for accessing the LM75 IC via I2C
+//*******************************************************************
+/**
+* @class gnublin_module_lm75
+* @~english
+* @brief Class for accessing the LM75 IC via I2C
+*
+* @~german 
+* @brief Klasse für den zugriff auf den LM75 IC via I2C Bus
+*
+*/ 
 
 class gnublin_module_lm75 {
 	bool error_flag;

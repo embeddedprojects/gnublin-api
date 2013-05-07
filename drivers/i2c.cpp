@@ -106,14 +106,10 @@ void gnublin_i2c::setDevicefile(std::string filename){
 /** @~english 
 * @brief receive bytes from the I2C bus.
 *
-* This function reads "length" number of bytes from the register "RegisterAddress" (optional) and stores them into the "RxBuf". At success the function returns 1, on failure -1.
-* e.g.
-* read 2 bytes into buf
+* This function reads "length" number of bytes from the i2c bus and stores them into the "RxBuf". At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* read 2 bytes into buf<br>
 * receive(buf, 2);
-*
-* read 3 bytes into buf from a register with the address 0x12
-* receive(0x12, buf, 3);
-* @param RegisterAddress Address of the register you want to read from
 * @param RxBuf Receive buffer. The read bytes will be stored in it.
 * @param length Amount of bytes that will be read.
 * @return success: 1, failure: -1
@@ -121,14 +117,10 @@ void gnublin_i2c::setDevicefile(std::string filename){
 * @~german 
 * @brief Empfängt Bytes vom I2C Bus.
 *
-* Diese Funktion liest "length" Anzahl an Bytes aus dem Register "RegisterAddress" (optional) und speichert diese in "RxBuf". Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.
-* Beispiele:
-* Lese 2 Bytes und speichere diese in "buf":
+* Diese Funktion liest "length" Anzahl an Bytes vom I2C Bus und speichert diese in "RxBuf". Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiele:<br>
+* Lese 2 Bytes und speichere diese in "buf":<br>
 * receive(buf, 2);
-*
-* Lese 3 Bytes aus Register 0x12 und speichere sie in "buf":
-* receive(0x12, buf, 3);
-* @param RegisterAddress Adresse des zu lesenden Registers.
 * @param RxBuf Empfangs Puffer. Die gelesenen Bytes werden hier gespeichert.
 * @param length Anzahl der zu lesenden Bytes.
 * @return Erfolg: 1, Misserfolg: -1
@@ -167,12 +159,12 @@ int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 /** @~english 
 * @brief receive bytes from the I2C bus.
 *
-* This function reads "length" number of bytes from the register "RegisterAddress" (optional) and stores them into the "RxBuf". At success the function returns 1, on failure -1.
-* e.g.
-* read 2 bytes into buf
-* receive(buf, 2);
-*
-* read 3 bytes into buf from a register with the address 0x12
+* This function reads "length" number of bytes from the register "RegisterAddress" and stores them into the "RxBuf". At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* read 2 bytes into buf<br>
+* receive(buf, 2);<br><br>
+* 
+* read 3 bytes into buf from a register with the address 0x12<br>
 * receive(0x12, buf, 3);
 * @param RegisterAddress Address of the register you want to read from
 * @param RxBuf Receive buffer. The read bytes will be stored in it.
@@ -182,19 +174,18 @@ int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 * @~german 
 * @brief Empfängt Bytes vom I2C Bus.
 *
-* Diese Funktion liest "length" Anzahl an Bytes aus dem Register "RegisterAddress" (optional) und speichert diese in "RxBuf". Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.
-* Beispiele:
-* Lese 2 Bytes und speichere diese in "buf":
-* receive(buf, 2);
+* Diese Funktion liest "length" Anzahl an Bytes aus dem Register "RegisterAddress" und speichert diese in "RxBuf". Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiele:<br>
+* Lese 2 Bytes und speichere diese in "buf":<br>
+* receive(buf, 2);<br><br>
 *
-* Lese 3 Bytes aus Register 0x12 und speichere sie in "buf":
+* Lese 3 Bytes aus Register 0x12 und speichere sie in "buf":<br>
 * receive(0x12, buf, 3);
 * @param RegisterAddress Adresse des zu lesenden Registers.
 * @param RxBuf Empfangs Puffer. Die gelesenen Bytes werden hier gespeichert.
 * @param length Anzahl der zu lesenden Bytes.
 * @return Erfolg: 1, Misserfolg: -1
 */
-
 int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length){
 	error_flag=false;	
 	int fd;
@@ -232,24 +223,29 @@ int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, in
 	return 1;
 }
 
-
-//-----------------------------------send-----------------------------------
-// send data to the i2c Bus
-//
-// parameters:		[unsigned char]RegisterAddress 	specify the address of a register you want to write to
-//			[char*]TxBuf 			transmit buffer. the data you want to send is stored in it
-// 			[int]length			amount of bytes that will be sent.
-// return:		[int]  1			success
-// 			[int] -1			failure
-//
-//
-// e.g.
-// send 2 bytes from buf
-// send (buf, 2);
-// 
-// send 3 bytes from buf to a register with the address 0x12
-// send (0x12, buf, 3);
-//---------------------------------------------------------------------------
+//----------------------------------send----------------------------------
+/** @~english 
+* @brief send bytes to the I2C bus.
+*
+* This function sends "length" number of bytes from the "TxBuf" to the i2c bus. At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* send 2 bytes from buf to the I2C bus<br>
+* send (buf, 2);
+* @param TxBuf Transmit buffer. The bytes you want to send are stored in it.
+* @param length Amount of bytes that will be send.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief sendet Bytes an den I2C Bus.
+*
+* Diese Funktion sendet "length" Anzahl an Bytes aus dem "TxBuf" an den I2C Bus. Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiele:<br>
+* Sende 2 Bytes von "buf" an den i2c Bus:
+* send(buf, 2);
+* @param RxBuf Sende Puffer. Die zu sendenden Bytes sind hier gespeichert.
+* @param length Anzahl der zu sendenden Bytes.
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_i2c::send(unsigned char *TxBuf, int length){
 	error_flag=false;	
 	int fd; 
@@ -279,6 +275,37 @@ int gnublin_i2c::send(unsigned char *TxBuf, int length){
 	return 1;
 }
 
+//----------------------------------send----------------------------------
+/** @~english 
+* @brief send bytes to the I2C bus.
+*
+* This function sends "length" number of bytes from the "TxBuf" to the register "RegisterAddress". At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* send 2 bytes from buf to the I2C bus<br>
+* send (buf, 2);<br><br>
+*
+* send 3 bytes from buf to a register with the address 0x12<br>
+* send (0x12, buf, 3);
+* @param RegisterAddress Address of the register you want to send the bytes to
+* @param TxBuf Transmit buffer. The bytes you want to send are stored in it.
+* @param length Amount of bytes that will be send.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief sendet Bytes an den I2C Bus.
+*
+* Diese Funktion sendet "length" Anzahl an Bytes aus dem "TxBuf" an das Register "RegisterAddress". Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiele:<br>
+* Sende 2 Bytes von "buf" an den i2c Bus:
+* send(buf, 2);<br><br>
+*
+* Sende 3 Bytes aus "buf" an das Register mit der Adresse 0x12:<br>
+* send(0x12, buf, 3);
+* @param RegisterAddress Adresse des Registers in das man schreiben will.
+* @param RxBuf Sende Puffer. Die zu sendenden Bytes sind hier gespeichert.
+* @param length Anzahl der zu sendenden Bytes.
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int length){
 	error_flag=false;	
 	int fd, i;
@@ -315,6 +342,27 @@ int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int l
 	return 1;
 }
 
+//----------------------------------send----------------------------------
+/** @~english 
+* @brief send a byte to the I2C bus.
+*
+* This function sends a byte to the i2c bus. At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* send 0xff to the I2C bus<br>
+* send (0xff);
+* @param value byte that will be send.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief sendet 1 Byte an den I2C Bus.
+*
+* Diese Funktion sendet ein byte an den i2c Bus. Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiel:<br>
+* Sende 0xff an den i2c Bus:<br>
+* send(0xff);
+* @param value Byte das gesendet wird.
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_i2c::send(int value){
 	error_flag=false;
 	int buffer[1];
