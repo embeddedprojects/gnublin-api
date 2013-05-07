@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/07/13 09:22
+//build date: 05/07/13 10:13
 //******************************************** 
 
 #include"gnublin.h"
@@ -72,7 +72,7 @@ const char *gnublin_gpio::getErrorMessage(){
 }
 
 int gnublin_gpio::pinMode(int pin, std::string direction){
-	#if (BOARD == RASPBERRY_PI)
+	#if (BOARD != RASPBERRY_PI)
 	if (pin == 4 && direction == "out"){
 		error_flag = true;
 		return -1;
@@ -102,10 +102,12 @@ int gnublin_gpio::pinMode(int pin, std::string direction){
 }
 
 int gnublin_gpio::digitalWrite(int pin, int value){
+	#if (BOARD != RASPBERRY_PI)
 	if (pin == 4){
 		error_flag = true;
 		return -1;
 	}
+	#endif
 	if (value != 0 && value != 1){
 		error_flag = true;
 		return -1;
