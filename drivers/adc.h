@@ -1,6 +1,6 @@
 #include "../include/includes.h"
 
-#ifndef BOARD_RASPBERRYPI
+#if (BOARD == RASPBERRY_PI)
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
