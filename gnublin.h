@@ -1,10 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-<<<<<<< HEAD
-//build date: 05/06/13 15:40
-=======
-//build date: 05/06/13 14:34
->>>>>>> 3192e22e47f6141359c26b823652e89747a85b40
+//build date: 05/07/13 09:08
 //******************************************** 
 
 #ifndef INCLUDE_FILE
@@ -364,10 +360,14 @@ public:
 
 
 
-//*******************************************************************
-//Class for accessing GNUBLIN Module-LCD 4x20
-//*******************************************************************
-
+/**
+* @class gnublin_module_lcd
+* @~english
+* @brief Class for accessing GNUBLIN Module-LCD 4x20
+* @~german 
+* @brief Klasse für den zugriff auf das GNUBLIN Module-LCD 4x20
+* 
+*/ 
 class gnublin_module_lcd {
 		bool error_flag;
 		gnublin_module_pca9555 pca;
@@ -379,15 +379,15 @@ public:
 		bool fail();
 		void setAddress(int Address);
 		void setDevicefile(std::string filename);
-		int lcd_out(unsigned char rsrw, unsigned char data );
-		int lcd_data(unsigned char data);
-		int lcd_command(unsigned char data);
-		int lcd_clear();
-		int lcd_home();
-		int lcd_setdisplay(int cursor, int blink);
-		int lcd_setcursor(unsigned char x, unsigned char y);
-		int lcd_string(const char *data);
-		int lcd_init();
+		int out(unsigned char rsrw, unsigned char data );
+		int sendData(unsigned char data);
+		int command(unsigned char data);
+		int clear();
+		int home();
+		int setdisplay(int cursor, int blink);
+		int setcursor(unsigned char x, unsigned char y);
+		int string(const char *data);
+		int init();
 		
 };
 #endif
