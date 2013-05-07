@@ -1,6 +1,6 @@
 objects = gnublin-adcmod
 path = ../../
-include ../../API.conf
+include ../../API-config.mk
 
 all: gnublin.o $(objects)
 
