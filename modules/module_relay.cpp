@@ -10,11 +10,11 @@
 /** @~english 
 * @brief Set standards.
 *
-* Set Port 0 to OUTPUT, set standard i2c address 0x20, set ErrorFlag false
+* Set standard i2c address 0x20, set ErrorFlag false
 * @~german 
 * @brief Setze Standartwerte.
 *
-* Setze Port 0 als Ausgang, setze standart i2c Adresse 0x20 und setze das ErrorFlag auf false.
+* Setze standard i2c Adresse 0x20 und setze das ErrorFlag auf false.
 */
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
