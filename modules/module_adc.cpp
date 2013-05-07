@@ -67,13 +67,13 @@ bool gnublin_module_adc::fail() {
 * @~english
 * @brief Set the I2C Address
 *
-* @param I2C Address
+* @param address I2C Address
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt die I2C Adresse.
 *
-* @param I2C Adresse
+* @param address I2C Adresse
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_adc::setAddress(int address) {
@@ -96,14 +96,14 @@ int gnublin_module_adc::setAddress(int address) {
 * @brief Set a custom I2C devicefile
 *
 * default devicefile: "/dev/i2c-1"
-* @param path of the devicefile
+* @param filename path of the devicefile
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt ein benutzerdefiniertes Devicefile.
 *
 * Standard Devicefile ist "/dev/i2c-1"
-* @param Pfad zum Devicefile
+* @param filename Pfad zum Devicefile
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_adc::setDevicefile(std::string filename) {
@@ -122,13 +122,13 @@ int gnublin_module_adc::setDevicefile(std::string filename) {
 * @~english
 * @brief Set the reverencevoltage to intern or extern
 *
-* @param IN (1) for intern (2.5V), OUT (0) for extern (3.3V)
+* @param value IN (1) for intern (2.5V), OUT (0) for extern (3.3V)
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt die referenzspannung auf intern oder extern.
 *
-* @param IN (1) für intern (2,5V), OUT (0) für extern (3,3V)
+* @param value IN (1) für intern (2,5V), OUT (0) für extern (3,3V)
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_module_adc::setReference(int value) {
@@ -155,13 +155,13 @@ int gnublin_module_adc::setReference(int value) {
 * @~english
 * @brief Get a value of an ADC channel in reference to GND
 *
-* @param Number of the ADC-channel (1-8)
+* @param channel Number of the ADC-channel (1-8)
 * @return value
 *
 * @~german
 * @brief Liefert den Wert eine ADC Ports bezogen zu GND
 *
-* @param Nummer des ADC-Ports (1-8)
+* @param channel Nummer des ADC-Ports (1-8)
 * @return Wert
 */
 int gnublin_module_adc::getValue(int channel) {
@@ -223,8 +223,8 @@ int gnublin_module_adc::getValue(int channel) {
 * 4 - 3<br>
 * 6 - 5<br>
 * 8 - 7<br>
-* @param Number of the first ADC-channel 
-* @param Number of the second ADC-channel
+* @param channel1 Number of the first ADC-channel 
+* @param channel2 Number of the second ADC-channel
 * @return value
 *
 * @~german
@@ -239,8 +239,8 @@ int gnublin_module_adc::getValue(int channel) {
 * 4 - 3<br>
 * 6 - 5<br>
 * 8 - 7<br>
-* @param Nummer des ersten ADC-Ports
-* @param Nummer des zweiten ADC-Ports
+* @param channel1 Nummer des ersten ADC-Ports
+* @param channel2 Nummer des zweiten ADC-Ports
 * @return Wert
 */
 int gnublin_module_adc::getValue(int channel1, int channel2) {
@@ -299,13 +299,13 @@ int gnublin_module_adc::getValue(int channel1, int channel2) {
 * @~english
 * @brief Get the voltage of an ADC channel in reference to GND in mV
 *
-* @param Number of the ADC-channel (1-8)
+* @param channel Number of the ADC-channel (1-8)
 * @return value in mV
 *
 * @~german
 * @brief Liefert den Wert eine ADC Ports bezogen zu GND in mV
 *
-* @param Nummer des ADC-Ports (1-8)
+* @param channel Nummer des ADC-Ports (1-8)
 * @return Wert in mV
 */
 int gnublin_module_adc::getVoltage(int channel) {
@@ -333,8 +333,8 @@ int gnublin_module_adc::getVoltage(int channel) {
 * 4 - 3<br>
 * 6 - 5<br>
 * 8 - 7<br>
-* @param Number of the first ADC-channel 
-* @param Number of the second ADC-channel
+* @param channel1 Number of the first ADC-channel 
+* @param channel2 Number of the second ADC-channel
 * @return voltage in mV
 *
 * @~german
@@ -349,8 +349,8 @@ int gnublin_module_adc::getVoltage(int channel) {
 * 4 - 3<br>
 * 6 - 5<br>
 * 8 - 7<br>
-* @param Nummer des ersten ADC-Ports
-* @param Nummer des zweiten ADC-Ports
+* @param channel1 Nummer des ersten ADC-Ports
+* @param channel2 Nummer des zweiten ADC-Ports
 * @return Wert in mV
 */
 int gnublin_module_adc::getVoltage(int channel1, int channel2) {

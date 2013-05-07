@@ -86,13 +86,13 @@ const char *gnublin_spi::getErrorMessage(){
 * @~english
 * @brief Set the custom chipselect pin
 *
-* @param Number of the chipselect-pin
+* @param cs Number of the chipselect-pin
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt den benutzerdefinierten Chipselect-Pin.
 *
-* @param Nummer des Chipselect-Pin
+* @param cs Nummer des Chipselect-Pin
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setCS(int cs){
@@ -124,13 +124,13 @@ int gnublin_spi::setCS(int cs){
 * @~english
 * @brief Set the SPI-mode
 *
-* @param Number of the SPI-Mode
+* @param mode Number of the SPI-Mode
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt den SPI-Modus
 *
-* @param Nummer SPI-Modus
+* @param mode Nummer SPI-Modus
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setMode(unsigned char mode){
@@ -173,13 +173,13 @@ int gnublin_spi::getMode(){
 * @~english
 * @brief Set the LSB-mode
 *
-* @param 0: MSB first, 1 LSB first
+* @param lsb 0: MSB first, 1 LSB first
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Setzt den LSB-Modus.
 *
-* @param 0: MSB zuerst; 1 LSB zuerst
+* @param lsb 0: MSB zuerst; 1 LSB zuerst
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setLSB(unsigned char lsb){
@@ -222,13 +222,13 @@ int gnublin_spi::getLSB(){
 * @~english
 * @brief Set the lenght of the words which will be send
 *
-* @param Number of bits of each word
+* @param bits Number of bits of each word
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Legt die Länge der gesendeten Wörter fest
 *
-* @param Anzahl der Bits je Word
+* @param bits Anzahl der Bits je Word
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setLength(unsigned char bits){
@@ -271,13 +271,13 @@ int gnublin_spi::getLength(){
 * @~english
 * @brief Set the speed of the SPI-Bus
 *
-* @param Speed in Hz
+* @param speed Speed in Hz
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Legt die Geschwindigkeit des SPI-Buses fest.
 *
-* @param Geschwindigkeit in Hz
+* @param speed Geschwindigkeit in Hz
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setSpeed(unsigned int speed){
@@ -319,15 +319,15 @@ int gnublin_spi::getSpeed(){
 * @~english
 * @brief Receive data from SPI Bus
 *
-* @param Buffer for recived datas
-* @param Length of recived data
+* @param buffer Buffer for recived datas
+* @param len Length of recived data
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Empfängt Daten über den SPI-Bus
 *
-* @param Buffer für die empfangenen Daten
-* @param Anzahl der zu empfangenden Zeichen
+* @param buffer Buffer für die empfangenen Daten
+* @param len Anzahl der zu empfangenden Zeichen
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::receive(char* buffer, int len){
@@ -345,15 +345,15 @@ int gnublin_spi::receive(char* buffer, int len){
 * @~english
 * @brief Send data over the SPI Bus
 *
-* @param Datas which will be send
-* @param Length of datas
+* @param tx Datas which will be send
+* @param length Length of datas
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Sendet Daten über den SPI-Bus
 *
-* @param Zu sendende Daten
-* @param Anzahl der zu sendenden Zeichen
+* @param tx Zu sendende Daten
+* @param length Anzahl der zu sendenden Zeichen
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::send(unsigned char* tx, int length){
@@ -376,30 +376,24 @@ int gnublin_spi::send(unsigned char* tx, int length){
 
 
 //****************************** message() ********************************
-// send and read data over SPI bus (half duplex)
-// paramters:	* [__u8*] tx	data which will be send
-//		* [int] tx_length	length of data which will be send
-//		* [__u8*] rx	buffer for data which will be recived
-//		* [int] rx_length	length of data which will be recived
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
+
 /**
 * @~english
 * @brief Send and recive data over the SPI-Bus (half duplex)
 *
-* @param Data which will be send
-* @param Length of data which will be send
-* @param Buffer for recived datas
-* @param length of recived datas
+* @param tx Data which will be send
+* @param tx_length Length of data which will be send
+* @param rx Buffer for recived datas
+* @param rx_length length of recived datas
 * @return 1 by success, -1 by failure
 *
 * @~german
 * @brief Sendet und empfängt daten über den SPI-Bus (halb duplex).
 *
-* @param Zu sendende Daten
-* @param Anzahl der zu sendenden Zeichen
-* @param Buffer für den Datenempfang
-* @param Anzahl der zu empfangenden Zeichen
+* @param tx Zu sendende Daten
+* @param tx_length Anzahl der zu sendenden Zeichen
+* @param rx Buffer für den Datenempfang
+* @param rx_length Anzahl der zu empfangenden Zeichen
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, int rx_length){
