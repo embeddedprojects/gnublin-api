@@ -70,7 +70,7 @@ void pars_opts(int argc, char **argv) {
         }
 	if (hflag)
         {
-                printf("This program was designed to easily interact with the dogm display.\n\n", argv[0]);            
+                printf("This program was designed to easily interact with the dogm display.\n\n");            
                 puts("-w write string to display\n"
 		"-l set string on line (1 = line 1; 2 = line 2)\n"
 		"-j Convert Output to json Format\n"
