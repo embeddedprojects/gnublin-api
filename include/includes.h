@@ -20,6 +20,10 @@
 
 #include "functions.h"
 
+//BOARDS
+#define GNUBLIN 1
+#define RASPBERRY_PI 2
+
 #define OUTPUT 	"out"
 #define INPUT	"in"
 #define LOW	0
