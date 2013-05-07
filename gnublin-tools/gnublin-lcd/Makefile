@@ -1,4 +1,4 @@
-objects = gnublin-relay
+objects = gnublin-lcd
 path = ../../
 include ../../API-config.mk
 

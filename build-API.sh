@@ -15,7 +15,6 @@ echo "//********************************************
 //build date: $build_time
 //******************************************** \n" > gnublin.h
 
-#touch include_tmp.h
 cat include/includes.h >> include_tmp.h
 sed -i "/#endif/d" include_tmp.h
 cat include_tmp.h >> gnublin.h

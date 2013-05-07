@@ -18,9 +18,21 @@ using namespace std;
 
 gnublin_module_dogm dogm;
 
-int hflag = 0, resetflag = 0, cursorflag = 0, shiftflag = 0, json_flag = 0, pinflag = 0, csflag = 0, init_flag = 0;
-int displayflag = 0, clearflag = 0, lineflag = 0;
-int cursor_offset = 0, shift_val = 0, c, line_number = 0;
+int hflag = 0; 
+int resetflag = 0;
+int cursorflag = 0;
+int shiftflag = 0;
+int json_flag = 0;
+int bare_flag = 0;
+int pinflag = 0;
+int csflag = 0;
+int init_flag = 0;
+int displayflag = 0;
+int clearflag = 0;
+int lineflag = 0;
+int cursor_offset = 0;
+int shift_val = 0;
+int c, line_number = 0;
 int pinnumber = 14;
 int csnumber = 11;
 char* string_display;
@@ -38,7 +50,7 @@ int error_msg(char* msg){
 
 
 void pars_opts(int argc, char **argv) {
-	while((c = getopt(argc,argv,"ndjhw:l:o:s:g:ic:")) != -1){
+	while((c = getopt(argc,argv,"bndjhw:l:o:s:g:ic:")) != -1){
                 switch(c)
                 {
                         case 'h' : hflag = 1;					break;                              /* help */
@@ -52,6 +64,7 @@ void pars_opts(int argc, char **argv) {
                         case 'g' : pinnumber =  atoi(optarg); pinflag = 1;	break;
                         case 'c' : csnumber =  atoi(optarg);  csflag = 1;	break;
                         case 'i' : init_flag = 1;				break;
+			case 'b' : bare_flag = 1;				break;
                 }
 
         }
@@ -67,7 +80,9 @@ void pars_opts(int argc, char **argv) {
 		"-s[+/-x] shift display [x] times(left shift = - ; right shift= +  \n"
 		"-g <X> Use GPIO Pin X instead default GPIO Pin 14 (For RS Pin on DOGM Display)\n"
 		"-i -c <Y> Only initialize the spidev module with <Y> as Chipselect Pin.(default:<Y>=11)\n"
-		"\n\nExamples:\nWrite Hello to the Display:\ngnublin-dogm -n -w \"Hello\"\n\nWrite Hello to the Display connected with CS-Pin=18\ngnublin-dogm -n -w \"Hello\" -d /dev/spidev0.18\n\nJump to the second Line with Cursor\ngnublin-dogm -o 192\n\n"
+		"\n\nExamples:\nWrite Hello to the Display:\ngnublin-dogm -n -w \"Hello\"\n\n"
+		"Write Hello to the Display connected with CS-Pin=18\ngnublin-dogm -n -w \"Hello\" -c 18\n\n"
+		"Jump to the second Line with Cursor\ngnublin-dogm -l 2\n\n"
 		"All operations except [-w with -o and -s] and [-o with -s] are allowed\n");
 
 		exit(1);

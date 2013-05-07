@@ -9,8 +9,9 @@
 // set RS-PIN to 14 / for RPi to 4
 // set RS-PIN as OUTPUT
 gnublin_module_dogm::gnublin_module_dogm(){
-#ifdef BOARD_RASPBERRYPI
-	rs_pin=4;
+
+#if (BOARD == RASPBERRY_PI)
+	rs_pin = 4;
 #else
 	rs_pin = 14;
 #endif

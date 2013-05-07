@@ -1,3 +1,14 @@
+/**
+* @class gnublin_module_step
+* @~english
+* @brief Class for accessing GNUBLIN module-step
+*
+* The GNUBLIN Module-step can be easily controlled with the gnublin_step API. The Module uses the I2C-Bus.
+* @~german 
+* @brief Klasse für den zugriff auf das GNUBLIN module-step
+*
+* Das GNUBLIN module-step lässt sich mit Hilfe der gnublin_step API ganz einfach ansteuern. Das Modul nutzt die I2C-Schnittstelle.  
+*/ 
 class gnublin_module_step {
 	gnublin_i2c i2c;
 

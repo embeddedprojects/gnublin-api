@@ -81,9 +81,12 @@
 * @class gnublin_module_lcd
 * @~english
 * @brief Class for accessing GNUBLIN Module-LCD 4x20
+*
+* The GNUBLIN Module-LCD_4x20 can be easily controlled with the gnublin_lcd API. The Display uses the I2C-Bus.
 * @~german 
 * @brief Klasse für den zugriff auf das GNUBLIN Module-LCD 4x20
-* 
+*
+* Das GNUBLIN Module-LCD_4x20 lässt sich mit Hilfe der gnublin_lcd API ganz einfach ansteuern. Das Display nutzt die I2C-Schnittstelle.  
 */ 
 class gnublin_module_lcd {
 		bool error_flag;

@@ -1,4 +1,4 @@
-objects = gnublin-relay
+objects = gnublin-step
 path = ../../
 include ../../API-config.mk
 
