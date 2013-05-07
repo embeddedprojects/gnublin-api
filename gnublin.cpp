@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/07/13 09:08
+//build date: 05/07/13 09:22
 //******************************************** 
 
 #include"gnublin.h"
@@ -72,7 +72,7 @@ const char *gnublin_gpio::getErrorMessage(){
 }
 
 int gnublin_gpio::pinMode(int pin, std::string direction){
-	#ifndef BOARD_RASPBERRYPI
+	#if (BOARD == RASPBERRY_PI)
 	if (pin == 4 && direction == "out"){
 		error_flag = true;
 		return -1;
@@ -409,14 +409,14 @@ int gnublin_i2c::send(int value){
 
 gnublin_spi::gnublin_spi(){
 	error_flag = false;
-	#ifdef BOARD_RASPBERRYPI
+	#if (BOARD == RASPBERRY_PI)
 	std::string device = "/dev/spidev0.0";
 	#else
 	std::string device = "/dev/spidev0.11";
 	#endif
 	fd = open(device.c_str(), O_RDWR);
 	if (fd < 0) {
-		#ifdef BOARD_RASPBERRYPI
+		#if (BOARD == RASPBERRY_PI)
 		system("modprobe spi-bcm2708");
 		#else
 		system("modprobe spidev cs_pin=11");
@@ -464,7 +464,7 @@ int gnublin_spi::setCS(int cs){
 	std::string device = "/dev/spidev0." + cs_str;
 	fd = open(device.c_str(), O_RDWR);
 	if (fd < 0) {
-		#ifdef BOARD_RASPBERRYPI
+		#if (BOARD == RASPBERRY_PI)
 		std::string command = "modprobe spi-bcm2708 cs_pin=" + cs_str;
 		#else
 		std::string command = "modprobe spidev cs_pin=" + cs_str;
@@ -687,7 +687,7 @@ int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, in
 }
 
 
-#ifndef BOARD_RASPBERRYPI
+#if (BOARD == RASPBERRY_PI)
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
@@ -756,7 +756,7 @@ bool gnublin_adc::fail(){
 // set RS-PIN to 14
 // set RS-PIN as OUTPUT
 gnublin_module_dogm::gnublin_module_dogm(){
-#ifdef BOARD_RASPBERRYPI
+#if (BOARD == RASPBERRY_PI)
 	rs_pin = 4;
 #else
 	rs_pin = 14;
