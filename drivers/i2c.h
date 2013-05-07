@@ -2,6 +2,17 @@
 //*******************************************************************
 //Class for accessing GNUBLIN i2c Bus
 //*******************************************************************
+/**
+* @class gnublin_i2c
+* @~english
+* @brief Class for accessing GNUBLIN i2c bus
+*
+* The GNUBLIN I2C bus can easily accessed with this class
+* @~german 
+* @brief Klasse für den zugriff auf den GNUBLIN I2C Bus
+*
+* Die GNUBLIN I2C Klasse gewährt einfachen Zugriff auf den I2C Bus
+*/ 
 
 class gnublin_i2c {
 	bool error_flag;
