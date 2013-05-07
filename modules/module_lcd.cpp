@@ -1,14 +1,17 @@
 #include "module_lcd.h"
 #include "../include/includes.h"
-#include "module_pca9555.cpp"
 
 //*******************************************************************
 //Class for accessing GNUBLIN Module-LCD 4x20
 //*******************************************************************
 
-//-------------Konstruktor-------------
-// set error flag=false
-
+/** @~english 
+* @brief Reset the ErrorFlag.
+*
+* @~german 
+* @brief Setzt das ErrorFlag zurück.
+*
+*/
 gnublin_module_lcd::gnublin_module_lcd() 
 {
 	version = (char *) "0.3";

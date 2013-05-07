@@ -1,10 +1,13 @@
 #include "module_step.h"
 #include "../include/includes.h"
-#include "../drivers/i2c.cpp"
 
-//------------------Konstruktor------------------
-// set irun and vmax to the default values 
-
+/** @~english 
+* @brief Set irun and vmax to the default values (irun = 15, vmax = 8).
+*
+* @~german 
+* @brief Setzt die Standartwerte für irun und vmax (irun = 15, vmax = 8).
+*
+*/
 gnublin_module_step::gnublin_module_step()
 {
 	irun = 15;
@@ -12,40 +15,69 @@ gnublin_module_step::gnublin_module_step()
 }
 
 
-//-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
-
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This Funktion returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
 const char *gnublin_module_step::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 
-//-------------set Address-------------
-// set the slave address
-// parameters:		[int]Address	i2c slave Address
-// return:			NONE
-
+/** @~english 
+* @brief Set the slave address 
+*
+* With this function you can set the individual I2C Slave-Address of the module.
+* @param Address new I2C slave Address
+*
+* @~german 
+* @brief Gibt das Error Flag zurück.
+*
+* Mit dieser Funktion kann die individuelle I2C Slave-Adresse des Moduls gesetzt werden.
+* @param Address neue I2C slave Adresse
+*/
 void gnublin_module_step::setAddress(int Address){
 	i2c.setAddress(Address);
 }
 
-//-------------------set devicefile----------------
-// set the i2c device file. default is "/dev/i2c-1"
-// parameters:		[string]filename	path to the dev file
-// return:			NONE
-
+/** @~english 
+* @brief Set devicefile.
+*
+* With this function you can change the I2C device file. Default is "/dev/i2c-1"
+* @param filename path to the I2C device file
+*
+* @~german 
+* @brief Setzt Device Datei.
+*
+* Mit dieser Funktion kann die I2C Gerätedatei geändert werden. Standartmäßig wird "/dev/i2c-1" benutzt.
+* @param filename Pfad zur I2C Gerätedatei
+*/
 void gnublin_module_step::setDevicefile(std::string filename){
 	i2c.setDevicefile(filename);
 }
 
-//-------------------set irun----------------
-// set the Irun = newIrun
-// parameters:		[unsigned int]newIrun	new Irun Value
-// returns:			[int]  1			success
-// 					[int] -1			failure
-
+/** @~english 
+* @brief Set Irun.
+*
+* This Funktion sets the new Irun value.
+* @param newIrun values from 0 to 15 are possible
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Setze Irun.
+*
+* Diese Funktion setzt den neuen Irun Wert
+* @param newIrun Werte von 0 bis 15
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::setIrun(unsigned int newIrun){
 	if(newIrun <= 15){
 		irun=newIrun;
@@ -54,11 +86,20 @@ int gnublin_module_step::setIrun(unsigned int newIrun){
 	else return -1;
 }
 
-//-------------------set ihold----------------
-// set the ihold = newIhold
-// parameters:		[unsigned int]newIhold	new ihold Value
-// returns:			[int]  1				success
-// 					[int] -1				failure
+/** @~english 
+* @brief Set Ihold.
+*
+* This Funktion sets the new Ihold value.
+* @param newIhold values from 0 to 15 are possible
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Setze Ihold
+*
+* Diese Funktion setzt den neuen Ihold Wert
+* @param newIhold Werte von 0 bis 15
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::setIhold(unsigned int newIhold){
 	if(newIhold <= 15){
 		ihold=newIhold;
@@ -67,11 +108,20 @@ int gnublin_module_step::setIhold(unsigned int newIhold){
 	else return -1;
 }
 
-//-------------------set vmax----------------
-// set the vmax = newVmax
-// parameters:		[unsigned int]newVmax	new vmax Value
-// returns:			[int]  1				success
-// 					[int] -1				failure
+/** @~english 
+* @brief Set Vmax.
+*
+* This Funktion sets the new Vmax value.
+* @param newVmax values from 0 to 15 are possible
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Setze Vmax
+*
+* Diese Funktion setzt den neuen Vmax Wert
+* @param newVmax Werte von 0 bis 15
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::setVmax(unsigned int newVmax){
 	if(newVmax <= 15){
 		vmax=newVmax;
@@ -80,11 +130,20 @@ int gnublin_module_step::setVmax(unsigned int newVmax){
 	else return -1;
 }
 
-//-------------------set vmin----------------
-// set the vmin = newVmin
-// parameters:		[unsigned int]newVmin	new vmin Value
-// returns:			[int]  1				success
-// 					[int] -1				failure
+/** @~english 
+* @brief Set Vmin.
+*
+* This Funktion sets the new Vmin value.
+* @param newVmin values from 0 to 15 are possible
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Setze Vmin
+*
+* Diese Funktion setzt den neuen Vmin Wert
+* @param newVmin Werte von 0 bis 15
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::setVmin(unsigned int newVmin){
 	if(newVmin <= 15){
 		vmin=newVmin;
@@ -94,13 +153,22 @@ int gnublin_module_step::setVmin(unsigned int newVmin){
 }
 
 
-//-------------------write TMC----------------
-// write to TMC222 Chip
-// parameters:	[int]num			amount of bytes
-//				[char*]TxBuf 		transmit buffer. the data you want to send is stored in it	
-// return:		[int]  1			success
-// 				[int] -1			failure
-
+/** @~english 
+* @brief Write to TMC.
+*
+* This funktion sends the amount of bytes (num) of the char array TxBuf to the TMC222 chip on the module-step.
+* @param TxBuf Send buffer
+* @param num amount of Bytes
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Sende an TMC.
+*
+* Diese Funktion sendet die Menge (num) an Bytes des Char Array TxBuf an den TMC222 Chip, welcher sich auf dem Moudule-step befindet.
+* @param TxBuf Sende Puffer
+* @param num Anzahl der zu sendenden Bytes
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::writeTMC(unsigned char *TxBuf, int num){
 	if(!i2c.send(TxBuf, num)){
 	    return -1;
@@ -108,13 +176,22 @@ int gnublin_module_step::writeTMC(unsigned char *TxBuf, int num){
 	else return 1;
 }
 
-//-------------------read TMC----------------
-// read from TMC222 Chip
-// parameters:	[int]num			amount of bytes
-//				[char*]RxBuf		receive buffer. The Data will be stored in it. 
-// return:		[int]  1			success
-// 				[int] -1			failure
-
+/** @~english 
+* @brief Read from TMC.
+*
+* This funktion reads the amount of bytes (num) of the TMC222 chip on the module-step and write it to the char array RxBuf.
+* @param RxBuf Receive buffer
+* @param num amount of Bytes
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Sende an TMC.
+*
+* Diese Funktion ließt die Menge (num) an Bytes vom TMC222 Chip, welcher sich auf dem Moudule-step befindet und übergibt das Ergebnis im Char Array RxBuf.
+* @param RxBuf Empfangs Puffer
+* @param num Anzahl der zu lesenden Bytes
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::readTMC(unsigned char *RxBuf, int num){
    	if(!i2c.receive(RxBuf, num)){
        	return -1;
@@ -122,13 +199,23 @@ int gnublin_module_step::readTMC(unsigned char *RxBuf, int num){
 	else return 1;	
 }
 
-//-------------------burn new Address----------------
-// burn a new i2c slave address into the TMC222 Chip
-// parameters:	[int]new_address	the new slave address, which will be burned into the TMC222 Chip
-//
-// return:		[int]  1			success
-// 				[int] -1			failure
 
+/** @~english 
+* @brief Burn a new I2C slave Address.
+*
+* This function calculates the needet bits to burn on the TMC222 chip, to get the new given slave-address. After that, the OTP bits are burned into the Chip.
+* @param new_address the new slave address
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Brennt die übergebene slave Adresse.
+*
+* Diese Funktion berechnet die benötigten Bits, um die neue Adresse auf den Chip zu brennen. Anschließend werden die OTP bits gebrannt.
+* Achtung: Sind die Bits einmal gesetzt, kann dies nicht wieder rückgängig gemacht werden. Falls eine Adresse eingegeben wird, die nicht möglich ist, wird dies von der Funktion gemeldet.
+* 
+* @param new_address die neue Slave Adresse
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::burnNewAddress(int new_address){
 	
 	//SetOTPParam
@@ -186,44 +273,57 @@ int gnublin_module_step::burnNewAddress(int new_address){
 	}
 }
 
-//-------------------get Full Status 1----------------
-// get full status 1 from the TMC222
-// parameters:	NONE
-//
-// return:		[int]  1			success
-// 				[int] -1			failure
-
+/** @~english 
+* @brief Get full Status 1.
+*
+* This funktion sends the getFullStatus1 Command to the Chip.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Get full Status 1.
+*
+* Diese Funktion sendet den getFullStatus1 Befehl an den Chip.
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::getFullStatus1(){
       	if(i2c.send(0x81)){
 		return 1;		
-		}
-		else return -1;
+	}
+	else return -1;
 }
 
-//-------------------get Full Status 2----------------
-// get full status 2 from the TMC222
-// parameters:	NONE
-//
-// return:		[int]  1			success
-// 				[int] -1			failure
-
-
+/** @~english 
+* @brief Get full Status 2.
+*
+* This funktion sends the getFullStatus2 Command to the Chip.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Get full Status 2.
+*
+* Diese Funktion sendet den getFullStatus2 Befehl an den Chip.
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::getFullStatus2(){
-		if(i2c.send(0xfc)){
-			return 1;
-		}
-		else return -1;
+	if(i2c.send(0xfc)){
+		return 1;
+	}
+	else return -1;
 }
 
 
-//-------------------run Init----------------
-// send Run Init command to the TMC222
-// parameters:	NONE
-//
-// return:		[int]  1			success
-// 				[int] -1			failure
-
-
+/** @~english 
+* @brief Run Init.
+*
+* This funktion sends the runInit Command to the Chip.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Run Init.
+*
+* Diese Funktion sendet den runInit Befehl an den Chip.
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::runInit(){
 		if(i2c.send(0x88)){
 		return 1;
@@ -232,17 +332,18 @@ int gnublin_module_step::runInit(){
 }
 
 
-//-------------------set Motor Parameter----------------
-// set the Motor parameters
-// parameters:	[unsigned int]newIrun		new irun value
-//				[unsigned int]newIhold		new ihold value
-//				[unsigned int]newVmax		new vmax value
-//				[unsigned int]newVmin		new vmin value
-//
-// return:		[int]  1				success
-// 				[int] -1				failure
-
-
+/** @~english 
+* @brief Set motor parameter.
+*
+* This function sends the motor parameter to the module.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Setze Motor Parameter.
+*
+* Diese Funktion sendet die eingestellten Motor Parameter an das Modul.
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::setMotorParam(){
 	unsigned char buffer[8];
 	//SetMotorParam
@@ -261,6 +362,27 @@ int gnublin_module_step::setMotorParam(){
 	else return -1;
 }
 
+
+/** @~english 
+* @brief Set motor parameter.
+*
+* This function sends the motor parameter to the module.
+* @param newIrun
+* @param newIhold
+* @param newVmax
+* @param newVmin
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Setze Motor Parameter.
+*
+* Diese Funktion sendet die eingestellten Motor Parameter an das Modul.
+* @param newIrun
+* @param newIhold
+* @param newVmax
+* @param newVmin
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::setMotorParam(unsigned int newIrun, unsigned int newIhold, unsigned int newVmax, unsigned int newVmin){
 	irun=newIrun;
 	ihold=newIhold;
@@ -284,13 +406,18 @@ int gnublin_module_step::setMotorParam(unsigned int newIrun, unsigned int newIho
 	else return -1;
 }
 
-//-------------------hard stop----------------
-// send hard stop command to the TMC222
-// parameters:	NONE
-//
-// return:		[int]  1			success
-// 				[int] -1			failure
-
+/** @~english 
+* @brief Hard stop.
+*
+* This funktion sends the hardStop Command to the Chip. The motor will stop immediately.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Hard Stop.
+*
+* Diese Funktion sendet den hardStop Befehl an den Chip. Der Motor bleibt sofort Stehen.
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::hardStop(){
 		if(i2c.send(0x85)){
 		return 1;
@@ -299,13 +426,18 @@ int gnublin_module_step::hardStop(){
 }
 
 
-//-------------------soft stop----------------
-// send soft stop command to the TMC222
-// parameters:	NONE
-//
-// return:		[int]  1			success
-// 				[int] -1			failure
-
+/** @~english 
+* @brief Soft stop.
+*
+* This funktion sends the softStop Command to the Chip. The motor slows down and stops.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Soft Stop.
+*
+* Diese Funktion sendet den SoftStop Befehl an den Chip. Der Motor fährt langsam herrunter.
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::softStop(){
 		if(i2c.send(0x8f)){
 		return 1;
@@ -313,13 +445,18 @@ int gnublin_module_step::softStop(){
 		else return -1;
 }
 
-//-------------------reset position----------------
-// send reset Position command to the TMC222 and sets the postion to 0
-// parameters:	NONE
-//
-// return:		[int]  1			success
-// 				[int] -1			failure
-
+/** @~english 
+* @brief Reset Position.
+*
+* This funktion sends the resetPosition Command to the Chip. The internal position counter of the chip is reset to 0.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Reset Position.
+*
+* Diese Funktion sendet den resetPosition Befehl an den Chip. Der interne Positions Zähler des Chips wird auf 0 zurückgesetzt.
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::resetPosition(){
 		if(i2c.send(0x86)){
 		return 1;
@@ -327,13 +464,18 @@ int gnublin_module_step::resetPosition(){
 		else return -1;
 }
 
-//-------------------set position----------------
-// send set Position command to the TMC222 
-// parameters:	[int]position		the new position
-//
-// return:		[int]  1			success
-// 				[int] -1			failure
-
+/** @~english 
+* @brief Set Position.
+*
+* This funktion sends the Position Command to the Chip. The motor drives to the given position.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Setze Position.
+*
+* Diese Funktion sendet den Position Befehl an den Chip. Der Motor fährt an die übergebene Position.
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::setPosition(int position){
 	unsigned char buffer[5];
 	buffer[0] = 0x8B;   // SetPosition Command
@@ -348,14 +490,18 @@ int gnublin_module_step::setPosition(int position){
 	else return -1;
 }
 
-//-------------------drive----------------
-// send set Position command to the TMC222 
-// parameters:	[int]steps		the amount of steps to drive (< 0 in negative direction, > 0 in positiv direction)
-//
-// return:		[int]  1			success
-// 			[int] -1			failure
-//
-
+/** @~english 
+* @brief Drive.
+*
+* This Funktion reads the actual position from the motor and adds the amount of given steps to drive. So you can let the motor drive an amount of steps, without heaving trouble with the absolute positions.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Fahre.
+*
+* Diese Funktion ließt die aktuelle Position des Motors und addiert die anzahl der übergebenen Schritte. So kann man den Motor einfach um eine bestimmte Anzahl Schritte fahren lassen, ohne sich über die absoulute Position gedanken machen zu müssen.
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_module_step::drive(int steps){
 	int old_position;
 	int new_position;
@@ -368,22 +514,38 @@ int gnublin_module_step::drive(int steps){
 	else return -1;
 }
 
-//-------------------get Motion Status----------------
-// Indicates the actual behavior of the position controller. 
-// parameters:	NONE
-//
-//return:[int]
-//	0: Actual Position = Target Position; Velocity= 0
-//	1: Positive Acceleration; Velocity > 0
-//	2: Negative Acceleration; Velocity > 0
-//	3: Acceleration = 0 Velocity = maximum pos Velocity
-//	4: Actual Position /= Target Position; Velocity= 0
-//	5: Positive Acceleration; Velocity < 0
-//	6: Positive Acceleration; Velocity < 0
-//	7: Acceleration = 0 Velocity = maximum neg Velocity 
-// 
-//	-1			failure
 
+/** @~english 
+* @brief Get motion status.
+*
+* This funktion Indicates the actual behavior of the position controller. <br>
+*	0: Actual Position = Target Position; Velocity= 0 <br>
+*	1: Positive Acceleration; Velocity > 0 <br>
+*	2: Negative Acceleration; Velocity > 0 <br>
+*	3: Acceleration = 0 Velocity = maximum pos Velocity <br>
+*	4: Actual Position /= Target Position; Velocity= 0 <br>
+*	5: Positive Acceleration; Velocity < 0 <br>
+*	6: Positive Acceleration; Velocity < 0 <br>
+*	7: Acceleration = 0 Velocity = maximum neg Velocity <br>
+*	-1: failure
+*
+* @return motionStatus
+*
+* @~german 
+* @brief Bewegungs-Status.
+*
+* Diese Funktion gibt den aktuellen bewegungs Status des module-step zurück. <br>
+*	0: Aktuelle Position = Ziehl Position; Geschwindigkeit= 0 <br>
+*	1: Positive Beschleunigung; Geschwindigkeit > 0 <br>
+*	2: Negative Beschleunigung; Geschwindigkeit > 0 <br>
+*	3: Beschleunigung = 0; Geschwindigkeit = maximum pos Geschwindigkeit <br>
+*	4: Aktuelle Position /= Ziehl Position; Geschwindigkeit= 0 <br>
+*	5: Positive Beschleunigung; Geschwindigkeit < 0 <br>
+*	6: Positive Beschleunigung; Geschwindigkeit < 0 <br>
+*	7: Acceleration = 0 Geschwindigkeit = maximum neg Geschwindigkeit  <br>
+*	-1: Fehler
+* @return motionStatus
+*/
 int gnublin_module_step::getMotionStatus(){
 	unsigned char RxBuf[8];
 	int motionStatus = -1;
@@ -405,6 +567,24 @@ int gnublin_module_step::getMotionStatus(){
 //				[int]  0			Switch open
 // 				[int] -1			failure
 
+/** @~english 
+* @brief Get switch condition.
+*
+* This function checks the status of the connected switch and returns the value. <br>
+* Switch closed: 1 <br>
+* Switch open: 0 <br>
+* Failure: -1
+* @return success: swi
+*
+* @~german 
+* @brief Setze Position.
+*
+* Diese Funktion überprüft den Zustand des angeschlossenen Schalters und gibt den Wert zurück. <br>
+* Schalter geschlossen: 1 <br>
+* Schalter offen: 0 <br>
+* Fehler: -1
+* @return swi
+*/
 int gnublin_module_step::getSwitch(){
 	unsigned char RxBuf[8];    	
 	int swi = 0;
@@ -424,13 +604,18 @@ int gnublin_module_step::getSwitch(){
 		else return -1;
 }
 
-//-------------------get actual position----------------
-// gets the actual position
-// parameters:	NONE
-//
-// return:		[int]actualPosition		the actual position
-// 				[int] -1				failure
-
+/** @~english 
+* @brief Get actual position.
+*
+* This funktion sends the getActualPosition Command to the Chip and returns its actiual position.
+* @return actualPosition -1 if failure
+*
+* @~german 
+* @brief Aktuelle Position ausgeben.
+*
+* Diese Funktion sendet den getActualPosition Befehl an den Chip und gibt dessen aktuelle Position zurück.
+* @return actualPosition -1 bei Fehler
+*/
 int gnublin_module_step::getActualPosition(){
 	unsigned char RxBuf[8];	
 	int actualPosition=-1;
