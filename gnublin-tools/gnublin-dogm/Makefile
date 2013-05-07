@@ -1,6 +1,6 @@
 objects = gnublin-dogm
 path = ../../
-include ../../variables.mk
+include ../../API.conf
 
 all: gnublin.o $(objects)
 

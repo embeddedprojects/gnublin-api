@@ -1,6 +1,6 @@
 objects = gnublin-lcd
 path = ../../
-include ../../variables.mk
+include ../../API.conf
 
 all: gnublin.o $(objects)
 

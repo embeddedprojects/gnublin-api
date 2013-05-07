@@ -3,7 +3,7 @@ SUBDIRS := $(OBJ:%=gnublin-tools/gnublin-%)
 CLEANDIRS := $(SUBDIRS:%=clean-%)
 INSTALLDIRS := $(SUBDIRS:%=install-%)
 UNINSTALLDIRS := $(SUBDIRS:%=uninstall-%)
-include variables.mk
+include API.conf
 
 .PHONY: gnublin-tools $(SUBDIRS) $(CLEANDIRS) $(INSTALLDIRS)
      

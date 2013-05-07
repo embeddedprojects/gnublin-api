@@ -1,6 +1,6 @@
 objects = gnublin-step
 path = ../../
-include ../../variables.mk
+include ../../API.conf
 
 all: gnublin.o $(objects)
 

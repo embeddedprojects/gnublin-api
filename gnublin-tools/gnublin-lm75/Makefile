@@ -1,6 +1,6 @@
 objects = gnublin-lm75
 path = ../../
-include ../../variables.mk
+include ../../API.conf
 
 all: gnublin.o $(objects)
 

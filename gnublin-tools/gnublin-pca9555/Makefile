@@ -1,6 +1,6 @@
 objects = gnublin-pca9555
 path = ../../
-include ../../variables.mk
+include ../../API.conf
 
 all: gnublin.o $(objects)
 
