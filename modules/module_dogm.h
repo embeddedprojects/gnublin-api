@@ -6,6 +6,17 @@
 // Class for accesing the GNUBLIN MODULE-DISPLAY 2x16
 //***************************************************************************
 
+/**
+* @class gnublin_module_dogm
+* @~english
+* @brief Class for accesing the GNUBLIN MODULE-DISPLAY 2x16
+*
+* This class manages to display datas on the DOGM-Display.
+* @~german
+* @brief Klasse für den Zugriff auf das GNUBLIN MODULE-DISPLAY 2x16.
+*
+* Diese Klasse ermöglicht das Beschrieben des DOGM-Displays.
+*/
 class gnublin_module_dogm{
 	public:
 		gnublin_module_dogm();

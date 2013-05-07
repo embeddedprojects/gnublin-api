@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 05/07/13 14:46
+//build date: 05/07/13 17:11
 //******************************************** 
 
 #ifndef INCLUDE_FILE
@@ -42,10 +42,17 @@ std::string numberToString(int num);
 int hexstringToNumber(std::string str);
 //***** NEW BLOCK *****
 
-//****************************************************************************
-// Class for easy acces to the GPIOs
-//****************************************************************************
-
+/**
+* @class gnublin_gpio
+* @~english
+* @brief Class for accessing GNUBLIN GPIO-Ports
+*
+* With the gnublin_gpio API you can controll the GPIO-Ports of the GNUBLIN Board
+* @~german 
+* @brief Klasse für den zugriff auf die GPIO Pins
+*
+* Mit der gnublin_gpio API lassen sich die GPIO-Ports auf dem GNUBLIN einfach aus dem eigenem Programm heraus ansteuern.  
+*/
 class gnublin_gpio {
 	public:
 		gnublin_gpio();
@@ -84,11 +91,21 @@ public:
 };
 //***** NEW BLOCK *****
 
-
 //***************************************************************************
 // Class for accessing the SPI-Bus
 //***************************************************************************
 
+/**
+* @class gnublin_spi
+* @~english
+* @brief Class for accesing the SPI-Bus.
+*
+* This class manages the sendnd and reciving of Data via the SPI-Bus.
+* @~german
+* @brief Klasse für den Zugriff auf den SPI-Bus.
+*
+* Diese Klasse ermöglicht das Senden und Empfangen von Daten über den SPI-Bus.
+*/
 class gnublin_spi{
 	public:
 		gnublin_spi();
@@ -115,11 +132,21 @@ class gnublin_spi{
 };
 //***** NEW BLOCK *****
 
-#if (BOARD == RASPBERRY_PI)
+#if (BOARD != RASPBERRY_PI)
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
-
+/**
+* @class gnublin_adc
+* @~english
+* @brief Class for easy acces to the GPAs
+*
+* With the gnublin_adc API you can access the GPAs of the GNUBLIN Board
+* @~german 
+* @brief Klasse für den zugriff auf die GPAs
+*
+* Mit der gnublin_adc API lassen sich die GPAs auf dem GNUBLIN einfach aus dem eigenem Programm heraus auslesen.  
+*/
 class gnublin_adc {
 	public:
 		gnublin_adc();
@@ -140,6 +167,17 @@ class gnublin_adc {
 // Class for accesing the GNUBLIN MODULE-DISPLAY 2x16
 //***************************************************************************
 
+/**
+* @class gnublin_module_dogm
+* @~english
+* @brief Class for accesing the GNUBLIN MODULE-DISPLAY 2x16
+*
+* This class manages to display datas on the DOGM-Display.
+* @~german
+* @brief Klasse für den Zugriff auf das GNUBLIN MODULE-DISPLAY 2x16.
+*
+* Diese Klasse ermöglicht das Beschrieben des DOGM-Displays.
+*/
 class gnublin_module_dogm{
 	public:
 		gnublin_module_dogm();
@@ -184,12 +222,21 @@ public:
 };
 //***** NEW BLOCK *****
 
-
-//Hinweis: evtl. Fehlerhaft nicht getestet
 //*****************************************************************************
 // Class for accesing GNUBLIN Module-ADC / ADS7830
 //*****************************************************************************
 
+/**
+* @class gnublin_module_adc
+* @~english
+* @brief Class for accesing the GNUBLIN MODULE-ADC
+*
+* This class manages to use the GNUBLIN MODULE-ADC
+* @~german
+* @brief Klasse für den Zugriff auf das GNUBLIN MODULE-ADC
+*
+* Mit dieser Klasse kann auf das GNUBLIN MODULE-ADC zugegriffen werden.
+*/
 class gnublin_module_adc {
 	public:
 		gnublin_module_adc();

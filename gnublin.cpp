@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/07/13 14:46
+//build date: 05/07/13 17:11
 //******************************************** 
 
 #include"gnublin.h"
@@ -39,11 +39,31 @@ int hexstringToNumber(std::string str){
 	return var;
 }
 
+/** @~english 
+* @brief Reset the ErrorFlag.
+*
+* @~german 
+* @brief Setzt das ErrorFlag zurück.
+*
+*/
 gnublin_gpio::gnublin_gpio(){
 	error_flag = false;
 }
 
 
+
+/** @~english 
+* @brief Removes the GPIO. 
+*
+* Removes the GPIO from the filesystem, after that, you cannot access the pin.
+* @return bool error_flag
+*
+* @~german 
+* @brief Entferne GPIO
+*
+* Entfernt den GPIO aus dem Filesystem, es kann kein Zugriff mehr auf diesen erfolgen.
+* @return bool error_flag
+*/
 int gnublin_gpio::unexport(int pin){
 	std::string pin_str = numberToString(pin);
 	std::string dir = "/sys/class/gpio/unexport";
@@ -58,19 +78,59 @@ int gnublin_gpio::unexport(int pin){
 	return 1;
 }
 
+
+/** @~english 
+* @brief Returns the error flag. 
+*
+* If something went wrong, the flag is true.
+* @return bool error_flag
+*
+* @~german 
+* @brief Gibt das Error Flag zurück.
+*
+* Falls das Error Flag in der Klasse gesetzt wurde, wird true zurück gegeben, anderenfalls false.
+* @return bool error_flag
+*/
 bool gnublin_gpio::fail(){
 	return error_flag;
 }
 
-//-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
-
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This Funktion returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
 const char *gnublin_gpio::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
+/** @~english 
+* @brief Change the PinMode.
+*
+* With this function you can set the pin as input or output. <br>
+* This must be done before all other operations. <br><br>
+* Hint: GPIO 4 can only be used as output.
+* @param pin Pin number to change the mode
+* @param direction direction of the pin (OUTPUT, INPUT)
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Pin Modi festlegen.
+*
+* Mit dieser Funktion kann der Modi des Pins festgelegt werden, also ob er als Eingang oder Ausgang genutzt werden soll. <br>
+* Vor allen anderen Zugriffen muss diese Funktion ausgeführt werden. <br> <br>
+* Hinweis: GPIO 4 kann auf dem GNUBLIN board nur als Ausgang genutzt werden. 
+* @param pin Nummer des GPIO-Pins
+* @param direction Richtung des Pins (OUTPUT, INPUT) 
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_gpio::pinMode(int pin, std::string direction){
 	#if (BOARD != RASPBERRY_PI)
 	if (pin == 4 && direction == "out"){
@@ -101,6 +161,23 @@ int gnublin_gpio::pinMode(int pin, std::string direction){
 	return 1;
 }
 
+
+/** @~english 
+* @brief Write Pin.
+*
+* Set the Pin to the given value. 
+* @param pin Pin number to change the mode
+* @param value Value of the Pin (LOW, HIGH)
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief Pin schreiben.
+*
+* Den GPIO-Pin auf einen bestimmten Wert setzen. 
+* @param pin Nummer des entsprechenden GPIO-Pins
+* @param value Wert auf den der Pin gesetzt werden soll (LOW, HIGH) 
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_gpio::digitalWrite(int pin, int value){
 	#if (BOARD != RASPBERRY_PI)
 	if (pin == 4){
@@ -127,6 +204,20 @@ int gnublin_gpio::digitalWrite(int pin, int value){
 	return 1;
 }
 
+/** @~english 
+* @brief Read Pin.
+*
+* Reads the value of the given pin. 
+* @param pin Pin number to read
+* @return Value of the GPIO-Pin (0,1), -1 in case of failure 
+*
+* @~german 
+* @brief Pin lesen.
+*
+* Abfragen des GPIO-Wertes. 
+* @param pin Nummer des entsprechenden GPIO-Pins
+* @return Wert des GPIO-Pins (0,1), -1 im Fehlerfall 
+*/
 int gnublin_gpio::digitalRead(int pin) {
 	std::string value;
 	
@@ -404,11 +495,20 @@ int gnublin_i2c::send(int value){
 // Class for accessing the SPI-Bus
 //***************************************************************************
 
-
-//********************* constructor *****************************************
-// set standart devicefile "/dev/spidev0.11" with srandart chipselect pin 11
-// opens devicefile
-
+/**
+* @~english
+* @brief Loads the standard SPI driver if necessary.
+*
+* Default chipselect:
+* GNUBLIN: CS = 11
+* RASPBERRY PI: CS = 0
+* @~german
+* @brief Die Standart SPI-Treiber werden geladen, wenn sie noch nicht vorhanden sind.
+*
+* Default chipselect:
+* GNUBLIN: CS = 11
+* RASPBERRY PI: CS = 0
+*/
 gnublin_spi::gnublin_spi(){
 	error_flag = false;
 	#if BOARD == RASPBERRY_PI
@@ -430,7 +530,6 @@ gnublin_spi::gnublin_spi(){
 
 
 //******************** destructor *******************************************
-// close filehadler
 
 gnublin_spi::~gnublin_spi(){
 	close(fd);
@@ -438,29 +537,54 @@ gnublin_spi::~gnublin_spi(){
 
 
 //******************** fail() ***********************************************
-// return: 	[bool] errorflag
-
+/**
+* @~english
+* @brief Returns the errorflag to detect error in the previous called method.
+*
+* @return error_flag
+*
+* @~german
+* @brief Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.
+*
+* @return error_flag
+*/
 bool gnublin_spi::fail(){
 	return error_flag;
 }
 
 
 //-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
-
+/**
+* @~english
+* @brief Returns the ErrorMessage of the previous error if one exist.
+*
+* @return ErrorMessage as C-String
+*
+* @~german
+* @brief Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.
+*
+* @return ErrorMessage als C-String
+*/
 const char *gnublin_spi::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 
 //*********************** setCS *********************************************
-// set custom chipselect and open filehandler
-// paramters: 	[int] cs	Pin for chipselect
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the custom chipselect pin
+*
+* @param Number of the chipselect-pin
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den benutzerdefinierten Chipselect-Pin.
+*
+* @param Nummer des Chipselect-Pin
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setCS(int cs){
 	std::string cs_str = numberToString(cs);
 	std::string device = "/dev/spidev0." + cs_str;
@@ -485,11 +609,20 @@ int gnublin_spi::setCS(int cs){
 
 
 //******************** set Mode *********************************************
-// set SPI Mode
-// parameters:	[int] mode	Modenumber
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the SPI-mode
+*
+* @param Number of the SPI-Mode
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den SPI-Modus
+*
+* @param Nummer SPI-Modus
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setMode(unsigned char mode){
 	if (ioctl(fd, SPI_IOC_WR_MODE, &mode) < 0){
 		error_flag = true;
@@ -501,10 +634,18 @@ int gnublin_spi::setMode(unsigned char mode){
 
 
 //***************** getMode *************************************************
-// read Modenumber from device
-// paramters:	NONE
-// return:	[int] mode	Modenumber
 
+/**
+* @~english
+* @brief Returns the set SPI-Mode
+*
+* @return Number of the SPI-mode
+*
+* @~german
+* @brief Gibt den eingestellten SPI-Modus zurück
+*
+* @return Nummer des SPI-Modus
+*/
 int gnublin_spi::getMode(){
 	__u8 mode;
 	if (ioctl(fd, SPI_IOC_RD_MODE, &mode) < 0){
@@ -517,11 +658,20 @@ int gnublin_spi::getMode(){
 
 
 //******************** setLSB ***********************************************
-// specific how the data will be send
-// paramters: 	[int] lsb	0: MSB first, 1 LSB first
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the LSB-mode
+*
+* @param 0: MSB first, 1 LSB first
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den LSB-Modus.
+*
+* @param 0: MSB zuerst; 1 LSB zuerst
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setLSB(unsigned char lsb){
 	if (ioctl(fd, SPI_IOC_WR_LSB_FIRST, &lsb) < 0){
 		error_flag = true;
@@ -533,10 +683,18 @@ int gnublin_spi::setLSB(unsigned char lsb){
 
 
 //************************ getLSB() *****************************************
-// get LSB-Mode of the device
-// paramters: NONE
-// return:	[int] lsb	Modenumber of the LSB
 
+/**
+* @~english
+* @brief Returns the set LSB-Mode
+*
+* @return 0: MSB first, 1 LSB first
+*
+* @~german
+* @brief Gibt den eingestellten LSB-Modus zurück.
+*
+* @return 0: MSB zuerst; 1 LSB zuerst
+*/
 int gnublin_spi::getLSB(){
 	__u8 lsb;
 	if (ioctl(fd, SPI_IOC_RD_LSB_FIRST, &lsb) < 0) {
@@ -549,11 +707,20 @@ int gnublin_spi::getLSB(){
 
 
 //*********************** setLength() ***************************************
-// set Lenght of Words which will be send
-// paramters: 	[__u8] bits	number of bits
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the lenght of the words which will be send
+*
+* @param Number of bits of each word
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Legt die Länge der gesendeten Wörter fest
+*
+* @param Anzahl der Bits je Word
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setLength(unsigned char bits){
 	if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits) < 0){
 		error_flag = true;
@@ -565,10 +732,18 @@ int gnublin_spi::setLength(unsigned char bits){
 
 
 //************************ getLength() **************************************
-// get word length of the device
-// paramters:	NONE
-// return:	[int] bits	number of bits
 
+/**
+* @~english
+* @brief Returns the length of the words in bits
+*
+* @return Number of bits of each word
+*
+* @~german
+* @brief Gibt die Anzahl von Bits je Wort zurück.
+*
+* @return anzahl der Bits je Wort
+*/
 int gnublin_spi::getLength(){
 	__u8 bits;
 	if (ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits) < 0){
@@ -581,11 +756,20 @@ int gnublin_spi::getLength(){
 
 
 //************************* setSpeed ****************************************
-// set the SPI-bus speed in Hz
-// paramters:	[__u32] speed	Speed in Hz
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the speed of the SPI-Bus
+*
+* @param Speed in Hz
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Legt die Geschwindigkeit des SPI-Buses fest.
+*
+* @param Geschwindigkeit in Hz
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setSpeed(unsigned int speed){
 	if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed) < 0){
 		error_flag = true;
@@ -597,10 +781,18 @@ int gnublin_spi::setSpeed(unsigned int speed){
 
 
 //************************* getSpeed() **************************************
-// get speed from bus
-// paramters	NONE
-// return:	[int] speed	SPI Speed in Hz
 
+/**
+* @~english
+* @brief Returns the speed of the SPI-Bus
+*
+* @return SPeed in Hz
+*
+* @~german
+* @brief Gibt die Geschwindigkeit des SPI-Buses zurück.
+*
+* @return Geschwindigkeit in Hz
+*/
 int gnublin_spi::getSpeed(){
 	__u32 speed;
 	if (ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed) < 0){
@@ -612,12 +804,22 @@ int gnublin_spi::getSpeed(){
 }
 
 //**************************** receive **************************************
-// receive data from SPI Bus
-// paramters:	* [char*] buffer	buffer for recived datas
-//		* [int] len	length of data which will be recived
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Receive data from SPI Bus
+*
+* @param Buffer for recived datas
+* @param Length of recived data
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Empfängt Daten über den SPI-Bus
+*
+* @param Buffer für die empfangenen Daten
+* @param Anzahl der zu empfangenden Zeichen
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::receive(char* buffer, int len){
 	if (read(fd, buffer, len) < 0) {
 		error_flag = true;
@@ -628,12 +830,22 @@ int gnublin_spi::receive(char* buffer, int len){
 }
 
 //*************************** send() ****************************************
-// send data over SPI bus
-// paramters:	* [__u8*] tx	data which will be send
-//		* [int] length	length of data which will be send
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Send data over the SPI Bus
+*
+* @param Datas which will be send
+* @param Length of datas
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Sendet Daten über den SPI-Bus
+*
+* @param Zu sendende Daten
+* @param Anzahl der zu sendenden Zeichen
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::send(unsigned char* tx, int length){
 	int status;
 	struct spi_ioc_transfer	xfer;
@@ -661,7 +873,25 @@ int gnublin_spi::send(unsigned char* tx, int length){
 //		* [int] rx_length	length of data which will be recived
 // return: 	* [int] 1	for success
 //		* [int] -1  	for failure
-
+/**
+* @~english
+* @brief Send and recive data over the SPI-Bus (half duplex)
+*
+* @param Data which will be send
+* @param Length of data which will be send
+* @param Buffer for recived datas
+* @param length of recived datas
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Sendet und empfängt daten über den SPI-Bus (halb duplex).
+*
+* @param Zu sendende Daten
+* @param Anzahl der zu sendenden Zeichen
+* @param Buffer für den Datenempfang
+* @param Anzahl der zu empfangenden Zeichen
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, int rx_length){
 	int status;
 	struct spi_ioc_transfer xfer[2];
@@ -689,11 +919,17 @@ int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, in
 }
 
 
-#if (BOARD == RASPBERRY_PI)
+#if (BOARD != RASPBERRY_PI)
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
-
+/** @~english 
+* @brief Opens the file stream and loads the kernel object lpc313x_adc.
+*
+* @~german 
+* @brief Erzeugt den Datei stream und lädt das Kernelmodul lpc313x_adc.
+*
+*/
 gnublin_adc::gnublin_adc(){
 	std::ifstream file("/dev/lpc313x_adc");
 	if (file.fail()) {
@@ -704,15 +940,57 @@ gnublin_adc::gnublin_adc(){
 	error_flag = false;
 }
 
-//-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
+//-------------fail-------------
+/** @~english 
+* @brief Returns the error flag. 
+*
+* If something went wrong, the flag is true.
+* @return bool error_flag
+*
+* @~german 
+* @brief Gibt das Error Flag zurück.
+*
+* Falls das Error Flag in der Klasse gesetzt wurde, wird true zurück gegeben, anderenfalls false.
+* @return bool error_flag
+*/
+bool gnublin_adc::fail(){
+	return error_flag;
+}
 
+
+//-------------getErrorMessage-------------
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This Funktion returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
 const char *gnublin_adc::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
+
+//-------------getValue-------------
+/** @~english 
+* @brief Get Value.
+*
+* This Funktion returns the Value from the register of the given pin.
+* @param pin The pin, which should be used
+* @return Value of the Pin - in failure: -1
+*
+* @~german 
+* @brief Gibt den Wert des Pins zurück.
+*
+* Mit dieser Funktion erhält man den gemessenen Rohwert des angegebenen Pins, also den Wert des Registers. 
+* @param pin Gibt den ADC-Pin an, von dem gemessen werden soll 
+* @return Wert des ADCs, im Fehlerfall -1
+*/
 int gnublin_adc::getValue(int pin){
 	std::string value;
 	
@@ -732,20 +1010,46 @@ int gnublin_adc::getValue(int pin){
 	return hexstringToNumber(value);
 }
 
+//-------------getVoltage-------------
+/** @~english 
+* @brief Get Voltage.
+*
+* This Funktion returns the Voltage of the given pin.
+* @param pin The pin, which should be used
+* @return Voltage of the Pin - in failure: -1
+*
+* @~german 
+* @brief Ließt Spannung.
+*
+* Liefert den gemessenen Wert in mV. 
+* @param pin Gibt den ADC-Pin an, von dem gemessen werden soll 
+* @return Spannung des ADCs in mV, im Fehlerfall -1
+*/
 int gnublin_adc::getVoltage(int pin){
 	int value = getValue(pin);
 	value = value*825/256;
 	return value;
 }
 
+//-------------setReference-------------
+/** @~english 
+* @brief set Reference.
+*
+* @param ref 
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief setzt Referenz.
+*
+* @param ref 
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_adc::setReference(int ref){
 	error_flag = false;
 	return 1;
 }
 
-bool gnublin_adc::fail(){
-	return error_flag;
-}
+
 
 #endif
 
@@ -755,8 +1059,22 @@ bool gnublin_adc::fail(){
 
 
 //********** Constructor ***************************
-// set RS-PIN to 14 / for RPi to 4
-// set RS-PIN as OUTPUT
+
+/**
+* @~english
+* @brief Set the default RS-PIN
+*
+* Default RS-Pin:
+* GNUBLIN: GPIO14
+* RASPBERRY PI: GPIO4
+*
+* @~german
+* @brief Setzt die standard RS-Pins
+*
+* Standard RS-Pin:
+* GNUBLIN: GPIO14
+* RASPBERRY PI: GPIO4
+*/
 gnublin_module_dogm::gnublin_module_dogm(){
 
 #if (BOARD == RASPBERRY_PI)
@@ -775,7 +1093,17 @@ gnublin_module_dogm::gnublin_module_dogm(){
 // return: 	* [int] 1	for success
 //		* [int] -1  	for failure
 
-
+/**
+* @~english
+* @brief Initialisizes the Display
+*
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Initialisiert das Display
+*
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::init(){
 	__u8 init_str[] = {0x39, 0x14, 0x55, 0x6D, 0x78, 0x38, 0x0C, 0x01, 0x06};
 	if (gpio.digitalWrite(rs_pin, LOW) <0){
@@ -794,28 +1122,55 @@ int gnublin_module_dogm::init(){
 
 
 //************ fail() *******************************
-// paramters: NONE
-// return: [bool]error_flag
+
+/**
+* @~english
+* @brief Returns the errorflag to detect error in the previous called method.
+*
+* @return error_flag
+*
+* @~german
+* @brief Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.
+*
+* @return error_flag
+*/
 bool gnublin_module_dogm::fail(){
 	return error_flag;
 }
 
 
 //-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
-
+/**
+* @~english
+* @brief Returns the ErrorMessage of the previous error if one exist.
+*
+* @return ErrorMessage as C-String
+*
+* @~german
+* @brief Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.
+*
+* @return ErrorMessage als C-String
+*/
 const char *gnublin_module_dogm::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 
 //*********** setRsPin() *****************************
-// set the custom RS Pin (signal for command or value) of the display 
-// paramters:	[int]pin 	number of the RS pin
-// return: 	[int]1 		for success
 
+/**
+* @~english
+* @brief Set the custom RS pin
+*
+* @param Number of the RS-pin
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den benutzerdefinierten RS-Pin.
+*
+* @param Nummer des RS-Pin
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::setRsPin(int pin){
 	rs_pin = pin;
 	gpio.pinMode(rs_pin, OUTPUT);
@@ -824,11 +1179,20 @@ int gnublin_module_dogm::setRsPin(int pin){
 
 
 //*********** setCS ************************************
-// set custom Chipselect (CS) of the SPI bus
-// paramters:	[int]cs 	number of the chipselect line
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the custom chipselect pin
+*
+* @param Number of the chipselect-pin
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den benutzerdefinierten Chipselect-Pin.
+*
+* @param Nummer des Chipselect-Pin
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::setCS(int cs){
 	if (spi.setCS(cs) < 0){
 		error_flag = true;
@@ -840,11 +1204,20 @@ int gnublin_module_dogm::setCS(int cs){
 
 
 //************ print() **********************************
-// writes string on display
-// paramters:	[char*] buffer	char array for writing on the display
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Print string on display
+*
+* @param buffor of the string
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Schreibt String auf das Display
+*
+* @param Buffer für den String
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::print(char* buffer){
 	__u8 tmp[32];
 	int len = strlen(buffer);
@@ -867,12 +1240,22 @@ int gnublin_module_dogm::print(char* buffer){
 
 
 //************ print() **********************************
-// writes string on a specific line of the display
-// paramters:	* [char*] buffer char array for writing on the display
-//		* [int] line	number of the line (1,2) on which the output is writen
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Print string on a specific line of the display
+*
+* @param buffor of the string
+* @param number of the line (1,2)
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Schreibt String in eine bestimmte Zeile des Displays
+*
+* @param Buffer für den String
+* @param Zeilenenummer (1,2)
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::print(char* buffer, int line){
 	error_flag = false;
 	if(!init_flag){
@@ -897,13 +1280,24 @@ int gnublin_module_dogm::print(char* buffer, int line){
 
 
 //************ print() **********************************
-// writes string on a specific line of the display with offset
-// paramters:	* [char*] buffer char array for writing on the display
-//		* [int] line	number of the line (1,2) on which the output is writen
-//		* [int] off	offset in the specific line (1-15)
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Print string on a specific line with given offset on the display
+*
+* @param buffor of the string
+* @param number of the line (1,2)
+* @param number of elements for the offset
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Schreibt String in eine bestimmte Zeile mit gegebenem Offset auf das Displays
+*
+* @param Buffer für den String
+* @param Zeilenenummer (1,2)
+* @param Anzahl der Positionen, um die verschoben werden soll
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::print(char* buffer, int line, int off){
 	error_flag = false;
 	if(!init_flag){
@@ -928,11 +1322,20 @@ int gnublin_module_dogm::print(char* buffer, int line, int off){
 
 
 //****************** offset() **********************************
-// specific the position of the cursor
-// paramters	[int] num	specifics the number of element which the cursor is set
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set an offset to the display
+*
+* @param Number of the element on which the cursor will be set
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den Cursor an eine bestimmte Position
+*
+* @param Nummber der Zeichnposition an die der Cursor gesetzt werden soll
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::offset(int num){
 	__u8 tmp;
 	if(!init_flag){
@@ -960,11 +1363,18 @@ int gnublin_module_dogm::offset(int num){
 
 
 //*************** clear() ****************************************
-// clear the display, all chars are erased, no influence on the shift
-// paramters: 	NONE
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief clear the display
+*
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Löscht den Inhalt des Displays.
+*
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::clear(){
 	__u8 clear_cmd = 0x01;
 	if(!init_flag){
@@ -979,11 +1389,18 @@ int gnublin_module_dogm::clear(){
 
 
 //**************** returnHome() ************************************
-// reset all display paramters, shift is errased
-// paramters: 	NONE
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Reset the Display
+*
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Resetet das Display.
+*
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::returnHome(){
 	__u8 return_cmd = 0x02;
 	if(!init_flag){
@@ -998,11 +1415,20 @@ int gnublin_module_dogm::returnHome(){
 
 
 //**************** shift() *****************************************
-// shifts the display by a specific number
-// Paramters:	[int] num	specifics the number of shifts, positiv: right shift, negativ: left shift
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Shift the whole display
+*
+* @param Number of shifts, positive: right, negativ: left
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Verschiebt das ganze Display
+*
+* @param Anzahl der zu verschiebenden Positionen, positiv: rechts, negativ: left
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::shift(int num){
 	__u8 shift_cmd;
 	if(!init_flag){
@@ -1036,11 +1462,24 @@ int gnublin_module_dogm::shift(int num){
 
 
 //*********************** controlDisplay() **********************************
-// power on/off of the display, on/off cursor, on/off blinking
-// paramters:	*[int] power	power on(1), off(0)
-//		*[int] cursor	cursor on(1), off(0)
-//		*[int] blink	blinking on(1), off(0)
 
+/**
+* @~english
+* @brief Set display parameters
+*
+* @param switch display on(1) or off(0)  (not the chontrollerchip)
+* @param switch cursor on(1) or off(0)
+* @param switch the vlinking of the cursor on(1) or off(0)
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt Displayparameter.
+*
+* @param Display an(1) oder aus(0) schalten (nicht den Displaycontroller)
+* @param Schatet den Cursor an(1) oder aus(0)
+* @param Schaltet das Blinken des Cursors an(1) oder aus(0)
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::controlDisplay(int power, int cursor, int blink) {
 	__u8 display_cmd = 0x08;
 	if(!init_flag){
@@ -1234,11 +1673,21 @@ short gnublin_module_lm75::getValue(){
 }
 
 
-//Hinweis: evtl. Fehlerhaft nicht getestet
 //*****************************************************************************
 // Class for accesing GNUBLIN Module-ADC / ADS7830
 //*****************************************************************************
 
+/**
+* @~english
+* @brief Set the default I2C Address and reference to intern
+*
+* Default I2C Address: 0x48
+*
+* @~german
+* @brief Setzt die standard I2C Adresse und die Referenzspannung auf intern
+*
+* Standard I2C Addresse: 0x48
+*/
 gnublin_module_adc::gnublin_module_adc() {
 	i2c.setAddress(0x48);
 	referenceValue = 2500;
@@ -1247,20 +1696,36 @@ gnublin_module_adc::gnublin_module_adc() {
 }
 
 //-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
 
+/**
+* @~english
+* @brief Returns the ErrorMessage of the previous error if one exist.
+*
+* @return ErrorMessage as C-String
+*
+* @~german
+* @brief Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.
+*
+* @return ErrorMessage als C-String
+*/
 const char *gnublin_module_adc::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 
 //------------ fail() -----------------------
-// get error_flag
-// parameters:		NONE
-// return:		[bool] error_flag
 
+/**
+* @~english
+* @brief Returns the errorflag to detect error in the previous called method.
+*
+* @return error_flag
+*
+* @~german
+* @brief Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.
+*
+* @return error_flag
+*/
 bool gnublin_module_adc::fail() {
 	return error_flag;
 }
@@ -1270,7 +1735,19 @@ bool gnublin_module_adc::fail() {
 // set the slave address
 // parameters:		[int]address	i2c slave Address
 // return:		NONE
-
+/**
+* @~english
+* @brief Set the I2C Address
+*
+* @param I2C Address
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt die I2C Adresse.
+*
+* @param I2C Adresse
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_adc::setAddress(int address) {
 	i2c.setAddress(address);
 	if (i2c.fail()) {
@@ -1286,7 +1763,21 @@ int gnublin_module_adc::setAddress(int address) {
 // set the i2c device file. default is "/dev/i2c-1"
 // parameters:		[string]filename	path to the dev file
 // return:		NONE
-
+/**
+* @~english
+* @brief Set a custom I2C devicefile
+*
+* default devicefile: "/dev/i2c-1"
+* @param path of the devicefile
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt ein benutzerdefiniertes Devicefile.
+*
+* Standard Devicefile ist "/dev/i2c-1"
+* @param Pfad zum Devicefile
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_adc::setDevicefile(std::string filename) {
 	i2c.setDevicefile(filename);
 	if (i2c.fail()) {
@@ -1298,10 +1789,20 @@ int gnublin_module_adc::setDevicefile(std::string filename) {
 }
 
 //-------------------setReference() ----------------
-// set reverence voltage to internal or external
-// parameters:		[int] value	1 = internal (2.5V); 0 = external (3.3V)
-// return:		NONE
 
+/**
+* @~english
+* @brief Set the reverencevoltage to intern or extern
+*
+* @param IN (1) for intern (2.5V), OUT (0) for extern (3.3V)
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt die referenzspannung auf intern oder extern.
+*
+* @param IN (1) für intern (2,5V), OUT (0) für extern (3,3V)
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_adc::setReference(int value) {
 	if (value == 0) {
 		referenceValue = 3300;
@@ -1321,10 +1822,20 @@ int gnublin_module_adc::setReference(int value) {
 
 
 //---------------------- getValue() -----------------------
-// get ADC Value of channel in reference to GND
-// parameters:		[int] channel		ADC-Port
-// return:		[int] value		value of ADC-channel
 
+/**
+* @~english
+* @brief Get a value of an ADC channel in reference to GND
+*
+* @param Number of the ADC-channel (1-8)
+* @return value
+*
+* @~german
+* @brief Liefert den Wert eine ADC Ports bezogen zu GND
+*
+* @param Nummer des ADC-Ports (1-8)
+* @return Wert
+*/
 int gnublin_module_adc::getValue(int channel) {
 	int command;
 	unsigned char value[1];
@@ -1371,7 +1882,39 @@ int gnublin_module_adc::getValue(int channel) {
 	return value[0];	
 }
 
-
+/**
+* @~english
+* @brief Get a value of an ADC channel in reference to a second ADC channel (differential)
+*
+* This combinations are possible<br>
+* 1 - 2<br>
+* 3 - 4<br>
+* 5 - 6<br>
+* 7 - 8<br>
+* 2 - 1<br>
+* 4 - 3<br>
+* 6 - 5<br>
+* 8 - 7<br>
+* @param Number of the first ADC-channel 
+* @param Number of the second ADC-channel
+* @return value
+*
+* @~german
+* @brief Liefert den Wert eines ADC Ports bezogen auf einen zweiten ADC Port (differentielle Messung)
+*
+* Dies Kombinationen sind möglich:<br>
+* 1 - 2<br>
+* 3 - 4<br>
+* 5 - 6<br>
+* 7 - 8<br>
+* 2 - 1<br>
+* 4 - 3<br>
+* 6 - 5<br>
+* 8 - 7<br>
+* @param Nummer des ersten ADC-Ports
+* @param Nummer des zweiten ADC-Ports
+* @return Wert
+*/
 int gnublin_module_adc::getValue(int channel1, int channel2) {
 	int command = -1;
 	unsigned char value[1];
@@ -1424,7 +1967,19 @@ int gnublin_module_adc::getValue(int channel1, int channel2) {
 // get ADC Value of channel in reference to GND
 // parameters:		[int] channel		ADC-Port
 // return:		[int] voltage		voltage of ADC-channel in mV
-
+/**
+* @~english
+* @brief Get the voltage of an ADC channel in reference to GND in mV
+*
+* @param Number of the ADC-channel (1-8)
+* @return value in mV
+*
+* @~german
+* @brief Liefert den Wert eine ADC Ports bezogen zu GND in mV
+*
+* @param Nummer des ADC-Ports (1-8)
+* @return Wert in mV
+*/
 int gnublin_module_adc::getVoltage(int channel) {
 	error_flag = false;
 	int voltage;
@@ -1437,7 +1992,39 @@ int gnublin_module_adc::getVoltage(int channel) {
 	return voltage;
 }
 
-
+/**
+* @~english
+* @brief Get the voltage of an ADC channel in reference to a second ADC channel in mV (differential)
+*
+* This combinations are possible<br>
+* 1 - 2<br>
+* 3 - 4<br>
+* 5 - 6<br>
+* 7 - 8<br>
+* 2 - 1<br>
+* 4 - 3<br>
+* 6 - 5<br>
+* 8 - 7<br>
+* @param Number of the first ADC-channel 
+* @param Number of the second ADC-channel
+* @return voltage in mV
+*
+* @~german
+* @brief Liefert den Wert eines ADC Ports bezogen auf einen zweiten ADC Port in mV (differentielle Messung)
+*
+* Dies Kombinationen sind möglich:<br>
+* 1 - 2<br>
+* 3 - 4<br>
+* 5 - 6<br>
+* 7 - 8<br>
+* 2 - 1<br>
+* 4 - 3<br>
+* 6 - 5<br>
+* 8 - 7<br>
+* @param Nummer des ersten ADC-Ports
+* @param Nummer des zweiten ADC-Ports
+* @return Wert in mV
+*/
 int gnublin_module_adc::getVoltage(int channel1, int channel2) {
 	error_flag = false;
 	int voltage;
@@ -1969,6 +2556,11 @@ int gnublin_module_relay::switchPin(int pin, int value) {
 
 
 
+//*******************************************************************
+//Class for accessing GNUBLIN Module-step
+//*******************************************************************
+
+//-------------gnublin_module_step-------------
 /** @~english 
 * @brief Set irun and vmax to the default values (irun = 15, vmax = 8).
 *
@@ -1982,7 +2574,7 @@ gnublin_module_step::gnublin_module_step()
 	vmax = 8;
 }
 
-
+//-------------getErrorMessage-------------
 /** @~english 
 * @brief Get the last Error Message.
 *
@@ -1999,7 +2591,7 @@ const char *gnublin_module_step::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
-
+//-------------setAddress-------------
 /** @~english 
 * @brief Set the slave address 
 *
@@ -2007,7 +2599,7 @@ const char *gnublin_module_step::getErrorMessage(){
 * @param Address new I2C slave Address
 *
 * @~german 
-* @brief Gibt das Error Flag zurück.
+* @brief Setzt Slave Adresse.
 *
 * Mit dieser Funktion kann die individuelle I2C Slave-Adresse des Moduls gesetzt werden.
 * @param Address neue I2C slave Adresse
@@ -2016,6 +2608,7 @@ void gnublin_module_step::setAddress(int Address){
 	i2c.setAddress(Address);
 }
 
+//-------------setDevicefile-------------
 /** @~english 
 * @brief Set devicefile.
 *
@@ -2032,6 +2625,7 @@ void gnublin_module_step::setDevicefile(std::string filename){
 	i2c.setDevicefile(filename);
 }
 
+//-------------setIrun-------------
 /** @~english 
 * @brief Set Irun.
 *
@@ -2054,6 +2648,7 @@ int gnublin_module_step::setIrun(unsigned int newIrun){
 	else return -1;
 }
 
+//-------------setIhold-------------
 /** @~english 
 * @brief Set Ihold.
 *
@@ -2076,6 +2671,7 @@ int gnublin_module_step::setIhold(unsigned int newIhold){
 	else return -1;
 }
 
+//-------------setVmax-------------
 /** @~english 
 * @brief Set Vmax.
 *
@@ -2098,6 +2694,7 @@ int gnublin_module_step::setVmax(unsigned int newVmax){
 	else return -1;
 }
 
+//-------------setVmin-------------
 /** @~english 
 * @brief Set Vmin.
 *
@@ -2120,7 +2717,7 @@ int gnublin_module_step::setVmin(unsigned int newVmin){
 	else return -1;
 }
 
-
+//-------------writeTMC-------------
 /** @~english 
 * @brief Write to TMC.
 *
@@ -2144,6 +2741,7 @@ int gnublin_module_step::writeTMC(unsigned char *TxBuf, int num){
 	else return 1;
 }
 
+//-------------readTMC-------------
 /** @~english 
 * @brief Read from TMC.
 *
@@ -2167,7 +2765,7 @@ int gnublin_module_step::readTMC(unsigned char *RxBuf, int num){
 	else return 1;	
 }
 
-
+//-------------burnNewAddress-------------
 /** @~english 
 * @brief Burn a new I2C slave Address.
 *
@@ -2241,6 +2839,7 @@ int gnublin_module_step::burnNewAddress(int new_address){
 	}
 }
 
+//-------------getFullStatus-------------
 /** @~english 
 * @brief Get full Status 1.
 *
@@ -2260,6 +2859,7 @@ int gnublin_module_step::getFullStatus1(){
 	else return -1;
 }
 
+//-------------getFullStatus2-------------
 /** @~english 
 * @brief Get full Status 2.
 *
@@ -2279,7 +2879,7 @@ int gnublin_module_step::getFullStatus2(){
 	else return -1;
 }
 
-
+//-------------runInit-------------
 /** @~english 
 * @brief Run Init.
 *
@@ -2299,7 +2899,7 @@ int gnublin_module_step::runInit(){
 		else return -1;
 }
 
-
+//-------------setMotorParam-------------
 /** @~english 
 * @brief Set motor parameter.
 *
@@ -2330,7 +2930,7 @@ int gnublin_module_step::setMotorParam(){
 	else return -1;
 }
 
-
+//-------------setMotorParam-------------
 /** @~english 
 * @brief Set motor parameter.
 *
@@ -2344,7 +2944,7 @@ int gnublin_module_step::setMotorParam(){
 * @~german 
 * @brief Setze Motor Parameter.
 *
-* Diese Funktion sendet die eingestellten Motor Parameter an das Modul.
+* Diese Funktion sendet die übergebenen Motor Parameter an das Modul.
 * @param newIrun
 * @param newIhold
 * @param newVmax
@@ -2374,6 +2974,7 @@ int gnublin_module_step::setMotorParam(unsigned int newIrun, unsigned int newIho
 	else return -1;
 }
 
+//-------------hardStop-------------
 /** @~english 
 * @brief Hard stop.
 *
@@ -2393,7 +2994,7 @@ int gnublin_module_step::hardStop(){
 		else return -1;
 }
 
-
+//-------------softStop-------------
 /** @~english 
 * @brief Soft stop.
 *
@@ -2413,6 +3014,7 @@ int gnublin_module_step::softStop(){
 		else return -1;
 }
 
+//-------------resetPosition-------------
 /** @~english 
 * @brief Reset Position.
 *
@@ -2432,6 +3034,7 @@ int gnublin_module_step::resetPosition(){
 		else return -1;
 }
 
+//-------------setPosition-------------
 /** @~english 
 * @brief Set Position.
 *
@@ -2458,6 +3061,7 @@ int gnublin_module_step::setPosition(int position){
 	else return -1;
 }
 
+//-------------drive-------------
 /** @~english 
 * @brief Drive.
 *
@@ -2482,7 +3086,7 @@ int gnublin_module_step::drive(int steps){
 	else return -1;
 }
 
-
+//-------------getMotionStatus-------------
 /** @~english 
 * @brief Get motion status.
 *
@@ -2528,13 +3132,6 @@ int gnublin_module_step::getMotionStatus(){
 
 
 //-------------------get Switch status----------------
-// check the Switch Status
-// parameters:	NONE
-//
-// return:		[int]  1			Switch closed
-//				[int]  0			Switch open
-// 				[int] -1			failure
-
 /** @~english 
 * @brief Get switch condition.
 *
@@ -2572,6 +3169,7 @@ int gnublin_module_step::getSwitch(){
 		else return -1;
 }
 
+//-------------------getActualPosition----------------
 /** @~english 
 * @brief Get actual position.
 *
@@ -2615,7 +3213,7 @@ gnublin_module_lcd::gnublin_module_lcd()
 	error_flag=false;
 }
 
-
+//-------------getErrorMessage-------------
 /** @~english 
 * @brief Get the last Error Message.
 *
@@ -2632,7 +3230,7 @@ const char *gnublin_module_lcd::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
-
+//-------------fail-------------
 /** @~english 
 * @brief Returns the error flag. 
 *
@@ -2649,7 +3247,7 @@ bool gnublin_module_lcd::fail(){
 	return error_flag;
 }
 
-
+//-------------setAddress-------------
 /** @~english 
 * @brief Set the slave address 
 *
@@ -2666,7 +3264,7 @@ void gnublin_module_lcd::setAddress(int Address){
 	pca.setAddress(Address);
 }
 
-
+//-------------setDevicefile-------------
 /** @~english 
 * @brief Set devicefile.
 *
@@ -2683,6 +3281,7 @@ void gnublin_module_lcd::setDevicefile(std::string filename){
 	pca.setDevicefile(filename);
 }
 
+//-------------out-------------
 /** @~english 
 * @brief LCD out.
 *
@@ -2724,6 +3323,7 @@ int gnublin_module_lcd::out(unsigned char rsrw, unsigned char data ){
 	return 1;
 }
 
+//-------------sendData-------------
 /** @~english 
 * @brief Send Data to the LCD
 *
@@ -2746,6 +3346,7 @@ int gnublin_module_lcd::sendData(unsigned char data){
         return 1;
 }
 
+//-------------command-------------
 /** @~english 
 * @brief Send command to the LCD
 *
@@ -2768,7 +3369,7 @@ int gnublin_module_lcd::command(unsigned char data){
         return 1;
 }
 
-
+//-------------clear-------------
 /** @~english 
 * @brief Clear the LCD.
 *
@@ -2789,7 +3390,7 @@ int gnublin_module_lcd::clear(){
         return 1;
 }
 
-
+//-------------home-------------
 /** @~english 
 * @brief Curse home command.
 *
@@ -2809,7 +3410,7 @@ int gnublin_module_lcd::home(){
         return 1;
 }
 
-
+//-------------setdisplay-------------
 /** @~english 
 * @brief Set display command.
 *
@@ -2832,7 +3433,7 @@ int gnublin_module_lcd::setdisplay(int cursor, int blink){
         return 1;
 }
 
-
+//-------------setcursor-------------
 /** @~english 
 * @brief Set Cursor Command.
 *
@@ -2878,7 +3479,7 @@ int gnublin_module_lcd::setcursor(unsigned char x, unsigned char y){
         return 1;
 }
 
-
+//-------------string-------------
 /** @~english 
 * @brief Sends the string to the display.
 *
@@ -2901,7 +3502,7 @@ int gnublin_module_lcd::string(const char *data){
         return 1;
 }
 
-
+//-------------init-------------
 /** @~english 
 * @brief Initializes the LCD.
 *
@@ -2960,8 +3561,8 @@ int gnublin_module_lcd::init(){
 	
 	//entry mode set
 	if(!command(LCD_SET_ENTRY |
-						LCD_ENTRY_INCREASE |
-						LCD_ENTRY_NOSHIFT)){
+			LCD_ENTRY_INCREASE |
+			LCD_ENTRY_NOSHIFT)){
 		return -1;
 	}
 	

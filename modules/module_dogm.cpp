@@ -6,8 +6,22 @@
 
 
 //********** Constructor ***************************
-// set RS-PIN to 14 / for RPi to 4
-// set RS-PIN as OUTPUT
+
+/**
+* @~english
+* @brief Set the default RS-PIN
+*
+* Default RS-Pin:
+* GNUBLIN: GPIO14
+* RASPBERRY PI: GPIO4
+*
+* @~german
+* @brief Setzt die standard RS-Pins
+*
+* Standard RS-Pin:
+* GNUBLIN: GPIO14
+* RASPBERRY PI: GPIO4
+*/
 gnublin_module_dogm::gnublin_module_dogm(){
 
 #if (BOARD == RASPBERRY_PI)
@@ -26,7 +40,17 @@ gnublin_module_dogm::gnublin_module_dogm(){
 // return: 	* [int] 1	for success
 //		* [int] -1  	for failure
 
-
+/**
+* @~english
+* @brief Initialisizes the Display
+*
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Initialisiert das Display
+*
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::init(){
 	__u8 init_str[] = {0x39, 0x14, 0x55, 0x6D, 0x78, 0x38, 0x0C, 0x01, 0x06};
 	if (gpio.digitalWrite(rs_pin, LOW) <0){
@@ -45,28 +69,55 @@ int gnublin_module_dogm::init(){
 
 
 //************ fail() *******************************
-// paramters: NONE
-// return: [bool]error_flag
+
+/**
+* @~english
+* @brief Returns the errorflag to detect error in the previous called method.
+*
+* @return error_flag
+*
+* @~german
+* @brief Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.
+*
+* @return error_flag
+*/
 bool gnublin_module_dogm::fail(){
 	return error_flag;
 }
 
 
 //-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
-
+/**
+* @~english
+* @brief Returns the ErrorMessage of the previous error if one exist.
+*
+* @return ErrorMessage as C-String
+*
+* @~german
+* @brief Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.
+*
+* @return ErrorMessage als C-String
+*/
 const char *gnublin_module_dogm::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 
 //*********** setRsPin() *****************************
-// set the custom RS Pin (signal for command or value) of the display 
-// paramters:	[int]pin 	number of the RS pin
-// return: 	[int]1 		for success
 
+/**
+* @~english
+* @brief Set the custom RS pin
+*
+* @param pin Number of the RS-pin
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den benutzerdefinierten RS-Pin.
+*
+* @param pin Nummer des RS-Pin
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::setRsPin(int pin){
 	rs_pin = pin;
 	gpio.pinMode(rs_pin, OUTPUT);
@@ -75,11 +126,20 @@ int gnublin_module_dogm::setRsPin(int pin){
 
 
 //*********** setCS ************************************
-// set custom Chipselect (CS) of the SPI bus
-// paramters:	[int]cs 	number of the chipselect line
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the custom chipselect pin
+*
+* @param cs Number of the chipselect-pin
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den benutzerdefinierten Chipselect-Pin.
+*
+* @param cs Nummer des Chipselect-Pin
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::setCS(int cs){
 	if (spi.setCS(cs) < 0){
 		error_flag = true;
@@ -91,11 +151,20 @@ int gnublin_module_dogm::setCS(int cs){
 
 
 //************ print() **********************************
-// writes string on display
-// paramters:	[char*] buffer	char array for writing on the display
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Print string on display
+*
+* @param buffer buffor of the string
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Schreibt String auf das Display
+*
+* @param buffer Buffer für den String
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::print(char* buffer){
 	__u8 tmp[32];
 	int len = strlen(buffer);
@@ -118,12 +187,22 @@ int gnublin_module_dogm::print(char* buffer){
 
 
 //************ print() **********************************
-// writes string on a specific line of the display
-// paramters:	* [char*] buffer char array for writing on the display
-//		* [int] line	number of the line (1,2) on which the output is writen
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Print string on a specific line of the display
+*
+* @param buffer buffor of the string
+* @param line number of the line (1,2)
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Schreibt String in eine bestimmte Zeile des Displays
+*
+* @param buffer Buffer für den String
+* @param line Zeilenenummer (1,2)
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::print(char* buffer, int line){
 	error_flag = false;
 	if(!init_flag){
@@ -148,13 +227,24 @@ int gnublin_module_dogm::print(char* buffer, int line){
 
 
 //************ print() **********************************
-// writes string on a specific line of the display with offset
-// paramters:	* [char*] buffer char array for writing on the display
-//		* [int] line	number of the line (1,2) on which the output is writen
-//		* [int] off	offset in the specific line (1-15)
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Print string on a specific line with given offset on the display
+*
+* @param buffer buffor of the string
+* @param line number of the line (1,2)
+* @param off number of elements for the offset
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Schreibt String in eine bestimmte Zeile mit gegebenem Offset auf das Displays
+*
+* @param buffer Buffer für den String
+* @param line Zeilenenummer (1,2)
+* @param off Anzahl der Positionen, um die verschoben werden soll
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::print(char* buffer, int line, int off){
 	error_flag = false;
 	if(!init_flag){
@@ -179,11 +269,20 @@ int gnublin_module_dogm::print(char* buffer, int line, int off){
 
 
 //****************** offset() **********************************
-// specific the position of the cursor
-// paramters	[int] num	specifics the number of element which the cursor is set
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set an offset to the display
+*
+* @param num Number of the element on which the cursor will be set
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den Cursor an eine bestimmte Position
+*
+* @param num Nummber der Zeichnposition an die der Cursor gesetzt werden soll
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::offset(int num){
 	__u8 tmp;
 	if(!init_flag){
@@ -211,11 +310,18 @@ int gnublin_module_dogm::offset(int num){
 
 
 //*************** clear() ****************************************
-// clear the display, all chars are erased, no influence on the shift
-// paramters: 	NONE
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief clear the display
+*
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Löscht den Inhalt des Displays.
+*
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::clear(){
 	__u8 clear_cmd = 0x01;
 	if(!init_flag){
@@ -230,11 +336,18 @@ int gnublin_module_dogm::clear(){
 
 
 //**************** returnHome() ************************************
-// reset all display paramters, shift is errased
-// paramters: 	NONE
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Reset the Display
+*
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Resetet das Display.
+*
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::returnHome(){
 	__u8 return_cmd = 0x02;
 	if(!init_flag){
@@ -249,11 +362,20 @@ int gnublin_module_dogm::returnHome(){
 
 
 //**************** shift() *****************************************
-// shifts the display by a specific number
-// Paramters:	[int] num	specifics the number of shifts, positiv: right shift, negativ: left shift
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Shift the whole display
+*
+* @param num Number of shifts, positive: right, negativ: left
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Verschiebt das ganze Display
+*
+* @param num Anzahl der zu verschiebenden Positionen, positiv: rechts, negativ: left
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::shift(int num){
 	__u8 shift_cmd;
 	if(!init_flag){
@@ -287,11 +409,24 @@ int gnublin_module_dogm::shift(int num){
 
 
 //*********************** controlDisplay() **********************************
-// power on/off of the display, on/off cursor, on/off blinking
-// paramters:	*[int] power	power on(1), off(0)
-//		*[int] cursor	cursor on(1), off(0)
-//		*[int] blink	blinking on(1), off(0)
 
+/**
+* @~english
+* @brief Set display parameters
+*
+* @param power switch display on(1) or off(0)  (not the chontrollerchip)
+* @param cursor switch cursor on(1) or off(0)
+* @param blink switch the vlinking of the cursor on(1) or off(0)
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt Displayparameter.
+*
+* @param power Display an(1) oder aus(0) schalten (nicht den Displaycontroller)
+* @param cursor Schatet den Cursor an(1) oder aus(0)
+* @param blink Schaltet das Blinken des Cursors an(1) oder aus(0)
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_dogm::controlDisplay(int power, int cursor, int blink) {
 	__u8 display_cmd = 0x08;
 	if(!init_flag){
