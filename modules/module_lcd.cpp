@@ -19,7 +19,7 @@ gnublin_module_lcd::gnublin_module_lcd()
 	error_flag=false;
 }
 
-
+//-------------getErrorMessage-------------
 /** @~english 
 * @brief Get the last Error Message.
 *
@@ -36,7 +36,7 @@ const char *gnublin_module_lcd::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
-
+//-------------fail-------------
 /** @~english 
 * @brief Returns the error flag. 
 *
@@ -53,7 +53,7 @@ bool gnublin_module_lcd::fail(){
 	return error_flag;
 }
 
-
+//-------------setAddress-------------
 /** @~english 
 * @brief Set the slave address 
 *
@@ -70,7 +70,7 @@ void gnublin_module_lcd::setAddress(int Address){
 	pca.setAddress(Address);
 }
 
-
+//-------------setDevicefile-------------
 /** @~english 
 * @brief Set devicefile.
 *
@@ -87,6 +87,7 @@ void gnublin_module_lcd::setDevicefile(std::string filename){
 	pca.setDevicefile(filename);
 }
 
+//-------------out-------------
 /** @~english 
 * @brief LCD out.
 *
@@ -128,6 +129,7 @@ int gnublin_module_lcd::out(unsigned char rsrw, unsigned char data ){
 	return 1;
 }
 
+//-------------sendData-------------
 /** @~english 
 * @brief Send Data to the LCD
 *
@@ -150,6 +152,7 @@ int gnublin_module_lcd::sendData(unsigned char data){
         return 1;
 }
 
+//-------------command-------------
 /** @~english 
 * @brief Send command to the LCD
 *
@@ -172,7 +175,7 @@ int gnublin_module_lcd::command(unsigned char data){
         return 1;
 }
 
-
+//-------------clear-------------
 /** @~english 
 * @brief Clear the LCD.
 *
@@ -193,7 +196,7 @@ int gnublin_module_lcd::clear(){
         return 1;
 }
 
-
+//-------------home-------------
 /** @~english 
 * @brief Curse home command.
 *
@@ -213,7 +216,7 @@ int gnublin_module_lcd::home(){
         return 1;
 }
 
-
+//-------------setdisplay-------------
 /** @~english 
 * @brief Set display command.
 *
@@ -236,7 +239,7 @@ int gnublin_module_lcd::setdisplay(int cursor, int blink){
         return 1;
 }
 
-
+//-------------setcursor-------------
 /** @~english 
 * @brief Set Cursor Command.
 *
@@ -282,7 +285,7 @@ int gnublin_module_lcd::setcursor(unsigned char x, unsigned char y){
         return 1;
 }
 
-
+//-------------string-------------
 /** @~english 
 * @brief Sends the string to the display.
 *
@@ -305,7 +308,7 @@ int gnublin_module_lcd::string(const char *data){
         return 1;
 }
 
-
+//-------------init-------------
 /** @~english 
 * @brief Initializes the LCD.
 *
@@ -364,8 +367,8 @@ int gnublin_module_lcd::init(){
 	
 	//entry mode set
 	if(!command(LCD_SET_ENTRY |
-						LCD_ENTRY_INCREASE |
-						LCD_ENTRY_NOSHIFT)){
+			LCD_ENTRY_INCREASE |
+			LCD_ENTRY_NOSHIFT)){
 		return -1;
 	}
 	

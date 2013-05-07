@@ -1,10 +1,16 @@
 #include "adc.h"
 
-#if (BOARD == RASPBERRY_PI)
+#if (BOARD != RASPBERRY_PI)
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
-
+/** @~english 
+* @brief Opens the file stream and loads the kernel object lpc313x_adc.
+*
+* @~german 
+* @brief Erzeugt den Datei stream und lädt das Kernelmodul lpc313x_adc.
+*
+*/
 gnublin_adc::gnublin_adc(){
 	std::ifstream file("/dev/lpc313x_adc");
 	if (file.fail()) {
@@ -15,15 +21,57 @@ gnublin_adc::gnublin_adc(){
 	error_flag = false;
 }
 
-//-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
+//-------------fail-------------
+/** @~english 
+* @brief Returns the error flag. 
+*
+* If something went wrong, the flag is true.
+* @return bool error_flag
+*
+* @~german 
+* @brief Gibt das Error Flag zurück.
+*
+* Falls das Error Flag in der Klasse gesetzt wurde, wird true zurück gegeben, anderenfalls false.
+* @return bool error_flag
+*/
+bool gnublin_adc::fail(){
+	return error_flag;
+}
 
+
+//-------------getErrorMessage-------------
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This Funktion returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
 const char *gnublin_adc::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
+
+//-------------getValue-------------
+/** @~english 
+* @brief Get Value.
+*
+* This Funktion returns the Value from the register of the given pin.
+* @param pin The pin, which should be used
+* @return Value of the Pin - in failure: -1
+*
+* @~german 
+* @brief Gibt den Wert des Pins zurück.
+*
+* Mit dieser Funktion erhält man den gemessenen Rohwert des angegebenen Pins, also den Wert des Registers. 
+* @param pin Gibt den ADC-Pin an, von dem gemessen werden soll 
+* @return Wert des ADCs, im Fehlerfall -1
+*/
 int gnublin_adc::getValue(int pin){
 	std::string value;
 	
@@ -43,19 +91,45 @@ int gnublin_adc::getValue(int pin){
 	return hexstringToNumber(value);
 }
 
+//-------------getVoltage-------------
+/** @~english 
+* @brief Get Voltage.
+*
+* This Funktion returns the Voltage of the given pin.
+* @param pin The pin, which should be used
+* @return Voltage of the Pin - in failure: -1
+*
+* @~german 
+* @brief Ließt Spannung.
+*
+* Liefert den gemessenen Wert in mV. 
+* @param pin Gibt den ADC-Pin an, von dem gemessen werden soll 
+* @return Spannung des ADCs in mV, im Fehlerfall -1
+*/
 int gnublin_adc::getVoltage(int pin){
 	int value = getValue(pin);
 	value = value*825/256;
 	return value;
 }
 
+//-------------setReference-------------
+/** @~english 
+* @brief set Reference.
+*
+* @param ref 
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief setzt Referenz.
+*
+* @param ref 
+* @return Erfolg: 1, Fehler: -1
+*/
 int gnublin_adc::setReference(int ref){
 	error_flag = false;
 	return 1;
 }
 
-bool gnublin_adc::fail(){
-	return error_flag;
-}
+
 
 #endif

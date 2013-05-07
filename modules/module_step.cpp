@@ -1,6 +1,11 @@
 #include "module_step.h"
 #include "../include/includes.h"
 
+//*******************************************************************
+//Class for accessing GNUBLIN Module-step
+//*******************************************************************
+
+//-------------gnublin_module_step-------------
 /** @~english 
 * @brief Set irun and vmax to the default values (irun = 15, vmax = 8).
 *
@@ -14,7 +19,7 @@ gnublin_module_step::gnublin_module_step()
 	vmax = 8;
 }
 
-
+//-------------getErrorMessage-------------
 /** @~english 
 * @brief Get the last Error Message.
 *
@@ -31,7 +36,7 @@ const char *gnublin_module_step::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
-
+//-------------setAddress-------------
 /** @~english 
 * @brief Set the slave address 
 *
@@ -39,7 +44,7 @@ const char *gnublin_module_step::getErrorMessage(){
 * @param Address new I2C slave Address
 *
 * @~german 
-* @brief Gibt das Error Flag zurück.
+* @brief Setzt Slave Adresse.
 *
 * Mit dieser Funktion kann die individuelle I2C Slave-Adresse des Moduls gesetzt werden.
 * @param Address neue I2C slave Adresse
@@ -48,6 +53,7 @@ void gnublin_module_step::setAddress(int Address){
 	i2c.setAddress(Address);
 }
 
+//-------------setDevicefile-------------
 /** @~english 
 * @brief Set devicefile.
 *
@@ -64,6 +70,7 @@ void gnublin_module_step::setDevicefile(std::string filename){
 	i2c.setDevicefile(filename);
 }
 
+//-------------setIrun-------------
 /** @~english 
 * @brief Set Irun.
 *
@@ -86,6 +93,7 @@ int gnublin_module_step::setIrun(unsigned int newIrun){
 	else return -1;
 }
 
+//-------------setIhold-------------
 /** @~english 
 * @brief Set Ihold.
 *
@@ -108,6 +116,7 @@ int gnublin_module_step::setIhold(unsigned int newIhold){
 	else return -1;
 }
 
+//-------------setVmax-------------
 /** @~english 
 * @brief Set Vmax.
 *
@@ -130,6 +139,7 @@ int gnublin_module_step::setVmax(unsigned int newVmax){
 	else return -1;
 }
 
+//-------------setVmin-------------
 /** @~english 
 * @brief Set Vmin.
 *
@@ -152,7 +162,7 @@ int gnublin_module_step::setVmin(unsigned int newVmin){
 	else return -1;
 }
 
-
+//-------------writeTMC-------------
 /** @~english 
 * @brief Write to TMC.
 *
@@ -176,6 +186,7 @@ int gnublin_module_step::writeTMC(unsigned char *TxBuf, int num){
 	else return 1;
 }
 
+//-------------readTMC-------------
 /** @~english 
 * @brief Read from TMC.
 *
@@ -199,7 +210,7 @@ int gnublin_module_step::readTMC(unsigned char *RxBuf, int num){
 	else return 1;	
 }
 
-
+//-------------burnNewAddress-------------
 /** @~english 
 * @brief Burn a new I2C slave Address.
 *
@@ -273,6 +284,7 @@ int gnublin_module_step::burnNewAddress(int new_address){
 	}
 }
 
+//-------------getFullStatus-------------
 /** @~english 
 * @brief Get full Status 1.
 *
@@ -292,6 +304,7 @@ int gnublin_module_step::getFullStatus1(){
 	else return -1;
 }
 
+//-------------getFullStatus2-------------
 /** @~english 
 * @brief Get full Status 2.
 *
@@ -311,7 +324,7 @@ int gnublin_module_step::getFullStatus2(){
 	else return -1;
 }
 
-
+//-------------runInit-------------
 /** @~english 
 * @brief Run Init.
 *
@@ -331,7 +344,7 @@ int gnublin_module_step::runInit(){
 		else return -1;
 }
 
-
+//-------------setMotorParam-------------
 /** @~english 
 * @brief Set motor parameter.
 *
@@ -362,7 +375,7 @@ int gnublin_module_step::setMotorParam(){
 	else return -1;
 }
 
-
+//-------------setMotorParam-------------
 /** @~english 
 * @brief Set motor parameter.
 *
@@ -376,7 +389,7 @@ int gnublin_module_step::setMotorParam(){
 * @~german 
 * @brief Setze Motor Parameter.
 *
-* Diese Funktion sendet die eingestellten Motor Parameter an das Modul.
+* Diese Funktion sendet die übergebenen Motor Parameter an das Modul.
 * @param newIrun
 * @param newIhold
 * @param newVmax
@@ -406,6 +419,7 @@ int gnublin_module_step::setMotorParam(unsigned int newIrun, unsigned int newIho
 	else return -1;
 }
 
+//-------------hardStop-------------
 /** @~english 
 * @brief Hard stop.
 *
@@ -425,7 +439,7 @@ int gnublin_module_step::hardStop(){
 		else return -1;
 }
 
-
+//-------------softStop-------------
 /** @~english 
 * @brief Soft stop.
 *
@@ -445,6 +459,7 @@ int gnublin_module_step::softStop(){
 		else return -1;
 }
 
+//-------------resetPosition-------------
 /** @~english 
 * @brief Reset Position.
 *
@@ -464,6 +479,7 @@ int gnublin_module_step::resetPosition(){
 		else return -1;
 }
 
+//-------------setPosition-------------
 /** @~english 
 * @brief Set Position.
 *
@@ -490,6 +506,7 @@ int gnublin_module_step::setPosition(int position){
 	else return -1;
 }
 
+//-------------drive-------------
 /** @~english 
 * @brief Drive.
 *
@@ -514,7 +531,7 @@ int gnublin_module_step::drive(int steps){
 	else return -1;
 }
 
-
+//-------------getMotionStatus-------------
 /** @~english 
 * @brief Get motion status.
 *
@@ -560,13 +577,6 @@ int gnublin_module_step::getMotionStatus(){
 
 
 //-------------------get Switch status----------------
-// check the Switch Status
-// parameters:	NONE
-//
-// return:		[int]  1			Switch closed
-//				[int]  0			Switch open
-// 				[int] -1			failure
-
 /** @~english 
 * @brief Get switch condition.
 *
@@ -604,6 +614,7 @@ int gnublin_module_step::getSwitch(){
 		else return -1;
 }
 
+//-------------------getActualPosition----------------
 /** @~english 
 * @brief Get actual position.
 *

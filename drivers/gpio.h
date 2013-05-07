@@ -1,9 +1,16 @@
 #include "../include/includes.h"
 
-//****************************************************************************
-// Class for easy acces to the GPIOs
-//****************************************************************************
-
+/**
+* @class gnublin_gpio
+* @~english
+* @brief Class for accessing GNUBLIN GPIO-Ports
+*
+* With the gnublin_gpio API you can controll the GPIO-Ports of the GNUBLIN Board
+* @~german 
+* @brief Klasse für den zugriff auf die GPIO Pins
+*
+* Mit der gnublin_gpio API lassen sich die GPIO-Ports auf dem GNUBLIN einfach aus dem eigenem Programm heraus ansteuern.  
+*/
 class gnublin_gpio {
 	public:
 		gnublin_gpio();
