@@ -1,11 +1,21 @@
 #include "module_adc.h"
 
 
-//Hinweis: evtl. Fehlerhaft nicht getestet
 //*****************************************************************************
 // Class for accesing GNUBLIN Module-ADC / ADS7830
 //*****************************************************************************
 
+/**
+* @~english
+* @brief Set the default I2C Address and reference to intern
+*
+* Default I2C Address: 0x48
+*
+* @~german
+* @brief Setzt die standard I2C Adresse und die Referenzspannung auf intern
+*
+* Standard I2C Addresse: 0x48
+*/
 gnublin_module_adc::gnublin_module_adc() {
 	i2c.setAddress(0x48);
 	referenceValue = 2500;
@@ -14,20 +24,36 @@ gnublin_module_adc::gnublin_module_adc() {
 }
 
 //-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
 
+/**
+* @~english
+* @brief Returns the ErrorMessage of the previous error if one exist.
+*
+* @return ErrorMessage as C-String
+*
+* @~german
+* @brief Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.
+*
+* @return ErrorMessage als C-String
+*/
 const char *gnublin_module_adc::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 
 //------------ fail() -----------------------
-// get error_flag
-// parameters:		NONE
-// return:		[bool] error_flag
 
+/**
+* @~english
+* @brief Returns the errorflag to detect error in the previous called method.
+*
+* @return error_flag
+*
+* @~german
+* @brief Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.
+*
+* @return error_flag
+*/
 bool gnublin_module_adc::fail() {
 	return error_flag;
 }
@@ -37,7 +63,19 @@ bool gnublin_module_adc::fail() {
 // set the slave address
 // parameters:		[int]address	i2c slave Address
 // return:		NONE
-
+/**
+* @~english
+* @brief Set the I2C Address
+*
+* @param I2C Address
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt die I2C Adresse.
+*
+* @param I2C Adresse
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_adc::setAddress(int address) {
 	i2c.setAddress(address);
 	if (i2c.fail()) {
@@ -53,7 +91,21 @@ int gnublin_module_adc::setAddress(int address) {
 // set the i2c device file. default is "/dev/i2c-1"
 // parameters:		[string]filename	path to the dev file
 // return:		NONE
-
+/**
+* @~english
+* @brief Set a custom I2C devicefile
+*
+* default devicefile: "/dev/i2c-1"
+* @param path of the devicefile
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt ein benutzerdefiniertes Devicefile.
+*
+* Standard Devicefile ist "/dev/i2c-1"
+* @param Pfad zum Devicefile
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_adc::setDevicefile(std::string filename) {
 	i2c.setDevicefile(filename);
 	if (i2c.fail()) {
@@ -65,10 +117,20 @@ int gnublin_module_adc::setDevicefile(std::string filename) {
 }
 
 //-------------------setReference() ----------------
-// set reverence voltage to internal or external
-// parameters:		[int] value	1 = internal (2.5V); 0 = external (3.3V)
-// return:		NONE
 
+/**
+* @~english
+* @brief Set the reverencevoltage to intern or extern
+*
+* @param IN (1) for intern (2.5V), OUT (0) for extern (3.3V)
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt die referenzspannung auf intern oder extern.
+*
+* @param IN (1) für intern (2,5V), OUT (0) für extern (3,3V)
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_module_adc::setReference(int value) {
 	if (value == 0) {
 		referenceValue = 3300;
@@ -88,10 +150,20 @@ int gnublin_module_adc::setReference(int value) {
 
 
 //---------------------- getValue() -----------------------
-// get ADC Value of channel in reference to GND
-// parameters:		[int] channel		ADC-Port
-// return:		[int] value		value of ADC-channel
 
+/**
+* @~english
+* @brief Get a value of an ADC channel in reference to GND
+*
+* @param Number of the ADC-channel (1-8)
+* @return value
+*
+* @~german
+* @brief Liefert den Wert eine ADC Ports bezogen zu GND
+*
+* @param Nummer des ADC-Ports (1-8)
+* @return Wert
+*/
 int gnublin_module_adc::getValue(int channel) {
 	int command;
 	unsigned char value[1];
@@ -138,7 +210,39 @@ int gnublin_module_adc::getValue(int channel) {
 	return value[0];	
 }
 
-
+/**
+* @~english
+* @brief Get a value of an ADC channel in reference to a second ADC channel (differential)
+*
+* This combinations are possible<br>
+* 1 - 2<br>
+* 3 - 4<br>
+* 5 - 6<br>
+* 7 - 8<br>
+* 2 - 1<br>
+* 4 - 3<br>
+* 6 - 5<br>
+* 8 - 7<br>
+* @param Number of the first ADC-channel 
+* @param Number of the second ADC-channel
+* @return value
+*
+* @~german
+* @brief Liefert den Wert eines ADC Ports bezogen auf einen zweiten ADC Port (differentielle Messung)
+*
+* Dies Kombinationen sind möglich:<br>
+* 1 - 2<br>
+* 3 - 4<br>
+* 5 - 6<br>
+* 7 - 8<br>
+* 2 - 1<br>
+* 4 - 3<br>
+* 6 - 5<br>
+* 8 - 7<br>
+* @param Nummer des ersten ADC-Ports
+* @param Nummer des zweiten ADC-Ports
+* @return Wert
+*/
 int gnublin_module_adc::getValue(int channel1, int channel2) {
 	int command = -1;
 	unsigned char value[1];
@@ -191,7 +295,19 @@ int gnublin_module_adc::getValue(int channel1, int channel2) {
 // get ADC Value of channel in reference to GND
 // parameters:		[int] channel		ADC-Port
 // return:		[int] voltage		voltage of ADC-channel in mV
-
+/**
+* @~english
+* @brief Get the voltage of an ADC channel in reference to GND in mV
+*
+* @param Number of the ADC-channel (1-8)
+* @return value in mV
+*
+* @~german
+* @brief Liefert den Wert eine ADC Ports bezogen zu GND in mV
+*
+* @param Nummer des ADC-Ports (1-8)
+* @return Wert in mV
+*/
 int gnublin_module_adc::getVoltage(int channel) {
 	error_flag = false;
 	int voltage;
@@ -204,7 +320,39 @@ int gnublin_module_adc::getVoltage(int channel) {
 	return voltage;
 }
 
-
+/**
+* @~english
+* @brief Get the voltage of an ADC channel in reference to a second ADC channel in mV (differential)
+*
+* This combinations are possible<br>
+* 1 - 2<br>
+* 3 - 4<br>
+* 5 - 6<br>
+* 7 - 8<br>
+* 2 - 1<br>
+* 4 - 3<br>
+* 6 - 5<br>
+* 8 - 7<br>
+* @param Number of the first ADC-channel 
+* @param Number of the second ADC-channel
+* @return voltage in mV
+*
+* @~german
+* @brief Liefert den Wert eines ADC Ports bezogen auf einen zweiten ADC Port in mV (differentielle Messung)
+*
+* Dies Kombinationen sind möglich:<br>
+* 1 - 2<br>
+* 3 - 4<br>
+* 5 - 6<br>
+* 7 - 8<br>
+* 2 - 1<br>
+* 4 - 3<br>
+* 6 - 5<br>
+* 8 - 7<br>
+* @param Nummer des ersten ADC-Ports
+* @param Nummer des zweiten ADC-Ports
+* @return Wert in mV
+*/
 int gnublin_module_adc::getVoltage(int channel1, int channel2) {
 	error_flag = false;
 	int voltage;

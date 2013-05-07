@@ -5,11 +5,20 @@
 // Class for accessing the SPI-Bus
 //***************************************************************************
 
-
-//********************* constructor *****************************************
-// set standart devicefile "/dev/spidev0.11" with srandart chipselect pin 11
-// opens devicefile
-
+/**
+* @~english
+* @brief Loads the standard SPI driver if necessary.
+*
+* Default chipselect:
+* GNUBLIN: CS = 11
+* RASPBERRY PI: CS = 0
+* @~german
+* @brief Die Standart SPI-Treiber werden geladen, wenn sie noch nicht vorhanden sind.
+*
+* Default chipselect:
+* GNUBLIN: CS = 11
+* RASPBERRY PI: CS = 0
+*/
 gnublin_spi::gnublin_spi(){
 	error_flag = false;
 	#if BOARD == RASPBERRY_PI
@@ -31,7 +40,6 @@ gnublin_spi::gnublin_spi(){
 
 
 //******************** destructor *******************************************
-// close filehadler
 
 gnublin_spi::~gnublin_spi(){
 	close(fd);
@@ -39,29 +47,54 @@ gnublin_spi::~gnublin_spi(){
 
 
 //******************** fail() ***********************************************
-// return: 	[bool] errorflag
-
+/**
+* @~english
+* @brief Returns the errorflag to detect error in the previous called method.
+*
+* @return error_flag
+*
+* @~german
+* @brief Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.
+*
+* @return error_flag
+*/
 bool gnublin_spi::fail(){
 	return error_flag;
 }
 
 
 //-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:		[const char*]ErrorMessage	Error Message as c-string
-
+/**
+* @~english
+* @brief Returns the ErrorMessage of the previous error if one exist.
+*
+* @return ErrorMessage as C-String
+*
+* @~german
+* @brief Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.
+*
+* @return ErrorMessage als C-String
+*/
 const char *gnublin_spi::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 
 //*********************** setCS *********************************************
-// set custom chipselect and open filehandler
-// paramters: 	[int] cs	Pin for chipselect
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the custom chipselect pin
+*
+* @param Number of the chipselect-pin
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den benutzerdefinierten Chipselect-Pin.
+*
+* @param Nummer des Chipselect-Pin
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setCS(int cs){
 	std::string cs_str = numberToString(cs);
 	std::string device = "/dev/spidev0." + cs_str;
@@ -86,11 +119,20 @@ int gnublin_spi::setCS(int cs){
 
 
 //******************** set Mode *********************************************
-// set SPI Mode
-// parameters:	[int] mode	Modenumber
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the SPI-mode
+*
+* @param Number of the SPI-Mode
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den SPI-Modus
+*
+* @param Nummer SPI-Modus
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setMode(unsigned char mode){
 	if (ioctl(fd, SPI_IOC_WR_MODE, &mode) < 0){
 		error_flag = true;
@@ -102,10 +144,18 @@ int gnublin_spi::setMode(unsigned char mode){
 
 
 //***************** getMode *************************************************
-// read Modenumber from device
-// paramters:	NONE
-// return:	[int] mode	Modenumber
 
+/**
+* @~english
+* @brief Returns the set SPI-Mode
+*
+* @return Number of the SPI-mode
+*
+* @~german
+* @brief Gibt den eingestellten SPI-Modus zurück
+*
+* @return Nummer des SPI-Modus
+*/
 int gnublin_spi::getMode(){
 	__u8 mode;
 	if (ioctl(fd, SPI_IOC_RD_MODE, &mode) < 0){
@@ -118,11 +168,20 @@ int gnublin_spi::getMode(){
 
 
 //******************** setLSB ***********************************************
-// specific how the data will be send
-// paramters: 	[int] lsb	0: MSB first, 1 LSB first
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the LSB-mode
+*
+* @param 0: MSB first, 1 LSB first
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Setzt den LSB-Modus.
+*
+* @param 0: MSB zuerst; 1 LSB zuerst
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setLSB(unsigned char lsb){
 	if (ioctl(fd, SPI_IOC_WR_LSB_FIRST, &lsb) < 0){
 		error_flag = true;
@@ -134,10 +193,18 @@ int gnublin_spi::setLSB(unsigned char lsb){
 
 
 //************************ getLSB() *****************************************
-// get LSB-Mode of the device
-// paramters: NONE
-// return:	[int] lsb	Modenumber of the LSB
 
+/**
+* @~english
+* @brief Returns the set LSB-Mode
+*
+* @return 0: MSB first, 1 LSB first
+*
+* @~german
+* @brief Gibt den eingestellten LSB-Modus zurück.
+*
+* @return 0: MSB zuerst; 1 LSB zuerst
+*/
 int gnublin_spi::getLSB(){
 	__u8 lsb;
 	if (ioctl(fd, SPI_IOC_RD_LSB_FIRST, &lsb) < 0) {
@@ -150,11 +217,20 @@ int gnublin_spi::getLSB(){
 
 
 //*********************** setLength() ***************************************
-// set Lenght of Words which will be send
-// paramters: 	[__u8] bits	number of bits
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Set the lenght of the words which will be send
+*
+* @param Number of bits of each word
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Legt die Länge der gesendeten Wörter fest
+*
+* @param Anzahl der Bits je Word
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setLength(unsigned char bits){
 	if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits) < 0){
 		error_flag = true;
@@ -166,10 +242,18 @@ int gnublin_spi::setLength(unsigned char bits){
 
 
 //************************ getLength() **************************************
-// get word length of the device
-// paramters:	NONE
-// return:	[int] bits	number of bits
 
+/**
+* @~english
+* @brief Returns the length of the words in bits
+*
+* @return Number of bits of each word
+*
+* @~german
+* @brief Gibt die Anzahl von Bits je Wort zurück.
+*
+* @return anzahl der Bits je Wort
+*/
 int gnublin_spi::getLength(){
 	__u8 bits;
 	if (ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits) < 0){
@@ -182,11 +266,20 @@ int gnublin_spi::getLength(){
 
 
 //************************* setSpeed ****************************************
-// set the SPI-bus speed in Hz
-// paramters:	[__u32] speed	Speed in Hz
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
-
+		* [int] -1  	for failure
+/**
+* @~english
+* @brief Set the speed of the SPI-Bus
+*
+* @param Speed in Hz
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Legt die Geschwindigkeit des SPI-Buses fest.
+*
+* @param Geschwindigkeit in Hz
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::setSpeed(unsigned int speed){
 	if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed) < 0){
 		error_flag = true;
@@ -198,10 +291,18 @@ int gnublin_spi::setSpeed(unsigned int speed){
 
 
 //************************* getSpeed() **************************************
-// get speed from bus
-// paramters	NONE
-// return:	[int] speed	SPI Speed in Hz
 
+/**
+* @~english
+* @brief Returns the speed of the SPI-Bus
+*
+* @return SPeed in Hz
+*
+* @~german
+* @brief Gibt die Geschwindigkeit des SPI-Buses zurück.
+*
+* @return Geschwindigkeit in Hz
+*/
 int gnublin_spi::getSpeed(){
 	__u32 speed;
 	if (ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed) < 0){
@@ -213,12 +314,22 @@ int gnublin_spi::getSpeed(){
 }
 
 //**************************** receive **************************************
-// receive data from SPI Bus
-// paramters:	* [char*] buffer	buffer for recived datas
-//		* [int] len	length of data which will be recived
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Receive data from SPI Bus
+*
+* @param Buffer for recived datas
+* @param Length of recived data
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Empfängt Daten über den SPI-Bus
+*
+* @param Buffer für die empfangenen Daten
+* @param Anzahl der zu empfangenden Zeichen
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::receive(char* buffer, int len){
 	if (read(fd, buffer, len) < 0) {
 		error_flag = true;
@@ -229,12 +340,22 @@ int gnublin_spi::receive(char* buffer, int len){
 }
 
 //*************************** send() ****************************************
-// send data over SPI bus
-// paramters:	* [__u8*] tx	data which will be send
-//		* [int] length	length of data which will be send
-// return: 	* [int] 1	for success
-//		* [int] -1  	for failure
 
+/**
+* @~english
+* @brief Send data over the SPI Bus
+*
+* @param Datas which will be send
+* @param Length of datas
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Sendet Daten über den SPI-Bus
+*
+* @param Zu sendende Daten
+* @param Anzahl der zu sendenden Zeichen
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::send(unsigned char* tx, int length){
 	int status;
 	struct spi_ioc_transfer	xfer;
@@ -262,7 +383,25 @@ int gnublin_spi::send(unsigned char* tx, int length){
 //		* [int] rx_length	length of data which will be recived
 // return: 	* [int] 1	for success
 //		* [int] -1  	for failure
-
+/**
+* @~english
+* @brief Send and recive data over the SPI-Bus (half duplex)
+*
+* @param Data which will be send
+* @param Length of data which will be send
+* @param Buffer for recived datas
+* @param length of recived datas
+* @return 1 by success, -1 by failure
+*
+* @~german
+* @brief Sendet und empfängt daten über den SPI-Bus (halb duplex).
+*
+* @param Zu sendende Daten
+* @param Anzahl der zu sendenden Zeichen
+* @param Buffer für den Datenempfang
+* @param Anzahl der zu empfangenden Zeichen
+* @return 1 bei Erfolg, -1 im Fehlerfall
+*/
 int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, int rx_length){
 	int status;
 	struct spi_ioc_transfer xfer[2];

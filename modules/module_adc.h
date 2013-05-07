@@ -1,12 +1,21 @@
 #include "../include/includes.h"
 #include "../drivers/i2c.h"
 
-
-//Hinweis: evtl. Fehlerhaft nicht getestet
 //*****************************************************************************
 // Class for accesing GNUBLIN Module-ADC / ADS7830
 //*****************************************************************************
 
+/**
+* @class gnublin_module_adc
+* @~english
+* @brief Class for accesing the GNUBLIN MODULE-ADC
+*
+* This class manages to use the GNUBLIN MODULE-ADC
+* @~german
+* @brief Klasse für den Zugriff auf das GNUBLIN MODULE-ADC
+*
+* Mit dieser Klasse kann auf das GNUBLIN MODULE-ADC zugegriffen werden.
+*/
 class gnublin_module_adc {
 	public:
 		gnublin_module_adc();
