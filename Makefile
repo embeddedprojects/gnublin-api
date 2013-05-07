@@ -12,8 +12,8 @@ all: build gnublin.o gnublin.a libgnublin.so.1.0.1 gnublin-tools
 build:
 	sh build-API.sh
 
-gnublin.o: gnublin.cpp gnublin.h
-	$(CXX) $(CXXFLAGS) $(APIDEFS) -c gnublin.cpp
+gnublin.o: build gnublin.cpp gnublin.h
+	$(CXX) $(CXXFLAGS) $(BOARDDEF) $(APIDEFS) -c gnublin.cpp
 
 gnublin.a: gnublin.o 
 	ar rcs gnublin.a gnublin.o

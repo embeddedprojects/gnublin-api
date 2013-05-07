@@ -1,4 +1,4 @@
-objects = gnublin-lm75
+objects = gnublin-step
 path = ../../
 include ../../variables.mk
 

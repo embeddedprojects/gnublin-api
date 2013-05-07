@@ -2,13 +2,13 @@ objects = gnublin-pca9555
 path = ../../
 include ../../variables.mk
 
-all: $(path)gnublin.o $(objects)
+all: gnublin.o $(objects)
 
-$(path)gnublin.o: $(path)gnublin.cpp $(path)gnublin.h
-	$(MAKE) -C $(path) gnublin.o
+gnublin.o: $(path)gnublin.cpp $(path)gnublin.h
+	$(CXX) $(CXXFLAGS) $(BOARDDEF) -c $(path)gnublin.cpp 
 
-$(objects): $(path)gnublin.o $(objects).cpp
-	$(CXX) $(CXXFLAGS) -o $(objects) $(path)gnublin.o $(objects).cpp -I ../../
+$(objects): gnublin.o $(objects).cpp
+	$(CXX) $(CXXFLAGS) $(BOARDDEF) -o $(objects) gnublin.o $(objects).cpp -I ../../
 
 install: $(objects)
 	cp $(objects) /usr/local/bin/
