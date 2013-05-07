@@ -5,7 +5,17 @@
 //****************************************************************************
 // Class for easy use of the GNUBLIN Module-Relay
 //****************************************************************************
-
+/**
+* @class gnublin_module_relay
+* @~english
+* @brief Class for accessing GNUBLIN module-relay
+*
+* The GNUBLIN Module-relay can be easily controlled with the gnublin_step API. The Module uses the I2C-Bus.
+* @~german 
+* @brief Klasse für den zugriff auf das GNUBLIN module-relay
+*
+* Das GNUBLIN module-relay lässt sich mit Hilfe der gnublin_relay API ganz einfach ansteuern. Das Modul nutzt die I2C-Schnittstelle.  
+*/ 
 class gnublin_module_relay {
 		gnublin_module_pca9555 pca9555;
 		bool error_flag;
