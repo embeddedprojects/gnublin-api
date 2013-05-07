@@ -33,7 +33,7 @@ const char *gnublin_gpio::getErrorMessage(){
 }
 
 int gnublin_gpio::pinMode(int pin, std::string direction){
-	#ifndef BOARD_RASPBERRYPI
+	#if (BOARD == RASPBERRY_PI)
 	if (pin == 4 && direction == "out"){
 		error_flag = true;
 		return -1;
