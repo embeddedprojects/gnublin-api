@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 05/07/13 10:42
+//build date: 05/07/13 13:38
 //******************************************** 
 
 #ifndef INCLUDE_FILE
@@ -24,6 +24,9 @@
 #include <math.h>
 
 
+//BOARDS
+#define GNUBLIN 1
+#define RASPBERRY_PI 2
 
 #define OUTPUT 	"out"
 #define INPUT	"in"
@@ -112,7 +115,7 @@ class gnublin_spi{
 };
 //***** NEW BLOCK *****
 
-#ifndef BOARD_RASPBERYPI
+#if (BOARD == RASPBERRY_PI)
 //****************************************************************************
 // Class for easy acces to the GPAs
 //****************************************************************************
@@ -248,6 +251,17 @@ class gnublin_module_relay {
 		int switchPin(int pin, int value);
 };
 
+/**
+* @class gnublin_module_step
+* @~english
+* @brief Class for accessing GNUBLIN module-step
+*
+* The GNUBLIN Module-step can be easily controlled with the gnublin_step API. The Module uses the I2C-Bus.
+* @~german 
+* @brief Klasse für den zugriff auf das GNUBLIN module-step
+*
+* Das GNUBLIN module-step lässt sich mit Hilfe der gnublin_step API ganz einfach ansteuern. Das Modul nutzt die I2C-Schnittstelle.  
+*/ 
 class gnublin_module_step {
 	gnublin_i2c i2c;
 
@@ -365,9 +379,12 @@ public:
 * @class gnublin_module_lcd
 * @~english
 * @brief Class for accessing GNUBLIN Module-LCD 4x20
+*
+* The GNUBLIN Module-LCD_4x20 can be easily controlled with the gnublin_lcd API. The Display uses the I2C-Bus.
 * @~german 
 * @brief Klasse für den zugriff auf das GNUBLIN Module-LCD 4x20
-* 
+*
+* Das GNUBLIN Module-LCD_4x20 lässt sich mit Hilfe der gnublin_lcd API ganz einfach ansteuern. Das Display nutzt die I2C-Schnittstelle.  
 */ 
 class gnublin_module_lcd {
 		bool error_flag;
