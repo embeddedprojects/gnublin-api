@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 05/08/13 00:37
+//build date: 05/08/13 10:27
 //******************************************** 
 
 #ifndef INCLUDE_FILE
@@ -226,8 +226,7 @@ class gnublin_module_dogm{
 * @~german 
 * @brief Klasse für den zugriff auf den LM75 IC via I2C Bus
 *
-*/ 
-
+*/
 class gnublin_module_lm75 {
 	bool error_flag;
 	gnublin_i2c i2c;
@@ -283,7 +282,15 @@ class gnublin_module_adc {
 //*******************************************************************
 //Class for accessing GNUBLIN Module-Portexpander or any PCA9555
 //*******************************************************************
-
+/**
+* @class gnublin_module_pca9555
+* @~english
+* @brief Class for accessing the PCA9555 IC via I2C
+*
+* @~german 
+* @brief Klasse für den zugriff auf den PCA9555 IC via I2C Bus
+*
+*/
 class gnublin_module_pca9555 {
 		bool error_flag;
 		gnublin_i2c i2c;
@@ -318,16 +325,16 @@ public:
 * Das GNUBLIN module-relay lässt sich mit Hilfe der gnublin_relay API ganz einfach ansteuern. Das Modul nutzt die I2C-Schnittstelle.  
 */ 
 class gnublin_module_relay {
-		gnublin_module_pca9555 pca9555;
-		bool error_flag;
-		std::string ErrorMessage;
-	public:
-		gnublin_module_relay();
-		const char *getErrorMessage();
-		bool fail();
-		void setAddress(int Address);
-		void setDevicefile(std::string filename);
-		int switchPin(int pin, int value);
+	gnublin_module_pca9555 pca9555;
+	bool error_flag;
+	std::string ErrorMessage;
+public:
+	gnublin_module_relay();
+	const char *getErrorMessage();
+	bool fail();
+	void setAddress(int Address);
+	void setDevicefile(std::string filename);
+	int switchPin(int pin, int value);
 };
 
 /**

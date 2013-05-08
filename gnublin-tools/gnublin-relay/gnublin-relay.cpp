@@ -24,10 +24,10 @@ string helpstring="This program was designed to easily interact with the relay m
 "Examples:\n"
 
 "Set relay 1 high\n"
-"gnublin-relais -p 1 -o 1\n\n"
+"gnublin-relay -p 1 -o 1\n\n"
 
 "Set relay 1 on a Module connected to Address 0x21 low\n"
-"gnublin-relais -a 0x21 -p 1 -o 1\n\n";
+"gnublin-relay -a 0x21 -p 1 -o 1\n\n";
 
 void parse_opts(int argc, char **argv)
 {
@@ -38,12 +38,12 @@ void parse_opts(int argc, char **argv)
 		{
 			case 'h' : 	printf("%s", helpstring.c_str());	
 						hflag=1;							
-																	break; // help 
-			case 'p' :	pin=atoi(optarg); 							break;
-			case 'o' :	value=atoi(optarg); 						break;
-			case 'a' : 	relay.setAddress(strtol (optarg,NULL,16)); 	break;
-			case 'j' : 	json_flag = 1;								break;
-			case 'b' : 	brute_flag = 1;								break;			
+												break; // help 
+			case 'p' :	pin=atoi(optarg); 					break;
+			case 'o' :	value=atoi(optarg); 					break;
+			case 'a' : 	relay.setAddress(strtol (optarg,NULL,16));		break;
+			case 'j' : 	json_flag = 1;						break;
+			case 'b' : 	brute_flag = 1;						break;			
 		}
 	}
 	if (hflag)

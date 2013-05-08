@@ -17,15 +17,15 @@
 * Das GNUBLIN module-relay lässt sich mit Hilfe der gnublin_relay API ganz einfach ansteuern. Das Modul nutzt die I2C-Schnittstelle.  
 */ 
 class gnublin_module_relay {
-		gnublin_module_pca9555 pca9555;
-		bool error_flag;
-		std::string ErrorMessage;
-	public:
-		gnublin_module_relay();
-		const char *getErrorMessage();
-		bool fail();
-		void setAddress(int Address);
-		void setDevicefile(std::string filename);
-		int switchPin(int pin, int value);
+	gnublin_module_pca9555 pca9555;
+	bool error_flag;
+	std::string ErrorMessage;
+public:
+	gnublin_module_relay();
+	const char *getErrorMessage();
+	bool fail();
+	void setAddress(int Address);
+	void setDevicefile(std::string filename);
+	int switchPin(int pin, int value);
 };
 

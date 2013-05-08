@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/08/13 00:37
+//build date: 05/08/13 10:27
 //******************************************** 
 
 #include"gnublin.h"
@@ -1722,15 +1722,10 @@ void gnublin_module_lm75::setDevicefile(std::string filename){
 
 
 //-----------------------------------get Temp-----------------------------------
-// reads the raw data via i2c from the LM75 chip and calculates the temperature
-// parameters:		NONE
-// return:			[int] temp		temperature in °C
-
-//-------------------get Temp----------------
 /** @~english
 * @brief reads the raw data via i2c from the LM75 chip and calculates the temperature
 *
-* @return Returns the Temperature 
+* @return Returns the Temperature, 0 at failure (check with fail() and getErrorMessage())
 *
 * @~german
 * @brief liest die Roh-Daten aus dem LM75 und berechnet die Temperatur
@@ -1779,11 +1774,16 @@ int gnublin_module_lm75::getTemp(){
 
 
 //--------------------------------get Temp float--------------------------------
-// reads the raw data via i2c from the LM75 chip and calculates the temperature
-// parameters: 		NONE
-// return:			[float] temp		temperature in float format: 12.345 °C
-
-
+/** @~english
+* @brief reads the raw data via i2c from the LM75 chip and calculates the temperature
+*
+* @return Returns the Temperature as float, 0 at failure (check with fail() and getErrorMessage())
+*
+* @~german
+* @brief liest die Roh-Daten aus dem LM75 und berechnet die Temperatur
+*
+* @return Temperatur als Fließkommazahl, im Fehlerfall 0 (überprüfen mit fail() und getErrorMessage())
+*/
 float gnublin_module_lm75::getTempFloat(){
 	short value=0;
 	float temp;	
@@ -1826,11 +1826,16 @@ float gnublin_module_lm75::getTempFloat(){
 
 
 //--------------------------------get Value---------------------------------
-// reads the raw data via i2c from the LM75 chip and shift the bits correctly
-// parameters:		NONE
-// return:			[short]value		raw value, already shifted
-
-
+/** @~english
+* @brief reads the raw data via i2c from the LM75 chip and shift the bits correctly
+*
+* @return Returns raw value, already shifted. 0 at failure (check with fail() and getErrorMessage())
+*
+* @~german
+* @brief liest die Roh-Daten aus dem LM75 und schiebt die Bits in die richtige Reihenfolge
+*
+* @return Rohwert, im Fehlerfall 0 (überprüfen mit fail() und getErrorMessage())
+*/
 short gnublin_module_lm75::getValue(){
 	short value=0;
 	unsigned char rx_buf[2];
@@ -2226,55 +2231,105 @@ int gnublin_module_adc::getVoltage(int channel1, int channel2) {
 //Class for accessing GNUBLIN Module-Portexpander or any PCA9555
 //*******************************************************************
 
-//-------------Konstruktor-------------
-// set error flag=false
-
+//------------------Konstruktor------------------
+/** @~english 
+* @brief Sets the error_flag to "false"
+*
+* @~german 
+* @brief Setzt das error_flag auf "false"
+*
+*/
 gnublin_module_pca9555::gnublin_module_pca9555() 
 {
 	error_flag=false;
+	//setAddress(0x20);
 }
 
 
 //-------------get Error Message-------------
-// get the last ErrorMessage
-// parameters:		NONE
-// return:			[const char*]ErrorMessage	Error Message as c-string
-
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This function returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
 const char *gnublin_module_pca9555::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
 //-------------------------------Fail-------------------------------
-//returns the error flag. if something went wrong, the flag is true
+/** @~english 
+* @brief returns the error flag to check if the last operation went wrong
+*
+* @return error_flag as boolean
+*
+* @~german 
+* @brief Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist
+*
+* @return error_flag als bool
+*/
 bool gnublin_module_pca9555::fail(){
 	return error_flag;
 }
 
 //-------------set Address-------------
-// set the slave address
-// parameters:		[int]Address	i2c slave Address
-// return:			NONE
-
+/** @~english 
+* @brief Set the i2c slave address 
+*
+* With this function you can set the individual I2C Slave-Address of the PCA9555.
+* @param Address new I2C slave Address
+*
+* @~german 
+* @brief Setzt die i2c slave Adresse
+*
+* Mit dieser Funktion kann die individuelle I2C Slave-Adresse des PCA9555 gesetzt werden.
+* @param Address neue I2C slave Adresse
+*/
 void gnublin_module_pca9555::setAddress(int Address){
 	i2c.setAddress(Address);
 }
 
 
 //-------------------set devicefile----------------
-// set the i2c device file. default is "/dev/i2c-1"
-// parameters:		[string]filename	path to the dev file
-// return:			NONE
-
+/** @~english
+* @brief set i2c the device file. default is "/dev/i2c-1"
+*
+* This function sets the devicefile you want to access. by default "/dev/i2c-1" is set.
+* @param filename path to the devicefile e.g. "/dev/i2c-0"
+*
+* @~german
+* @brief setzt die I2C Device Datei. Standard ist die "/dev/i2c-1"
+*
+* Diese Funktion setzt die Geräte Datei, auf die man zugreifen möchte. Standardmäßig ist bereits "/dev/i2c-1" gesetzt.
+* @param filename Dateipfad zur Geräte Datei, z.B. "/dev/i2c-0"
+*/
 void gnublin_module_pca9555::setDevicefile(std::string filename){
 	i2c.setDevicefile(filename);
 }
 
-//-------------------Pin Mode----------------
-// Controls the Pin Mode.
-// parameters:		[int]pin 		Number of the pin
-//					[string]		direction OUTPUT/INPUT		
-// returns:			[int]  1		success
-// 					[int] -1		failure
+//-----------------------------------Pin Mode-----------------------------------
+/** @~english
+* @brief Controls the pin mode (INPUT/OUTPUT)
+*
+* With this Function you can set a single pin of the PCA9555 wether as input or output.
+* @param pin Number of the pin (0-15)
+* @param direction INPUT or OUTPUT
+* @return success: 1, failure: -1
+*
+* @~german
+* @brief Setzt den Pin Modus (Eingang/Ausgang)
+*
+* Mit dieser Funktion kann man einen einzelnen Pin entweder als Eingang oder als Ausgang setzen.
+* @param pin Nummer des Pins (0-15)
+* @param direction INPUT (Eingang) oder OUTPUT (Ausgang)
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 	error_flag=false;
 	unsigned char TxBuf[1];
@@ -2371,13 +2426,23 @@ int gnublin_module_pca9555::pinMode(int pin, std::string direction){
 }
 
 
-//-------------------Port Mode----------------
-// Controls the Port Mode.
-// parameters:		[int]port 		Number of the pin
-//					[string]		direction OUTPUT/INPUT		
-// returns:			[int]  1		success
-// 					[int] -1		failure
-
+//-----------------------------------Port Mode-----------------------------------
+/** @~english
+* @brief Controls the port mode (INPUT/OUTPUT)
+*
+* With this Function you can set a whole port of the PCA9555 wether as input or output.
+* @param port Number of the port (0-1)
+* @param direction INPUT or OUTPUT
+* @return success: 1, failure: -1
+*
+* @~german
+* @brief Setzt den Port Modus (Eingang/Ausgang)
+*
+* Mit dieser Funktion kann man einen ganzen Port entweder als Eingang oder als Ausgang setzen.
+* @param port Nummer des Ports (0-1)
+* @param direction INPUT (Eingang) oder OUTPUT (Ausgang)
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_module_pca9555::portMode(int port, std::string direction){
 	error_flag=false;
 	unsigned char TxBuf[1];
@@ -2452,13 +2517,24 @@ int gnublin_module_pca9555::portMode(int port, std::string direction){
 	else return -1;
 }
 
-//-------------------digital write----------------
-// writes a high or low to the Output
-// parameters:		[int]pin 		Number of the pin
-//					[int]value		High/Low		
-// returns:			[int]  1		success
-// 					[int] -1		failure
 
+//-----------------------------------digital Write-----------------------------------
+/** @~english
+* @brief sets the level of an output pin (HIGH/LOW)
+*
+* With this Function you can set the logical level of an output pin to wether HIGH or LOW.
+* @param pin Number of the pin (0-15)
+* @param value HIGH (1) or LOW (0)
+* @return success: 1, failure: -1
+*
+* @~german
+* @brief Setzt den Pegel eines Ausgangs (HIGH/LOW)
+*
+* Mit dieser Funktion kann man den Pegel eines Ausgangs entweder auf HIGH oder auf LOW setzen.
+* @param pin Nummer des Pins (0-15)
+* @param value HIGH (1) oder LOW (0) 
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	error_flag=false;
 	unsigned char TxBuf[1];
@@ -2555,14 +2631,23 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 	else return -1;
 }
 
-//-------------------write port----------------
-// Writes one byte to a complete port
-// parameters:	[int]port 0/1 		Number of the port
-//				[unsigned char]value	Byte to write
-//							
-// returns:		[int]  1		succsess
-// 				[int] -1		failure
-
+//-----------------------------------write Port-----------------------------------
+/** @~english
+* @brief  Writes one byte to a complete port
+*
+* With this Function you can write a whole byte to a whole port of the PCA9555.
+* @param port Number of the port (0-1)
+* @param value The Byte you want to write.  e.g. 0x12 to write 00010010 
+* @return success: 1, failure: -1
+*
+* @~german
+* @brief Schreibt ein Byte an einen kompletten Port
+*
+* Mit dieser Funktion kann man ein komplettes Byte an einen ganzen Port des PCA9555 schreiben.
+* @param port Nummer des Ports (0-1)
+* @param value Das Byte, dass man schreiben möchte. z.B. 0x12 um 00010010 zu schreiben. 
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_module_pca9555::writePort(int port, unsigned char value){
 	error_flag=false;
 	unsigned char buffer[1];
@@ -2596,13 +2681,21 @@ int gnublin_module_pca9555::writePort(int port, unsigned char value){
 	
 }
 
-//-------------------digital read----------------
-// reads the state of the inputs and returns it
-// parameters:		[int]pin 		Number of the pin
-//							
-// returns:			[int]  0/1		logical level of the pin
-// 					[int] -1		failure
-
+//-----------------------------------digital read-----------------------------------
+/** @~english
+* @brief reads the state of an input pin and returns it
+*
+* With this function you can read the level of an input pin.
+* @param pin Number of the pin (0-15) you want to read from
+* @return 0/1 logical level of the pin, failure: -1
+*
+* @~german
+* @brief Liest den Zustand eins Eingang-Pins und gibt ihn zurück
+*
+* Mit dieser Funktion kann man den Zustand eines Pins auslesen.
+* @param pin Nummer des Pins (0-15) von dem man lesen will.
+* @return 0/1 logischer Pegel des Pins, Misserfolg: -1
+*/
 int gnublin_module_pca9555::digitalRead(int pin) {
 	error_flag=false;
 	unsigned char RxBuf[1];
