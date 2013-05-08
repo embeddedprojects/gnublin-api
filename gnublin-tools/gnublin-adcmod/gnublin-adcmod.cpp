@@ -35,7 +35,7 @@ int error_msg(char* msg){
 
 void pars_opts(int argc, char **argv) {
 	int c;
-	while((c = getopt(argc,argv,"hc:bja:d:")) != -1){
+	while((c = getopt(argc,argv,"hc:bja:d")) != -1){
                 switch(c)
                 {
                         case 'h' : hflag = 1; break; /* help */
@@ -47,7 +47,7 @@ void pars_opts(int argc, char **argv) {
 		}
 	}
 
-	if (hflag){
+	if (hflag | (argc<=1)){
 		printf("This Script prints out the value of a selected adc-channel of the gnublin-adc-module \n\n"
 		"-h Show this help\n"
 		"-b show raw output\n"

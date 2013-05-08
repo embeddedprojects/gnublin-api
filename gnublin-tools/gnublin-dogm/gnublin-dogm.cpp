@@ -68,7 +68,7 @@ void pars_opts(int argc, char **argv) {
                 }
 
         }
-	if (hflag)
+	if (hflag | (argc<=1))
         {
                 printf("This program was designed to easily interact with the dogm display.\n\n");            
                 puts("-w write string to display\n"
