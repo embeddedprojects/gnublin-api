@@ -54,7 +54,6 @@ void parse_opts(int argc, char **argv)
 
 
 int main (int argc, char **argv) {
-
 	parse_opts(argc, argv);
 
 	if(relay.switchPin(pin, value)<0){
