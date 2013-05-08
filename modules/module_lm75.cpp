@@ -86,15 +86,10 @@ void gnublin_module_lm75::setDevicefile(std::string filename){
 
 
 //-----------------------------------get Temp-----------------------------------
-// reads the raw data via i2c from the LM75 chip and calculates the temperature
-// parameters:		NONE
-// return:			[int] temp		temperature in °C
-
-//-------------------get Temp----------------
 /** @~english
 * @brief reads the raw data via i2c from the LM75 chip and calculates the temperature
 *
-* @return Returns the Temperature 
+* @return Returns the Temperature, 0 at failure (check with fail() and getErrorMessage())
 *
 * @~german
 * @brief liest die Roh-Daten aus dem LM75 und berechnet die Temperatur
@@ -143,11 +138,16 @@ int gnublin_module_lm75::getTemp(){
 
 
 //--------------------------------get Temp float--------------------------------
-// reads the raw data via i2c from the LM75 chip and calculates the temperature
-// parameters: 		NONE
-// return:			[float] temp		temperature in float format: 12.345 °C
-
-
+/** @~english
+* @brief reads the raw data via i2c from the LM75 chip and calculates the temperature
+*
+* @return Returns the Temperature as float, 0 at failure (check with fail() and getErrorMessage())
+*
+* @~german
+* @brief liest die Roh-Daten aus dem LM75 und berechnet die Temperatur
+*
+* @return Temperatur als Fließkommazahl, im Fehlerfall 0 (überprüfen mit fail() und getErrorMessage())
+*/
 float gnublin_module_lm75::getTempFloat(){
 	short value=0;
 	float temp;	
@@ -190,11 +190,16 @@ float gnublin_module_lm75::getTempFloat(){
 
 
 //--------------------------------get Value---------------------------------
-// reads the raw data via i2c from the LM75 chip and shift the bits correctly
-// parameters:		NONE
-// return:			[short]value		raw value, already shifted
-
-
+/** @~english
+* @brief reads the raw data via i2c from the LM75 chip and shift the bits correctly
+*
+* @return Returns raw value, already shifted. 0 at failure (check with fail() and getErrorMessage())
+*
+* @~german
+* @brief liest die Roh-Daten aus dem LM75 und schiebt die Bits in die richtige Reihenfolge
+*
+* @return Rohwert, im Fehlerfall 0 (überprüfen mit fail() und getErrorMessage())
+*/
 short gnublin_module_lm75::getValue(){
 	short value=0;
 	unsigned char rx_buf[2];

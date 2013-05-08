@@ -4,7 +4,15 @@
 //*******************************************************************
 //Class for accessing GNUBLIN Module-Portexpander or any PCA9555
 //*******************************************************************
-
+/**
+* @class gnublin_module_pca9555
+* @~english
+* @brief Class for accessing the PCA9555 IC via I2C
+*
+* @~german 
+* @brief Klasse für den zugriff auf den PCA9555 IC via I2C Bus
+*
+*/
 class gnublin_module_pca9555 {
 		bool error_flag;
 		gnublin_i2c i2c;

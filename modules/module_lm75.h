@@ -11,8 +11,7 @@
 * @~german 
 * @brief Klasse für den zugriff auf den LM75 IC via I2C Bus
 *
-*/ 
-
+*/
 class gnublin_module_lm75 {
 	bool error_flag;
 	gnublin_i2c i2c;
