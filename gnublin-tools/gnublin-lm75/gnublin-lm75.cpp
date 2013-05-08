@@ -50,7 +50,7 @@ void parse_opts(int argc, char **argv)
 
 int main (int argc, char **argv) {
 	float temperature=9999; // LM75 goes from -55 to +125 °C
-							// so if you get 9999 °C something went wrong
+				// so if you get 9999 °C something went wrong
 
 	lm75.setAddress(0x4f);
 	parse_opts(argc, argv);
