@@ -9,8 +9,8 @@ gnublin_module_relay relay;
 int c,hflag=0;
 int json_flag = 0;
 int brute_flag = 0;
-int pin;
-int value;
+int pin=-1;
+int value=-1;
 
 string helpstring="This program was designed to easily interact with the relay module for GNUBLIN.\n\n"
 
@@ -27,7 +27,7 @@ string helpstring="This program was designed to easily interact with the relay m
 "gnublin-relay -p 1 -o 1\n\n"
 
 "Set relay 1 on a Module connected to Address 0x21 low\n"
-"gnublin-relay -a 0x21 -p 1 -o 1\n\n";
+"gnublin-relay -a 0x21 -p 1 -o 0\n\n";
 
 void parse_opts(int argc, char **argv)
 {
@@ -37,7 +37,7 @@ void parse_opts(int argc, char **argv)
 		switch(c)
 		{
 			case 'h' : 	printf("%s", helpstring.c_str());	
-						hflag=1;							
+					hflag=1;							
 												break; // help 
 			case 'p' :	pin=atoi(optarg); 					break;
 			case 'o' :	value=atoi(optarg); 					break;
@@ -54,8 +54,9 @@ void parse_opts(int argc, char **argv)
 
 
 int main (int argc, char **argv) {
-
+	relay.setAddress(0x20);
 	parse_opts(argc, argv);
+
 
 	if(relay.switchPin(pin, value)<0){
 		if(json_flag ==1){
@@ -63,9 +64,9 @@ int main (int argc, char **argv) {
 		return -1;
 		}
 		else{
-		printf("%s", relay.getErrorMessage());
+		printf("Error: %s", relay.getErrorMessage());
 		return -1;
 		}
 	}
-	return 1;
+	return 1; 
 }

@@ -18,7 +18,6 @@
 */
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
-	pca9555.setAddress(0x20);
 }
 
 
@@ -114,6 +113,11 @@ int gnublin_module_relay::switchPin(int pin, int value) {
 	if (pin < 1 || pin > 8) {
 		error_flag=true;
 		ErrorMessage="pin is not between 1-8!\n";
+		return -1;
+	}
+	if (pca9555.pinMode((pin-1), OUTPUT) < 0){
+		error_flag=true;
+		ErrorMessage="pca9555.pinMode failed!\n";
 		return -1;
 	}
 	if (pca9555.digitalWrite((pin-1), value) < 0) {
