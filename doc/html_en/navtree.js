@@ -2,6 +2,7 @@ var NAVTREE =
 [
   [ "gnublin-api", "index.html", [
     [ "Classes", null, [
+      [ "Introduction", "index.html#sec1", null ],
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [
