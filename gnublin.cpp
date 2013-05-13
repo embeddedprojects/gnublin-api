@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/13/13 09:44
+//build date: 05/13/13 11:44
 //******************************************** 
 
 #include"gnublin.h"
@@ -1641,15 +1641,16 @@ int gnublin_module_dogm::controlDisplay(int power, int cursor, int blink) {
 
 //------------------Konstruktor------------------
 /** @~english 
-* @brief Sets the error_flag to "false"
+* @brief Sets the error_flag to "false" and the standard i2c Address to 0x4f
 *
 * @~german 
-* @brief Setzt das error_flag auf "false"
+* @brief Setzt das error_flag auf "false" und die Standard i2c Adresse auf 0x4f
 *
 */
 gnublin_module_lm75::gnublin_module_lm75()
 {
 	error_flag=false;
+	setAddress(0x4f);
 }
 
 
@@ -2233,15 +2234,16 @@ int gnublin_module_adc::getVoltage(int channel1, int channel2) {
 
 //------------------Konstruktor------------------
 /** @~english 
-* @brief Sets the error_flag to "false"
+* @brief Set standard i2c address 0x20, set ErrorFlag false
 *
 * @~german 
-* @brief Setzt das error_flag auf "false"
+* @brief Setze standard i2c Adresse 0x20 und setze das ErrorFlag auf false.
 *
 */
 gnublin_module_pca9555::gnublin_module_pca9555() 
 {
 	error_flag=false;
+	setAddress(0x20);
 }
 
 
@@ -2776,6 +2778,7 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 */
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
+	setAddress(0x20);
 }
 
 

@@ -5,15 +5,16 @@
 
 //------------------Konstruktor------------------
 /** @~english 
-* @brief Sets the error_flag to "false"
+* @brief Sets the error_flag to "false" and the standard i2c Address to 0x4f
 *
 * @~german 
-* @brief Setzt das error_flag auf "false"
+* @brief Setzt das error_flag auf "false" und die Standard i2c Adresse auf 0x4f
 *
 */
 gnublin_module_lm75::gnublin_module_lm75()
 {
 	error_flag=false;
+	setAddress(0x4f);
 }
 
 

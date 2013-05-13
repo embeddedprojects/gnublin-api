@@ -18,6 +18,7 @@
 */
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
+	setAddress(0x20);
 }
 
 

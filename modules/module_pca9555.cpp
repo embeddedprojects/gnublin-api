@@ -6,15 +6,16 @@
 
 //------------------Konstruktor------------------
 /** @~english 
-* @brief Sets the error_flag to "false"
+* @brief Set standard i2c address 0x20, set ErrorFlag false
 *
 * @~german 
-* @brief Setzt das error_flag auf "false"
+* @brief Setze standard i2c Adresse 0x20 und setze das ErrorFlag auf false.
 *
 */
 gnublin_module_pca9555::gnublin_module_pca9555() 
 {
 	error_flag=false;
+	setAddress(0x20);
 }
 
 
