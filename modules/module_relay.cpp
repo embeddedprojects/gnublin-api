@@ -18,7 +18,6 @@
 */
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
-	pca9555.portMode(0, OUTPUT);
 }
 
 
@@ -110,14 +109,18 @@ void gnublin_module_relay::setDevicefile(std::string filename){
 */
 int gnublin_module_relay::switchPin(int pin, int value) {
 	error_flag=false;
-	int pcapin= (pin-1);
 
 	if (pin < 1 || pin > 8) {
 		error_flag=true;
 		ErrorMessage="pin is not between 1-8!\n";
 		return -1;
 	}
-	if (pca9555.digitalWrite(pcapin, value) < 0) {
+	if (pca9555.pinMode((pin-1), OUTPUT) < 0){
+		error_flag=true;
+		ErrorMessage=pca9555.getErrorMessage(); //"pca9555.pinMode failed! Address correct?\n";
+		return -1;
+	}
+	if (pca9555.digitalWrite((pin-1), value) < 0) {
 		error_flag=true;
 		ErrorMessage="pca9555.digitalWrite failed! Address correct?\n";		
 		return -1;

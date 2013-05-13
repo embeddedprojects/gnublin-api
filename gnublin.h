@@ -1,8 +1,16 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 05/08/13 11:40
+//build date: 05/13/13 09:44
 //******************************************** 
 
+
+/** @mainpage Gnublin-API 
+ *  
+ *  @section sec1 Einleitung 
+ *  Viele Erweierungsboards mit passenden kleinen Konsolenprogrammen und einer gemeinsamen API ermöglichen einem sehr schnell Anwendungen oder Steuerungen zu realisieren. Man sucht sicht die passenden Module aus, testet diese schnell und einfach mit kleinen Tools auf der Kommandozeile. Ist man sich im klaren, wie die erste Anwendung aussehen soll kann man diese einfach mit Hilfe der API umsetzten. 
+ 
+ * <p><img src="http://wiki.gnublin.org/images/2/24/RASPBERRY-BRIDGE_Aufbau.JPG" ></p>
+ */
 #ifndef INCLUDE_FILE
 #define INCLUDE_FILE
 

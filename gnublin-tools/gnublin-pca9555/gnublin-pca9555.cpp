@@ -85,7 +85,6 @@ int main (int argc, char **argv) {
 	}
 	else if (pin >= 0 && port < 0 && input_flag== 1 ){
 		pca.pinMode(pin, INPUT);
-		printf("ErrorMessage: %s\n", pca.getErrorMessage());
 		if(json_flag==1){
 			printf("{\"value pin %i\" : \"%i\",\"result\" : \"0\"}\n", pin, pca.digitalRead(pin));
 		}
