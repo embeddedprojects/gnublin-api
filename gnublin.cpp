@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/08/13 11:24
+//build date: 05/08/13 11:40
 //******************************************** 
 
 #include"gnublin.h"
@@ -2776,7 +2776,7 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 */
 gnublin_module_relay::gnublin_module_relay() {
 	error_flag=false;
-	setAddress(0x20);
+	pca9555.portMode(0, OUTPUT);
 }
 
 
@@ -2875,7 +2875,6 @@ int gnublin_module_relay::switchPin(int pin, int value) {
 		ErrorMessage="pin is not between 1-8!\n";
 		return -1;
 	}
-	printf("pin: %d pcapin: %d\n",pin, pcapin);
 	if (pca9555.digitalWrite(pcapin, value) < 0) {
 		error_flag=true;
 		ErrorMessage="pca9555.digitalWrite failed! Address correct?\n";		

@@ -54,6 +54,7 @@ void parse_opts(int argc, char **argv)
 
 
 int main (int argc, char **argv) {
+	relay.setAddress(0x20);
 	parse_opts(argc, argv);
 
 	if(relay.switchPin(pin, value)<0){
