@@ -107,13 +107,13 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <tr class="memitem:a508a6eb22ca87584b83cc36aae617417"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__step.html#a508a6eb22ca87584b83cc36aae617417">setVmin</a> (unsigned int newVmin)</td></tr>
 <tr class="memdesc:a508a6eb22ca87584b83cc36aae617417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setze Vmin.  <a href="#a508a6eb22ca87584b83cc36aae617417">Mehr ...</a><br/></td></tr>
 <tr class="separator:a508a6eb22ca87584b83cc36aae617417"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0becb0530d077fe1135f7c0b25a2d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__step.html#a4b0becb0530d077fe1135f7c0b25a2d2">writeTMC</a> (unsigned char *buffer, int num)</td></tr>
+<tr class="memitem:a4b0becb0530d077fe1135f7c0b25a2d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__step.html#a4b0becb0530d077fe1135f7c0b25a2d2">writeTMC</a> (unsigned char *<a class="el" href="printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>, int num)</td></tr>
 <tr class="memdesc:a4b0becb0530d077fe1135f7c0b25a2d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sende an TMC.  <a href="#a4b0becb0530d077fe1135f7c0b25a2d2">Mehr ...</a><br/></td></tr>
 <tr class="separator:a4b0becb0530d077fe1135f7c0b25a2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a0976389735a3a8c5e33beecd15f923"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__step.html#a4a0976389735a3a8c5e33beecd15f923">readTMC</a> (unsigned char *RxBuf, int num)</td></tr>
 <tr class="memdesc:a4a0976389735a3a8c5e33beecd15f923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sende an TMC.  <a href="#a4a0976389735a3a8c5e33beecd15f923">Mehr ...</a><br/></td></tr>
 <tr class="separator:a4a0976389735a3a8c5e33beecd15f923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a146c3b8a989dedfec5cc93c5ad886db2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__step.html#a146c3b8a989dedfec5cc93c5ad886db2">burnNewAddress</a> (int new_address)</td></tr>
+<tr class="memitem:a146c3b8a989dedfec5cc93c5ad886db2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__step.html#a146c3b8a989dedfec5cc93c5ad886db2">burnNewAddress</a> (int <a class="el" href="printer__old_8cpp.html#a078b818f5c857e3da2ab0057cb95e8ca">new_address</a>)</td></tr>
 <tr class="memdesc:a146c3b8a989dedfec5cc93c5ad886db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brennt die übergebene slave Adresse.  <a href="#a146c3b8a989dedfec5cc93c5ad886db2">Mehr ...</a><br/></td></tr>
 <tr class="separator:a146c3b8a989dedfec5cc93c5ad886db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9944d86e965debcb0f07b6794ba455b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__step.html#a9944d86e965debcb0f07b6794ba455b6">getFullStatus1</a> ()</td></tr>
@@ -162,6 +162,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
 <div class="textblock"><p>Klasse für den zugriff auf das GNUBLIN module-step. </p>
 <p>Das GNUBLIN module-step lässt sich mit Hilfe der gnublin_step API ganz einfach ansteuern. Das Modul nutzt die I2C-Schnittstelle. </p>
+
+<p>Definiert in Zeile <a class="el" href="module__step_8h_source.html#l00012">12</a> der Datei <a class="el" href="module__step_8h_source.html">module_step.h</a>.</p>
 </div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
 <a class="anchor" id="a222257585c29616f2503f3ceb2dc0602"></a>
 <div class="memitem">
@@ -177,6 +179,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 </div><div class="memdoc">
 
 <p>Setzt die Standartwerte für irun und vmax (irun = 15, vmax = 8). </p>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00016">16</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -205,6 +209,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00230">230</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1294ca5d808044f702e446b473bbf5c0"></a>
@@ -224,6 +230,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Fahre. </p>
 <p>Diese Funktion ließt die aktuelle Position des Motors und addiert die anzahl der übergebenen Schritte. So kann man den Motor einfach um eine bestimmte Anzahl Schritte fahren lassen, ohne sich über die absoulute Position gedanken machen zu müssen. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00522">522</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -259,6 +267,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Diese Funktion sendet den getActualPosition Befehl an den Chip und gibt dessen aktuelle Position zurück. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>actualPosition -1 bei Fehler </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00630">630</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8ee127209a0c60d048d084ed7b794790"></a>
@@ -277,6 +287,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Gibt die letzte Error Nachricht zurück. </p>
 <p>Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>ErrorMessage als c-string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00035">35</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -297,6 +309,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Diese Funktion sendet den getFullStatus1 Befehl an den Chip. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00300">300</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9dd651483a38fb4ce154824332bdaa14"></a>
@@ -315,6 +329,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Get full Status 2. </p>
 <p>Diese Funktion sendet den getFullStatus2 Befehl an den Chip. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00320">320</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -344,6 +360,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
  -1: Fehler </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>motionStatus </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00566">566</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af7c318ffb44a3288d3722880b16203a2"></a>
@@ -366,6 +384,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
  Fehler: -1 </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>swi </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00598">598</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a4ed1e5f4b7c14786e8558dd4f363b230"></a>
@@ -384,6 +404,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Hard Stop. </p>
 <p>Diese Funktion sendet den hardStop Befehl an den Chip. Der Motor bleibt sofort Stehen. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00435">435</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -422,6 +444,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00206">206</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae932e373598928409d844b7d223586d1"></a>
@@ -441,6 +465,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Diese Funktion sendet den resetPosition Befehl an den Chip. Der interne Positions Zähler des Chips wird auf 0 zurückgesetzt. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00475">475</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a2025a51c309a15b99d46049a474fc99f"></a>
@@ -459,6 +485,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Run Init. </p>
 <p>Diese Funktion sendet den runInit Befehl an den Chip. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00340">340</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -485,6 +513,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
   </dd>
 </dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00052">52</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa39b5e5f60add80a7b18b0adae2d3646"></a>
@@ -509,6 +539,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
   </table>
   </dd>
 </dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00069">69</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -536,6 +568,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00111">111</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aefb783512a20ee452eadb8951735d6f5"></a>
@@ -562,6 +596,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00088">88</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1a65aaa089987c5fc88d9873c1ec867c"></a>
@@ -580,6 +616,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Setze Motor Parameter. </p>
 <p>Diese Funktion sendet die eingestellten Motor Parameter an das Modul. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00360">360</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -632,6 +670,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00399">399</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a18f67de5488cf54651ca7e3b595c8259"></a>
@@ -651,6 +691,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Setze Position. </p>
 <p>Diese Funktion sendet den Position Befehl an den Chip. Der Motor fährt an die übergebene Position. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00495">495</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -678,6 +720,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00134">134</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a508a6eb22ca87584b83cc36aae617417"></a>
@@ -704,6 +748,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00157">157</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae17a0baf6e78a0da8a1de0e431138cf9"></a>
@@ -722,6 +768,8 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <p>Soft Stop. </p>
 <p>Diese Funktion sendet den SoftStop Befehl an den Chip. Der Motor fährt langsam herrunter. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00455">455</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
 
 </div>
 </div>
@@ -760,11 +808,13 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>Erfolg: 1, Fehler: -1 </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="modules_2module__step_8cpp_source.html#l00182">182</a> der Datei <a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
 <li>modules/<a class="el" href="module__step_8h_source.html">module_step.h</a></li>
-<li>modules/<a class="el" href="module__step_8cpp.html">module_step.cpp</a></li>
+<li>modules/<a class="el" href="modules_2module__step_8cpp_source.html">module_step.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -772,7 +822,7 @@ Zusammengehörigkeiten von gnublin_module_step:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classgnublin__module__step.html">gnublin_module_step</a></li>
-    <li class="footer">Erzeugt am Mon Mai 13 2013 12:08:06 für gnublin-api von
+    <li class="footer">Erzeugt am Die Mai 14 2013 16:59:30 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>

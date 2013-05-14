@@ -113,7 +113,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afde01e3c3444cbd36652aab8871513e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__spi.html#afde01e3c3444cbd36652aab8871513e6">getSpeed</a> ()</td></tr>
 <tr class="memdesc:afde01e3c3444cbd36652aab8871513e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the speed of the SPI-Bus.  <a href="#afde01e3c3444cbd36652aab8871513e6">More...</a><br/></td></tr>
 <tr class="separator:afde01e3c3444cbd36652aab8871513e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9815912c27d892499ba1e8907794bd26"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__spi.html#a9815912c27d892499ba1e8907794bd26">receive</a> (char *buffer, int len)</td></tr>
+<tr class="memitem:a9815912c27d892499ba1e8907794bd26"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__spi.html#a9815912c27d892499ba1e8907794bd26">receive</a> (char *<a class="el" href="printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>, int len)</td></tr>
 <tr class="memdesc:a9815912c27d892499ba1e8907794bd26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive data from SPI Bus.  <a href="#a9815912c27d892499ba1e8907794bd26">More...</a><br/></td></tr>
 <tr class="separator:a9815912c27d892499ba1e8907794bd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afff249ca377350571ea1b88786144c3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e">send</a> (unsigned char *tx, int length)</td></tr>
@@ -135,6 +135,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for accesing the SPI-Bus. </p>
 <p>This class manages the sendnd and reciving of Data via the SPI-Bus. </p>
+
+<p>Definition at line <a class="el" href="spi_8h_source.html#l00018">18</a> of file <a class="el" href="spi_8h_source.html">spi.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac790b3cfaba3dfeca1c8a39704e65622"></a>
 <div class="memitem">
@@ -152,6 +154,8 @@ Public Member Functions</h2></td></tr>
 <p>Loads the standard SPI driver if necessary. </p>
 <p>Default chipselect: GNUBLIN: CS = 11 RASPBERRY PI: CS = 0 </p>
 
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00022">22</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5a40d501e737bcdda7d9218e7bb3c7fc"></a>
@@ -166,6 +170,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00044">44</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -186,6 +192,8 @@ Public Member Functions</h2></td></tr>
 <p>Returns the errorflag to detect error in the previous called method. </p>
 <dl class="section return"><dt>Returns</dt><dd>error_flag </dd></dl>
 
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00061">61</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a605feea3ee93a0e0c9411f36639fc0f6"></a>
@@ -203,6 +211,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the ErrorMessage of the previous error if one exist. </p>
 <dl class="section return"><dt>Returns</dt><dd>ErrorMessage as C-String </dd></dl>
+
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00078">78</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -222,6 +232,8 @@ Public Member Functions</h2></td></tr>
 <p>Returns the length of the words in bits. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of bits of each word </dd></dl>
 
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00257">257</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aeb550ebd56e83aac5fe77813edb59fe6"></a>
@@ -239,6 +251,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the set LSB-Mode. </p>
 <dl class="section return"><dt>Returns</dt><dd>0: MSB first, 1 LSB first </dd></dl>
+
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00208">208</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -258,6 +272,8 @@ Public Member Functions</h2></td></tr>
 <p>Returns the set SPI-Mode. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of the SPI-mode </dd></dl>
 
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00159">159</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afde01e3c3444cbd36652aab8871513e6"></a>
@@ -275,6 +291,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the speed of the SPI-Bus. </p>
 <dl class="section return"><dt>Returns</dt><dd>SPeed in Hz </dd></dl>
+
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00306">306</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -326,6 +344,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 by success, -1 by failure </dd></dl>
 
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00399">399</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9815912c27d892499ba1e8907794bd26"></a>
@@ -361,6 +381,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 by success, -1 by failure </dd></dl>
+
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00333">333</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -398,6 +420,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 by success, -1 by failure </dd></dl>
 
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00359">359</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a54d51354605b76945ed458c4df439d7c"></a>
@@ -422,6 +446,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 by success, -1 by failure </dd></dl>
+
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00098">98</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -448,6 +474,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 by success, -1 by failure </dd></dl>
 
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00234">234</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="adfe7447cc567e81ac2b58417f45579f2"></a>
@@ -472,6 +500,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 by success, -1 by failure </dd></dl>
+
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00185">185</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -498,6 +528,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 by success, -1 by failure </dd></dl>
 
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00136">136</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa41d3b1e523e775f77c912533ce501ee"></a>
@@ -523,11 +555,13 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 by success, -1 by failure </dd></dl>
 
+<p>Definition at line <a class="el" href="drivers_2spi_8cpp_source.html#l00283">283</a> of file <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>drivers/<a class="el" href="spi_8h_source.html">spi.h</a></li>
-<li>drivers/<a class="el" href="spi_8cpp.html">spi.cpp</a></li>
+<li>drivers/<a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -535,7 +569,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classgnublin__spi.html">gnublin_spi</a></li>
-    <li class="footer">Generated on Mon May 13 2013 12:08:57 for gnublin-api by
+    <li class="footer">Generated on Tue May 14 2013 16:59:54 for gnublin-api by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>

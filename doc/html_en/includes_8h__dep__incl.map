@@ -9,14 +9,14 @@
 <area shape="rect" href="$module__lm75_8h.html" title="modules/module_lm75.h" alt="" coords="687,229,849,256"/>
 <area shape="rect" href="$module__adc_8h.html" title="modules/module_adc.h" alt="" coords="501,155,656,181"/>
 <area shape="rect" href="$spi_8h.html" title="drivers/spi.h" alt="" coords="332,80,423,107"/>
-<area shape="rect" href="$module__step_8cpp.html" title="modules/module_step.cpp" alt="" coords="1132,80,1305,107"/>
-<area shape="rect" href="$adc_8cpp.html" title="drivers/adc.cpp" alt="" coords="5,155,112,181"/>
+<area shape="rect" href="$modules_2module__step_8cpp.html" title="modules/module_step.cpp" alt="" coords="1132,80,1305,107"/>
+<area shape="rect" href="$drivers_2adc_8cpp.html" title="drivers/adc.cpp" alt="" coords="5,155,112,181"/>
 <area shape="rect" href="$gpio_8cpp.html" title="drivers/gpio.cpp" alt="" coords="136,155,248,181"/>
 <area shape="rect" href="$module__dogm_8cpp.html" title="modules/module_dogm.cpp" alt="" coords="196,304,375,331"/>
-<area shape="rect" href="$i2c_8cpp.html" title="drivers/i2c.cpp" alt="" coords="731,155,835,181"/>
-<area shape="rect" href="$module__pca9555_8cpp.html" title="modules/module_pca9555.cpp" alt="" coords="860,304,1057,331"/>
-<area shape="rect" href="$module__relay_8cpp.html" title="modules/module_relay.cpp" alt="" coords="939,453,1115,480"/>
+<area shape="rect" href="$drivers_2i2c_8cpp.html" title="drivers/i2c.cpp" alt="" coords="731,155,835,181"/>
+<area shape="rect" href="$modules_2module__pca9555_8cpp.html" title="modules/module_pca9555.cpp" alt="" coords="860,304,1057,331"/>
+<area shape="rect" href="$modules_2module__relay_8cpp.html" title="modules/module_relay.cpp" alt="" coords="939,453,1115,480"/>
 <area shape="rect" href="$module__lm75_8cpp.html" title="modules/module_lm75.cpp" alt="" coords="660,304,836,331"/>
-<area shape="rect" href="$module__adc_8cpp.html" title="modules/module_adc.cpp" alt="" coords="495,229,663,256"/>
-<area shape="rect" href="$spi_8cpp.html" title="drivers/spi.cpp" alt="" coords="323,155,427,181"/>
+<area shape="rect" href="$modules_2module__adc_8cpp.html" title="modules/module_adc.cpp" alt="" coords="495,229,663,256"/>
+<area shape="rect" href="$drivers_2spi_8cpp.html" title="drivers/spi.cpp" alt="" coords="323,155,427,181"/>
 </map>

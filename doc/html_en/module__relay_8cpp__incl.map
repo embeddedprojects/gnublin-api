@@ -1,9 +1,0 @@
-<map id="modules/module_relay.cpp" name="modules/module_relay.cpp">
-<area shape="rect" href="$module__relay_8h.html" title="module_relay.h" alt="" coords="787,80,893,107"/>
-<area shape="rect" href="$includes_8h.html" title="../include/includes.h" alt="" coords="768,453,904,480"/>
-<area shape="rect" href="$module__pca9555_8cpp.html" title="module_pca9555.cpp" alt="" coords="823,155,967,181"/>
-<area shape="rect" href="$functions_8h.html" title="functions.h" alt="" coords="1501,528,1584,555"/>
-<area shape="rect" href="$module__pca9555_8h.html" title="module_pca9555.h" alt="" coords="829,229,960,256"/>
-<area shape="rect" href="$i2c_8cpp.html" title="../drivers/i2c.cpp" alt="" coords="873,304,988,331"/>
-<area shape="rect" href="$i2c_8h.html" title="i2c.h" alt="" coords="889,379,937,405"/>
-</map>
