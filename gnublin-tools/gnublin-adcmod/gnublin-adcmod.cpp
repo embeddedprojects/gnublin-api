@@ -55,7 +55,7 @@ void pars_opts(int argc, char **argv) {
 		"-c <x> Select ADC Channel (1 - 8 possible, default is 1) \n"
 		"-d enables differential mesurement between pears, only possible [1,2], [3,4], [5,6] [7,8]\n"
 		"     first channel is given by -c, second channel is selectet automaticaly\n"
-		"-a I2C-Address of the module (default is 0x48)\n\n"
+		"-a <ADDRESS> I2C-Address of the module (default is 0x48)\n\n"
 
 		"Example:\n\n"
 

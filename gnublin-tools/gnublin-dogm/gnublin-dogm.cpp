@@ -71,15 +71,18 @@ void pars_opts(int argc, char **argv) {
 	if (hflag | (argc<=1))
         {
                 printf("This program was designed to easily interact with the dogm display.\n\n");            
-                puts("-w write string to display\n"
-		"-l set string on line (1 = line 1; 2 = line 2)\n"
+                puts("-h Show this Help\n"
+		"-w <STRING> write string to display\n"
+		"-l <line> set string on line (1 = line 1; 2 = line 2)\n"
 		"-j Convert Output to json Format\n"
-		"-o Set cursor to position(Start of line 1= 0; Start of line 2= 16)\n"
+		"-b Convert Output to bare format\n"
+		"-o <column> Set cursor to position(Start of line 1= 0; Start of line 2= 16)\n"
 		"-n reset the display.\n"
 		"-d delet the display\n"
-		"-s[+/-x] shift display [x] times(left shift = - ; right shift= +  \n"
+		"-s <X> shift display <X> times(left shift = - ; right shift= +  \n"
 		"-g <X> Use GPIO Pin X instead default GPIO Pin 14 (For RS Pin on DOGM Display)\n"
-		"-i -c <Y> Only initialize the spidev module with <Y> as Chipselect Pin.(default:<Y>=11)\n"
+		"-i initialize the display\n"
+		"-c <Y> Only initialize the spidev module with <Y> as Chipselect Pin.(default:<Y>=11)\n"
 		"\n\nExamples:\nWrite Hello to the Display:\ngnublin-dogm -n -w \"Hello\"\n\n"
 		"Write Hello to the Display connected with CS-Pin=18\ngnublin-dogm -n -w \"Hello\" -c 18\n\n"
 		"Jump to the second Line with Cursor\ngnublin-dogm -l 2\n\n"
