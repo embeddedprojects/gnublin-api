@@ -1,6 +1,5 @@
 var dir_d28a4824dc47e487b107a5db32ef43c4 =
 [
-    [ "OLD", "dir_3bec8f29c7d4abe65ba908328ea70429.html", "dir_3bec8f29c7d4abe65ba908328ea70429" ],
     [ "adc.cpp", "examples_2adc_8cpp.html", "examples_2adc_8cpp" ],
     [ "gpio_input.cpp", "gpio__input_8cpp.html", "gpio__input_8cpp" ],
     [ "gpio_output.cpp", "gpio__output_8cpp.html", "gpio__output_8cpp" ],

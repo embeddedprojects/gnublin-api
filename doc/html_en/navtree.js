@@ -24,8 +24,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"OLD_2gpio__input_2gpio__input_8cpp.html",
-"examples_2i2c_8cpp_source.html"
+"adc_8h.html",
+"module__lcd_8h.html#a7fdf6132ae6d044e9d4ed178e0bcc066"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

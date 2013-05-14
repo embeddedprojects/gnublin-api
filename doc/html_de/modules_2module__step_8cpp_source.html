@@ -149,13 +149,13 @@ $(document).ready(function(){initNavTree('modules_2module__step_8cpp_source.html
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">//-------------burnNewAddress-------------</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="code" href="classgnublin__module__step.html#a146c3b8a989dedfec5cc93c5ad886db2">  230</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__step.html#a146c3b8a989dedfec5cc93c5ad886db2" title="Brennt die übergebene slave Adresse.">gnublin_module_step::burnNewAddress</a>(<span class="keywordtype">int</span> <a class="code" href="OLD_2printer_2printer__old_8cpp.html#a078b818f5c857e3da2ab0057cb95e8ca">new_address</a>){</div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="code" href="classgnublin__module__step.html#a146c3b8a989dedfec5cc93c5ad886db2">  230</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__step.html#a146c3b8a989dedfec5cc93c5ad886db2" title="Brennt die übergebene slave Adresse.">gnublin_module_step::burnNewAddress</a>(<span class="keywordtype">int</span> <a class="code" href="printer__old_8cpp.html#a078b818f5c857e3da2ab0057cb95e8ca">new_address</a>){</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    </div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="comment">//SetOTPParam</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="OLD_2printer_2printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[5];</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[5];</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">int</span> new_ad = 0;</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordtype">int</span> old_ad = 0;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="OLD_2printer_2printer__old_8cpp.html#af21b246974b580cbc0e30fe42aee9710">slave_address</a>=i2c.<a class="code" href="classgnublin__i2c.html#ad8c8cd7ad86ed683da287461bb3684ef" title="gibt die gesetzte I2C Slave Adresse zurück">getAddress</a>();</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="printer__old_8cpp.html#af21b246974b580cbc0e30fe42aee9710">slave_address</a>=i2c.<a class="code" href="classgnublin__i2c.html#ad8c8cd7ad86ed683da287461bb3684ef" title="gibt die gesetzte I2C Slave Adresse zurück">getAddress</a>();</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    std::string yes = <span class="stringliteral">&quot;NO!&quot;</span>;</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">if</span>(new_address &lt;= slave_address){</div>
@@ -232,7 +232,7 @@ $(document).ready(function(){initNavTree('modules_2module__step_8cpp_source.html
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment">//-------------setMotorParam-------------</span></div>
 <div class="line"><a name="l00360"></a><span class="lineno"><a class="code" href="classgnublin__module__step.html#a1a65aaa089987c5fc88d9873c1ec867c">  360</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__step.html#a1a65aaa089987c5fc88d9873c1ec867c" title="Setze Motor Parameter.">gnublin_module_step::setMotorParam</a>(){</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="OLD_2printer_2printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[8];</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[8];</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="comment">//SetMotorParam</span></div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    buffer[0] = 0x89; <span class="comment">//SetMotorParam</span></div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    buffer[1] = 0xff; <span class="comment">//N/A</span></div>
@@ -256,7 +256,7 @@ $(document).ready(function(){initNavTree('modules_2module__step_8cpp_source.html
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    vmax=newVmax;</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    vmin=newVmin;</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="OLD_2printer_2printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[8];</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[8];</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="comment">//SetMotorParam</span></div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    buffer[0] = 0x89; <span class="comment">//SetMotorParam</span></div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    buffer[1] = 0xff; <span class="comment">//N/A</span></div>
@@ -299,7 +299,7 @@ $(document).ready(function(){initNavTree('modules_2module__step_8cpp_source.html
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment">//-------------setPosition-------------</span></div>
 <div class="line"><a name="l00495"></a><span class="lineno"><a class="code" href="classgnublin__module__step.html#a18f67de5488cf54651ca7e3b595c8259">  495</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__step.html#a18f67de5488cf54651ca7e3b595c8259" title="Setze Position.">gnublin_module_step::setPosition</a>(<span class="keywordtype">int</span> position){</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="OLD_2printer_2printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[5];</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[5];</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    buffer[0] = 0x8B;   <span class="comment">// SetPosition Command</span></div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    buffer[1] = 0xff;   <span class="comment">// not avialable</span></div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    buffer[2] = 0xff;   <span class="comment">// not avialable</span></div>
@@ -362,7 +362,7 @@ $(document).ready(function(){initNavTree('modules_2module__step_8cpp_source.html
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;<span class="comment">//-------------------getActualPosition----------------</span></div>
 <div class="line"><a name="l00630"></a><span class="lineno"><a class="code" href="classgnublin__module__step.html#a3728b7bdd3696bfdff312fccdba040e1">  630</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__step.html#a3728b7bdd3696bfdff312fccdba040e1" title="Aktuelle Position ausgeben.">gnublin_module_step::getActualPosition</a>(){</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RxBuf[8]; </div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="OLD_2printer_2printer__old_8cpp.html#a921b5bb098d2e17f775682804e25ff6a">actualPosition</a>=-1;</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="printer__old_8cpp.html#a921b5bb098d2e17f775682804e25ff6a">actualPosition</a>=-1;</div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    </div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classgnublin__module__step.html#a9dd651483a38fb4ce154824332bdaa14" title="Get full Status 2.">getFullStatus2</a>()==-1)</div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;        <span class="keywordflow">return</span> -1;</div>
@@ -370,7 +370,7 @@ $(document).ready(function(){initNavTree('modules_2module__step_8cpp_source.html
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(RxBuf, 8)){</div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;        actualPosition = (RxBuf[1]&lt;&lt;8 | RxBuf[2]);</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    }   </div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="OLD_2printer_2printer__old_8cpp.html#a921b5bb098d2e17f775682804e25ff6a">actualPosition</a>;</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="printer__old_8cpp.html#a921b5bb098d2e17f775682804e25ff6a">actualPosition</a>;</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;}</div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
@@ -379,7 +379,7 @@ $(document).ready(function(){initNavTree('modules_2module__step_8cpp_source.html
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e05d7e2b1ecd646af5bb94391405f3b5.html">modules</a></li><li class="navelem"><a class="el" href="modules_2module__step_8cpp.html">module_step.cpp</a></li>
-    <li class="footer">Erzeugt am Die Mai 14 2013 16:53:01 für gnublin-api von
+    <li class="footer">Erzeugt am Die Mai 14 2013 16:59:30 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>
