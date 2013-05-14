@@ -1,0 +1,13 @@
+<map id="examples" name="examples">
+<area shape="rect" href="dir_fb88e3c0dbe8d3fc2758aab695f76d12.html" title="gpio_input" alt="" coords="1040,37,1120,85"/>
+<area shape="rect" href="dir_6356b99c453f65c7e4b1cbeb951b7a16.html" title="gpio_output" alt="" coords="928,37,1016,85"/>
+<area shape="rect" href="dir_2a2aef2613b9bac764551cfb36300e66.html" title="i2c" alt="" coords="832,37,904,85"/>
+<area shape="rect" href="dir_684f90a48ede042031df88b02c71c39c.html" title="intern_adc" alt="" coords="728,37,808,85"/>
+<area shape="rect" href="dir_5993dc4a4f19008b62b6545181211e99.html" title="ledblink" alt="" coords="632,37,704,85"/>
+<area shape="rect" href="dir_d3a0c2c9977037cf849877f3458dffee.html" title="module_adc" alt="" coords="517,37,608,85"/>
+<area shape="rect" href="dir_e1d038631982a6b193f3be38b1859cf7.html" title="module_display" alt="" coords="381,37,493,85"/>
+<area shape="rect" href="dir_40be7f4c115926aa2f3f43b297d64dc1.html" title="module_temperature" alt="" coords="219,37,357,85"/>
+<area shape="rect" href="dir_bc79b0c8475299704504e68c8af5c4dc.html" title="printer" alt="" coords="123,37,195,85"/>
+<area shape="rect" href="dir_c2af82ef7a1139d1783cf18330c397f2.html" title="spi" alt="" coords="27,37,99,85"/>
+<area shape="rect" href="dir_d28a4824dc47e487b107a5db32ef43c4.html" alt="" coords="16,16,1232,96"/>
+</map>

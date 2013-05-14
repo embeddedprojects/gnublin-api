@@ -1,6 +1,6 @@
 var dir_e05d7e2b1ecd646af5bb94391405f3b5 =
 [
-    [ "module_adc.cpp", "module__adc_8cpp.html", null ],
+    [ "module_adc.cpp", "modules_2module__adc_8cpp.html", null ],
     [ "module_adc.h", "module__adc_8h.html", [
       [ "gnublin_module_adc", "classgnublin__module__adc.html", "classgnublin__module__adc" ]
     ] ],

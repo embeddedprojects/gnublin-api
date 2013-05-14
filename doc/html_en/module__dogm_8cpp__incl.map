@@ -1,7 +1,7 @@
 <map id="modules/module_dogm.cpp" name="modules/module_dogm.cpp">
 <area shape="rect" href="$module__dogm_8h.html" title="module_dogm.h" alt="" coords="780,80,892,107"/>
 <area shape="rect" href="$includes_8h.html" title="../include/includes.h" alt="" coords="768,304,904,331"/>
-<area shape="rect" href="$spi_8cpp.html" title="../drivers/spi.cpp" alt="" coords="779,155,893,181"/>
+<area shape="rect" href="$drivers_2spi_8cpp.html" title="../drivers/spi.cpp" alt="" coords="779,155,893,181"/>
 <area shape="rect" href="$gpio_8cpp.html" title="../drivers/gpio.cpp" alt="" coords="917,155,1040,181"/>
 <area shape="rect" href="$functions_8h.html" title="functions.h" alt="" coords="1501,379,1584,405"/>
 <area shape="rect" href="$spi_8h.html" title="spi.h" alt="" coords="812,229,860,256"/>

@@ -113,7 +113,7 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 <tr class="memitem:afde01e3c3444cbd36652aab8871513e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__spi.html#afde01e3c3444cbd36652aab8871513e6">getSpeed</a> ()</td></tr>
 <tr class="memdesc:afde01e3c3444cbd36652aab8871513e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die Geschwindigkeit des SPI-Buses zurück.  <a href="#afde01e3c3444cbd36652aab8871513e6">Mehr ...</a><br/></td></tr>
 <tr class="separator:afde01e3c3444cbd36652aab8871513e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9815912c27d892499ba1e8907794bd26"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__spi.html#a9815912c27d892499ba1e8907794bd26">receive</a> (char *buffer, int len)</td></tr>
+<tr class="memitem:a9815912c27d892499ba1e8907794bd26"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__spi.html#a9815912c27d892499ba1e8907794bd26">receive</a> (char *<a class="el" href="printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>, int len)</td></tr>
 <tr class="memdesc:a9815912c27d892499ba1e8907794bd26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empfängt Daten über den SPI-Bus.  <a href="#a9815912c27d892499ba1e8907794bd26">Mehr ...</a><br/></td></tr>
 <tr class="separator:a9815912c27d892499ba1e8907794bd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afff249ca377350571ea1b88786144c3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e">send</a> (unsigned char *tx, int length)</td></tr>
@@ -135,6 +135,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 <a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
 <div class="textblock"><p>Klasse für den Zugriff auf den SPI-Bus. </p>
 <p>Diese Klasse ermöglicht das Senden und Empfangen von Daten über den SPI-Bus. </p>
+
+<p>Definiert in Zeile <a class="el" href="spi_8h_source.html#l00018">18</a> der Datei <a class="el" href="spi_8h_source.html">spi.h</a>.</p>
 </div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
 <a class="anchor" id="ac790b3cfaba3dfeca1c8a39704e65622"></a>
 <div class="memitem">
@@ -152,6 +154,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 <p>Die Standart SPI-Treiber werden geladen, wenn sie noch nicht vorhanden sind. </p>
 <p>Default chipselect: GNUBLIN: CS = 11 RASPBERRY PI: CS = 0 </p>
 
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00022">22</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5a40d501e737bcdda7d9218e7bb3c7fc"></a>
@@ -166,6 +170,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00044">44</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -186,6 +192,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 <p>Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>error_flag </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00061">61</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a605feea3ee93a0e0c9411f36639fc0f6"></a>
@@ -203,6 +211,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 
 <p>Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>ErrorMessage als C-String </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00078">78</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -222,6 +232,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 <p>Gibt die Anzahl von Bits je Wort zurück. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>anzahl der Bits je Wort </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00257">257</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aeb550ebd56e83aac5fe77813edb59fe6"></a>
@@ -239,6 +251,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 
 <p>Gibt den eingestellten LSB-Modus zurück. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>0: MSB zuerst; 1 LSB zuerst </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00208">208</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -258,6 +272,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 <p>Gibt den eingestellten SPI-Modus zurück. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Nummer des SPI-Modus </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00159">159</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afde01e3c3444cbd36652aab8871513e6"></a>
@@ -275,6 +291,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 
 <p>Gibt die Geschwindigkeit des SPI-Buses zurück. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>Geschwindigkeit in Hz </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00306">306</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -326,6 +344,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00399">399</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9815912c27d892499ba1e8907794bd26"></a>
@@ -361,6 +381,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00333">333</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -398,6 +420,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00359">359</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a54d51354605b76945ed458c4df439d7c"></a>
@@ -422,6 +446,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00098">98</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -448,6 +474,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00234">234</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="adfe7447cc567e81ac2b58417f45579f2"></a>
@@ -472,6 +500,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00185">185</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
 
 </div>
 </div>
@@ -498,6 +528,8 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00136">136</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa41d3b1e523e775f77c912533ce501ee"></a>
@@ -523,11 +555,13 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
 
+<p>Definiert in Zeile <a class="el" href="drivers_2spi_8cpp_source.html#l00283">283</a> der Datei <a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
 <li>drivers/<a class="el" href="spi_8h_source.html">spi.h</a></li>
-<li>drivers/<a class="el" href="spi_8cpp.html">spi.cpp</a></li>
+<li>drivers/<a class="el" href="drivers_2spi_8cpp_source.html">spi.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -535,7 +569,7 @@ Zusammengehörigkeiten von gnublin_spi:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classgnublin__spi.html">gnublin_spi</a></li>
-    <li class="footer">Erzeugt am Mon Mai 13 2013 12:08:06 für gnublin-api von
+    <li class="footer">Erzeugt am Die Mai 14 2013 15:20:12 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>
