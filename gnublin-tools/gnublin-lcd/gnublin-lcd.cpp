@@ -20,17 +20,17 @@ using namespace std;
 gnublin_module_lcd lcd;
 
 void parse_opts(int argc, char **argv){
-	while((c = getopt(argc,argv,"hjf:a:o:x:y:ics:b:u:")) != -1){
+	while((c = getopt(argc,argv,"hja:o:l:idw:B:u:")) != -1){
 		switch(c){
 			case 'h' : hflag = 1;                               	break;	/* help */
 			case 'a' : slave_address = strtol(optarg,NULL,16);	break;
-			case 'x' : xpos = atoi(optarg);			    	break;
+			case 'o' : xpos = atoi(optarg);			    	break;
 			case 'j' : jasonflag = 1;				break;
-			case 'y' : ypos = atoi(optarg);			    	break;
-			case 's' : lcdstring = optarg; setstring=1;	    	break;
+			case 'l' : ypos = atoi(optarg);			    	break;
+			case 'w' : lcdstring = optarg; setstring=1;	    	break;
 			case 'i' : init = 1; 				    	break;
-			case 'c' : clear=1;				    	break;
-			case 'b' : blink=atoi(optarg); setdisplay = 1;	    	break;
+			case 'd' : clear=1;				    	break;
+			case 'B' : blink=atoi(optarg); setdisplay = 1;	    	break;
 			case 'u' : cursor=atoi(optarg);	setdisplay = 1;	    	break;
 		}
 
@@ -42,15 +42,15 @@ void parse_opts(int argc, char **argv){
 			"-j Convert output to json format.\n"
 			"-a <I2C-address> Specify the display module's I2C-address.default=0x20\n"
 			"-i Initialize the Display\n"
-			"-x <column> Moves the cursor to the Position X (0-19)\n"
-			"-y <line> Moves the cursor to the Line Y (1-4)\n"
-			"-s <string> Prints the String to the Display\n"
-			"-c clears the Display\n"
-			"-b let the cursor blink(1/0)\n"
+			"-o <column> Moves the cursor to the Position X (0-19)\n"
+			"-l <line> Moves the cursor to the Line Y (1-4)\n"
+			"-w <string> Prints the String to the Display\n"
+			"-d clears the Display\n"
+			"-B let the cursor blink(1/0)\n"
 			"-u Shows the cUrsor(_)(1/0)\n\n"
 			"Examples:\n\n"
 			"%s -a 0x20 -i\n"
-			"%s -a 0x20 -c -b 1 -x 3 -y 2 -s \"Hello World\"\n", argv[0], argv[0]);
+			"%s -a 0x20 -c -B 1 -o 3 -l 2 -w \"Hello World\"\n", argv[0], argv[0]);
 		exit(1);
 	}
 }
