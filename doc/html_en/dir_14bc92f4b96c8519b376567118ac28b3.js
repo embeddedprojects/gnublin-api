@@ -1,6 +1,6 @@
 var dir_14bc92f4b96c8519b376567118ac28b3 =
 [
-    [ "adc.cpp", "adc_8cpp.html", null ],
+    [ "adc.cpp", "drivers_2adc_8cpp.html", null ],
     [ "adc.h", "adc_8h.html", [
       [ "gnublin_adc", "classgnublin__adc.html", "classgnublin__adc" ]
     ] ],

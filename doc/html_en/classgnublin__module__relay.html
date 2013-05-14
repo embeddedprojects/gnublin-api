@@ -80,6 +80,8 @@ $(document).ready(function(){initNavTree('classgnublin__module__relay.html','');
 Collaboration diagram for gnublin_module_relay:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgnublin__module__relay__coll__graph.png" border="0" usemap="#gnublin__module__relay_coll__map" alt="Collaboration graph"/></div>
+<map name="gnublin__module__relay_coll__map" id="gnublin__module__relay_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -101,6 +103,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7db8134476a8a10f2a92e7e8470f4754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d91afaed1237e308b5afdbb06a8a606"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__relay.html#a2d91afaed1237e308b5afdbb06a8a606">switchPin</a> (int pin, int value)</td></tr>
 <tr class="memdesc:a2d91afaed1237e308b5afdbb06a8a606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch pin.  <a href="#a2d91afaed1237e308b5afdbb06a8a606">More...</a><br/></td></tr>
+<tr class="separator:a2d91afaed1237e308b5afdbb06a8a606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8e338c18e779ece93cff70f8cbe2c8c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__relay.html#af8e338c18e779ece93cff70f8cbe2c8c">gnublin_module_relay</a> ()</td></tr>
+<tr class="separator:af8e338c18e779ece93cff70f8cbe2c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefb475cb5bc468f39676397c7028b99e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__relay.html#aefb475cb5bc468f39676397c7028b99e">getErrorMessage</a> ()</td></tr>
+<tr class="separator:aefb475cb5bc468f39676397c7028b99e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a3680991a5c0fbc1045d8f9224041c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__relay.html#aa4a3680991a5c0fbc1045d8f9224041c">fail</a> ()</td></tr>
+<tr class="separator:aa4a3680991a5c0fbc1045d8f9224041c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43dfb0e6141823177301a5676b78e4b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__relay.html#a43dfb0e6141823177301a5676b78e4b7">setAddress</a> (int Address)</td></tr>
+<tr class="separator:a43dfb0e6141823177301a5676b78e4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7db8134476a8a10f2a92e7e8470f4754"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__relay.html#a7db8134476a8a10f2a92e7e8470f4754">setDevicefile</a> (std::string filename)</td></tr>
+<tr class="separator:a7db8134476a8a10f2a92e7e8470f4754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d91afaed1237e308b5afdbb06a8a606"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__relay.html#a2d91afaed1237e308b5afdbb06a8a606">switchPin</a> (int pin, int value)</td></tr>
 <tr class="separator:a2d91afaed1237e308b5afdbb06a8a606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -125,7 +139,22 @@ Public Member Functions</h2></td></tr>
 <p>Set standards. </p>
 <p>Set standard i2c address 0x20, set ErrorFlag false </p>
 
-<p>Definition at line <a class="el" href="module__relay_8cpp_source.html#l00019">19</a> of file <a class="el" href="module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+<p>Definition at line <a class="el" href="modules_2module__relay_8cpp_source.html#l00019">19</a> of file <a class="el" href="modules_2module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af8e338c18e779ece93cff70f8cbe2c8c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gnublin_module_relay::gnublin_module_relay </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -147,7 +176,22 @@ Public Member Functions</h2></td></tr>
 <p>If something went wrong, the flag is true. </p>
 <dl class="section return"><dt>Returns</dt><dd>bool error_flag </dd></dl>
 
-<p>Definition at line <a class="el" href="module__relay_8cpp_source.html#l00055">55</a> of file <a class="el" href="module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+<p>Definition at line <a class="el" href="modules_2module__relay_8cpp_source.html#l00055">55</a> of file <a class="el" href="modules_2module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4a3680991a5c0fbc1045d8f9224041c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gnublin_module_relay::fail </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -168,7 +212,22 @@ Public Member Functions</h2></td></tr>
 <p>This Funktion returns the last Error Message, which occurred in that Class. </p>
 <dl class="section return"><dt>Returns</dt><dd>ErrorMessage as c-string </dd></dl>
 
-<p>Definition at line <a class="el" href="module__relay_8cpp_source.html#l00038">38</a> of file <a class="el" href="module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+<p>Definition at line <a class="el" href="modules_2module__relay_8cpp_source.html#l00038">38</a> of file <a class="el" href="modules_2module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aefb475cb5bc468f39676397c7028b99e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* gnublin_module_relay::getErrorMessage </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -195,7 +254,23 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="module__relay_8cpp_source.html#l00072">72</a> of file <a class="el" href="module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+<p>Definition at line <a class="el" href="modules_2module__relay_8cpp_source.html#l00072">72</a> of file <a class="el" href="modules_2module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43dfb0e6141823177301a5676b78e4b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gnublin_module_relay::setAddress </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Address</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -222,7 +297,23 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="module__relay_8cpp_source.html#l00090">90</a> of file <a class="el" href="module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+<p>Definition at line <a class="el" href="modules_2module__relay_8cpp_source.html#l00090">90</a> of file <a class="el" href="modules_2module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7db8134476a8a10f2a92e7e8470f4754"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gnublin_module_relay::setDevicefile </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -261,13 +352,41 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>success: 1, failure: -1 </dd></dl>
 
-<p>Definition at line <a class="el" href="module__relay_8cpp_source.html#l00111">111</a> of file <a class="el" href="module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+<p>Definition at line <a class="el" href="modules_2module__relay_8cpp_source.html#l00111">111</a> of file <a class="el" href="modules_2module__relay_8cpp_source.html">module_relay.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d91afaed1237e308b5afdbb06a8a606"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_module_relay::switchPin </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>modules/<a class="el" href="module__relay_8h_source.html">module_relay.h</a></li>
-<li>modules/<a class="el" href="module__relay_8cpp_source.html">module_relay.cpp</a></li>
+<li>examples/<a class="el" href="gnublin_8h_source.html">gnublin.h</a></li>
+<li>modules/<a class="el" href="modules_2module__relay_8cpp_source.html">module_relay.cpp</a></li>
+<li>examples/<a class="el" href="gnublin_8cpp_source.html">gnublin.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -275,7 +394,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classgnublin__module__relay.html">gnublin_module_relay</a></li>
-    <li class="footer">Generated on Tue May 14 2013 15:21:01 for gnublin-api by
+    <li class="footer">Generated on Tue May 14 2013 16:41:11 for gnublin-api by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>

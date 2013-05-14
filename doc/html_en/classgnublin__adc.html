@@ -80,6 +80,8 @@ $(document).ready(function(){initNavTree('classgnublin__adc.html','');});
 Collaboration diagram for gnublin_adc:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgnublin__adc__coll__graph.png" border="0" usemap="#gnublin__adc_coll__map" alt="Collaboration graph"/></div>
+<map name="gnublin__adc_coll__map" id="gnublin__adc_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -102,6 +104,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad6a0b1fa3c832ce153624780d96ece6b"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__adc.html#ad6a0b1fa3c832ce153624780d96ece6b">getErrorMessage</a> ()</td></tr>
 <tr class="memdesc:ad6a0b1fa3c832ce153624780d96ece6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last Error Message.  <a href="#ad6a0b1fa3c832ce153624780d96ece6b">More...</a><br/></td></tr>
 <tr class="separator:ad6a0b1fa3c832ce153624780d96ece6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a691a2d62e096d5e7070c214912bd280b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__adc.html#a691a2d62e096d5e7070c214912bd280b">gnublin_adc</a> ()</td></tr>
+<tr class="separator:a691a2d62e096d5e7070c214912bd280b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3567d63d6c24be2fdc895183f6509d42"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__adc.html#a3567d63d6c24be2fdc895183f6509d42">getValue</a> (int pin)</td></tr>
+<tr class="separator:a3567d63d6c24be2fdc895183f6509d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e075bd9dbab25f2a265ed199a486c32"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__adc.html#a0e075bd9dbab25f2a265ed199a486c32">getVoltage</a> (int pin)</td></tr>
+<tr class="separator:a0e075bd9dbab25f2a265ed199a486c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d094a0e5fef2d6c65c60a8fa3f0f441"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__adc.html#a6d094a0e5fef2d6c65c60a8fa3f0f441">setReference</a> (int ref)</td></tr>
+<tr class="separator:a6d094a0e5fef2d6c65c60a8fa3f0f441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c3276ec8b481920fecf246a2f946509"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__adc.html#a8c3276ec8b481920fecf246a2f946509">fail</a> ()</td></tr>
+<tr class="separator:a8c3276ec8b481920fecf246a2f946509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22f9de1ac1cd4a1a09d7544abaa4e7de"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__adc.html#a22f9de1ac1cd4a1a09d7544abaa4e7de">getErrorMessage</a> ()</td></tr>
+<tr class="separator:a22f9de1ac1cd4a1a09d7544abaa4e7de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for easy acces to the GPAs. </p>
@@ -124,7 +138,22 @@ Public Member Functions</h2></td></tr>
 
 <p>Opens the file stream and loads the kernel object lpc313x_adc. </p>
 
-<p>Definition at line <a class="el" href="adc_8cpp_source.html#l00014">14</a> of file <a class="el" href="adc_8cpp_source.html">adc.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drivers_2adc_8cpp_source.html#l00014">14</a> of file <a class="el" href="drivers_2adc_8cpp_source.html">adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a691a2d62e096d5e7070c214912bd280b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gnublin_adc::gnublin_adc </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -146,7 +175,22 @@ Public Member Functions</h2></td></tr>
 <p>If something went wrong, the flag is true. </p>
 <dl class="section return"><dt>Returns</dt><dd>bool error_flag </dd></dl>
 
-<p>Definition at line <a class="el" href="adc_8cpp_source.html#l00037">37</a> of file <a class="el" href="adc_8cpp_source.html">adc.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drivers_2adc_8cpp_source.html#l00037">37</a> of file <a class="el" href="drivers_2adc_8cpp_source.html">adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c3276ec8b481920fecf246a2f946509"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gnublin_adc::fail </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -167,7 +211,22 @@ Public Member Functions</h2></td></tr>
 <p>This Funktion returns the last Error Message, which occurred in that Class. </p>
 <dl class="section return"><dt>Returns</dt><dd>ErrorMessage as c-string </dd></dl>
 
-<p>Definition at line <a class="el" href="adc_8cpp_source.html#l00055">55</a> of file <a class="el" href="adc_8cpp_source.html">adc.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drivers_2adc_8cpp_source.html#l00055">55</a> of file <a class="el" href="drivers_2adc_8cpp_source.html">adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22f9de1ac1cd4a1a09d7544abaa4e7de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* gnublin_adc::getErrorMessage </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -195,7 +254,23 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Value of the Pin - in failure: -1 </dd></dl>
 
-<p>Definition at line <a class="el" href="adc_8cpp_source.html#l00075">75</a> of file <a class="el" href="adc_8cpp_source.html">adc.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drivers_2adc_8cpp_source.html#l00075">75</a> of file <a class="el" href="drivers_2adc_8cpp_source.html">adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3567d63d6c24be2fdc895183f6509d42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_adc::getValue </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pin</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -223,7 +298,23 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Voltage of the Pin - in failure: -1 </dd></dl>
 
-<p>Definition at line <a class="el" href="adc_8cpp_source.html#l00109">109</a> of file <a class="el" href="adc_8cpp_source.html">adc.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drivers_2adc_8cpp_source.html#l00109">109</a> of file <a class="el" href="drivers_2adc_8cpp_source.html">adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e075bd9dbab25f2a265ed199a486c32"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_adc::getVoltage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pin</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -250,13 +341,31 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>success: 1, failure: -1 </dd></dl>
 
-<p>Definition at line <a class="el" href="adc_8cpp_source.html#l00128">128</a> of file <a class="el" href="adc_8cpp_source.html">adc.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drivers_2adc_8cpp_source.html#l00128">128</a> of file <a class="el" href="drivers_2adc_8cpp_source.html">adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d094a0e5fef2d6c65c60a8fa3f0f441"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_adc::setReference </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ref</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>drivers/<a class="el" href="adc_8h_source.html">adc.h</a></li>
-<li>drivers/<a class="el" href="adc_8cpp_source.html">adc.cpp</a></li>
+<li>examples/<a class="el" href="gnublin_8h_source.html">gnublin.h</a></li>
+<li>drivers/<a class="el" href="drivers_2adc_8cpp_source.html">adc.cpp</a></li>
+<li>examples/<a class="el" href="gnublin_8cpp_source.html">gnublin.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -264,7 +373,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classgnublin__adc.html">gnublin_adc</a></li>
-    <li class="footer">Generated on Tue May 14 2013 15:21:01 for gnublin-api by
+    <li class="footer">Generated on Tue May 14 2013 16:41:11 for gnublin-api by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>

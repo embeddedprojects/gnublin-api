@@ -80,6 +80,8 @@ $(document).ready(function(){initNavTree('classgnublin__i2c.html','');});
 Collaboration diagram for gnublin_i2c:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgnublin__i2c__coll__graph.png" border="0" usemap="#gnublin__i2c_coll__map" alt="Collaboration graph"/></div>
+<map name="gnublin__i2c_coll__map" id="gnublin__i2c_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -117,6 +119,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab89644f51ce6327a841c482d09522a70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#ab89644f51ce6327a841c482d09522a70">send</a> (int value)</td></tr>
 <tr class="memdesc:ab89644f51ce6327a841c482d09522a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">send a byte to the I2C bus.  <a href="#ab89644f51ce6327a841c482d09522a70">More...</a><br/></td></tr>
 <tr class="separator:ab89644f51ce6327a841c482d09522a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d66972535c8e90428f23ece76f3ac65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#a0d66972535c8e90428f23ece76f3ac65">gnublin_i2c</a> ()</td></tr>
+<tr class="separator:a0d66972535c8e90428f23ece76f3ac65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4413c9510eb70ad05b8226771a3c9d32"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#a4413c9510eb70ad05b8226771a3c9d32">fail</a> ()</td></tr>
+<tr class="separator:a4413c9510eb70ad05b8226771a3c9d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8f93ad5f598decbb02e0921192a857"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#a6c8f93ad5f598decbb02e0921192a857">setAddress</a> (int Address)</td></tr>
+<tr class="separator:a6c8f93ad5f598decbb02e0921192a857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8c8cd7ad86ed683da287461bb3684ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#ad8c8cd7ad86ed683da287461bb3684ef">getAddress</a> ()</td></tr>
+<tr class="separator:ad8c8cd7ad86ed683da287461bb3684ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f4ac292478c97d1df56246127933a68"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#a9f4ac292478c97d1df56246127933a68">getErrorMessage</a> ()</td></tr>
+<tr class="separator:a9f4ac292478c97d1df56246127933a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d4bd4d83c07abd44826801138189ede"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#a6d4bd4d83c07abd44826801138189ede">setDevicefile</a> (std::string filename)</td></tr>
+<tr class="separator:a6d4bd4d83c07abd44826801138189ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a5aa8a33747395fc037e09527f138b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5">receive</a> (unsigned char *RxBuf, int length)</td></tr>
+<tr class="separator:a1a5aa8a33747395fc037e09527f138b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1444ef0460cc6f5e68df8d279007a9db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#a1444ef0460cc6f5e68df8d279007a9db">receive</a> (unsigned char RegisterAddress, unsigned char *RxBuf, int length)</td></tr>
+<tr class="separator:a1444ef0460cc6f5e68df8d279007a9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a494281d965dc96b7d59e75882da3ba0e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e">send</a> (unsigned char *TxBuf, int length)</td></tr>
+<tr class="separator:a494281d965dc96b7d59e75882da3ba0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d03378f65c830904067ec2e788c62bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#a9d03378f65c830904067ec2e788c62bb">send</a> (unsigned char RegisterAddress, unsigned char *TxBuf, int length)</td></tr>
+<tr class="separator:a9d03378f65c830904067ec2e788c62bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab89644f51ce6327a841c482d09522a70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__i2c.html#ab89644f51ce6327a841c482d09522a70">send</a> (int value)</td></tr>
+<tr class="separator:ab89644f51ce6327a841c482d09522a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for accessing GNUBLIN i2c bus. </p>
@@ -143,6 +167,21 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0d66972535c8e90428f23ece76f3ac65"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gnublin_i2c::gnublin_i2c </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a4413c9510eb70ad05b8226771a3c9d32"></a>
 <div class="memitem">
@@ -161,6 +200,21 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>error_flag as boolean </dd></dl>
 
 <p>Definition at line <a class="el" href="drivers_2i2c_8cpp_source.html#l00032">32</a> of file <a class="el" href="drivers_2i2c_8cpp_source.html">i2c.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4413c9510eb70ad05b8226771a3c9d32"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gnublin_i2c::fail </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -185,6 +239,21 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad8c8cd7ad86ed683da287461bb3684ef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_i2c::getAddress </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a958605de39dd949027b8b9913ac78ec1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -203,6 +272,21 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>ErrorMessage as c-string </dd></dl>
 
 <p>Definition at line <a class="el" href="drivers_2i2c_8cpp_source.html#l00083">83</a> of file <a class="el" href="drivers_2i2c_8cpp_source.html">i2c.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f4ac292478c97d1df56246127933a68"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* gnublin_i2c::getErrorMessage </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -298,6 +382,64 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>success: 1, failure: -1 </dd></dl>
 
 <p>Definition at line <a class="el" href="drivers_2i2c_8cpp_source.html#l00189">189</a> of file <a class="el" href="drivers_2i2c_8cpp_source.html">i2c.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a5aa8a33747395fc037e09527f138b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_i2c::receive </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>RxBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1444ef0460cc6f5e68df8d279007a9db"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_i2c::receive </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>RegisterAddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>RxBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -427,6 +569,80 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a494281d965dc96b7d59e75882da3ba0e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_i2c::send </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>TxBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9d03378f65c830904067ec2e788c62bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_i2c::send </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>RegisterAddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>TxBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab89644f51ce6327a841c482d09522a70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gnublin_i2c::send </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a6c8f93ad5f598decbb02e0921192a857"></a>
 <div class="memitem">
 <div class="memproto">
@@ -451,6 +667,22 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="drivers_2i2c_8cpp_source.html#l00049">49</a> of file <a class="el" href="drivers_2i2c_8cpp_source.html">i2c.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c8f93ad5f598decbb02e0921192a857"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gnublin_i2c::setAddress </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Address</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -481,9 +713,27 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a6d4bd4d83c07abd44826801138189ede"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gnublin_i2c::setDevicefile </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>drivers/<a class="el" href="i2c_8h_source.html">i2c.h</a></li>
+<li>examples/<a class="el" href="gnublin_8h_source.html">gnublin.h</a></li>
 <li>drivers/<a class="el" href="drivers_2i2c_8cpp_source.html">i2c.cpp</a></li>
+<li>examples/<a class="el" href="gnublin_8cpp_source.html">gnublin.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -491,7 +741,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classgnublin__i2c.html">gnublin_i2c</a></li>
-    <li class="footer">Generated on Tue May 14 2013 15:21:01 for gnublin-api by
+    <li class="footer">Generated on Tue May 14 2013 16:41:11 for gnublin-api by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>
