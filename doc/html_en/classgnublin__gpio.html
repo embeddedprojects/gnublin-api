@@ -107,20 +107,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2db205f48c7cf587ab2bc032b4416d65"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__gpio.html#a2db205f48c7cf587ab2bc032b4416d65">getErrorMessage</a> ()</td></tr>
 <tr class="memdesc:a2db205f48c7cf587ab2bc032b4416d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last Error Message.  <a href="#a2db205f48c7cf587ab2bc032b4416d65">More...</a><br/></td></tr>
 <tr class="separator:a2db205f48c7cf587ab2bc032b4416d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebeab8b341c6a8d7a983483725670af6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__gpio.html#aebeab8b341c6a8d7a983483725670af6">gnublin_gpio</a> ()</td></tr>
-<tr class="separator:aebeab8b341c6a8d7a983483725670af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902ae4c6d168101c27a8a57f6a38b008"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__gpio.html#a902ae4c6d168101c27a8a57f6a38b008">fail</a> ()</td></tr>
-<tr class="separator:a902ae4c6d168101c27a8a57f6a38b008"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf30370d7bb20d96ec56e8771bda6e02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__gpio.html#acf30370d7bb20d96ec56e8771bda6e02">pinMode</a> (int pin, std::string direction)</td></tr>
-<tr class="separator:acf30370d7bb20d96ec56e8771bda6e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29ee682224f7dfa134b94d41912fa6f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9">digitalWrite</a> (int pin, int value)</td></tr>
-<tr class="separator:a29ee682224f7dfa134b94d41912fa6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe11ff17ffd914d0a4cc43b314f9d065"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__gpio.html#abe11ff17ffd914d0a4cc43b314f9d065">digitalRead</a> (int pin)</td></tr>
-<tr class="separator:abe11ff17ffd914d0a4cc43b314f9d065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44399697fd183e5ed0ca848e2f864b08"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__gpio.html#a44399697fd183e5ed0ca848e2f864b08">unexport</a> (int pin)</td></tr>
-<tr class="separator:a44399697fd183e5ed0ca848e2f864b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa71fc9eb77d1a3874551a76f37ce0656"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__gpio.html#aa71fc9eb77d1a3874551a76f37ce0656">getErrorMessage</a> ()</td></tr>
-<tr class="separator:aa71fc9eb77d1a3874551a76f37ce0656"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for accessing GNUBLIN GPIO-Ports. </p>
@@ -144,21 +130,6 @@ Public Member Functions</h2></td></tr>
 <p>Reset the ErrorFlag. </p>
 
 <p>Definition at line <a class="el" href="gpio_8cpp_source.html#l00010">10</a> of file <a class="el" href="gpio_8cpp_source.html">gpio.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aebeab8b341c6a8d7a983483725670af6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gnublin_gpio::gnublin_gpio </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -188,22 +159,6 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Value of the GPIO-Pin (0,1), -1 in case of failure </dd></dl>
 
 <p>Definition at line <a class="el" href="gpio_8cpp_source.html#l00182">182</a> of file <a class="el" href="gpio_8cpp_source.html">gpio.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abe11ff17ffd914d0a4cc43b314f9d065"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int gnublin_gpio::digitalRead </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pin</em>)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -246,32 +201,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a29ee682224f7dfa134b94d41912fa6f9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int gnublin_gpio::digitalWrite </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a902ae4c6d168101c27a8a57f6a38b008"></a>
 <div class="memitem">
 <div class="memproto">
@@ -293,21 +222,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a902ae4c6d168101c27a8a57f6a38b008"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool gnublin_gpio::fail </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a2db205f48c7cf587ab2bc032b4416d65"></a>
 <div class="memitem">
 <div class="memproto">
@@ -326,21 +240,6 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>ErrorMessage as c-string </dd></dl>
 
 <p>Definition at line <a class="el" href="gpio_8cpp_source.html#l00071">71</a> of file <a class="el" href="gpio_8cpp_source.html">gpio.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa71fc9eb77d1a3874551a76f37ce0656"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* gnublin_gpio::getErrorMessage </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -386,32 +285,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="acf30370d7bb20d96ec56e8771bda6e02"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int gnublin_gpio::pinMode </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>direction</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a44399697fd183e5ed0ca848e2f864b08"></a>
 <div class="memitem">
 <div class="memproto">
@@ -434,27 +307,9 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a44399697fd183e5ed0ca848e2f864b08"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int gnublin_gpio::unexport </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pin</em>)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>drivers/<a class="el" href="gpio_8h_source.html">gpio.h</a></li>
-<li>examples/<a class="el" href="gnublin_8h_source.html">gnublin.h</a></li>
 <li>drivers/<a class="el" href="gpio_8cpp_source.html">gpio.cpp</a></li>
-<li>examples/<a class="el" href="gnublin_8cpp_source.html">gnublin.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -462,7 +317,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classgnublin__gpio.html">gnublin_gpio</a></li>
-    <li class="footer">Generated on Tue May 14 2013 16:41:11 for gnublin-api by
+    <li class="footer">Generated on Tue May 14 2013 16:53:56 for gnublin-api by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>

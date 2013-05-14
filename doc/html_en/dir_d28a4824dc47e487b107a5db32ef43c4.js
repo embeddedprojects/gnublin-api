@@ -2,8 +2,6 @@ var dir_d28a4824dc47e487b107a5db32ef43c4 =
 [
     [ "OLD", "dir_3bec8f29c7d4abe65ba908328ea70429.html", "dir_3bec8f29c7d4abe65ba908328ea70429" ],
     [ "adc.cpp", "examples_2adc_8cpp.html", "examples_2adc_8cpp" ],
-    [ "gnublin.cpp", "gnublin_8cpp.html", "gnublin_8cpp" ],
-    [ "gnublin.h", "gnublin_8h.html", "gnublin_8h" ],
     [ "gpio_input.cpp", "gpio__input_8cpp.html", "gpio__input_8cpp" ],
     [ "gpio_output.cpp", "gpio__output_8cpp.html", "gpio__output_8cpp" ],
     [ "i2c.cpp", "examples_2i2c_8cpp.html", "examples_2i2c_8cpp" ],

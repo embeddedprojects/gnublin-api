@@ -6,14 +6,14 @@ var NAVTREE =
       [ "Auflistung der Klassen", "annotated.html", "annotated" ],
       [ "Klassen-Verzeichnis", "classes.html", null ],
       [ "Klassen-Elemente", "functions.html", [
-        [ "Alle", "functions.html", "functions_dup" ],
-        [ "Funktionen", "functions_func.html", "functions_func" ]
+        [ "Alle", "functions.html", null ],
+        [ "Funktionen", "functions_func.html", null ]
       ] ]
     ] ],
     [ "Dateien", null, [
       [ "Auflistung der Dateien", "files.html", "files" ],
       [ "Datei-Elemente", "globals.html", [
-        [ "Alle", "globals.html", "globals_dup" ],
+        [ "Alle", "globals.html", null ],
         [ "Funktionen", "globals_func.html", null ],
         [ "Variablen", "globals_vars.html", null ],
         [ "Makrodefinitionen", "globals_defs.html", null ]
@@ -25,8 +25,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "OLD_2gpio__input_2gpio__input_8cpp.html",
-"classgnublin__module__relay.html#a7db8134476a8a10f2a92e7e8470f4754",
-"gnublin_8h.html#a91d15d8e3008f6cb141406a8b5d0d3c0"
+"examples_2i2c_8cpp_source.html"
 ];
 
 var SYNCONMSG = 'Klicken um Panelsynchronisation auszuschalten';
