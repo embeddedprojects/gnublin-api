@@ -1,4 +1,4 @@
-#include "../../gnublin.h"
+#include "gnublin.h"
 #include <signal.h>
 
 

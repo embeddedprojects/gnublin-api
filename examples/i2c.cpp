@@ -6,8 +6,8 @@ int main()
  
    i2c.setAddress(0x42);
  
-   char buffer[8];
-   char RxBuf[8];
+   unsigned char buffer[8];
+   unsigned char RxBuf[8];
  
    buffer[0]=0x22;
  
