@@ -3,6 +3,9 @@ SUBDIRS := $(OBJ:%=gnublin-tools/gnublin-%)
 CLEANDIRS := $(SUBDIRS:%=clean-%)
 INSTALLDIRS := $(SUBDIRS:%=install-%)
 UNINSTALLDIRS := $(SUBDIRS:%=uninstall-%)
+COPYDIRS := $(OBJ:%=copy-%)
+VERSION = 0.1
+Maintainer = embedded projects GmbH <info@embedded-projects.net>
 include API-config.mk
 
 .PHONY: gnublin-tools $(SUBDIRS) $(CLEANDIRS) $(INSTALLDIRS)
@@ -42,3 +45,32 @@ clean: $(CLEANDIRS)
 	rm -Rf *.o gnublin.a libgnublin.so.1.0.1
 $(CLEANDIRS): 
 	$(MAKE) -C $(@:clean-%=%) clean
+	
+	
+copy: $(COPYDIRS)
+$(COPYDIRS):
+	@mkdir -p deb/usr/bin
+	@cp gnublin-tools/gnublin-$(@:copy-%=%)/gnublin-$(@:copy-%=%) deb/usr/bin
+
+
+release: gnublin-tools copy
+	@# generate .deb
+	@mkdir -p deb/DEBIAN
+
+	@# determine installed size of package
+	@DEBSIZE=`du -c -k -s deb/usr/bin/ | tail -n 1 | gawk '/[0-9]/ { print $1 }'`
+
+	@# create control file
+	@echo "Package: gnublin-tools" > deb/DEBIAN/control
+	@echo "Version: $(VERSION)" >> deb/DEBIAN/control
+	@echo "Section: devel" >> deb/DEBIAN/control
+	@echo "Priority: optional" >> deb/DEBIAN/control
+	@echo "Architecture: $(Architecture)" >> deb/DEBIAN/control
+	@echo "Essential: no" >> deb/DEBIAN/control
+	@echo "Depends: " >> deb/DEBIAN/control
+	@echo "Installed-Size: $(DEBSIZE)"  >> deb/DEBIAN/control
+	@echo "Maintainer: $(Maintainer)" >> deb/DEBIAN/control
+	@echo "Description: Gnublin tools" >> deb/DEBIAN/control
+
+	@# build package
+	@dpkg -b deb/ gnublin-tools.deb

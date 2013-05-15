@@ -8,6 +8,11 @@ CXX := arm-linux-gnueabi-g++
 #Compilerflags:
 CXXFLAGS = -Wall
 
+#Architecture for gnublin:
+Architecture = armel
+#Architecture for raspberryPi:
+#Architecture = armhf
+
 #Define which Board you want: 
 #GNUBLIN
 #RASPBERRY_PI
