@@ -40,19 +40,13 @@ uninstall: $(UNINSTALLDIRS)
 $(UNINSTALLDIRS):
 	$(MAKE) -C $(@:uninstall-%=%) uninstall
 
-#clean
-clean: $(CLEANDIRS)
-	rm -Rf *.o gnublin.a libgnublin.so.1.0.1
-$(CLEANDIRS): 
-	$(MAKE) -C $(@:clean-%=%) clean
-	
-	
+#copy the tools into one folder
 copy: $(COPYDIRS)
 $(COPYDIRS):
 	@mkdir -p deb/usr/bin
 	@cp gnublin-tools/gnublin-$(@:copy-%=%)/gnublin-$(@:copy-%=%) deb/usr/bin
 
-
+# make a debian package containing all gnublin-tools
 release: gnublin-tools copy
 	@# generate .deb
 	@mkdir -p deb/DEBIAN
@@ -74,3 +68,8 @@ release: gnublin-tools copy
 
 	@# build package
 	@dpkg -b deb/ gnublin-tools.deb
+#clean
+clean: $(CLEANDIRS)
+	rm -Rf *.o gnublin.a libgnublin.so.1.0.1
+$(CLEANDIRS): 
+	$(MAKE) -C $(@:clean-%=%) clean
