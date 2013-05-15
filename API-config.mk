@@ -14,10 +14,8 @@ Architecture = armel
 #Architecture = armhf
 
 #Define which Board you want: 
-#GNUBLIN
-#RASPBERRY_PI
-
-BOARD :=  GNUBLIN
+BOARD := GNUBLIN
+#BOARD := RASPBERRY_PI
 
 #DO NOT EDIT BEYOND THIS LINE!
 BOARDDEF := -DBOARD=$(BOARD)
