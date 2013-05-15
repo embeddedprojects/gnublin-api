@@ -2,7 +2,7 @@
  
 int main(){
   gnublin_module_pca9555 pca;
-  pca.setAddress(0x22)       // Portexpander befindet sich bei Adresse 0x20
+  pca.setAddress(0x22);      // Portexpander befindet sich bei Adresse 0x20
   pca.pinMode(3, OUTPUT);    //Port 3 als Ausgang festlegen
  
   while(1) {

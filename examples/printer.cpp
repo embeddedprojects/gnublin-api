@@ -1,4 +1,4 @@
-#include "../../gnublin.h"
+#include "gnublin.h"
 #include <signal.h>
 
 
@@ -70,6 +70,7 @@ int initMotor(){
       	Motor_p.getFullStatus1();
 	//RunInit command:  This Command must be executed before Operating
       	Motor_p.runInit();	
+      	return 1;
 }
 int initPrinter(){
 
@@ -149,13 +150,14 @@ int initPrinter(){
 	while(Motor_x.getMotionStatus()!=0){
 		usleep(10000);
 	}
-	
+	return 1;	
 }
 
 int print(){
 	Motor_p.drive(-10);
 	while(Motor_p.getMotionStatus()!=0)
 		usleep(150);
+	return 1;
 }
 
 int parse_opts(int argc, char **argv){
@@ -168,7 +170,7 @@ int parse_opts(int argc, char **argv){
 		}
 
 	}
-	if (hflag | argc<=1){
+	if (hflag | (argc<=1)){
 		printf("This is the 3D-Printer alpha software!\n\n"
 			"-h Show this help\n"
 			"-i Initialize the Printer Position\n"
@@ -178,6 +180,7 @@ int parse_opts(int argc, char **argv){
 			"Print: \n\t%s -p\n", argv[0], argv[0]);
 		exit(1);
 	}
+	return 1;
 }
 
 
@@ -191,6 +194,7 @@ int print_x_slow(int position, int steps)
 		usleep(1000*3);
 		
 	}
+	return 1;
 }
 
 int print_z_slow(int position, int steps)
@@ -203,6 +207,7 @@ int print_z_slow(int position, int steps)
 		usleep(1000*3);
 		
 	}
+	return 1; 
 }
 
 int main(int argc, char **argv){
@@ -210,8 +215,6 @@ int main(int argc, char **argv){
 	signal (SIGINT,my_handler);
 	parse_opts(argc, argv);
 
-	char tempchar[13];
-	float temperature;
 	initMotor();
 	
 	usleep(50000);    	

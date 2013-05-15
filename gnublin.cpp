@@ -1,11 +1,12 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 05/14/13 16:34
-//******************************************** \n
-//Converting string to number
+//build date: 05/15/13 11:37
+//******************************************** 
+
 #include"gnublin.h"
 
 
+//Converting string to number
 int stringToNumber(std::string str){
 	std::stringstream  strin;
 	int var;
