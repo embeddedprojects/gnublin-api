@@ -68,6 +68,3 @@ cat modules/module_lcd.cpp >> gnublin.cpp
 sed -i "/^#include /d" gnublin.cpp
 sed -i "6i#include\"gnublin.h\"\n\n" gnublin.cpp
 
-
-cp gnublin.h examples/
-cp gnublin.cpp examples/

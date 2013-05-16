@@ -70,6 +70,6 @@ release: gnublin-tools copy
 	@dpkg -b deb/ gnublin-tools.deb
 #clean
 clean: $(CLEANDIRS)
-	rm -Rf *.o gnublin.a libgnublin.so.1.0.1
+	rm -Rf *.o gnublin.a libgnublin.so.1.0.1 deb/
 $(CLEANDIRS): 
 	$(MAKE) -C $(@:clean-%=%) clean
