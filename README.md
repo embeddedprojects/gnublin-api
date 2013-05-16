@@ -7,7 +7,7 @@ Many expansion boards with matching small console programs and a common API allo
 The API should work on every embedded Linux board. Feel free to test it and send us feedback at:
 info@embedded-projects.net
 
-more information (complete documentation, reference, example programs etc.): 
+more information (complete documentation, reference, example programs etc.):
 english: http://en.gnublin.org/index.php/API
 deutsch: http://wiki.gnublin.org/index.php/API
 

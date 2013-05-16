@@ -1,0 +1,85 @@
+		Gnublin-API Installation
+
+
+If you want to use the API in your program, you just have to copy
+the gnublin.cpp and gnublin.h file into your project directory
+
+
+COMPILE FOR THE GNUBLIN BOARD:
+
+If you want to compile the gnublin-tools by yourself you have to
+consider the following:
+
+If you want to crosscompile for your Gnublin board just type 
+
+			$ make
+
+the compiled tools can be found in the /gnublin-tools directory
+
+COMPILE FOR THE RASPBERRY PI:
+
+If you want to crosscompile for your Raspberry Pi you have to edit
+the API-config.mk File:
+
+		#Crosscompiler for Gnublin
+		#CXX := arm-linux-gnueabi-g++ 
+		#Crosscompiler for Raspberry Pi:
+		CXX := arm-linux-gnueabihf-g++
+		#Compiler for onboard compilation:
+		#CXX := g++
+
+		#Compilerflags:
+		CXXFLAGS = -Wall
+
+		#Architecture for gnublin:
+		#Architecture = armel
+		#Architecture for raspberryPi:
+		Architecture = armhf
+
+		#Define which Board you want: 
+		#BOARD := GNUBLIN
+		BOARD := RASPBERRY_PI
+
+		#DO NOT EDIT BEYOND THIS LINE!
+		BOARDDEF := -DBOARD=$(BOARD)
+
+now just run  "make" and you find the compiled tools in the 
+/gnublin-tools directory
+
+COMPILE ONBOARD:
+If you want to compile the gnublin-tools onboard you have to edit
+the API-config.mk File:
+Uncomment the Board you're compiling on
+
+		#Crosscompiler for Gnublin
+		#CXX := arm-linux-gnueabi-g++ 
+		#Crosscompiler for Raspberry Pi:
+		#CXX := arm-linux-gnueabihf-g++
+		#Compiler for onboard compilation:
+		CXX := g++
+
+		#Compilerflags:
+		CXXFLAGS = -Wall
+
+		#Architecture for gnublin:
+		#Architecture = armel
+		#Architecture for raspberryPi:
+		#Architecture = armhf
+
+		#Define which Board you want: 
+		BOARD := GNUBLIN
+		#BOARD := RASPBERRY_PI
+
+		#DO NOT EDIT BEYOND THIS LINE!
+		BOARDDEF := -DBOARD=$(BOARD)
+
+now just run  "make" and you find the compiled tools in the 
+/gnublin-tools directory
+
+BUILD A GNUBLIN-TOOLS DEBIAN PACKAGE:
+
+If you want to build a Debian Package, just configure the API-config.mk
+file and run
+		$ make release
+
+you will find a debian package called gnublin-tools.deb
