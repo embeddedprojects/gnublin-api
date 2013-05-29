@@ -78,7 +78,7 @@ $(document).ready(function(){initNavTree('examples_2spi_8cpp_source.html','');})
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;   spi.<a class="code" href="classgnublin__spi.html#aa41d3b1e523e775f77c912533ce501ee" title="Legt die Geschwindigkeit des SPI-Buses fest.">setSpeed</a>(10000);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;   spi.<a class="code" href="classgnublin__spi.html#a54d51354605b76945ed458c4df439d7c" title="Setzt den benutzerdefinierten Chipselect-Pin.">setCS</a>(14);</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> send_buffer[9] = <span class="stringliteral">&quot;getValue&quot;</span>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;   <span class="keywordtype">char</span> <a class="code" href="printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[9];   </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;   <span class="keywordtype">char</span> buffer[9];   </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;   <span class="keywordflow">while</span>(1){</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;     spi.<a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(send_buffer,8);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;     sleep(2);</div>
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('examples_2spi_8cpp_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="examples_2spi_8cpp.html">spi.cpp</a></li>
-    <li class="footer">Erzeugt am Die Mai 14 2013 16:59:29 für gnublin-api von
+    <li class="footer">Erzeugt am Mit Mai 29 2013 12:13:10 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>

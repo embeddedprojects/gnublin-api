@@ -67,7 +67,7 @@ $(document).ready(function(){initNavTree('printer__temp_8cpp_source.html','');})
 <div class="title">printer_temp.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="printer__temp_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;../../gnublin.h&quot;</span></div>
+<a href="printer__temp_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;gnublin.h&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;signal.h&gt;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
@@ -122,12 +122,12 @@ $(document).ready(function(){initNavTree('printer__temp_8cpp_source.html','');})
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            display.<a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9" title="clear the display">clear</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            display.<a class="code" href="classgnublin__module__dogm.html#a93a0c10446511bfeea5ae6842930c89b" title="Set display parameters.">controlDisplay</a>(1,0,0);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            display.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Print string on display.">print</a>(tempchar);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">if</span>(temperature &lt; 210){</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">if</span>(temperature &lt; 230){</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Write Pin.">digitalWrite</a>(18, <a class="code" href="includes_8h.html#a5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                heating = 1;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">if</span>(temperature &gt; 220){</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">if</span>(temperature &gt; 240){</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    <span class="keywordflow">if</span>(initial){</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        initial = 0;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        system(<span class="stringliteral">&quot;gnublin-pwm -v 0x400&quot;</span>);</div>
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('printer__temp_8cpp_source.html','');})
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">if</span>(heating)display.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Print string on display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Heizung: ein&quot;</span>, 2);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">if</span>(!heating)display.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Print string on display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Heizung: aus&quot;</span>, 2);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        sleep(2);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        sleep(10);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
@@ -153,7 +153,7 @@ $(document).ready(function(){initNavTree('printer__temp_8cpp_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="printer__temp_8cpp.html">printer_temp.cpp</a></li>
-    <li class="footer">Generated on Tue May 14 2013 16:59:54 for gnublin-api by
+    <li class="footer">Generated on Wed May 29 2013 12:13:15 for gnublin-api by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>

@@ -71,12 +71,12 @@ $(document).ready(function(){initNavTree('examples_2i2c_8cpp_source.html','');})
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno"><a class="code" href="examples_2i2c_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    3</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="examples_2adc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;   <a class="code" href="classgnublin__i2c.html" title="Klasse für den zugriff auf den GNUBLIN I2C Bus.">gnublin_i2c</a> <a class="code" href="printer__old_8cpp.html#a67e72f58ceed41b7885e3a1019252a41">i2c</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;   <a class="code" href="classgnublin__i2c.html" title="Klasse für den zugriff auf den GNUBLIN I2C Bus.">gnublin_i2c</a> i2c;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;   i2c.<a class="code" href="classgnublin__i2c.html#a6c8f93ad5f598decbb02e0921192a857" title="Setzt die i2c slave Adresse.">setAddress</a>(0x42);</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;   <span class="keywordtype">char</span> <a class="code" href="printer__old_8cpp.html#a38e7c3f1ce348a3ed20459d277245263">buffer</a>[8];</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;   <span class="keywordtype">char</span> RxBuf[8];</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> buffer[8];</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RxBuf[8];</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;   buffer[0]=0x22;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('examples_2i2c_8cpp_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="examples_2i2c_8cpp.html">i2c.cpp</a></li>
-    <li class="footer">Erzeugt am Die Mai 14 2013 16:59:29 für gnublin-api von
+    <li class="footer">Erzeugt am Mit Mai 29 2013 12:13:10 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
   </ul>

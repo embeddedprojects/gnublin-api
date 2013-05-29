@@ -18,7 +18,7 @@ void my_handler(int s){
 	exit(1); 
 }
 
-float temp(){
+float get_temperature(){
 	int voltage =0;
 	float resistance=0;
 	float temperature=0;
@@ -47,18 +47,18 @@ int main(int argc, char **argv){
 		
 	while(1){
 		
-		temperature = temp();
+		temperature = get_temperature();
 		if((temperature < 900) & (temperature > -100)){
 			sprintf(tempchar, "Temp: %.2f", temperature);
 			display.clear();
 			display.controlDisplay(1,0,0);
 			display.print(tempchar);
-			if(temperature < 210){
+			if(temperature < 230){
 				gpio.digitalWrite(18, HIGH);
 				heating = 1;
 			}
 			else{
-				if(temperature > 220){
+				if(temperature > 240){
 					if(initial){
 						initial = 0;
 						system("gnublin-pwm -v 0x400");
@@ -72,7 +72,7 @@ int main(int argc, char **argv){
 			if(heating)display.print((char*)"Heizung: ein", 2);
 			if(!heating)display.print((char*)"Heizung: aus", 2);
 		}
-		sleep(2);
+		sleep(10);
     	}
 
 

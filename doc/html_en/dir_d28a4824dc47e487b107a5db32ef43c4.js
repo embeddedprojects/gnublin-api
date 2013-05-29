@@ -13,7 +13,6 @@ var dir_d28a4824dc47e487b107a5db32ef43c4 =
     [ "module_step.cpp", "examples_2module__step_8cpp.html", "examples_2module__step_8cpp" ],
     [ "module_temperature.cpp", "module__temperature_8cpp.html", "module__temperature_8cpp" ],
     [ "printer.cpp", "printer_8cpp.html", "printer_8cpp" ],
-    [ "printer_old.cpp", "printer__old_8cpp.html", "printer__old_8cpp" ],
     [ "printer_temp.cpp", "printer__temp_8cpp.html", "printer__temp_8cpp" ],
     [ "spi.cpp", "examples_2spi_8cpp.html", "examples_2spi_8cpp" ]
 ];
