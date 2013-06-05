@@ -35,6 +35,9 @@ cat modules/module_relay.h >> gnublin.h
 cat modules/module_step.h >> gnublin.h
 cat modules/module_lcd.h >> gnublin.h
 
+cat library/mail/base64.h >> gnublin.h
+cat library/mail/CSmtp.h >> gnublin.h
+
 sed -i "s/#include \"..\/include\/includes.h\"/\/\/***** NEW BLOCK *****/g" gnublin.h
 sed -i "/^#include \"/d" gnublin.h
 echo \#endif >> gnublin.h
@@ -65,6 +68,10 @@ cat modules/module_relay.cpp >> gnublin.cpp
 cat modules/module_step.cpp >> gnublin.cpp
 cat modules/module_lcd.cpp >> gnublin.cpp
 
-sed -i "/^#include /d" gnublin.cpp
-sed -i "6i#include\"gnublin.h\"\n\n" gnublin.cpp
+cat library/mail/base64.cpp >> gnublin.cpp
+cat library/mail/CSmtp.cpp >> gnublin.cpp
+
+sed -i "/^#include/d" gnublin.cpp
+#sed -i "/^#include \"/d" gnublin.cpp
+sed -i "6i#include \"gnublin.h\"\n\n" gnublin.cpp
 

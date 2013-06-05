@@ -3,37 +3,45 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.3.1-20130402"/>
 <title>gnublin-api: modules/module_relay.h Quellcode</title>
+
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript">
   $(document).ready(initResizable);
-  $(window).load(resizeHeight);
 </script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+
 </head>
 <body>
-<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="top"><!-- do not remove this div! -->
+
+
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  
+  
   <td style="padding-left: 0.5em;">
    <div id="projectname">gnublin-api
    &#160;<span id="projectnumber">Version 0.3</span>
    </div>
+   
   </td>
+  
+  
+  
  </tr>
  </tbody>
 </table>
 </div>
-<!-- end header part -->
-<!-- Erzeugt von Doxygen 1.8.3.1-20130402 -->
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Hauptseite</span></a></li>
@@ -47,11 +55,10 @@
       <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
+</div>
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
     <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
     </div>
   </div>
   <div id="splitbar" style="-moz-user-select:none;" 
@@ -59,44 +66,46 @@
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('module__relay_8h_source.html','');});
+  initNavTree('module__relay_8h.html','');
 </script>
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">module_relay.h</div>  </div>
+<div class="title">modules/module_relay.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="module__relay_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;../include/includes.h&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="modules_2module__pca9555_8cpp.html">module_pca9555.cpp</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//****************************************************************************</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// Class for easy use of the GNUBLIN Module-Relay</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//****************************************************************************</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classgnublin__module__relay.html">   19</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classgnublin__module__relay.html" title="Klasse für den zugriff auf das GNUBLIN module-relay.">gnublin_module_relay</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classgnublin__module__pca9555.html" title="Klasse für den zugriff auf den PCA9555 IC via I2C Bus.">gnublin_module_pca9555</a> pca9555;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> error_flag;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::string ErrorMessage;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classgnublin__module__relay.html#af8e338c18e779ece93cff70f8cbe2c8c" title="Setze Standartwerte.">gnublin_module_relay</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__relay.html#ab0629038b95e2eddb67204ef123772cc" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgnublin__module__relay.html#aa4a3680991a5c0fbc1045d8f9224041c" title="Gibt das Error Flag zurück.">fail</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__relay.html#a43dfb0e6141823177301a5676b78e4b7" title="Setzt Slave Adresse.">setAddress</a>(<span class="keywordtype">int</span> Address);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__relay.html#a7db8134476a8a10f2a92e7e8470f4754" title="Setzt Device Datei.">setDevicefile</a>(std::string filename);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__relay.html#a2d91afaed1237e308b5afdbb06a8a606" title="Schalte Pin.">switchPin</a>(<span class="keywordtype">int</span> pin, <span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-</div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
-<!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_e05d7e2b1ecd646af5bb94391405f3b5.html">modules</a></li><li class="navelem"><a class="el" href="module__relay_8h.html">module_relay.h</a></li>
-    <li class="footer">Erzeugt am Die Mai 14 2013 16:59:30 für gnublin-api von
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1-20130402 </li>
-  </ul>
+<a href="module__relay_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;../include/includes.h&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="modules_2module__pca9555_8cpp.html">module_pca9555.cpp</a>&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="comment">//****************************************************************************</span>
+<a name="l00006"></a>00006 <span class="comment">// Class for easy use of the GNUBLIN Module-Relay</span>
+<a name="l00007"></a>00007 <span class="comment">//****************************************************************************</span>
+<a name="l00019"></a><a class="code" href="classgnublin__module__relay.html">00019</a> <span class="comment"></span><span class="keyword">class </span><a class="code" href="classgnublin__module__relay.html" title="Klasse für den zugriff auf das GNUBLIN module-relay.">gnublin_module_relay</a> {
+<a name="l00020"></a>00020     <a class="code" href="classgnublin__module__pca9555.html" title="Klasse für den zugriff auf den PCA9555 IC via I2C Bus.">gnublin_module_pca9555</a> pca9555;
+<a name="l00021"></a>00021     <span class="keywordtype">bool</span> error_flag;
+<a name="l00022"></a>00022     std::string ErrorMessage;
+<a name="l00023"></a>00023 <span class="keyword">public</span>:
+<a name="l00024"></a>00024     <a class="code" href="classgnublin__module__relay.html#af8e338c18e779ece93cff70f8cbe2c8c" title="Setze Standartwerte.">gnublin_module_relay</a>();
+<a name="l00025"></a>00025     <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__relay.html#ab0629038b95e2eddb67204ef123772cc" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage</a>();
+<a name="l00026"></a>00026     <span class="keywordtype">bool</span> <a class="code" href="classgnublin__module__relay.html#aa4a3680991a5c0fbc1045d8f9224041c" title="Gibt das Error Flag zurück.">fail</a>();
+<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__relay.html#a43dfb0e6141823177301a5676b78e4b7" title="Setzt Slave Adresse.">setAddress</a>(<span class="keywordtype">int</span> Address);
+<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__relay.html#a7db8134476a8a10f2a92e7e8470f4754" title="Setzt Device Datei.">setDevicefile</a>(std::string filename);
+<a name="l00029"></a>00029     <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__relay.html#a2d91afaed1237e308b5afdbb06a8a606" title="Schalte Pin.">switchPin</a>(<span class="keywordtype">int</span> pin, <span class="keywordtype">int</span> value);
+<a name="l00030"></a>00030 };
+<a name="l00031"></a>00031 
+</pre></div></div><!-- contents -->
 </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="module__relay_8h.html">module_relay.h</a>      </li>
+
+    <li class="footer">Erzeugt am Mit Jun 5 2013 09:40:29 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
 </body>
 </html>

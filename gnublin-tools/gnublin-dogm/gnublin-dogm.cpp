@@ -42,6 +42,8 @@ int error_msg(char* msg){
 	if (json_flag) {
 		printf("{\"error_msg:\" : \"%s not successful\", \"result\" : \"-1\",}\n", msg);
 	}
+	else if (bare_flag) {
+	}
 	else {
 		printf("Error: %s not successful\n", msg);
 	}
@@ -75,7 +77,7 @@ void pars_opts(int argc, char **argv) {
 		"-w <STRING> write string to display\n"
 		"-l <line> set string on line (1 = line 1; 2 = line 2)\n"
 		"-j Convert Output to json Format\n"
-		"-b Convert Output to bare format\n"
+		"-b Convert Output to bare format, no Status-Output\n"
 		"-o <column> Set cursor to position(Start of line 1= 0; Start of line 2= 16)\n"
 		"-n reset the display.\n"
 		"-d delet the display\n"
@@ -85,8 +87,7 @@ void pars_opts(int argc, char **argv) {
 		"-c <Y> Only initialize the spidev module with <Y> as Chipselect Pin.(default:<Y>=11)\n"
 		"\n\nExamples:\nWrite Hello to the Display:\ngnublin-dogm -n -w \"Hello\"\n\n"
 		"Write Hello to the Display connected with CS-Pin=18\ngnublin-dogm -n -w \"Hello\" -c 18\n\n"
-		"Jump to the second Line with Cursor\ngnublin-dogm -l 2\n\n"
-		"All operations except [-w with -o and -s] and [-o with -s] are allowed\n");
+		"Jump to the second Line with Cursor\ngnublin-dogm -l 2\n");
 
 		exit(1);
                
@@ -143,6 +144,8 @@ int main(int argc, char **argv) {
 		if (json_flag) {
 			printf("{\"Display_shift:\" : \"%i\", \"result\" : \"0\"}\n", shift_val);
 		}
+		else if (bare_flag) {
+		}
 		else {
 			printf("Display shift --> %i \n", shift_val);
 		}
@@ -154,6 +157,8 @@ int main(int argc, char **argv) {
 		}
 		if (json_flag) {
 			printf("{\"cursor_offset:\" : \"%i\", \"result\" : \"0\"}\n", cursor_offset);
+		}
+		else if (bare_flag) {
 		}
 		else {
 			printf("cursor offset --> %i \n", cursor_offset);
@@ -167,6 +172,8 @@ int main(int argc, char **argv) {
 		if (json_flag) {
 			printf("{\"Display_print:\" : \"%s\", \"result\" : \"0\"}\n", string_display);
 		}
+		else if (bare_flag) {
+		}
 		else {
 			printf("Line: %i \nDisplay print: %s \n", line_number, string_display);
 		}
@@ -179,6 +186,8 @@ int main(int argc, char **argv) {
 		if (json_flag) {
 			printf("{\"Display_print:\" : \"%s\", \"result\" : \"0\"}\n", string_display);
 		}
+		else if (bare_flag) {
+		}
 		else {
 			printf("Display print: %s \n", string_display);
 		}
@@ -190,6 +199,8 @@ int main(int argc, char **argv) {
 		}
 		if (json_flag) {
 			printf("{\"Display_print:\" : \"%s\", \"result\" : \"0\"}\n", string_display);
+		}
+		else if (bare_flag) {
 		}
 		else {
 			printf("Display print: %s \n", string_display);

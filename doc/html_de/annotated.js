@@ -1,5 +1,7 @@
 var annotated =
 [
+    [ "CSmtp", "classCSmtp.html", "classCSmtp" ],
+    [ "ECSmtp", "classECSmtp.html", "classECSmtp" ],
     [ "gnublin_adc", "classgnublin__adc.html", "classgnublin__adc" ],
     [ "gnublin_gpio", "classgnublin__gpio.html", "classgnublin__gpio" ],
     [ "gnublin_i2c", "classgnublin__i2c.html", "classgnublin__i2c" ],

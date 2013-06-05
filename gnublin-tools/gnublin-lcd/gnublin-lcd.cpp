@@ -50,7 +50,7 @@ void parse_opts(int argc, char **argv){
 			"-u Shows the cUrsor(_)(1/0)\n\n"
 			"Examples:\n\n"
 			"%s -a 0x20 -i\n"
-			"%s -a 0x20 -c -B 1 -o 3 -l 2 -w \"Hello World\"\n", argv[0], argv[0]);
+			"%s -a 0x20 -d -B 1 -o 3 -l 2 -w \"Hello World\"\n", argv[0], argv[0]);
 		exit(1);
 	}
 }

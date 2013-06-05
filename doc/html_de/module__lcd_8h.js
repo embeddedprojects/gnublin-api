@@ -1,6 +1,5 @@
 var module__lcd_8h =
 [
-    [ "gnublin_module_lcd", "classgnublin__module__lcd.html", "classgnublin__module__lcd" ],
     [ "LCD_BLINKING_OFF", "module__lcd_8h.html#a45ceab13b2dd69220290a91df577005a", null ],
     [ "LCD_BLINKING_ON", "module__lcd_8h.html#a058503e5404981067ac6a84027a41cc0", null ],
     [ "LCD_BOOTUP_MS", "module__lcd_8h.html#a325c0c63643bd143da53737d8f2f127c", null ],
