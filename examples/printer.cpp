@@ -65,14 +65,14 @@ int initMotor(){
 	Motor_y.runInit();
 
 	//Motor_p      	
-      	//SetMotorParam
+	//SetMotorParam
 	Motor_p.setVmax(0);
 	Motor_p.setMotorParam();      	
 	//GetFullStatus1 command:  This Command must be executed before Operating
-      	Motor_p.getFullStatus1();
+	Motor_p.getFullStatus1();
 	//RunInit command:  This Command must be executed before Operating
-      	Motor_p.runInit();	
-      	return 1;
+	Motor_p.runInit();	
+	return 1;
 }
 int initPrinter(){
 	Motor_z.drive(30000);
@@ -163,9 +163,9 @@ int parse_opts(int argc, char **argv){
 	int c;
 	while((c = getopt(argc,argv,"hip")) != -1){
 		switch(c){
-			case 'h' : hflag = 1;                               break;                              /* help */
-			case 'i' : initMotor(); initPrinter(); exit(1);	    break;
-			case 'p' : printflag = 1;			    break;
+			case 'h' : hflag = 1;					break;	/* help */
+			case 'i' : initMotor(); initPrinter(); exit(1);		break;
+			case 'p' : printflag = 1;				break;
 		}
 
 	}
