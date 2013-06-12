@@ -6,10 +6,10 @@
 
 //------------------Konstruktor------------------
 /** @~english 
-* @brief Set standard i2c address 0x20, set ErrorFlag false
+* @brief Set standard i2c address 0x20, set ErrorFlag false, sets the closemode to "1" (see i2c for details)
 *
 * @~german 
-* @brief Setze standard i2c Adresse 0x20 und setze das ErrorFlag auf false.
+* @brief Setze standard i2c Adresse 0x20, den closemode auf "1" (siehe i2c für Details) und setze das ErrorFlag auf false.
 *
 */
 gnublin_module_pca9555::gnublin_module_pca9555() 

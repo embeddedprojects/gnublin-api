@@ -6,10 +6,10 @@
 
 //------------------Konstruktor------------------
 /** @~english 
-* @brief Sets the error_flag to "false" and the devicefile to "/dev/i2c-1"
+* @brief Sets the error_flag to "false", the closemode to "false" and the devicefile to "/dev/i2c-1"
 *
 * @~german 
-* @brief Setzt das error_flag auf "false" und das devicefile auf standardmäßig "/dev/i2c-1"
+* @brief Setzt das error_flag auf "false", den closemode auf "false" und das devicefile auf standardmäßig "/dev/i2c-1"
 *
 */
 gnublin_i2c::gnublin_i2c()
@@ -104,8 +104,19 @@ void gnublin_i2c::setDevicefile(std::string filename){
 
 
 //-------------------open devicefile----------------
-
-
+/** @~english
+* @brief Opens the dev file to read/write to it. default is "/dev/i2c-1"
+*
+* This function opens the devicefile for read/write operations. by default "/dev/i2c-1" is set.
+* @return success: 1, failure: -1
+*
+* @~german
+* @brief Öffnet die dev Datei zum lesen & schreiben. Standard ist die "/dev/i2c-1"
+*
+* Diese Funktion öffnet die dev Datei zum lesen und schreiben. standradmäßig ist das die "dev/i2c-1".
+*
+* @return Erfolg: 1, Misserfolg: -1
+*/
 int gnublin_i2c::openDevFile(){
 	if ((fd = open(devicefile.c_str(), O_RDWR)) < 0) {
 			ErrorMessage="ERROR opening: " + devicefile + "\n";
@@ -117,13 +128,30 @@ int gnublin_i2c::openDevFile(){
 }
 
 //-------------------close devicefile----------------
-
-
+/** @~english
+* @brief Closes the dev file
+*
+* @~german
+* @brief schließt die dev Datei
+*
+*/
 void gnublin_i2c::closeDevFile(){
 	close(fd);
 }
 
 //-------------------set closemode-------------------
+/** @~english
+* @brief sets the closemode.
+*
+*the closemode changes the bahaviour of the send/receive methods. close_mode = false means, that you have to open the dev file with the openDevFile() and close it with closeDevFile() manually
+* @param mode the mode. 1 sets the close_mode true, 0 false.
+*
+* @~german
+* @brief setzt den closemode
+*
+* Das close_mode flag beeinflusst das Vehalten der send/reveice Methoden. close_mode = false bedeutet, dass man die dev Datei manuell mit openDevFile() öffnen bzw mit closeDevFile() schließen muss.
+* @param mode der Modus. 1 setzt den close_mode true, 0  auf false.
+*/
 void gnublin_i2c::setclosemode(int mode){
 	if(mode>=1){
 	close_mode=true;
