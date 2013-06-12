@@ -532,3 +532,53 @@ int gnublin_module_pca9555::digitalRead(int pin) {
 	ErrorMessage="something went wrong";
 	return -1;
 }
+
+//-----------------------------------read Port-----------------------------------
+/** @~english
+* @brief reads the state of an input port and returns it
+*
+* With this function you can read the levels of a whole input port.
+* @param port Number of the port (0-1) you want to read from
+* @return unsigned char containing the values, failure: -1
+*
+* @~german
+* @brief Liest den Zustand eins Eingang-Ports und gibt ihn zurück
+*
+* Mit dieser Funktion kann man den Zustand eines Ports auslesen.
+* @param port Nummer des Ports (0-1) von dem man lesen will.
+* @return unsigned char mit den Pegeln des Ports, Misserfolg: -1
+*/
+unsigned char gnublin_module_pca9555::readPort(int port) {
+	error_flag=false;
+	unsigned char RxBuf[1];
+
+	if(port == 0 ){ // Port 0		
+		if(i2c.receive(0x00, RxBuf, 1)>0){
+
+			return RxBuf[0];
+				
+		}
+		else{
+			error_flag=true;
+			ErrorMessage="i2c.receive Error";
+			return -1;
+		}
+	}
+	else if(port == 1){ // Port 1
+		if(i2c.receive(0x01, RxBuf, 1)>0){
+
+			return RxBuf[0];
+				
+		}
+		else{
+			error_flag=true;
+			ErrorMessage="i2c.receive Error";
+			return -1;
+		}
+	}
+	else {
+		error_flag=true;
+		ErrorMessage="Port Number is not between 0-1\n";
+		return -1;
+	}
+}
