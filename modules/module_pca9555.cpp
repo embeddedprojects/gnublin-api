@@ -15,6 +15,7 @@
 gnublin_module_pca9555::gnublin_module_pca9555() 
 {
 	error_flag=false;
+	i2c.setclosemode(1);
 	setAddress(0x20);
 }
 

@@ -16,6 +16,7 @@ gnublin_i2c::gnublin_i2c()
 {
 	devicefile="/dev/i2c-1";
 	error_flag=false;
+	close_mode=false;
 }
 
 //-------------------------------Fail-------------------------------
@@ -102,6 +103,36 @@ void gnublin_i2c::setDevicefile(std::string filename){
 }
 
 
+//-------------------open devicefile----------------
+
+
+int gnublin_i2c::openDevFile(){
+	if ((fd = open(devicefile.c_str(), O_RDWR)) < 0) {
+			ErrorMessage="ERROR opening: " + devicefile + "\n";
+			error_flag=true;
+			close(fd);    	
+			return -1;
+	}
+	return 1;
+}
+
+//-------------------close devicefile----------------
+
+
+void gnublin_i2c::closeDevFile(){
+	close(fd);
+}
+
+//-------------------set closemode-------------------
+void gnublin_i2c::setclosemode(int mode){
+	if(mode>=1){
+	close_mode=true;
+	}
+	else if (mode==0){
+	close_mode=false;
+	}
+}
+
 //----------------------------------receive----------------------------------
 /** @~english 
 * @brief receive bytes from the I2C bus.
@@ -127,14 +158,11 @@ void gnublin_i2c::setDevicefile(std::string filename){
 */
 int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 	error_flag=false;
-	int fd;
-
-
-	if ((fd = open(devicefile.c_str(), O_RDWR)) < 0) {
-		ErrorMessage="ERROR opening: " + devicefile + "\n";
-		error_flag=true;
-		close(fd);    	
-		return -1;
+	
+	if(close_mode==true){
+		if(openDevFile()<0){
+			return -1;
+		}
 	}
 
 	if (ioctl(fd, I2C_SLAVE, slave_address) < 0) {
@@ -150,8 +178,10 @@ int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 		close(fd);
 		return -1;
 	}
-
-	close(fd); 
+	
+	if(close_mode==true){
+		closeDevFile(); 
+	}
 	return 1;
 }
 
@@ -188,14 +218,12 @@ int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 */
 int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length){
 	error_flag=false;	
-	int fd;
 
-	if ((fd = open(devicefile.c_str(), O_RDWR)) < 0) {
-		ErrorMessage="ERROR opening: " + devicefile + "\n";
-		error_flag=true; 
-		close(fd);
-    	return -1;
-	}
+	if(close_mode==true){
+		if(openDevFile()<0){
+			return -1;
+		}
+	}	
 
 	if (ioctl(fd, I2C_SLAVE, slave_address) < 0) {
 		ErrorMessage="ERROR address: " + numberToString(slave_address) + "\n";
@@ -219,7 +247,9 @@ int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, in
 		return -1;
 	}
 
-	close(fd); 	 
+	if(close_mode==true){
+		closeDevFile(); 
+	} 	 
 	return 1;
 }
 
@@ -248,14 +278,12 @@ int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, in
 */
 int gnublin_i2c::send(unsigned char *TxBuf, int length){
 	error_flag=false;	
-	int fd; 
-
-	if ((fd = open(devicefile.c_str(), O_RDWR)) < 0) {
-		ErrorMessage="ERROR opening: " + devicefile + "\n";
-		error_flag=true; 
-		close(fd);
-    	return -1;
-	}
+	
+	if(close_mode==true){
+		if(openDevFile()<0){
+			return -1;
+		}
+	}	
 
 	if (ioctl(fd, I2C_SLAVE, slave_address) < 0) {
 		ErrorMessage="ERROR address: " + numberToString(slave_address) + "\n";
@@ -271,7 +299,9 @@ int gnublin_i2c::send(unsigned char *TxBuf, int length){
 		return -1;
 	}
 
-	close(fd);	
+	if(close_mode==true){
+		closeDevFile(); 
+	}	
 	return 1;
 }
 
@@ -308,7 +338,7 @@ int gnublin_i2c::send(unsigned char *TxBuf, int length){
 */
 int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int length){
 	error_flag=false;	
-	int fd, i;
+	int i;
 	unsigned char data[length+1];
 	data[0]=RegisterAddress;
 
@@ -316,11 +346,10 @@ int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int l
 		data[ i + 1 ] = (char)TxBuf[ i ];
 	}
 
-	if ((fd = open(devicefile.c_str(), O_RDWR)) < 0) {
-		ErrorMessage="ERROR opening: " + devicefile + "\n";
-		error_flag=true; 
-		close(fd);
-    	return -1;
+	if(close_mode==true){
+		if(openDevFile()<0){
+			return -1;
+		}
 	}
 
 	if (ioctl(fd, I2C_SLAVE, slave_address) < 0) {
@@ -338,7 +367,9 @@ int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int l
 		return -1;
 	}
 
-	close(fd);	
+	if(close_mode==true){
+		closeDevFile(); 
+	}
 	return 1;
 }
 
@@ -367,14 +398,12 @@ int gnublin_i2c::send(int value){
 	error_flag=false;
 	int buffer[1];
 	buffer[0]=value;	
-	int fd; 
-
-	if ((fd = open(devicefile.c_str(), O_RDWR)) < 0) {
-		ErrorMessage="ERROR opening: " + devicefile + "\n";
-		error_flag=true; 
-		close(fd);
-    	return -1;
-	}
+	
+	if(close_mode==true){
+		if(openDevFile()<0){
+			return -1;
+		}
+	}	
 
 	if (ioctl(fd, I2C_SLAVE, slave_address) < 0) {
 		ErrorMessage="ERROR address: " + numberToString(slave_address) + "\n";
@@ -390,6 +419,8 @@ int gnublin_i2c::send(int value){
 		return -1;
 	}
 
-	close(fd);	
+	if(close_mode==true){
+		closeDevFile(); 
+	}	
 	return 1;
 }

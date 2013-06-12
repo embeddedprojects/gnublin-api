@@ -16,7 +16,9 @@
 
 class gnublin_i2c {
 	bool error_flag;
+	bool close_mode;
 	int slave_address;
+	int fd;
 	std::string devicefile;
 	std::string ErrorMessage;
 public:
@@ -26,6 +28,9 @@ public:
 	int getAddress();
 	const char *getErrorMessage();
 	void setDevicefile(std::string filename);
+	int openDevFile();
+	void closeDevFile();
+	void setclosemode(int mode);
 	int receive(unsigned char *RxBuf, int length);
 	int receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length);
 	int send(unsigned char *TxBuf, int length);
