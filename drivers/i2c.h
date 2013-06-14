@@ -19,16 +19,24 @@ class gnublin_i2c {
 	int slave_address;
 	std::string devicefile;
 	std::string ErrorMessage;
+	int fd;
+	int errorMsg(std::string message);
+	int open_fd();
+	void close_fd();
+	void init(std::string DeviceFile, int Address);
 public:
 	gnublin_i2c();
+	gnublin_i2c(int Address);
+	gnublin_i2c(std::string DeviceFile, int Address);
+	~gnublin_i2c();
 	bool fail();
-	void setAddress(int Address);
+	int setAddress(int Address);
 	int getAddress();
 	const char *getErrorMessage();
-	void setDevicefile(std::string filename);
+	int setDevicefile(std::string filename);
 	int receive(unsigned char *RxBuf, int length);
 	int receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length);
 	int send(unsigned char *TxBuf, int length);
 	int send(unsigned char RegisterAddress, unsigned char *TxBuf, int length);
-	int send(int value);
+	int send(unsigned char value);
 };
