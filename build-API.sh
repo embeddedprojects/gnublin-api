@@ -22,6 +22,7 @@ rm include_tmp.h
 
 cat include/functions.h >> gnublin.h
 
+cat drivers/driver.h >> gnublin.h
 cat drivers/gpio.h >> gnublin.h
 cat drivers/i2c.h >> gnublin.h
 cat drivers/spi.h >> gnublin.h
@@ -52,6 +53,7 @@ echo "//********************************************
 
 cat include/functions.cpp >> gnublin.cpp
 
+cat drivers/driver.cpp >> gnublin.cpp
 cat drivers/gpio.cpp >> gnublin.cpp
 cat drivers/i2c.cpp >> gnublin.cpp
 cat drivers/spi.cpp >> gnublin.cpp

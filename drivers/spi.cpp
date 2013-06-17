@@ -1,6 +1,5 @@
 #include "spi.h"
 
-
 //***************************************************************************
 // Class for accessing the SPI-Bus
 //***************************************************************************
@@ -19,8 +18,8 @@
 * GNUBLIN: CS = 11
 * RASPBERRY PI: CS = 0
 */
-gnublin_spi::gnublin_spi(){
-	error_flag = false;
+gnublin_spi::gnublin_spi() : gnublin_driver()
+{
 	#if BOARD == RASPBERRY_PI
 	std::string device = "/dev/spidev0.0";
 	#else
@@ -35,6 +34,8 @@ gnublin_spi::gnublin_spi(){
 		#endif
 		sleep(1);
 		fd = open(device.c_str(), O_RDWR);
+		if (fd < 0)
+			setErrorMessage("Unable to open file "+device+"\n");
 	}
 }
 
@@ -44,41 +45,6 @@ gnublin_spi::gnublin_spi(){
 gnublin_spi::~gnublin_spi(){
 	close(fd);
 }
-
-
-//******************** fail() ***********************************************
-/**
-* @~english
-* @brief Returns the errorflag to detect error in the previous called method.
-*
-* @return error_flag
-*
-* @~german
-* @brief Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.
-*
-* @return error_flag
-*/
-bool gnublin_spi::fail(){
-	return error_flag;
-}
-
-
-//-------------get Error Message-------------
-/**
-* @~english
-* @brief Returns the ErrorMessage of the previous error if one exist.
-*
-* @return ErrorMessage as C-String
-*
-* @~german
-* @brief Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.
-*
-* @return ErrorMessage als C-String
-*/
-const char *gnublin_spi::getErrorMessage(){
-	return ErrorMessage.c_str();
-}
-
 
 //*********************** setCS *********************************************
 
@@ -108,12 +74,10 @@ int gnublin_spi::setCS(int cs){
 		system(command.c_str());
 		sleep(1);
 		fd = open(device.c_str(), O_RDWR);
-		if (fd < 0){
-			error_flag = true;
-			return -1;
-		}
+		if (fd < 0)
+		    return setErrorMessage("Unable to open file "+device+"\n");
 	}
-	error_flag = false;
+        clearError();
 	return 1;
 }
 
@@ -134,11 +98,9 @@ int gnublin_spi::setCS(int cs){
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setMode(unsigned char mode){
-	if (ioctl(fd, SPI_IOC_WR_MODE, &mode) < 0){
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if (ioctl(fd, SPI_IOC_WR_MODE, &mode) < 0)
+		return setErrorMessage("ioctl failed.");
+        clearError();
 	return 1;
 }
 
@@ -158,11 +120,9 @@ int gnublin_spi::setMode(unsigned char mode){
 */
 int gnublin_spi::getMode(){
 	__u8 mode;
-	if (ioctl(fd, SPI_IOC_RD_MODE, &mode) < 0){
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if (ioctl(fd, SPI_IOC_RD_MODE, &mode) < 0)
+		return setErrorMessage("ioctl failed.");
+	clearError();
 	return mode;
 }
 
@@ -183,11 +143,9 @@ int gnublin_spi::getMode(){
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setLSB(unsigned char lsb){
-	if (ioctl(fd, SPI_IOC_WR_LSB_FIRST, &lsb) < 0){
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if (ioctl(fd, SPI_IOC_WR_LSB_FIRST, &lsb) < 0)
+		return setErrorMessage("ioctl failed.");
+	clearError();
 	return 1;
 }
 
@@ -207,11 +165,9 @@ int gnublin_spi::setLSB(unsigned char lsb){
 */
 int gnublin_spi::getLSB(){
 	__u8 lsb;
-	if (ioctl(fd, SPI_IOC_RD_LSB_FIRST, &lsb) < 0) {
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if (ioctl(fd, SPI_IOC_RD_LSB_FIRST, &lsb) < 0) 
+		return setErrorMessage("ioctl failed.");
+	clearError();
 	return lsb;
 }
 
@@ -232,11 +188,9 @@ int gnublin_spi::getLSB(){
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setLength(unsigned char bits){
-	if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits) < 0){
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits) < 0)
+		return setErrorMessage("ioctl failed.");
+	clearError();
 	return 1;
 }
 
@@ -256,11 +210,9 @@ int gnublin_spi::setLength(unsigned char bits){
 */
 int gnublin_spi::getLength(){
 	__u8 bits;
-	if (ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits) < 0){
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if (ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits) < 0)
+		return setErrorMessage("ioctl failed.");
+	clearError();
 	return bits;
 }
 
@@ -281,11 +233,9 @@ int gnublin_spi::getLength(){
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::setSpeed(unsigned int speed){
-	if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed) < 0){
-		error_flag = true;
-		return -1;
-	}
-	error_flag = true;
+	if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed) < 0)
+		return setErrorMessage("ioctl failed.");
+	clearError();
 	return 1;
 }
 
@@ -305,11 +255,9 @@ int gnublin_spi::setSpeed(unsigned int speed){
 */
 int gnublin_spi::getSpeed(){
 	__u32 speed;
-	if (ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed) < 0){
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if (ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed) < 0)
+		return setErrorMessage("ioctl failed.");
+	clearError();
 	return speed;
 }
 
@@ -331,11 +279,9 @@ int gnublin_spi::getSpeed(){
 * @return 1 bei Erfolg, -1 im Fehlerfall
 */
 int gnublin_spi::receive(char* buffer, int len){
-	if (read(fd, buffer, len) < 0) {
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if (read(fd, buffer, len) < 0) 
+		return setErrorMessage("read failed.");
+	clearError();
 	return 1;
 }
 
@@ -366,11 +312,9 @@ int gnublin_spi::send(unsigned char* tx, int length){
 	xfer.speed_hz = 0;
 	xfer.bits_per_word = 0;
 	status = ioctl(fd, SPI_IOC_MESSAGE(1), &xfer);
-	if ( status < 0){
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if ( status < 0)
+		return setErrorMessage("ioctl status shows failure.");
+	clearError();
 	return 1;
 }
 
@@ -414,11 +358,9 @@ int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, in
 	xfer[1].bits_per_word = 0;
 
 	status = ioctl(fd, SPI_IOC_MESSAGE(2), xfer);
-	if (status < 0){
-		error_flag = true;
-		return -1;
-	}
-	error_flag = false;
+	if (status < 0)
+		return setErrorMessage("ioctl status shows failure.");
+	clearError();
 	return 1;
 }
 

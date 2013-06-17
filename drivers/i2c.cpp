@@ -16,39 +16,39 @@
 
 //------------------Konstruktor------------------
 /** @~english
-* @brief Sets the error_flag to "false" and the devicefile to "/dev/i2c-1"
+* @brief Sets the devicefile to "/dev/i2c-1"
 *
 * @~german
-* @brief Setzt das error_flag auf "false" und das devicefile auf standardmäßig "/dev/i2c-1"
+* @brief Setzt das devicefile auf standardmäßig "/dev/i2c-1"
 *
 */
-gnublin_i2c::gnublin_i2c() 
+gnublin_i2c::gnublin_i2c() : gnublin_driver()
 {
 	init(DEFAULTDEVICE, -1);
 }
 
 //------------------Konstruktor------------------
 /** @~english
-* @brief Sets the error_flag to "false" and the devicefile to "/dev/i2c-1"
+* @brief Sets the devicefile to "/dev/i2c-1"
 *
 * @~german
-* @brief Setzt das error_flag auf "false" und das devicefile auf standardmäßig "/dev/i2c-1"
+* @brief Setzt das devicefile auf standardmäßig "/dev/i2c-1"
 *
 */
-gnublin_i2c::gnublin_i2c(int Address) 
+gnublin_i2c::gnublin_i2c(int Address) : gnublin_driver()
 {
 	init(DEFAULTDEVICE, Address);
 }
 
 //------------------Konstruktor------------------
 /** @~english
-* @brief Sets the error_flag to "false" and the devicefile to "/dev/i2c-1"
+* @brief Sets the devicefile to "/dev/i2c-1"
 *
 * @~german
-* @brief Setzt das error_flag auf "false" und das devicefile auf standardmäßig "/dev/i2c-1"
+* @brief Setzt das devicefile auf standardmäßig "/dev/i2c-1"
 *
 */
-gnublin_i2c::gnublin_i2c(std::string Devicefile, int Address)
+gnublin_i2c::gnublin_i2c(std::string Devicefile, int Address) : gnublin_driver()
 {
 	init(Devicefile, Address);
 } 
@@ -78,30 +78,22 @@ void gnublin_i2c::init(std::string Devicefile, int Address)
 {
 	devicefile=Devicefile;
         slave_address = Address;
-	error_flag=false;
         fd = 0;
 }
 
-//------------------error messaging------------------
+//------------------Error message------------------
 /** @~english
-* @brief Called by the constructors to initialize class variables.
-*
-* @param message String contents that describe the error.
-* @return failure: -1
+* @brief Closes the file if open and resets the variable.
+* called from base class when error message is set
 *
 * @~german
-* @brief Wird von den Konstruktoren der Klasse Variablen zu initialisieren.
-*
-* @param message String Inhalte, die den Fehler beschreiben.
-* @return failure: -1
+* @brief Schließt die Datei, wenn offen und setzt die Variable.
+* Wird aufgerufen, wenn Fehlermeldung Basisklasse eingestellt ist.
 *
 */
-int gnublin_i2c::errorMsg(std::string message)
+void gnublin_i2c::onError()
 {
-   ErrorMessage=message;
-   error_flag=true; 
    close_fd();
-   return -1; 
 }
 
 //------------------close file descriptor------------------
@@ -138,7 +130,7 @@ void gnublin_i2c::close_fd()
 */
 int gnublin_i2c::open_fd() 
 {
-    error_flag = false;
+    clearError();
 
     if (fd) { 
         close_fd(); 
@@ -146,30 +138,15 @@ int gnublin_i2c::open_fd()
     }
 
     if (slave_address == -1) 
-        return errorMsg("ERROR slave address is not set\n");
+        return setErrorMessage("ERROR slave address is not set\n");
 
     if ((fd = open(devicefile.c_str(), O_RDWR)) < 0) 
-        return errorMsg("ERROR opening: " + devicefile + "\n");
+        return setErrorMessage("ERROR opening: " + devicefile + "\n");
 
     if (ioctl(fd, I2C_SLAVE, slave_address) < 0) 
-        return errorMsg("ERROR address: " + numberToString(slave_address) + "\n");
+        return setErrorMessage("ERROR address: " + numberToString(slave_address) + "\n");
 
     return 0;
-}
-
-//-------------------------------Fail-------------------------------
-/** @~english 
-* @brief returns the error flag to check if the last operation went wrong
-*
-* @return error_flag as boolean
-*
-* @~german 
-* @brief Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist
-*
-* @return error_flag als bool
-*/
-bool gnublin_i2c::fail(){
-	return error_flag;
 }
 
 //-------------set Address-------------
@@ -207,23 +184,6 @@ int gnublin_i2c::setAddress(int Address){
 */
 int gnublin_i2c::getAddress(){
 	return slave_address;
-}
-
-//-------------get Error Message-------------
-/** @~english 
-* @brief Get the last Error Message.
-*
-* This function returns the last Error Message, which occurred in that Class.
-* @return ErrorMessage as c-string
-*
-* @~german 
-* @brief Gibt die letzte Error Nachricht zurück.
-*
-* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
-* @return ErrorMessage als c-string
-*/
-const char *gnublin_i2c::getErrorMessage(){
-	return ErrorMessage.c_str();
 }
 
 //-------------------set devicefile----------------
@@ -273,18 +233,18 @@ int gnublin_i2c::setDevicefile(std::string filename){
 int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 
 	if (RxBuf == 0)
-		return errorMsg("Receive method received a null TxBuf pointer.\n");
+		return setErrorMessage("Receive method received a null TxBuf pointer.\n");
 	if (length < 1)
-		return errorMsg("Receive method received an invalid buffer length.\n");
+		return setErrorMessage("Receive method received an invalid buffer length.\n");
 
 	if (!fd)
 		if (open_fd() == -1)
 			return -1;
 
-	error_flag=false;	
+	clearError();	
 
 	if (read(fd, RxBuf, length) != length)
-		return errorMsg("i2c read error! Address: " + numberToString(slave_address) + " dev file: " + devicefile + "\n");		
+		return setErrorMessage("i2c read error! Address: " + numberToString(slave_address) + " dev file: " + devicefile + "\n");		
 
 	return 1;
 }
@@ -323,21 +283,21 @@ int gnublin_i2c::receive(unsigned char *RxBuf, int length){
 int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length){
 
 	if (RxBuf == 0)
-		return errorMsg("Receive method received a null TxBuf pointer.\n");
+		return setErrorMessage("Receive method received a null TxBuf pointer.\n");
 	if (length < 1)
-		return errorMsg("Receive method received an invalid buffer length.\n");
+		return setErrorMessage("Receive method received an invalid buffer length.\n");
 
 	if (!fd)
 		if (open_fd() == -1)
 			return -1;
 
-	error_flag=false;
+	clearError();
 
 	if (write(fd, &RegisterAddress, 1) != 1)
-  		return errorMsg("i2c write error!\n");
+  		return setErrorMessage("i2c write error!\n");
 
 	if (read(fd, RxBuf, length) != length)
-		return errorMsg("i2c read error! Address: " + numberToString(slave_address) + " dev file: " + devicefile + "\n");
+		return setErrorMessage("i2c read error! Address: " + numberToString(slave_address) + " dev file: " + devicefile + "\n");
 
 	return 1;
 }
@@ -368,18 +328,18 @@ int gnublin_i2c::receive(unsigned char RegisterAddress, unsigned char *RxBuf, in
 int gnublin_i2c::send(unsigned char *TxBuf, int length){
 
 	if (TxBuf == 0)
-		return errorMsg("Send method received a null TxBuf pointer.\n");
+		return setErrorMessage("Send method received a null TxBuf pointer.\n");
 	if (length < 1)
-		return errorMsg("Send method received an invalid buffer length.\n");
+		return setErrorMessage("Send method received an invalid buffer length.\n");
 
 	if (!fd)
 		if (open_fd() == -1)
 			  return -1;
 
-	error_flag=false;	
+        clearError();
 
 	if(write(fd, TxBuf, length) != length)
-		return errorMsg("i2c write error!\n");
+		return setErrorMessage("i2c write error!\n");
 
 	return 1;
 }
@@ -418,21 +378,21 @@ int gnublin_i2c::send(unsigned char *TxBuf, int length){
 int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int length){
 
 	if (TxBuf == 0)
-		return errorMsg("Send method received a null TxBuf pointer.\n");
+		return setErrorMessage("Send method received a null TxBuf pointer.\n");
 	if (length < 1)
-		return errorMsg("Send method received an invalid buffer length.\n");
+		return setErrorMessage("Send method received an invalid buffer length.\n");
 
 	if (!fd)
 		if (open_fd() == -1)
 			return -1;
 
-	error_flag=false;	
+	clearError();
 
 	if (send(RegisterAddress) == -1)
 		return -1;
 
 	if(write(fd, TxBuf, length) != length)
-		return errorMsg("i2c write error!\n");
+		return setErrorMessage("i2c write error!\n");
 
 	return 1;
 }
@@ -464,10 +424,10 @@ int gnublin_i2c::send(unsigned char value){
 		if (open_fd() == -1)
 			  return -1;
 
-	error_flag=false;
+	clearError();
 
 	if(write(fd, &value, 1) != 1)
-		return errorMsg("i2c write error!\n");
+		return setErrorMessage("i2c write error!\n");
 
 	return 1;
 }

@@ -1,4 +1,5 @@
 #include "gpio.h"
+#include "driver.h"
 
 /** @~english 
 * @brief Reset the ErrorFlag.
@@ -7,8 +8,7 @@
 * @brief Setzt das ErrorFlag zurück.
 *
 */
-gnublin_gpio::gnublin_gpio(){
-	error_flag = false;
+gnublin_gpio::gnublin_gpio() : gnublin_driver() {
 }
 
 
@@ -29,48 +29,14 @@ int gnublin_gpio::unexport(int pin){
 	std::string pin_str = numberToString(pin);
 	std::string dir = "/sys/class/gpio/unexport";
 	std::ofstream file (dir.c_str());
-	if (file < 0) {
-		error_flag = true;
-		return -1;
-	}
+	if (file < 0) 
+		return setErrorMessage("Unable to open " + dir +"\n");
 	file << pin_str;
 	file.close();
-	error_flag = false;
+	clearError();
 	return 1;
 }
 
-
-/** @~english 
-* @brief Returns the error flag. 
-*
-* If something went wrong, the flag is true.
-* @return bool error_flag
-*
-* @~german 
-* @brief Gibt das Error Flag zurück.
-*
-* Falls das Error Flag in der Klasse gesetzt wurde, wird true zurück gegeben, anderenfalls false.
-* @return bool error_flag
-*/
-bool gnublin_gpio::fail(){
-	return error_flag;
-}
-
-/** @~english 
-* @brief Get the last Error Message.
-*
-* This Funktion returns the last Error Message, which occurred in that Class.
-* @return ErrorMessage as c-string
-*
-* @~german 
-* @brief Gibt die letzte Error Nachricht zurück.
-*
-* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
-* @return ErrorMessage als c-string
-*/
-const char *gnublin_gpio::getErrorMessage(){
-	return ErrorMessage.c_str();
-}
 
 /** @~english 
 * @brief Change the PinMode.
@@ -94,31 +60,26 @@ const char *gnublin_gpio::getErrorMessage(){
 */
 int gnublin_gpio::pinMode(int pin, std::string direction){
 	#if (BOARD != RASPBERRY_PI)
-	if (pin == 4 && direction == "out"){
-		error_flag = true;
-		return -1;
-	}
+	if (pin == 4 && direction == "out")
+                return setErrorMessage("Pin 4 can not be set to 'out'\n");
 	#endif
 	std::string pin_str = numberToString(pin);
 	std::string dir = "/sys/class/gpio/export";
 	std::ofstream file (dir.c_str());
-	if (file < 0) {
-		error_flag = true;
-		return -1;
-	}
+	if (file < 0) 
+                return setErrorMessage("Unable to open " + dir + "\n");
 	file << pin;
 	file.close();
 
 	dir = "/sys/class/gpio/gpio" + pin_str + "/direction";
 
 	file.open(dir.c_str());
-	if (file < 0) {
-		error_flag = true;
-		return -1;
-	}
+	if (file < 0) 
+                return setErrorMessage("Unable to open " + dir + "\n");
 	file << direction;
 	file.close();
-	error_flag = false;
+
+	clearError();
 	return 1;
 }
 
@@ -141,27 +102,21 @@ int gnublin_gpio::pinMode(int pin, std::string direction){
 */
 int gnublin_gpio::digitalWrite(int pin, int value){
 	#if (BOARD != RASPBERRY_PI)
-	if (pin == 4){
-		error_flag = true;
-		return -1;
-	}
+	if (pin == 4)
+                return setErrorMessage("Pin 4 is not available for usage\n");
 	#endif
-	if (value != 0 && value != 1){
-		error_flag = true;
-		return -1;
-	}
+	if (value != 0 && value != 1)
+                return setErrorMessage("Value ["+numberToString(value)+"] must be 0 or 1\n");
 	std::string value_str = numberToString(value);
 	std::string pin_str = numberToString(pin);
 	std::string dir = "/sys/class/gpio/gpio" + pin_str + "/value";
 
 	std::ofstream file (dir.c_str());
-	if (file < 0) {
-		error_flag = true;
-		return -1;
-	}
+	if (file < 0) 
+                return setErrorMessage("Unable to open " + dir + "\n");
 	file << value_str;
 	file.close();
-	error_flag = false;
+	clearError();
 	return 1;
 }
 
@@ -185,13 +140,11 @@ int gnublin_gpio::digitalRead(int pin) {
 	std::string pin_str = numberToString(pin);
 	std::string device = "/sys/class/gpio/gpio" + pin_str + "/value";
 	std::ifstream file(device.c_str());
-	if (file < 0){
-		error_flag = true;
-		return -1;
-	}
+	if (file < 0)
+                return setErrorMessage("Unable to open " + device + "\n");
 	file >> value;
 	file.close();
-	error_flag = false;
+	clearError();
 	return stringToNumber(value);
 	
 }

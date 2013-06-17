@@ -18,44 +18,8 @@ gnublin_adc::gnublin_adc(){
 		sleep(1);
 	}
 	file.close();
-	error_flag = false;
+	clearError();
 }
-
-//-------------fail-------------
-/** @~english 
-* @brief Returns the error flag. 
-*
-* If something went wrong, the flag is true.
-* @return bool error_flag
-*
-* @~german 
-* @brief Gibt das Error Flag zurück.
-*
-* Falls das Error Flag in der Klasse gesetzt wurde, wird true zurück gegeben, anderenfalls false.
-* @return bool error_flag
-*/
-bool gnublin_adc::fail(){
-	return error_flag;
-}
-
-
-//-------------getErrorMessage-------------
-/** @~english 
-* @brief Get the last Error Message.
-*
-* This Funktion returns the last Error Message, which occurred in that Class.
-* @return ErrorMessage as c-string
-*
-* @~german 
-* @brief Gibt die letzte Error Nachricht zurück.
-*
-* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
-* @return ErrorMessage als c-string
-*/
-const char *gnublin_adc::getErrorMessage(){
-	return ErrorMessage.c_str();
-}
-
 
 //-------------getValue-------------
 /** @~english 
@@ -78,16 +42,14 @@ int gnublin_adc::getValue(int pin){
 	std::string pin_str = numberToString(pin);
 	std::string device = "/dev/lpc313x_adc";
 	std::ofstream file(device.c_str());
-	if (file < 0) {
-		error_flag = true;
-		return -1;
-	}
+	if (file < 0) 
+		return setErrorMessage("Unable to open "+device);
 	file << pin_str;
 	file.close();
 	std::ifstream dev_file(device.c_str());
 	dev_file >> value;
 	dev_file.close();
-	error_flag = false;
+	clearError();
 	return hexstringToNumber(value);
 }
 
@@ -126,7 +88,7 @@ int gnublin_adc::getVoltage(int pin){
 * @return Erfolg: 1, Fehler: -1
 */
 int gnublin_adc::setReference(int ref){
-	error_flag = false;
+	clearError();
 	return 1;
 }
 

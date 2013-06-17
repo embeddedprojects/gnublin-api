@@ -1,5 +1,5 @@
 #include "../include/includes.h"
-
+#include "driver.h"
 //***************************************************************************
 // Class for accessing the SPI-Bus
 //***************************************************************************
@@ -15,7 +15,7 @@
 *
 * Diese Klasse ermöglicht das Senden und Empfangen von Daten über den SPI-Bus.
 */
-class gnublin_spi{
+class gnublin_spi : gnublin_driver {
 	public:
 		gnublin_spi();
 		~gnublin_spi();
@@ -31,11 +31,7 @@ class gnublin_spi{
 		int send(unsigned char* tx, int length);
 		int setCS(int cs);
 		int message(unsigned char* tx, int tx_length, unsigned char* rx, int rx_length);
-		const char *getErrorMessage();
-		bool fail();
 	private:
 		int fd;
-		bool error_flag;
-		std::string ErrorMessage;
-		
+		void onError() {};	
 };
