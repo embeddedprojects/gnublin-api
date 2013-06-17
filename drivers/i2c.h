@@ -1,4 +1,5 @@
 #include "../include/includes.h"
+#include "driver.h"
 //*******************************************************************
 //Class for accessing GNUBLIN i2c Bus
 //*******************************************************************
@@ -14,21 +15,25 @@
 * Die GNUBLIN I2C Klasse gewährt einfachen Zugriff auf den I2C Bus
 */ 
 
-class gnublin_i2c {
-	bool error_flag;
+class gnublin_i2c : public gnublin_driver {
 	int slave_address;
 	std::string devicefile;
-	std::string ErrorMessage;
+	int fd;
+	int open_fd();
+	void close_fd();
+	void init(std::string DeviceFile, int Address);
+        void onError();
 public:
 	gnublin_i2c();
-	bool fail();
-	void setAddress(int Address);
+	gnublin_i2c(int Address);
+	gnublin_i2c(std::string DeviceFile, int Address);
+	~gnublin_i2c();
+	int setAddress(int Address);
 	int getAddress();
-	const char *getErrorMessage();
-	void setDevicefile(std::string filename);
+	int setDevicefile(std::string filename);
 	int receive(unsigned char *RxBuf, int length);
 	int receive(unsigned char RegisterAddress, unsigned char *RxBuf, int length);
 	int send(unsigned char *TxBuf, int length);
 	int send(unsigned char RegisterAddress, unsigned char *TxBuf, int length);
-	int send(int value);
+	int send(unsigned char value);
 };
