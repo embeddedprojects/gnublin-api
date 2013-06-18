@@ -416,6 +416,13 @@ int gnublin_i2c::send(unsigned char *TxBuf, int length){
 * @return Erfolg: 1, Misserfolg: -1
 */
 int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int length){
+	int i;
+	unsigned char data[length+1];
+	data[0]=RegisterAddress;
+	
+	for ( i = 0; i < length ; i++ ) {
+		data[i+1] = TxBuf[i];
+	}
 
 	if (TxBuf == 0)
 		return errorMsg("Send method received a null TxBuf pointer.\n");
@@ -428,10 +435,10 @@ int gnublin_i2c::send(unsigned char RegisterAddress, unsigned char *TxBuf, int l
 
 	error_flag=false;	
 
-	if (send(RegisterAddress) == -1)
+/*	if (send(RegisterAddress) == -1)
 		return -1;
-
-	if(write(fd, TxBuf, length) != length)
+*/
+	if(write(fd, data, length+1) != length+1)
 		return errorMsg("i2c write error!\n");
 
 	return 1;

@@ -33,7 +33,10 @@ string helpstring="This program was designed to easily interact with the PCA9555
 "gnublin-pca9555 -p 8 -o 0\n\n"
 
 "Set Port 0 as output and as low\n"
-"gnublin-pca9555 -P 0 -o 0\n\n";
+"gnublin-pca9555 -P 0 -o 0\n\n"
+
+"Read the value of pin 3\n"
+"gnublin-pca9555 -p 3 -i\n\n";
 
 void parse_opts(int argc, char **argv)
 {

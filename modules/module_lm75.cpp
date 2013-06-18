@@ -14,7 +14,6 @@
 gnublin_module_lm75::gnublin_module_lm75()
 {
 	error_flag=false;
-	i2c.setclosemode(1);
 	setAddress(0x4f);
 }
 

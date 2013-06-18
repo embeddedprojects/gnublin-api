@@ -15,7 +15,6 @@
 gnublin_module_pca9555::gnublin_module_pca9555() 
 {
 	error_flag=false;
-	i2c.setclosemode(1);
 	setAddress(0x20);
 }
 
@@ -344,7 +343,7 @@ int gnublin_module_pca9555::digitalWrite(int pin, int value){
 					if(i2c.send(0x02, TxBuf, 1)>0){
 					return 1;
 					}
-					else {
+					else {	
 						error_flag=true;
 						ErrorMessage="i2c.send Error";
 						return -1;
