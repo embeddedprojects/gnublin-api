@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 06/24/13 14:45
+//build date: 06/24/13 14:49
 //******************************************** 
 
 #include"gnublin.h"
@@ -2907,22 +2907,6 @@ gnublin_module_step::gnublin_module_step()
 {
 	irun = 15;
 	vmax = 8;
-}
-
-
-//-------------------------------Fail-------------------------------
-/** @~english 
-* @brief returns the error flag to check if the last operation went wrong
-*
-* @return error_flag as boolean
-*
-* @~german 
-* @brief Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist
-*
-* @return error_flag als bool
-*/
-bool gnublin_module_step::fail(){
-	return error_flag;
 }
 
 

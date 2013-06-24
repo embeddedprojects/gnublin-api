@@ -21,7 +21,6 @@ public:
 	gnublin_module_step();
 	void setAddress(int Address);
 	void setDevicefile(std::string filename);
-	bool fail();
 	int setIrun(unsigned int newIrun);
 	int setIhold(unsigned int newIhold);
 	int setVmax(unsigned int newVmax);

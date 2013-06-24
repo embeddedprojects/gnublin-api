@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 06/24/13 14:45
+//build date: 06/24/13 14:49
 //******************************************** 
 
 
@@ -390,7 +390,6 @@ public:
 	gnublin_module_step();
 	void setAddress(int Address);
 	void setDevicefile(std::string filename);
-	bool fail();
 	int setIrun(unsigned int newIrun);
 	int setIhold(unsigned int newIhold);
 	int setVmax(unsigned int newVmax);

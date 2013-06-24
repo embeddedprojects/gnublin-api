@@ -20,22 +20,6 @@ gnublin_module_step::gnublin_module_step()
 }
 
 
-//-------------------------------Fail-------------------------------
-/** @~english 
-* @brief returns the error flag to check if the last operation went wrong
-*
-* @return error_flag as boolean
-*
-* @~german 
-* @brief Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist
-*
-* @return error_flag als bool
-*/
-bool gnublin_module_step::fail(){
-	return error_flag;
-}
-
-
 //-------------getErrorMessage-------------
 /** @~english 
 * @brief Get the last Error Message.
