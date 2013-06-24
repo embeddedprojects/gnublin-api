@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 06/10/13 11:30
+//build date: 06/24/13 14:45
 //******************************************** 
 
 
@@ -114,7 +114,6 @@ class gnublin_gpio {
 
 class gnublin_i2c {
 	bool error_flag;
-	bool close_mode;
 	int slave_address;
 	std::string devicefile;
 	std::string ErrorMessage;
