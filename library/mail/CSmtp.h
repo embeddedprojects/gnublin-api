@@ -145,7 +145,7 @@ public:
 	unsigned int GetBCCRecipientCount() const;    
 	unsigned int GetCCRecipientCount() const;
 	unsigned int GetRecipientCount() const;    
-	const char* GetLocalHostIP() const;
+//	const char* GetLocalHostIP() const;
 	const char* GetLocalHostName() const;
 	const char* GetMsgLineText(unsigned int line) const;
 	unsigned int GetMsgLines(void) const;
