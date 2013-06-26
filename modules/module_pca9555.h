@@ -28,4 +28,5 @@ public:
 		int digitalWrite(int pin, int value);
 		int digitalRead(int pin);
 		int writePort(int port, unsigned char value);
+		unsigned char readPort(int port);
 };

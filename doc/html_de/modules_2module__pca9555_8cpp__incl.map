@@ -1,7 +1,0 @@
-<map id="modules/module_pca9555.cpp" name="modules/module_pca9555.cpp">
-<area shape="rect" href="$module__pca9555_8h.html" title="module_pca9555.h" alt="" coords="779,80,909,107"/>
-<area shape="rect" href="$includes_8h.html" title="../include/includes.h" alt="" coords="768,304,904,331"/>
-<area shape="rect" href="$drivers_2i2c_8cpp.html" title="../drivers/i2c.cpp" alt="" coords="835,155,949,181"/>
-<area shape="rect" href="$functions_8h.html" title="functions.h" alt="" coords="1501,379,1584,405"/>
-<area shape="rect" href="$i2c_8h.html" title="i2c.h" alt="" coords="851,229,899,256"/>
-</map>

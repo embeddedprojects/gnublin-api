@@ -58,6 +58,7 @@ int gnublin_module_dogm::init(){
 			return -1;
 	}
 	spi.setSpeed(100000);
+	spi.setLength(8);
 	if (spi.send(init_str, 9) < 0){
 		error_flag = true;
 		return -1;

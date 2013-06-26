@@ -16,7 +16,7 @@ build:
 	sh build-API.sh
 
 gnublin.o: build gnublin.cpp gnublin.h
-	$(CXX) $(CXXFLAGS) $(BOARDDEF) $(APIDEFS) -c gnublin.cpp
+	$(CXX) $(CXXFLAGS) $(BOARDDEF) -c gnublin.cpp
 
 gnublin.a: gnublin.o 
 	ar rcs gnublin.a gnublin.o
@@ -68,8 +68,24 @@ release: gnublin-tools copy
 
 	@# build package
 	@dpkg -b deb/ gnublin-tools.deb
+
+#create python module
+python-module: gnublin.o
+	@echo "%module gnublin" > gnublin.i
+	@echo "%include \"std_string.i\"" >> gnublin.i
+	@echo "%{" >> gnublin.i
+	@echo "#include \"gnublin.h\"" >> gnublin.i
+	@echo "%}" >> gnublin.i
+	@echo "#define BOARD $(BOARD)" >> gnublin.i
+	@echo "%include \"gnublin.h\"" >> gnublin.i
+	swig2.0 -c++ -python gnublin.i
+	$(CXX) $(CXXFLAGS) $(BOARDDEF) -fpic -I python2.6/ -c gnublin_wrap.cxx
+	$(CXX) $(CXXFLAGS) $(BOARDDEF) -fpic -c gnublin.cpp
+	$(CXX) $(CXXFLAGS) -shared -o _gnublin.so gnublin_wrap.o gnublin.o
+
 #clean
 clean: $(CLEANDIRS)
 	rm -Rf *.o gnublin.a libgnublin.so.1.0.1 deb/
+	rm _gnublin.so gnublin_wrap.cxx *.py gnublin.i
 $(CLEANDIRS): 
 	$(MAKE) -C $(@:clean-%=%) clean

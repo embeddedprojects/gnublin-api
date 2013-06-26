@@ -1,9 +1,0 @@
-<map id="drivers/i2c.cpp" name="drivers/i2c.cpp">
-<area shape="rect" href="$module__pca9555_8h.html" title="modules/module_pca9555.h" alt="" coords="92,80,276,107"/>
-<area shape="rect" href="$module__lm75_8h.html" title="modules/module_lm75.h" alt="" coords="307,80,469,107"/>
-<area shape="rect" href="$modules_2module__pca9555_8cpp.html" title="modules/module_pca9555.cpp" alt="" coords="83,155,280,181"/>
-<area shape="rect" href="$module__lcd_8cpp.html" title="modules/module_lcd.cpp" alt="" coords="5,229,171,256"/>
-<area shape="rect" href="$module__relay_8h.html" title="modules/module_relay.h" alt="" coords="195,229,355,256"/>
-<area shape="rect" href="$modules_2module__relay_8cpp.html" title="modules/module_relay.cpp" alt="" coords="187,304,363,331"/>
-<area shape="rect" href="$module__lm75_8cpp.html" title="modules/module_lm75.cpp" alt="" coords="304,155,480,181"/>
-</map>
