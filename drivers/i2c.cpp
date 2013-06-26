@@ -9,17 +9,17 @@
 * @brief creates macro reference for default device "/dev/i2c-1"
 *
 * @~german 
-* @brief schafft Makro Referenz für Standard-Gerät "/ dev/i2c-1"
+* @brief definiert das Standard i2c device "/dev/i2c-1"
 *
 */
 #define DEFAULTDEVICE "/dev/i2c-1"
 
 //------------------Konstruktor------------------
 /** @~english
-* @brief Sets the error_flag to "false" and the devicefile to "/dev/i2c-1"
+* @brief initalizes the i2c bus. Sets the devicefile to "/dev/i2c-1"
 *
 * @~german
-* @brief Setzt das error_flag auf "false" und das devicefile auf standardmäßig "/dev/i2c-1"
+* @brief initialisiert den i2c Bus. Setzt das standard i2c device auf "/dev/i2c-1"
 *
 */
 gnublin_i2c::gnublin_i2c() 
@@ -29,10 +29,12 @@ gnublin_i2c::gnublin_i2c()
 
 //------------------Konstruktor------------------
 /** @~english
-* @brief Sets the error_flag to "false" and the devicefile to "/dev/i2c-1"
+* @brief initalizes the i2c bus. Sets the devicefile to "/dev/i2c-1"
+* @param Address new I2C slave adress
 *
 * @~german
-* @brief Setzt das error_flag auf "false" und das devicefile auf standardmäßig "/dev/i2c-1"
+* @brief initialisiert den i2c Bus. Setzt das standard i2c device auf "/dev/i2c-1"
+* @param Address neue I2C slave Adresse
 *
 */
 gnublin_i2c::gnublin_i2c(int Address) 
@@ -42,10 +44,14 @@ gnublin_i2c::gnublin_i2c(int Address)
 
 //------------------Konstruktor------------------
 /** @~english
-* @brief Sets the error_flag to "false" and the devicefile to "/dev/i2c-1"
+* @brief initalizes the i2c bus. 
+* @param Devicefile new I2C device file, e.g. "/dev/i2c-2"
+* @param Address new I2C slave adress
 *
 * @~german
-* @brief Setzt das error_flag auf "false" und das devicefile auf standardmäßig "/dev/i2c-1"
+* @brief initialisiert den i2c Bus.
+* @param Devicefile neues I2C device file, z.B. "/dev/i2c-2"
+* @param Address neue I2C slave Adresse
 *
 */
 gnublin_i2c::gnublin_i2c(std::string Devicefile, int Address)
@@ -58,7 +64,7 @@ gnublin_i2c::gnublin_i2c(std::string Devicefile, int Address)
 * @brief Closes the file handle 
 *
 * @~german
-* @brief Schließt die Datei Griff
+* @brief Schließt die Datei 
 *
 */
 gnublin_i2c::~gnublin_i2c()
@@ -69,9 +75,13 @@ gnublin_i2c::~gnublin_i2c()
 //------------------init------------------
 /** @~english
 * @brief Called by the constructors to initialize class variables.
+* @param Devicefile new I2C device file, e.g. "/dev/i2c-2"
+* @param Address new I2C slave adress
 *
 * @~german
-* @brief Wird von den Konstruktoren der Klasse Variablen zu initialisieren.
+* @brief Wird von den Konstruktoren der Klasse aufgerufen um die Variablen zu initialisieren.
+* @param Devicefile neues I2C device file, z.B. "/dev/i2c-2"
+* @param Address neue I2C slave Adresse
 *
 */
 void gnublin_i2c::init(std::string Devicefile, int Address) 
@@ -84,16 +94,16 @@ void gnublin_i2c::init(std::string Devicefile, int Address)
 
 //------------------error messaging------------------
 /** @~english
-* @brief Called by the constructors to initialize class variables.
+* @brief Called by the send and receive Methods when an Error occures
 *
 * @param message String contents that describe the error.
-* @return failure: -1
+* @return -1
 *
 * @~german
-* @brief Wird von den Konstruktoren der Klasse Variablen zu initialisieren.
+* @brief Wird von den send und receive Methoden aufgerufen, wenn ein Fehler auftritt
 *
-* @param message String Inhalte, die den Fehler beschreiben.
-* @return failure: -1
+* @param message String der den Fehler beschreibt.
+* @return -1
 *
 */
 int gnublin_i2c::errorMsg(std::string message)
@@ -109,7 +119,7 @@ int gnublin_i2c::errorMsg(std::string message)
 * @brief Closes the file if open and resets the variable.
 *
 * @~german
-* @brief Schließt die Datei, wenn offen und setzt die Variable.
+* @brief Schließt die Datei wenn sie offen ist und setzt die Variable zurück.
 *
 */
 void gnublin_i2c::close_fd()
@@ -122,18 +132,18 @@ void gnublin_i2c::close_fd()
 
 //------------------open file descriptor------------------
 /** @~english
-* @brief if a file is already open it is closed first.  A new file is opened
+* @brief Opens the devicefile. If a file is already open it is closed first.  A new file is opened
 * and io operations defined based on the class values for devicefile 
 * and slave_address.
 *
-* @return failure: -1
+* @return success: 0, failure: -1
 *
 * @~german
-* @brief wenn eine Datei bereits geöffnet ist, wird es zunächst geschlossen. 
-* Eine neue Datei wird geöffnet und IO-Operationen werden auf Basis der Klasse
-* Werte für Device-Datei und Slave_Address definiert.
+* @brief Öffnet die Geräte Datei. Wenn eine Datei bereits geöffnet ist, wird sie zunächst geschlossen. 
+* Eine neue Datei wird geöffnet und IO-Operationen werden auf Basis der Klassenvariablen
+* devicefile und slave_address definiert.
 *
-* @return failure: -1
+* @return Erfolg: 0, Misserfolg: -1
 *
 */
 int gnublin_i2c::open_fd() 
