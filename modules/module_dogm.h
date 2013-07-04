@@ -37,7 +37,6 @@ class gnublin_module_dogm{
 		gnublin_spi spi;
 		gnublin_gpio gpio;
 		bool error_flag;
-		bool init_flag;
 		int rs_pin;
 		std::string ErrorMessage;
 

@@ -30,8 +30,9 @@ gnublin_module_dogm::gnublin_module_dogm(){
 	rs_pin = 14;
 #endif
 	gpio.pinMode(rs_pin, OUTPUT);
-	init_flag = false;
-	error_flag = false;	
+	error_flag = false;
+	spi.setSpeed(100000);
+	spi.setLength(8);	
 }
 
 //********* init()**********************************
@@ -57,16 +58,15 @@ int gnublin_module_dogm::init(){
 			error_flag = true;
 			return -1;
 	}
-	spi.setSpeed(100000);
-	spi.setLength(8);
 	if (spi.send(init_str, 9) < 0){
 		error_flag = true;
 		return -1;
 	}
-	init_flag = true;
 	error_flag = false;
 	return 1;
 }
+
+
 
 
 //************ fail() *******************************
@@ -169,9 +169,6 @@ int gnublin_module_dogm::setCS(int cs){
 int gnublin_module_dogm::print(char* buffer){
 	__u8 tmp[32];
 	int len = strlen(buffer);
-	if(!init_flag){
-		init();
-	}
 	for(int i=0; i<len; i++){
 		tmp[i] = buffer[i];
 	}
@@ -206,9 +203,6 @@ int gnublin_module_dogm::print(char* buffer){
 */
 int gnublin_module_dogm::print(char* buffer, int line){
 	error_flag = false;
-	if(!init_flag){
-		init();
-	}
 	if (returnHome() < 0){
 		return -1;
 	}
@@ -248,9 +242,6 @@ int gnublin_module_dogm::print(char* buffer, int line){
 */
 int gnublin_module_dogm::print(char* buffer, int line, int off){
 	error_flag = false;
-	if(!init_flag){
-		init();
-	}
 	returnHome();
 	if (line == 1){
 		offset(off);
@@ -286,11 +277,6 @@ int gnublin_module_dogm::print(char* buffer, int line, int off){
 */
 int gnublin_module_dogm::offset(int num){
 	__u8 tmp;
-	if(!init_flag){
-		char init_str[2] = " ";
-		init();
-		print(init_str);
-	}
 	if (num >= 0 && num < 16){
 		tmp = num + 128;
 	}
@@ -325,9 +311,6 @@ int gnublin_module_dogm::offset(int num){
 */
 int gnublin_module_dogm::clear(){
 	__u8 clear_cmd = 0x01;
-	if(!init_flag){
-		init();
-	}
 	if (spi.send(&clear_cmd, 1) < 0){
 		error_flag = true;
 		return -1;
@@ -351,9 +334,6 @@ int gnublin_module_dogm::clear(){
 */
 int gnublin_module_dogm::returnHome(){
 	__u8 return_cmd = 0x02;
-	if(!init_flag){
-		init();
-	}
 	if (spi.send(&return_cmd, 1) < 0){
 		error_flag = true;
 		return -1;
@@ -379,9 +359,6 @@ int gnublin_module_dogm::returnHome(){
 */
 int gnublin_module_dogm::shift(int num){
 	__u8 shift_cmd;
-	if(!init_flag){
-		init();
-	}
 	if (num > 0){
 		shift_cmd = 0x1C;
 		for (int i=0; i < num; i++){
@@ -430,9 +407,6 @@ int gnublin_module_dogm::shift(int num){
 */
 int gnublin_module_dogm::controlDisplay(int power, int cursor, int blink) {
 	__u8 display_cmd = 0x08;
-	if(!init_flag){
-		init();
-	}
 	if (power == 1) {
 		display_cmd += 0x04;
 	}

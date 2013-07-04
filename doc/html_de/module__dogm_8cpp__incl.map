@@ -1,9 +1,0 @@
-<map id="modules/module_dogm.cpp" name="modules/module_dogm.cpp">
-<area shape="rect" id="node3" href="$module__dogm_8h.html" title="module_dogm.h" alt="" coords="796,83,911,112"/>
-<area shape="rect" id="node5" href="$includes_8h.html" title="../include/includes.h" alt="" coords="784,315,923,344"/>
-<area shape="rect" id="node41" href="$drivers_2spi_8cpp.html" title="../drivers/spi.cpp" alt="" coords="795,160,912,189"/>
-<area shape="rect" id="node46" href="$gpio_8cpp.html" title="../drivers/gpio.cpp" alt="" coords="936,160,1061,189"/>
-<area shape="rect" id="node39" href="$functions_8h.html" title="functions.h" alt="" coords="1528,392,1613,421"/>
-<area shape="rect" id="node43" href="$spi_8h.html" title="spi.h" alt="" coords="828,237,879,267"/>
-<area shape="rect" id="node48" href="$gpio_8h.html" title="gpio.h" alt="" coords="936,237,992,267"/>
-</map>

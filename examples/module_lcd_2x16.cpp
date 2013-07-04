@@ -4,6 +4,7 @@ int main()
 {
    gnublin_module_dogm dogm;
  
+   dogm.init();
    dogm.setRsPin(14);
    dogm.setCS(11);
  
