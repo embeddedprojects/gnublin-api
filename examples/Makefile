@@ -8,7 +8,7 @@ include ../API-config.mk
 
 all: $(OBJ)
 $(OBJ): $(path)gnublin.cpp $(path)gnublin.h
-	$(CXX) $(CXXFLAGS) -o $@ $@.cpp $(path)gnublin.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $@.cpp $(path)gnublin.cpp -I $(path)
 
 clean: $(CLEANOBJ)
 $(CLEANOBJ):
