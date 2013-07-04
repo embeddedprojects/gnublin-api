@@ -4,7 +4,7 @@ var files =
     [ "drivers/adc.h", "adc_8h.html", null ],
     [ "drivers/gpio.cpp", "gpio_8cpp.html", null ],
     [ "drivers/gpio.h", "gpio_8h.html", null ],
-    [ "drivers/i2c.cpp", "drivers_2i2c_8cpp.html", null ],
+    [ "drivers/i2c.cpp", "drivers_2i2c_8cpp.html", "drivers_2i2c_8cpp" ],
     [ "drivers/i2c.h", "i2c_8h.html", null ],
     [ "drivers/spi.cpp", "drivers_2spi_8cpp.html", null ],
     [ "drivers/spi.h", "spi_8h.html", null ],

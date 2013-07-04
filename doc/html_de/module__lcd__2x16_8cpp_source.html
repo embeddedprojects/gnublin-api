@@ -80,36 +80,37 @@
 <a name="l00004"></a>00004 {
 <a name="l00005"></a>00005    <a class="code" href="classgnublin__module__dogm.html" title="Klasse für den Zugriff auf das GNUBLIN MODULE-DISPLAY 2x16.">gnublin_module_dogm</a> dogm;
 <a name="l00006"></a>00006  
-<a name="l00007"></a>00007    dogm.<a class="code" href="classgnublin__module__dogm.html#afdbfe7f1ba1b40bbc386bef55668a53d" title="Setzt den benutzerdefinierten RS-Pin.">setRsPin</a>(14);
-<a name="l00008"></a>00008    dogm.<a class="code" href="classgnublin__module__dogm.html#a75cfabf06be90c7efa6b288a6b4ab1c0" title="Setzt den benutzerdefinierten Chipselect-Pin.">setCS</a>(11);
-<a name="l00009"></a>00009  
-<a name="l00010"></a>00010    dogm.<a class="code" href="classgnublin__module__dogm.html#a21fb00e088162c0568ffceea407e7530" title="Setzt den Cursor an eine bestimmte Position.">offset</a>(2);
-<a name="l00011"></a>00011    dogm.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Hallo Welt&quot;</span>); <span class="comment">//(char*) ist ein cast, damit der compiler weiß, dass &quot;Hallo Welt&quot; als char* interpretiert werden soll, und nicht als string!</span>
-<a name="l00012"></a>00012  
-<a name="l00013"></a>00013    sleep(2);
-<a name="l00014"></a>00014  
-<a name="l00015"></a>00015    dogm.<a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9" title="Löscht den Inhalt des Displays.">clear</a>();
-<a name="l00016"></a>00016    dogm.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Zeile 1&quot;</span>, 1);
-<a name="l00017"></a>00017    dogm.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Zeile 2&quot;</span>, 2);
-<a name="l00018"></a>00018    dogm.<a class="code" href="classgnublin__module__dogm.html#afaa41235e01a2e2b09be139af0d0f9de" title="Verschiebt das ganze Display.">shift</a>(5);
-<a name="l00019"></a>00019  
-<a name="l00020"></a>00020    sleep(2);
-<a name="l00021"></a>00021  
-<a name="l00022"></a>00022    dogm.<a class="code" href="classgnublin__module__dogm.html#a7caae14916fc9dac10a5d6a9a470c36e" title="Resetet das Display.">returnHome</a>();
-<a name="l00023"></a>00023    dogm.<a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9" title="Löscht den Inhalt des Displays.">clear</a>();
-<a name="l00024"></a>00024    dogm.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Zeile 1, Offset 2&quot;</span>, 1, 2);
-<a name="l00025"></a>00025  
-<a name="l00026"></a>00026    sleep(2);
-<a name="l00027"></a>00027  
-<a name="l00028"></a>00028    dogm.<a class="code" href="classgnublin__module__dogm.html#a93a0c10446511bfeea5ae6842930c89b" title="Setzt Displayparameter.">controlDisplay</a>(0,1,0);
-<a name="l00029"></a>00029 }
+<a name="l00007"></a>00007    dogm.<a class="code" href="classgnublin__module__dogm.html#a8165ef375f35797a8750a4dc3c814e21" title="Initialisiert das Display.">init</a>();
+<a name="l00008"></a>00008    dogm.<a class="code" href="classgnublin__module__dogm.html#afdbfe7f1ba1b40bbc386bef55668a53d" title="Setzt den benutzerdefinierten RS-Pin.">setRsPin</a>(14);
+<a name="l00009"></a>00009    dogm.<a class="code" href="classgnublin__module__dogm.html#a75cfabf06be90c7efa6b288a6b4ab1c0" title="Setzt den benutzerdefinierten Chipselect-Pin.">setCS</a>(11);
+<a name="l00010"></a>00010  
+<a name="l00011"></a>00011    dogm.<a class="code" href="classgnublin__module__dogm.html#a21fb00e088162c0568ffceea407e7530" title="Setzt den Cursor an eine bestimmte Position.">offset</a>(2);
+<a name="l00012"></a>00012    dogm.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Hallo Welt&quot;</span>); <span class="comment">//(char*) ist ein cast, damit der compiler weiß, dass &quot;Hallo Welt&quot; als char* interpretiert werden soll, und nicht als string!</span>
+<a name="l00013"></a>00013  
+<a name="l00014"></a>00014    sleep(2);
+<a name="l00015"></a>00015  
+<a name="l00016"></a>00016    dogm.<a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9" title="Löscht den Inhalt des Displays.">clear</a>();
+<a name="l00017"></a>00017    dogm.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Zeile 1&quot;</span>, 1);
+<a name="l00018"></a>00018    dogm.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Zeile 2&quot;</span>, 2);
+<a name="l00019"></a>00019    dogm.<a class="code" href="classgnublin__module__dogm.html#afaa41235e01a2e2b09be139af0d0f9de" title="Verschiebt das ganze Display.">shift</a>(5);
+<a name="l00020"></a>00020  
+<a name="l00021"></a>00021    sleep(2);
+<a name="l00022"></a>00022  
+<a name="l00023"></a>00023    dogm.<a class="code" href="classgnublin__module__dogm.html#a7caae14916fc9dac10a5d6a9a470c36e" title="Resetet das Display.">returnHome</a>();
+<a name="l00024"></a>00024    dogm.<a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9" title="Löscht den Inhalt des Displays.">clear</a>();
+<a name="l00025"></a>00025    dogm.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Zeile 1, Offset 2&quot;</span>, 1, 2);
+<a name="l00026"></a>00026  
+<a name="l00027"></a>00027    sleep(2);
+<a name="l00028"></a>00028  
+<a name="l00029"></a>00029    dogm.<a class="code" href="classgnublin__module__dogm.html#a93a0c10446511bfeea5ae6842930c89b" title="Setzt Displayparameter.">controlDisplay</a>(0,1,0);
+<a name="l00030"></a>00030 }
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="module__lcd__2x16_8cpp.html">module_lcd_2x16.cpp</a>      </li>
 
-    <li class="footer">Erzeugt am Mit Jun 5 2013 09:40:29 für gnublin-api von
+    <li class="footer">Erzeugt am Don Jul 4 2013 10:25:38 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

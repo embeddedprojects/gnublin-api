@@ -80,7 +80,7 @@
 <a name="l00004"></a>00004 <span class="comment">//*******************************************************************</span>
 <a name="l00005"></a>00005 
 <a name="l00006"></a>00006 <span class="comment">//------------------Konstruktor------------------</span>
-<a name="l00014"></a><a class="code" href="classgnublin__module__lm75.html#afa8943ed3f140b8acd37a8a683ad43c1">00014</a> <span class="comment"></span><a class="code" href="classgnublin__module__lm75.html#afa8943ed3f140b8acd37a8a683ad43c1" title="Setzt das error_flag auf &quot;false&quot; und die Standard i2c Adresse auf 0x4f.">gnublin_module_lm75::gnublin_module_lm75</a>()
+<a name="l00014"></a><a class="code" href="classgnublin__module__lm75.html#afa8943ed3f140b8acd37a8a683ad43c1">00014</a> <span class="comment"></span><a class="code" href="classgnublin__module__lm75.html#afa8943ed3f140b8acd37a8a683ad43c1" title="Setzt das error_flag auf &quot;false&quot;, den closemode auf &quot;1&quot; (siehe i2c für Details) und die Standard i2c ...">gnublin_module_lm75::gnublin_module_lm75</a>()
 <a name="l00015"></a>00015 {
 <a name="l00016"></a>00016     error_flag=<span class="keyword">false</span>;
 <a name="l00017"></a>00017     <a class="code" href="classgnublin__module__lm75.html#a62c5af59cf2db400e64174b019e6494c" title="Setzt die i2c slave Adresse.">setAddress</a>(0x4f);
@@ -99,13 +99,13 @@
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053 <span class="comment">//-------------set Address-------------</span>
 <a name="l00066"></a><a class="code" href="classgnublin__module__lm75.html#a62c5af59cf2db400e64174b019e6494c">00066</a> <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__lm75.html#a62c5af59cf2db400e64174b019e6494c" title="Setzt die i2c slave Adresse.">gnublin_module_lm75::setAddress</a>(<span class="keywordtype">int</span> Address){
-<a name="l00067"></a>00067     i2c.<a class="code" href="classgnublin__i2c.html#a6c8f93ad5f598decbb02e0921192a857" title="Setzt die i2c slave Adresse.">setAddress</a>(Address);
+<a name="l00067"></a>00067     i2c.<a class="code" href="classgnublin__i2c.html#a90a93e09d54776eea8672f0bfe420682" title="Setzt die i2c slave Adresse.">setAddress</a>(Address);
 <a name="l00068"></a>00068 }
 <a name="l00069"></a>00069 
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 <span class="comment">//-------------------set devicefile----------------</span>
 <a name="l00084"></a><a class="code" href="classgnublin__module__lm75.html#a363716d889c320f202abe5d35479c4de">00084</a> <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__lm75.html#a363716d889c320f202abe5d35479c4de" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">gnublin_module_lm75::setDevicefile</a>(std::string filename){
-<a name="l00085"></a>00085     i2c.<a class="code" href="classgnublin__i2c.html#a6d4bd4d83c07abd44826801138189ede" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">setDevicefile</a>(filename);
+<a name="l00085"></a>00085     i2c.<a class="code" href="classgnublin__i2c.html#a181a9cfd2156dab527f88dcd9507fb2e" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">setDevicefile</a>(filename);
 <a name="l00086"></a>00086 }
 <a name="l00087"></a>00087 
 <a name="l00088"></a>00088 
@@ -225,7 +225,7 @@
     <ul>
       <li class="navelem"><a class="el" href="module__lm75_8cpp.html">module_lm75.cpp</a>      </li>
 
-    <li class="footer">Erzeugt am Mit Jun 5 2013 09:40:29 für gnublin-api von
+    <li class="footer">Erzeugt am Don Jul 4 2013 10:25:38 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

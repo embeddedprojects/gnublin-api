@@ -88,7 +88,7 @@
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a3036314dbb06581a192f943d96476b45">gnublin_module_pca9555</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set standard i2c address 0x20, set ErrorFlag false.  <a href="#a3036314dbb06581a192f943d96476b45"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set standard i2c address 0x20, set ErrorFlag false, sets the closemode to "1" (see i2c for details)  <a href="#a3036314dbb06581a192f943d96476b45"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a3ddcc1d5b2057e7abb44ab41771e8ddd">getErrorMessage</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last Error Message.  <a href="#a3ddcc1d5b2057e7abb44ab41771e8ddd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a9201edc6d71acd6fdde41f2ee01931cc">fail</a> ()</td></tr>
@@ -107,6 +107,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">reads the state of an input pin and returns it  <a href="#a8045664522ef69bc1bcbcfe88794243a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#aa9982a37fe13f786d6a4fccb6cd8ed7b">writePort</a> (int port, unsigned char value)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one byte to a complete port.  <a href="#aa9982a37fe13f786d6a4fccb6cd8ed7b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a1f0bc565a06d1706f2c571b781c9ddb8">readPort</a> (int port)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">reads the state of an input port and returns it  <a href="#a1f0bc565a06d1706f2c571b781c9ddb8"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Class for accessing the PCA9555 IC via I2C. </p>
@@ -127,7 +129,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Set standard i2c address 0x20, set ErrorFlag false. </p>
+<p>Set standard i2c address 0x20, set ErrorFlag false, sets the closemode to "1" (see i2c for details) </p>
 
 <p>Definition at line <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00015">15</a> of file <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
 
@@ -326,6 +328,35 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a1f0bc565a06d1706f2c571b781c9ddb8"></a><!-- doxytag: member="gnublin_module_pca9555::readPort" ref="a1f0bc565a06d1706f2c571b781c9ddb8" args="(int port)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="classgnublin__module__pca9555.html#a1f0bc565a06d1706f2c571b781c9ddb8">gnublin_module_pca9555::readPort</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>reads the state of an input port and returns it </p>
+<p>With this function you can read the levels of a whole input port. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Number of the port (0-1) you want to read from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>unsigned char containing the values, failure: -1 </dd></dl>
+
+<p>Definition at line <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00550">550</a> of file <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4c1446e6ffb05ecab759af97a9624277"></a><!-- doxytag: member="gnublin_module_pca9555::setAddress" ref="a4c1446e6ffb05ecab759af97a9624277" args="(int Address)" -->
 <div class="memitem">
 <div class="memproto">
@@ -432,7 +463,7 @@ Public Member Functions</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="classgnublin__module__pca9555.html">gnublin_module_pca9555</a>      </li>
 
-    <li class="footer">Generated on Wed Jun 5 2013 10:16:49 for gnublin-api by
+    <li class="footer">Generated on Thu Jul 4 2013 10:25:44 for gnublin-api by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

@@ -82,7 +82,7 @@
 <a name="l00006"></a>00006 <span class="comment">//*****************************************************************************</span>
 <a name="l00007"></a>00007 
 <a name="l00019"></a><a class="code" href="classgnublin__module__adc.html#aeaf9541603d446cb00351fc4534f368b">00019</a> <a class="code" href="classgnublin__module__adc.html#aeaf9541603d446cb00351fc4534f368b" title="Set the default I2C Address and reference to intern.">gnublin_module_adc::gnublin_module_adc</a>() {
-<a name="l00020"></a>00020     i2c.<a class="code" href="classgnublin__i2c.html#a6c8f93ad5f598decbb02e0921192a857" title="Set the i2c slave address.">setAddress</a>(0x48);
+<a name="l00020"></a>00020     i2c.<a class="code" href="classgnublin__i2c.html#a90a93e09d54776eea8672f0bfe420682" title="Set the i2c slave address.">setAddress</a>(0x48);
 <a name="l00021"></a>00021     referenceValue = 2500;
 <a name="l00022"></a>00022     reference_flag = <a class="code" href="includes_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a>;
 <a name="l00023"></a>00023     error_flag = <span class="keyword">false</span>;
@@ -107,7 +107,7 @@
 <a name="l00064"></a>00064 <span class="comment">// parameters:      [int]address    i2c slave Address</span>
 <a name="l00065"></a>00065 <span class="comment">// return:      NONE</span>
 <a name="l00079"></a><a class="code" href="classgnublin__module__adc.html#a4b064d1a5a77ca70cde76355fda5954f">00079</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__adc.html#a4b064d1a5a77ca70cde76355fda5954f" title="Set the I2C Address.">gnublin_module_adc::setAddress</a>(<span class="keywordtype">int</span> address) {
-<a name="l00080"></a>00080     i2c.<a class="code" href="classgnublin__i2c.html#a6c8f93ad5f598decbb02e0921192a857" title="Set the i2c slave address.">setAddress</a>(address);
+<a name="l00080"></a>00080     i2c.<a class="code" href="classgnublin__i2c.html#a90a93e09d54776eea8672f0bfe420682" title="Set the i2c slave address.">setAddress</a>(address);
 <a name="l00081"></a>00081     <span class="keywordflow">if</span> (i2c.<a class="code" href="classgnublin__i2c.html#a4413c9510eb70ad05b8226771a3c9d32" title="returns the error flag to check if the last operation went wrong">fail</a>()) {
 <a name="l00082"></a>00082         error_flag = <span class="keyword">true</span>;
 <a name="l00083"></a>00083         <span class="keywordflow">return</span> -1;
@@ -122,7 +122,7 @@
 <a name="l00092"></a>00092 <span class="comment">// parameters:      [string]filename    path to the dev file</span>
 <a name="l00093"></a>00093 <span class="comment">// return:      NONE</span>
 <a name="l00109"></a><a class="code" href="classgnublin__module__adc.html#abec8ea6ec294f61ab526afd64712f15d">00109</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__adc.html#abec8ea6ec294f61ab526afd64712f15d" title="Set a custom I2C devicefile.">gnublin_module_adc::setDevicefile</a>(std::string filename) {
-<a name="l00110"></a>00110     i2c.<a class="code" href="classgnublin__i2c.html#a6d4bd4d83c07abd44826801138189ede" title="set i2c the device file. default is &quot;/dev/i2c-1&quot;">setDevicefile</a>(filename);
+<a name="l00110"></a>00110     i2c.<a class="code" href="classgnublin__i2c.html#a181a9cfd2156dab527f88dcd9507fb2e" title="set i2c the device file. default is &quot;/dev/i2c-1&quot;">setDevicefile</a>(filename);
 <a name="l00111"></a>00111     <span class="keywordflow">if</span> (i2c.<a class="code" href="classgnublin__i2c.html#a4413c9510eb70ad05b8226771a3c9d32" title="returns the error flag to check if the last operation went wrong">fail</a>()) {
 <a name="l00112"></a>00112         error_flag = <span class="keyword">true</span>;
 <a name="l00113"></a>00113         <span class="keywordflow">return</span> -1;
@@ -280,7 +280,7 @@
     <ul>
       <li class="navelem"><a class="el" href="modules_2module__adc_8cpp.html">module_adc.cpp</a>      </li>
 
-    <li class="footer">Generated on Wed Jun 5 2013 10:16:48 for gnublin-api by
+    <li class="footer">Generated on Thu Jul 4 2013 10:25:44 for gnublin-api by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

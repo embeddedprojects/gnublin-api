@@ -83,26 +83,34 @@
 <a name="l00019"></a>00019     <span class="keywordtype">int</span> slave_address;
 <a name="l00020"></a>00020     std::string devicefile;
 <a name="l00021"></a>00021     std::string ErrorMessage;
-<a name="l00022"></a>00022 <span class="keyword">public</span>:
-<a name="l00023"></a>00023     <a class="code" href="classgnublin__i2c.html#a0d66972535c8e90428f23ece76f3ac65" title="Setzt das error_flag auf &quot;false&quot; und das devicefile auf standardmäßig &quot;/dev/i2c-1&quot;.">gnublin_i2c</a>();
-<a name="l00024"></a>00024     <span class="keywordtype">bool</span> <a class="code" href="classgnublin__i2c.html#a4413c9510eb70ad05b8226771a3c9d32" title="Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist...">fail</a>();
-<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="classgnublin__i2c.html#a6c8f93ad5f598decbb02e0921192a857" title="Setzt die i2c slave Adresse.">setAddress</a>(<span class="keywordtype">int</span> Address);
-<a name="l00026"></a>00026     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#ad8c8cd7ad86ed683da287461bb3684ef" title="gibt die gesetzte I2C Slave Adresse zurück">getAddress</a>();
-<a name="l00027"></a>00027     <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__i2c.html#a958605de39dd949027b8b9913ac78ec1" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage</a>();
-<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classgnublin__i2c.html#a6d4bd4d83c07abd44826801138189ede" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">setDevicefile</a>(std::string filename);
-<a name="l00029"></a>00029     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *RxBuf, <span class="keywordtype">int</span> length);
-<a name="l00030"></a>00030     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RegisterAddress, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *RxBuf, <span class="keywordtype">int</span> length);
-<a name="l00031"></a>00031     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *TxBuf, <span class="keywordtype">int</span> length);
-<a name="l00032"></a>00032     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RegisterAddress, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *TxBuf, <span class="keywordtype">int</span> length);
-<a name="l00033"></a>00033     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(<span class="keywordtype">int</span> value);
-<a name="l00034"></a>00034 };
+<a name="l00022"></a>00022         <span class="keywordtype">int</span> fd;
+<a name="l00023"></a>00023         <span class="keywordtype">int</span> errorMsg(std::string message);
+<a name="l00024"></a>00024         <span class="keywordtype">int</span> open_fd();
+<a name="l00025"></a>00025         <span class="keywordtype">void</span> close_fd();
+<a name="l00026"></a>00026     <span class="keywordtype">void</span> init(std::string DeviceFile, <span class="keywordtype">int</span> Address);
+<a name="l00027"></a>00027 <span class="keyword">public</span>:
+<a name="l00028"></a>00028     <a class="code" href="classgnublin__i2c.html#a0d66972535c8e90428f23ece76f3ac65" title="initialisiert den i2c Bus. Setzt das standard i2c device auf &quot;/dev/i2c-1&quot;">gnublin_i2c</a>();
+<a name="l00029"></a>00029     <a class="code" href="classgnublin__i2c.html#a0d66972535c8e90428f23ece76f3ac65" title="initialisiert den i2c Bus. Setzt das standard i2c device auf &quot;/dev/i2c-1&quot;">gnublin_i2c</a>(<span class="keywordtype">int</span> Address);
+<a name="l00030"></a>00030     <a class="code" href="classgnublin__i2c.html#a0d66972535c8e90428f23ece76f3ac65" title="initialisiert den i2c Bus. Setzt das standard i2c device auf &quot;/dev/i2c-1&quot;">gnublin_i2c</a>(std::string DeviceFile, <span class="keywordtype">int</span> Address);
+<a name="l00031"></a>00031     <a class="code" href="classgnublin__i2c.html#aa3cd977780c3d1416d990079701ccdcc" title="Schließt die Datei.">~gnublin_i2c</a>();
+<a name="l00032"></a>00032     <span class="keywordtype">bool</span> <a class="code" href="classgnublin__i2c.html#a4413c9510eb70ad05b8226771a3c9d32" title="Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist...">fail</a>();
+<a name="l00033"></a>00033     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a90a93e09d54776eea8672f0bfe420682" title="Setzt die i2c slave Adresse.">setAddress</a>(<span class="keywordtype">int</span> Address);
+<a name="l00034"></a>00034     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#ad8c8cd7ad86ed683da287461bb3684ef" title="gibt die gesetzte I2C Slave Adresse zurück">getAddress</a>();
+<a name="l00035"></a>00035     <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__i2c.html#a958605de39dd949027b8b9913ac78ec1" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage</a>();
+<a name="l00036"></a>00036     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a181a9cfd2156dab527f88dcd9507fb2e" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">setDevicefile</a>(std::string filename);
+<a name="l00037"></a>00037     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *RxBuf, <span class="keywordtype">int</span> length);
+<a name="l00038"></a>00038     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RegisterAddress, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *RxBuf, <span class="keywordtype">int</span> length);
+<a name="l00039"></a>00039     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *TxBuf, <span class="keywordtype">int</span> length);
+<a name="l00040"></a>00040     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RegisterAddress, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *TxBuf, <span class="keywordtype">int</span> length);
+<a name="l00041"></a>00041     <span class="keywordtype">int</span> <a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> value);
+<a name="l00042"></a>00042 };
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="i2c_8h.html">i2c.h</a>      </li>
 
-    <li class="footer">Erzeugt am Mit Jun 5 2013 09:40:29 für gnublin-api von
+    <li class="footer">Erzeugt am Don Jul 4 2013 10:25:38 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

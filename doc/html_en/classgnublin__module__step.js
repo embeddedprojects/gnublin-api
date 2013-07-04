@@ -3,7 +3,6 @@ var classgnublin__module__step =
     [ "gnublin_module_step", "classgnublin__module__step.html#a222257585c29616f2503f3ceb2dc0602", null ],
     [ "burnNewAddress", "classgnublin__module__step.html#a146c3b8a989dedfec5cc93c5ad886db2", null ],
     [ "drive", "classgnublin__module__step.html#a1294ca5d808044f702e446b473bbf5c0", null ],
-    [ "fail", "classgnublin__module__step.html#a8aa74d6506ce8ead9a1dd3f868cee696", null ],
     [ "getActualPosition", "classgnublin__module__step.html#a3728b7bdd3696bfdff312fccdba040e1", null ],
     [ "getErrorMessage", "classgnublin__module__step.html#a8ee127209a0c60d048d084ed7b794790", null ],
     [ "getFullStatus1", "classgnublin__module__step.html#a9944d86e965debcb0f07b6794ba455b6", null ],

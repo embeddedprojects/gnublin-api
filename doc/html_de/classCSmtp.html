@@ -1,0 +1,1100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: CSmtp Klassenreferenz</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.3</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('classCSmtp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Klassen</a> &#124;
+<a href="#pub-methods">Öffentliche Methoden</a>  </div>
+  <div class="headertitle">
+<div class="title">CSmtp Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<!-- doxytag: class="CSmtp" -->
+<p>Klasse um Mails zu versenden.  
+ <a href="classCSmtp.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="CSmtp_8h_source.html">CSmtp.h</a>&gt;</code></p>
+
+<p><a href="classCSmtp-members.html">Aufstellung aller Elemente</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>Recipient</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a24ac55691a70f85c868694d63c89bd73">CSmtp</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Richtet die Mail-Klasse ein.  <a href="#a24ac55691a70f85c868694d63c89bd73"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a2b5ddda3402f54cca423d7aa625abde6">~CSmtp</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht buffer in der Mail-Klasse.  <a href="#a2b5ddda3402f54cca423d7aa625abde6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a8d92fcd3e8f2b922df3044ed36bf81db">AddRecipient</a> (const char *email, const char *name=NULL)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt einen neuen Empfänger hinzu.  <a href="#a8d92fcd3e8f2b922df3044ed36bf81db"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#aa4a1b716aa89b394d4f28d7dd07b1356">AddBCCRecipient</a> (const char *email, const char *name=NULL)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt einen neuen BCC-Empfänger hinzu.  <a href="#aa4a1b716aa89b394d4f28d7dd07b1356"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a0ca6155793233ab20747c34b0979cee5">AddCCRecipient</a> (const char *email, const char *name=NULL)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt einen neuen CC-Empfänger hinzu.  <a href="#a0ca6155793233ab20747c34b0979cee5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a15d76141522dd3bc20335ea8acc4e0a1">AddAttachment</a> (const char *path)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt einen neuen Dateianhang hinzu.  <a href="#a15d76141522dd3bc20335ea8acc4e0a1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a6ad4fc5d224b37b4ae91d8e4571620a1">AddMsgLine</a> (const char *text)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt eine neue Zeile in die Nachricht ein.  <a href="#a6ad4fc5d224b37b4ae91d8e4571620a1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a80c6db15778e9a271cb3d10de80fce3c">DelRecipients</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht alle Empfänger.  <a href="#a80c6db15778e9a271cb3d10de80fce3c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a7d08eeb190f2d55fd85273e87b68c4ce">DelBCCRecipients</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht alle BCC-Empfänger.  <a href="#a7d08eeb190f2d55fd85273e87b68c4ce"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#ad824a62a8d4f5607b02a63c53f97aa04">DelCCRecipients</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht alle CC-Empfänger.  <a href="#ad824a62a8d4f5607b02a63c53f97aa04"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#ae3fcfae55cf4c649d01ca3f69c9ac524">DelAttachments</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht alle Dateianhänge.  <a href="#ae3fcfae55cf4c649d01ca3f69c9ac524"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a467826d8736818eda71e73086107e946">DelMsgLines</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht den Nachrichtentext.  <a href="#a467826d8736818eda71e73086107e946"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a69d4c16e61f91e63f050d47c30390dcd">DelMsgLine</a> (unsigned int line)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht eine bestimmte Zeile in der Nachricht.  <a href="#a69d4c16e61f91e63f050d47c30390dcd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a9141c6b56018b299b1bbe2fb6cf5f0ec">ModMsgLine</a> (unsigned int line, const char *text)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bearbeiten einer bestimmten Nachrichtenzeile.  <a href="#a9141c6b56018b299b1bbe2fb6cf5f0ec"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a6d85f67fffbc249632cf8a3a4bc837d3">GetBCCRecipientCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die anzahl der BCC-Empfänger zurück.  <a href="#a6d85f67fffbc249632cf8a3a4bc837d3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a3919a503ce7fa0c384ad9521fd66ac2a">GetCCRecipientCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die anzahl der CC-Empfänger zurück.  <a href="#a3919a503ce7fa0c384ad9521fd66ac2a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#ae5b4cbf00bba0d27a3a34b71a2651c77">GetRecipientCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die anzahl der Empfänger zurück.  <a href="#ae5b4cbf00bba0d27a3a34b71a2651c77"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a07310cfc7a3bc9b2058910f00734aa22">GetLocalHostName</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den lokalen Host Namen zurück.  <a href="#a07310cfc7a3bc9b2058910f00734aa22"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#aa28dcfb7cbe6d3d5b7be80f0fb75bb78">GetMsgLineText</a> (unsigned int line) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt Text einer bestimmten Nachrichtenzeile zurück.  <a href="#aa28dcfb7cbe6d3d5b7be80f0fb75bb78"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a49f9e0a9349b29e20739a1bef6cfe6d6">GetMsgLines</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a719b947b67092569c7dfbbbb9d4785a6">GetReplyTo</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcReplyTo string zurück.  <a href="#a719b947b67092569c7dfbbbb9d4785a6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#ad0160dbeb3859d69164a60d607c1879d">GetMailFrom</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcMailFrom string zurück.  <a href="#ad0160dbeb3859d69164a60d607c1879d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a4fd300216988765b8042a39cc351ccc3">GetSenderName</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcNameFrom string zurück.  <a href="#a4fd300216988765b8042a39cc351ccc3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#adaf70c3e9046c5c6abbedce60802f7b0">GetSubject</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcSubject string zurück.  <a href="#adaf70c3e9046c5c6abbedce60802f7b0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#aa6e0af809b40c15a5c77a7e414d840ee">GetXMailer</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcXMailer string zurück.  <a href="#aa6e0af809b40c15a5c77a7e414d840ee"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#ae3d29feb6c376184209b28b3e67cb80b">GetXPriority</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcXPriority string zurück.  <a href="#ae3d29feb6c376184209b28b3e67cb80b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a3adfd965cec6f69eda266d2a7958cc5a">Send</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">E-Mail verschicken.  <a href="#a3adfd965cec6f69eda266d2a7958cc5a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a4f7ce185fdfd0f35a516063f6aea0b66">SetSubject</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Betraff der Nachricht festlegen.  <a href="#a4f7ce185fdfd0f35a516063f6aea0b66"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a062a85b785f687fcbce04633ca629cbd">SetSenderName</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Absendername setzen.  <a href="#a062a85b785f687fcbce04633ca629cbd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a335d09d77d05029019f638b0785c9271">SetSenderMail</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Absenderadresse setzen.  <a href="#a335d09d77d05029019f638b0785c9271"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#afc20042e2d0399f84611ca3289832582">SetReplyTo</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Rücksendeadresse festlegen.  <a href="#afc20042e2d0399f84611ca3289832582"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a15ddd4652d1b7d9c9c6a8c14464a6250">SetXMailer</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Name des Absendeprogramms bestimmen.  <a href="#a15ddd4652d1b7d9c9c6a8c14464a6250"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#ae79b1615a78298b570629ebf5a844260">SetLogin</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SMTP Benutzername angeben.  <a href="#ae79b1615a78298b570629ebf5a844260"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a923fbc7645565febea53e2e1c2377bb7">SetPassword</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Passwort des SMTP accounts angeben.  <a href="#a923fbc7645565febea53e2e1c2377bb7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a2e6c45721137eb4e639b084fc1925462">SetXPriority</a> (<a class="el" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Priorität der Nachricht festlegen.  <a href="#a2e6c45721137eb4e639b084fc1925462"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSmtp.html#a4f91faeda0b0d3185051702d88c271db">SetSMTPServer</a> (const char *server, const unsigned short port=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SMTP Server setzen.  <a href="#a4f91faeda0b0d3185051702d88c271db"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Klasse um Mails zu versenden. </p>
+<p>Diese Klasse ermöglicht das Senden und Empfangen von E-Mails. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8h_source.html#l00128">128</a> der Datei <a class="el" href="CSmtp_8h_source.html">CSmtp.h</a>.</p>
+</div><hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="a24ac55691a70f85c868694d63c89bd73"></a><!-- doxytag: member="CSmtp::CSmtp" ref="a24ac55691a70f85c868694d63c89bd73" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCSmtp.html#a24ac55691a70f85c868694d63c89bd73">CSmtp::CSmtp</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Richtet die Mail-Klasse ein. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00039">39</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b5ddda3402f54cca423d7aa625abde6"></a><!-- doxytag: member="CSmtp::~CSmtp" ref="a2b5ddda3402f54cca423d7aa625abde6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCSmtp.html#a2b5ddda3402f54cca423d7aa625abde6">CSmtp::~CSmtp</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht buffer in der Mail-Klasse. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00069">69</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="a15d76141522dd3bc20335ea8acc4e0a1"></a><!-- doxytag: member="CSmtp::AddAttachment" ref="a15d76141522dd3bc20335ea8acc4e0a1" args="(const char *path)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a15d76141522dd3bc20335ea8acc4e0a1">CSmtp::AddAttachment</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt einen neuen Dateianhang hinzu. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Path</td><td>Dateiname </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00106">106</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4a1b716aa89b394d4f28d7dd07b1356"></a><!-- doxytag: member="CSmtp::AddBCCRecipient" ref="aa4a1b716aa89b394d4f28d7dd07b1356" args="(const char *email, const char *name=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#aa4a1b716aa89b394d4f28d7dd07b1356">CSmtp::AddBCCRecipient</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt einen neuen BCC-Empfänger hinzu. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-Mail Adresse des BCC-Empfängers </td></tr>
+    <tr><td class="paramname">name</td><td>Name des BCC-Empfängers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00211">211</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ca6155793233ab20747c34b0979cee5"></a><!-- doxytag: member="CSmtp::AddCCRecipient" ref="a0ca6155793233ab20747c34b0979cee5" args="(const char *email, const char *name=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a0ca6155793233ab20747c34b0979cee5">CSmtp::AddCCRecipient</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt einen neuen CC-Empfänger hinzu. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-Mail Adresse des CC-Empfängers </td></tr>
+    <tr><td class="paramname">name</td><td>Name des CC-Empfängers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00174">174</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ad4fc5d224b37b4ae91d8e4571620a1"></a><!-- doxytag: member="CSmtp::AddMsgLine" ref="a6ad4fc5d224b37b4ae91d8e4571620a1" args="(const char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a6ad4fc5d224b37b4ae91d8e4571620a1">CSmtp::AddMsgLine</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt eine neue Zeile in die Nachricht ein. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Text</td><td>Text der neuen Zeile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00245">245</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d92fcd3e8f2b922df3044ed36bf81db"></a><!-- doxytag: member="CSmtp::AddRecipient" ref="a8d92fcd3e8f2b922df3044ed36bf81db" args="(const char *email, const char *name=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a8d92fcd3e8f2b922df3044ed36bf81db">CSmtp::AddRecipient</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt einen neuen Empfänger hinzu. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-Mail Adresse des Empfängers </td></tr>
+    <tr><td class="paramname">name</td><td>Name des Empfängers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00137">137</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae3fcfae55cf4c649d01ca3f69c9ac524"></a><!-- doxytag: member="CSmtp::DelAttachments" ref="ae3fcfae55cf4c649d01ca3f69c9ac524" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#ae3fcfae55cf4c649d01ca3f69c9ac524">CSmtp::DelAttachments</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht alle Dateianhänge. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00398">398</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d08eeb190f2d55fd85273e87b68c4ce"></a><!-- doxytag: member="CSmtp::DelBCCRecipients" ref="a7d08eeb190f2d55fd85273e87b68c4ce" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a7d08eeb190f2d55fd85273e87b68c4ce">CSmtp::DelBCCRecipients</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht alle BCC-Empfänger. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00324">324</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad824a62a8d4f5607b02a63c53f97aa04"></a><!-- doxytag: member="CSmtp::DelCCRecipients" ref="ad824a62a8d4f5607b02a63c53f97aa04" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#ad824a62a8d4f5607b02a63c53f97aa04">CSmtp::DelCCRecipients</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht alle CC-Empfänger. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00349">349</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a69d4c16e61f91e63f050d47c30390dcd"></a><!-- doxytag: member="CSmtp::DelMsgLine" ref="a69d4c16e61f91e63f050d47c30390dcd" args="(unsigned int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a69d4c16e61f91e63f050d47c30390dcd">CSmtp::DelMsgLine</a> </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>Line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht eine bestimmte Zeile in der Nachricht. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Line</td><td>Zeilennummer die gelöscht werden soll </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00272">272</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a467826d8736818eda71e73086107e946"></a><!-- doxytag: member="CSmtp::DelMsgLines" ref="a467826d8736818eda71e73086107e946" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a467826d8736818eda71e73086107e946">CSmtp::DelMsgLines</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht den Nachrichtentext. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00373">373</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a80c6db15778e9a271cb3d10de80fce3c"></a><!-- doxytag: member="CSmtp::DelRecipients" ref="a80c6db15778e9a271cb3d10de80fce3c" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a80c6db15778e9a271cb3d10de80fce3c">CSmtp::DelRecipients</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht alle Empfänger. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00299">299</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d85f67fffbc249632cf8a3a4bc837d3"></a><!-- doxytag: member="CSmtp::GetBCCRecipientCount" ref="a6d85f67fffbc249632cf8a3a4bc837d3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classCSmtp.html#a6d85f67fffbc249632cf8a3a4bc837d3">CSmtp::GetBCCRecipientCount</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die anzahl der BCC-Empfänger zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Anzahl der BCC-Empfänger </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01373">1373</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3919a503ce7fa0c384ad9521fd66ac2a"></a><!-- doxytag: member="CSmtp::GetCCRecipientCount" ref="a3919a503ce7fa0c384ad9521fd66ac2a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classCSmtp.html#a3919a503ce7fa0c384ad9521fd66ac2a">CSmtp::GetCCRecipientCount</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die anzahl der CC-Empfänger zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Anzahl der CC-Empfänger </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01397">1397</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07310cfc7a3bc9b2058910f00734aa22"></a><!-- doxytag: member="CSmtp::GetLocalHostName" ref="a07310cfc7a3bc9b2058910f00734aa22" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classCSmtp.html#a07310cfc7a3bc9b2058910f00734aa22">CSmtp::GetLocalHostName</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den lokalen Host Namen zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Socket des Remote Service </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01315">1315</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0160dbeb3859d69164a60d607c1879d"></a><!-- doxytag: member="CSmtp::GetMailFrom" ref="ad0160dbeb3859d69164a60d607c1879d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classCSmtp.html#ad0160dbeb3859d69164a60d607c1879d">CSmtp::GetMailFrom</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcMailFrom string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcMailFrom string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01445">1445</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a49f9e0a9349b29e20739a1bef6cfe6d6"></a><!-- doxytag: member="CSmtp::GetMsgLines" ref="a49f9e0a9349b29e20739a1bef6cfe6d6" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classCSmtp.html#a49f9e0a9349b29e20739a1bef6cfe6d6">CSmtp::GetMsgLines</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01564">1564</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa28dcfb7cbe6d3d5b7be80f0fb75bb78"></a><!-- doxytag: member="CSmtp::GetMsgLineText" ref="aa28dcfb7cbe6d3d5b7be80f0fb75bb78" args="(unsigned int line) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classCSmtp.html#aa28dcfb7cbe6d3d5b7be80f0fb75bb78">CSmtp::GetMsgLineText</a> </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>Line</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt Text einer bestimmten Nachrichtenzeile zurück. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Line</td><td>Zeilennummer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Text </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01557">1557</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5b4cbf00bba0d27a3a34b71a2651c77"></a><!-- doxytag: member="CSmtp::GetRecipientCount" ref="ae5b4cbf00bba0d27a3a34b71a2651c77" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classCSmtp.html#ae5b4cbf00bba0d27a3a34b71a2651c77">CSmtp::GetRecipientCount</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die anzahl der Empfänger zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Anzahl der Empfänger </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01349">1349</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a719b947b67092569c7dfbbbb9d4785a6"></a><!-- doxytag: member="CSmtp::GetReplyTo" ref="a719b947b67092569c7dfbbbb9d4785a6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classCSmtp.html#a719b947b67092569c7dfbbbb9d4785a6">CSmtp::GetReplyTo</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcReplyTo string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcReplyTo string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01421">1421</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4fd300216988765b8042a39cc351ccc3"></a><!-- doxytag: member="CSmtp::GetSenderName" ref="a4fd300216988765b8042a39cc351ccc3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classCSmtp.html#a4fd300216988765b8042a39cc351ccc3">CSmtp::GetSenderName</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcNameFrom string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcNameFrom string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01469">1469</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adaf70c3e9046c5c6abbedce60802f7b0"></a><!-- doxytag: member="CSmtp::GetSubject" ref="adaf70c3e9046c5c6abbedce60802f7b0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classCSmtp.html#adaf70c3e9046c5c6abbedce60802f7b0">CSmtp::GetSubject</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcSubject string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcSubject string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01493">1493</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa6e0af809b40c15a5c77a7e414d840ee"></a><!-- doxytag: member="CSmtp::GetXMailer" ref="aa6e0af809b40c15a5c77a7e414d840ee" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classCSmtp.html#aa6e0af809b40c15a5c77a7e414d840ee">CSmtp::GetXMailer</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcXMailer string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcXMailer string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01517">1517</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae3d29feb6c376184209b28b3e67cb80b"></a><!-- doxytag: member="CSmtp::GetXPriority" ref="ae3d29feb6c376184209b28b3e67cb80b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a> <a class="el" href="classCSmtp.html#ae3d29feb6c376184209b28b3e67cb80b">CSmtp::GetXPriority</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcXPriority string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcXPriority string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01541">1541</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9141c6b56018b299b1bbe2fb6cf5f0ec"></a><!-- doxytag: member="CSmtp::ModMsgLine" ref="a9141c6b56018b299b1bbe2fb6cf5f0ec" args="(unsigned int line, const char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a9141c6b56018b299b1bbe2fb6cf5f0ec">CSmtp::ModMsgLine</a> </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>Line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Bearbeiten einer bestimmten Nachrichtenzeile. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Line</td><td>Zu editierende Zeile </td></tr>
+    <tr><td class="paramname">Text</td><td>Neuer Text der Zeile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00428">428</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3adfd965cec6f69eda266d2a7958cc5a"></a><!-- doxytag: member="CSmtp::Send" ref="a3adfd965cec6f69eda266d2a7958cc5a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a3adfd965cec6f69eda266d2a7958cc5a">CSmtp::Send</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>E-Mail verschicken. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00460">460</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae79b1615a78298b570629ebf5a844260"></a><!-- doxytag: member="CSmtp::SetLogin" ref="ae79b1615a78298b570629ebf5a844260" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#ae79b1615a78298b570629ebf5a844260">CSmtp::SetLogin</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Login</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>SMTP Benutzername angeben. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Login</td><td>Benutzername </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01744">1744</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a923fbc7645565febea53e2e1c2377bb7"></a><!-- doxytag: member="CSmtp::SetPassword" ref="a923fbc7645565febea53e2e1c2377bb7" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a923fbc7645565febea53e2e1c2377bb7">CSmtp::SetPassword</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Password</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Passwort des SMTP accounts angeben. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Password</td><td>Passwort des Accounts </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01770">1770</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afc20042e2d0399f84611ca3289832582"></a><!-- doxytag: member="CSmtp::SetReplyTo" ref="afc20042e2d0399f84611ca3289832582" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#afc20042e2d0399f84611ca3289832582">CSmtp::SetReplyTo</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ReplyTo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Rücksendeadresse festlegen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ReplyTo</td><td>Rücksendeadresse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01614">1614</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a335d09d77d05029019f638b0785c9271"></a><!-- doxytag: member="CSmtp::SetSenderMail" ref="a335d09d77d05029019f638b0785c9271" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a335d09d77d05029019f638b0785c9271">CSmtp::SetSenderMail</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>EMail</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Absenderadresse setzen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E-Mail</td><td>Absenderadresse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01640">1640</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a062a85b785f687fcbce04633ca629cbd"></a><!-- doxytag: member="CSmtp::SetSenderName" ref="a062a85b785f687fcbce04633ca629cbd" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a062a85b785f687fcbce04633ca629cbd">CSmtp::SetSenderName</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Absendername setzen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Name</td><td>Absendername </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01666">1666</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f91faeda0b0d3185051702d88c271db"></a><!-- doxytag: member="CSmtp::SetSMTPServer" ref="a4f91faeda0b0d3185051702d88c271db" args="(const char *server, const unsigned short port=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a4f91faeda0b0d3185051702d88c271db">CSmtp::SetSMTPServer</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>SrvName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short&#160;</td>
+          <td class="paramname"><em>SrvPort</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>SMTP Server setzen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">SrvName</td><td>Servername </td></tr>
+    <tr><td class="paramname">SrvPort</td><td>Serverport </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01799">1799</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f7ce185fdfd0f35a516063f6aea0b66"></a><!-- doxytag: member="CSmtp::SetSubject" ref="a4f7ce185fdfd0f35a516063f6aea0b66" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a4f7ce185fdfd0f35a516063f6aea0b66">CSmtp::SetSubject</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Subject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Betraff der Nachricht festlegen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Subject</td><td>Betreff </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01692">1692</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a15ddd4652d1b7d9c9c6a8c14464a6250"></a><!-- doxytag: member="CSmtp::SetXMailer" ref="a15ddd4652d1b7d9c9c6a8c14464a6250" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a15ddd4652d1b7d9c9c6a8c14464a6250">CSmtp::SetXMailer</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>XMailer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Name des Absendeprogramms bestimmen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">XMailer</td><td>Programmname </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01718">1718</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e6c45721137eb4e639b084fc1925462"></a><!-- doxytag: member="CSmtp::SetXPriority" ref="a2e6c45721137eb4e639b084fc1925462" args="(CSmptXPriority)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCSmtp.html#a2e6c45721137eb4e639b084fc1925462">CSmtp::SetXPriority</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a>&#160;</td>
+          <td class="paramname"><em>priority</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Priorität der Nachricht festlegen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">priority</td><td>Priorität der Nachricht (XPRIORITY_HIGH, XPRIORITY_NORMAL, XPRIORITY_LOW) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01589">1589</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>library/mail/<a class="el" href="CSmtp_8h_source.html">CSmtp.h</a></li>
+<li>library/mail/<a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="classCSmtp.html">CSmtp</a>      </li>
+
+    <li class="footer">Erzeugt am Don Jul 4 2013 10:25:38 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>
