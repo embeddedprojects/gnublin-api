@@ -88,6 +88,6 @@ python-module: gnublin.o
 #clean
 clean: $(CLEANDIRS)
 	rm -Rf *.o gnublin.a libgnublin.so.1.0.1 deb/
-	rm _gnublin.so gnublin_wrap.cxx *.py gnublin.i
+	rm -f _gnublin.so gnublin_wrap.cxx *.py gnublin.i
 $(CLEANDIRS): 
 	$(MAKE) -C $(@:clean-%=%) clean
