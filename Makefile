@@ -1,4 +1,4 @@
-OBJ := dogm lcd lm75 pca9555 relay step adcmod
+OBJ := gpio dogm lcd lm75 pca9555 relay step adcmod
 SUBDIRS := $(OBJ:%=gnublin-tools/gnublin-%)
 CLEANDIRS := $(SUBDIRS:%=clean-%)
 INSTALLDIRS := $(SUBDIRS:%=install-%)
@@ -88,6 +88,6 @@ python-module: gnublin.o
 #clean
 clean: $(CLEANDIRS)
 	rm -Rf *.o gnublin.a libgnublin.so.1.0.1 deb/
-	rm _gnublin.so gnublin_wrap.cxx *.py gnublin.i
+	rm -f _gnublin.so gnublin_wrap.cxx *.py gnublin.i
 $(CLEANDIRS): 
 	$(MAKE) -C $(@:clean-%=%) clean
