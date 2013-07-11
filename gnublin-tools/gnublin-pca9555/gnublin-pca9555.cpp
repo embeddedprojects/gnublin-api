@@ -89,7 +89,10 @@ int main (int argc, char **argv) {
 	else if (pin >= 0 && port < 0 && input_flag== 1 ){
 		pca.pinMode(pin, INPUT);
 		if(json_flag==1){
-			printf("{\"value pin %i\" : \"%i\",\"result\" : \"0\"}\n", pin, pca.digitalRead(pin));
+			printf("{\"value\" : \"%i\",\"pin\" : \"%i\", \"result\" : \"0\"}\n", pca.digitalRead(pin), pin);
+		}
+		else if (brute_flag==1){
+			printf("%i", pca.digitalRead(pin));
 		}
 		else printf("Value pin %i: %i\n", pin, pca.digitalRead(pin));
 	}
@@ -97,11 +100,17 @@ int main (int argc, char **argv) {
 		if(json_flag==1){
 			printf("{\"error_msg\" : \"Error, can just read single pin not a whole port!\",\"result\" : \"-1\"}\n");
 		}
+		else if (brute_flag==1){
+			printf("-1");
+		}
 		else printf("Error, can just read single pin not a whole port!\n");
 	}
 	else{
 		if(json_flag==1){
 			printf("{\"error_msg\" : \"Check your parameters!\",\"result\" : \"-1\"}\n");
+		}
+		else if (brute_flag==1){
+			printf("-1");
 		}
 		else printf("Check your parameters!\n");
 	}
