@@ -92,7 +92,7 @@ int main (int argc, char **argv) {
 			printf("{\"value\" : \"%i\",\"pin\" : \"%i\", \"result\" : \"0\"}\n", pca.digitalRead(pin), pin);
 		}
 		else if (brute_flag==1){
-			printf("%i", pca.digitalRead(pin));
+			printf("%i\n", pca.digitalRead(pin));
 		}
 		else printf("Value pin %i: %i\n", pin, pca.digitalRead(pin));
 	}
@@ -101,7 +101,7 @@ int main (int argc, char **argv) {
 			printf("{\"error_msg\" : \"Error, can just read single pin not a whole port!\",\"result\" : \"-1\"}\n");
 		}
 		else if (brute_flag==1){
-			printf("-1");
+			printf("-1\n");
 		}
 		else printf("Error, can just read single pin not a whole port!\n");
 	}
@@ -110,7 +110,7 @@ int main (int argc, char **argv) {
 			printf("{\"error_msg\" : \"Check your parameters!\",\"result\" : \"-1\"}\n");
 		}
 		else if (brute_flag==1){
-			printf("-1");
+			printf("-1\n");
 		}
 		else printf("Check your parameters!\n");
 	}
