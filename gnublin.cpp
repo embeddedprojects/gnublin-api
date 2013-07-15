@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 07/04/13 10:14
+//build date: 07/15/13 11:16
 //******************************************** 
 
 #include "gnublin.h"
@@ -132,7 +132,7 @@ const char *gnublin_gpio::getErrorMessage(){
 * @return Erfolg: 1, Fehler: -1
 */
 int gnublin_gpio::pinMode(int pin, std::string direction){
-	#if (BOARD != RASPBERRY_PI)
+	#if (BOARD != RASPBERRY_PI && BEAGLEBONE_BLACK)
 	if (pin == 4 && direction == "out"){
 		error_flag = true;
 		return -1;
@@ -179,7 +179,7 @@ int gnublin_gpio::pinMode(int pin, std::string direction){
 * @return Erfolg: 1, Fehler: -1
 */
 int gnublin_gpio::digitalWrite(int pin, int value){
-	#if (BOARD != RASPBERRY_PI)
+	#if (BOARD != RASPBERRY_PI && BEAGLEBONE_BLACK)
 	if (pin == 4){
 		error_flag = true;
 		return -1;
@@ -743,11 +743,14 @@ int gnublin_i2c::send(unsigned char value){
 * Default chipselect:
 * GNUBLIN: CS = 11
 * RASPBERRY PI: CS = 0
+* BEAGLEBONE BLACK: CS = 0
 */
 gnublin_spi::gnublin_spi(){
 	error_flag = false;
-	#if BOARD == RASPBERRY_PI
+	#if (BOARD == RASPBERRY_PI)
 	std::string device = "/dev/spidev0.0";
+	#elif (BOARD == BEAGLEBONE_BLACK)
+	std::string device = "/dev/spidev1.0";
 	#else
 	std::string device = "/dev/spidev0.11";
 	#endif
@@ -1160,11 +1163,21 @@ int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, in
 *
 */
 gnublin_adc::gnublin_adc(){
+	#if (BOARD == BEAGLEBONE_BLACK)
+	std::ifstream file("/sys/devices/ocp.2/helper.*/AIN1");
+	if (file.fail()) {
+		std::ofstream file("/sys/devices/bone_capemgr.*/slots");
+		file << "cape-bone-iio";
+		file.close();
+		sleep(1);
+	}
+	#else
 	std::ifstream file("/dev/lpc313x_adc");
 	if (file.fail()) {
 		system("modprobe lpc313x_adc");
 		sleep(1);
 	}
+	#endif
 	file.close();
 	error_flag = false;
 }
@@ -1204,7 +1217,7 @@ const char *gnublin_adc::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
-
+#if (BOARD != BEAGLEBONE_BLACK)
 //-------------getValue-------------
 /** @~english 
 * @brief Get Value.
@@ -1238,6 +1251,8 @@ int gnublin_adc::getValue(int pin){
 	error_flag = false;
 	return hexstringToNumber(value);
 }
+#endif
+
 
 //-------------getVoltage-------------
 /** @~english 
@@ -1255,11 +1270,24 @@ int gnublin_adc::getValue(int pin){
 * @return Spannung des ADCs in mV, im Fehlerfall -1
 */
 int gnublin_adc::getVoltage(int pin){
+	#if (BOARD == BEAGLEBONE_BLACK)
+	int value;
+	std::stringstream ss;
+	ss << pin;
+	std::string device = "/sys/devices/ocp.2/helper.*/AIN" + ss.str();
+	std::ifstream dev_file(device.c_str());
+	for (int i=0; i<2; i++){
+		dev_file >> value;
+	}
+	dev_file.close();
+	#else
 	int value = getValue(pin);
 	value = value*825/256;
+	#endif
 	return value;
 }
 
+#if (BOARD != BEAGELEBONE_BLACK)
 //-------------setReference-------------
 /** @~english 
 * @brief set Reference.
@@ -1277,7 +1305,7 @@ int gnublin_adc::setReference(int ref){
 	error_flag = false;
 	return 1;
 }
-
+#endif
 
 
 #endif
@@ -1296,6 +1324,7 @@ int gnublin_adc::setReference(int ref){
 * Default RS-Pin:
 * GNUBLIN: GPIO14
 * RASPBERRY PI: GPIO4
+* BEAGLEBONE_BLACK: GPIO60
 *
 * @~german
 * @brief Setzt die standard RS-Pins
@@ -1303,11 +1332,14 @@ int gnublin_adc::setReference(int ref){
 * Standard RS-Pin:
 * GNUBLIN: GPIO14
 * RASPBERRY PI: GPIO4
+* BEAGLEBONE_BLACK: GPIO60
 */
 gnublin_module_dogm::gnublin_module_dogm(){
 
 #if (BOARD == RASPBERRY_PI)
 	rs_pin = 4;
+#elif (BOARD == BEAGLEBONE_BLACK)
+	rs_pin = 60;
 #else
 	rs_pin = 14;
 #endif

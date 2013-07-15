@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 07/04/13 10:14
+//build date: 07/15/13 11:16
 //******************************************** 
 
 
@@ -57,6 +57,7 @@
 //BOARDS
 #define GNUBLIN 1
 #define RASPBERRY_PI 2
+#define BEAGLEBONE_BLACK 3
 
 #define OUTPUT 	"out"
 #define INPUT	"in"

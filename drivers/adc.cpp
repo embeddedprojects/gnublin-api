@@ -12,11 +12,21 @@
 *
 */
 gnublin_adc::gnublin_adc(){
+	#if (BOARD == BEAGLEBONE_BLACK)
+	std::ifstream file("/sys/devices/ocp.2/helper.14/AIN1");
+	if (file.fail()) {
+		std::ofstream file2("/sys/devices/bone_capemgr.14/slots");
+		file2 << "cape-bone-iio";
+		file2.close();
+		sleep(1);
+	}
+	#else
 	std::ifstream file("/dev/lpc313x_adc");
 	if (file.fail()) {
 		system("modprobe lpc313x_adc");
 		sleep(1);
 	}
+	#endif
 	file.close();
 	error_flag = false;
 }
@@ -56,7 +66,7 @@ const char *gnublin_adc::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
 
-
+#if (BOARD != BEAGLEBONE_BLACK)
 //-------------getValue-------------
 /** @~english 
 * @brief Get Value.
@@ -90,6 +100,8 @@ int gnublin_adc::getValue(int pin){
 	error_flag = false;
 	return hexstringToNumber(value);
 }
+#endif
+
 
 //-------------getVoltage-------------
 /** @~english 
@@ -107,11 +119,24 @@ int gnublin_adc::getValue(int pin){
 * @return Spannung des ADCs in mV, im Fehlerfall -1
 */
 int gnublin_adc::getVoltage(int pin){
+	#if (BOARD == BEAGLEBONE_BLACK)
+	int value;
+	std::stringstream ss;
+	ss << pin;
+	std::string device = "/sys/devices/ocp.2/helper.14/AIN" + ss.str();
+	for (int i=0; i<2; i++){
+		std::ifstream dev_file(device.c_str());
+		dev_file >> value;
+		dev_file.close();
+	}
+	#else
 	int value = getValue(pin);
 	value = value*825/256;
+	#endif
 	return value;
 }
 
+#if (BOARD != BEAGELEBONE_BLACK)
 //-------------setReference-------------
 /** @~english 
 * @brief set Reference.
@@ -129,7 +154,7 @@ int gnublin_adc::setReference(int ref){
 	error_flag = false;
 	return 1;
 }
-
+#endif
 
 
 #endif

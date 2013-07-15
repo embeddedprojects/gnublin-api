@@ -14,6 +14,7 @@
 * Default RS-Pin:
 * GNUBLIN: GPIO14
 * RASPBERRY PI: GPIO4
+* BEAGLEBONE_BLACK: GPIO60
 *
 * @~german
 * @brief Setzt die standard RS-Pins
@@ -21,11 +22,14 @@
 * Standard RS-Pin:
 * GNUBLIN: GPIO14
 * RASPBERRY PI: GPIO4
+* BEAGLEBONE_BLACK: GPIO60
 */
 gnublin_module_dogm::gnublin_module_dogm(){
 
 #if (BOARD == RASPBERRY_PI)
 	rs_pin = 4;
+#elif (BOARD == BEAGLEBONE_BLACK)
+	rs_pin = 60;
 #else
 	rs_pin = 14;
 #endif
