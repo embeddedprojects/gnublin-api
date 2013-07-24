@@ -228,6 +228,11 @@ int gnublin_serial::open_fd()
 			    printf("Error set I/O Speed\n");
 			}
 		break;
+		case 115200:
+			if(cfsetispeed(&config, B115200) < 0 || cfsetospeed(&config, B115200) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
 		case 153600:
 			if(cfsetispeed(&config, B153600) < 0 || cfsetospeed(&config, B153600) < 0) {
 			    printf("Error set I/O Speed\n");
@@ -296,14 +301,14 @@ int gnublin_serial::setDevicefile(std::string filename){
 /** @~english
 * @brief sets the baudrate
 *
-* This function sets the baudrate you want. supported baudrates are: 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 76800, 153600, 307200, 614400 and 1228800
+* This function sets the baudrate you want. supported baudrates are: 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 76800, 115200, 153600, 307200, 614400 and 1228800
 * @param rate Baudrate
 * @return failure: -1 
 *
 * @~german
 * @brief setzt die I2C Device Datei. Standard ist die "/dev/i2c-1"
 *
-* Diese Funktion setzt die Baudrate. Es werden folgende Baudraten unterstüzt: 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 76800, 153600, 307200, 614400 und 1228800
+* Diese Funktion setzt die Baudrate. Es werden folgende Baudraten unterstüzt: 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 76800, 115200, 153600, 307200, 614400 und 1228800
 * @param rate Baudrate
 * @return failure: -1 
 */
