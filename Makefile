@@ -82,8 +82,8 @@ python-module: gnublin.o
 	$(CXX) $(CXXFLAGS) $(BOARDDEF) -fpic -I python2.6/ -c gnublin_wrap.cxx
 	$(CXX) $(CXXFLAGS) $(BOARDDEF) -fpic -c gnublin.cpp
 	$(CXX) $(CXXFLAGS) -shared -o _gnublin.so gnublin_wrap.o gnublin.o
-	mv gnublin.py python-module/gnublin/
-	mv _gnublin.so python-module/gnublin/
+	cp gnublin.py python-module/gnublin/
+	cp _gnublin.so python-module/gnublin/
 
 #clean
 clean: $(CLEANDIRS)

@@ -5,13 +5,13 @@ Maintainer = Manuel Liebert <man.liebert@gmail.com>
 path = ../../
 include ../../API-config.mk
 
-all: gnublin.o $(objects)
+all: $(path)gnublin.o $(objects)
 
 gnublin.o: $(path)gnublin.cpp $(path)gnublin.h
 	$(CXX) $(CXXFLAGS) $(BOARDDEF) -c $(path)gnublin.cpp 
 
-$(objects): gnublin.o $(objects).cpp
-	$(CXX) $(CXXFLAGS) $(BOARDDEF) -o $(objects) gnublin.o $(objects).cpp -I ../../
+$(objects): $(path)gnublin.o $(objects).cpp
+	$(CXX) $(CXXFLAGS) $(BOARDDEF) -o $(objects) $(path)gnublin.o $(objects).cpp -I ../../
 
 install: $(objects)
 	cp $(objects) /usr/local/bin/
