@@ -26,6 +26,7 @@ cat drivers/gpio.h >> gnublin.h
 cat drivers/i2c.h >> gnublin.h
 cat drivers/spi.h >> gnublin.h
 cat drivers/adc.h >> gnublin.h
+cat drivers/serial.h >> gnublin.h
 
 cat modules/module_dogm.h >> gnublin.h
 cat modules/module_lm75.h >> gnublin.h
@@ -59,6 +60,7 @@ cat drivers/gpio.cpp >> gnublin.cpp
 cat drivers/i2c.cpp >> gnublin.cpp
 cat drivers/spi.cpp >> gnublin.cpp
 cat drivers/adc.cpp >> gnublin.cpp
+cat drivers/serial.cpp >> gnublin.cpp
 
 cat modules/module_dogm.cpp >> gnublin.cpp
 cat modules/module_lm75.cpp >> gnublin.cpp
