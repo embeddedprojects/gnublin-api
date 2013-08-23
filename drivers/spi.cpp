@@ -18,11 +18,14 @@
 * Default chipselect:
 * GNUBLIN: CS = 11
 * RASPBERRY PI: CS = 0
+* BEAGLEBONE BLACK: CS = 0
 */
 gnublin_spi::gnublin_spi(){
 	error_flag = false;
-	#if BOARD == RASPBERRY_PI
+	#if (BOARD == RASPBERRY_PI)
 	std::string device = "/dev/spidev0.0";
+	#elif (BOARD == BEAGLEBONE_BLACK)
+	std::string device = "/dev/spidev1.0";
 	#else
 	std::string device = "/dev/spidev0.11";
 	#endif

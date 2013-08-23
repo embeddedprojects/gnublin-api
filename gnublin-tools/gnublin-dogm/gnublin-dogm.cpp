@@ -33,8 +33,16 @@ int lineflag = 0;
 int cursor_offset = 0;
 int shift_val = 0;
 int c, line_number = 0;
+#if (BOARD == RASPBERRY_PI)
+int pinnumber = 60;
+int csnumber = 0;
+#elif (BOARD == BEAGLEBONE_BLACK)
+int pinnumber = 4;
+int csnumber = 60;
+#else
 int pinnumber = 14;
 int csnumber = 11;
+#endif
 char* string_display;
 
 

@@ -53,6 +53,7 @@
 //BOARDS
 #define GNUBLIN 1
 #define RASPBERRY_PI 2
+#define BEAGLEBONE_BLACK 3
 
 #define OUTPUT 	"out"
 #define INPUT	"in"

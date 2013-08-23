@@ -9,13 +9,14 @@ CXX := arm-linux-gnueabi-g++
 CXXFLAGS = -Wall
 
 #Architecture for gnublin:
-Architecture = armel
-#Architecture for raspberryPi:
-#Architecture = armhf
+#Architecture = armel
+#Architecture for raspberryPi an beaglebone black:
+Architecture = armhf
 
 #Define which Board you want: 
-BOARD := GNUBLIN
+#BOARD := GNUBLIN
 #BOARD := RASPBERRY_PI
+BOARD := BEAGLEBONE_BLACK
 
 #DO NOT EDIT BEYOND THIS LINE!
 BOARDDEF := -DBOARD=$(BOARD)

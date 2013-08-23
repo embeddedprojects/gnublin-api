@@ -5,7 +5,7 @@ usb_dev_handle* keyboard_init(){
 	struct usb_bus *bus;
 	struct usb_device *dev;
 
-	// search for the keyboard, open the device and claim interface
+	// search for the scanner, open the device and claim interface
 	usb_init();
 	usb_find_busses();
 	usb_find_devices();
