@@ -1,6 +1,10 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
+<<<<<<< HEAD
 //build date: 08/23/13 07:08
+=======
+//build date: 09/06/13 19:12
+>>>>>>> develop
 //******************************************** 
 
 #include "gnublin.h"
@@ -1533,7 +1537,12 @@ int gnublin_serial::open_fd()
 			    printf("Error set I/O Speed\n");
 			}
 		break;
+<<<<<<< HEAD
 /*		case 76800:
+=======
+/*
+		case 76800:
+>>>>>>> develop
 			if(cfsetispeed(&config, B76800) < 0 || cfsetospeed(&config, B76800) < 0) {
 			    printf("Error set I/O Speed\n");
 			}
@@ -1544,7 +1553,12 @@ int gnublin_serial::open_fd()
 			    printf("Error set I/O Speed\n");
 			}
 		break;
+<<<<<<< HEAD
 /*		case 153600:
+=======
+/*
+		case 153600:
+>>>>>>> develop
 			if(cfsetispeed(&config, B153600) < 0 || cfsetospeed(&config, B153600) < 0) {
 			    printf("Error set I/O Speed\n");
 			}
@@ -1671,6 +1685,136 @@ int gnublin_serial::send(unsigned char *TxBuf, int length){
 	return 1;
 }
 
+<<<<<<< HEAD
+=======
+
+//***************************************************************************
+// Class for creating pwm signals
+//***************************************************************************
+
+
+/**
+* @~english
+* @brief Default clock is clk1 with 1400 Hz.
+*
+* Clock divider:
+* clk1: clock divider off
+* clk2: half clock
+* clk3: quarter clock
+* clk4: eighth clock
+* @~german
+* @brief Standard Clock ist clk1i.
+*
+* Clock-Teiler:
+* clk1: Clock-Teiler aus
+* clk2: Halbe Clock
+* clk3: Viertel Clock
+* clk4: Achtel Clock
+*/
+
+
+//******************** constructor ******************************************
+/**
+* @~english
+* @brief Constructs the object.
+*
+* @~german
+* @brief Konstruiert das Objekt.
+*
+*/
+
+gnublin_pwm::gnublin_pwm() {  }		// ctor
+
+
+
+//********************** setValue **********************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the Duty-Cycle. 0 would be equal to LOW and 100 would be equal to HIGH.
+ *
+ *      
+ * @param Float vlaue from 0 to 100. Other values will be ignored.
+ *
+ * @~german
+ * @brief Definiert den Duty-Cycle. 0 wäre wie ein logisches LOW und 100 ein logisches HIGH.
+ *
+ * @param Float Wert von 0 bis 100. Andere Werte werden ignoriert.
+ *
+ */
+
+void gnublin_pwm::setValue(float v) {
+ 	int pwm_raw = 0;
+	pwm_raw = int(v/100 * 4095);
+	
+	if(pwm_raw < 0 || pwm_raw > 4095) {
+		printf("Enter a value between 0 and 100");
+		return;
+	}
+	// Convert to hex
+	stringstream stream;
+	stream << setfill ('0') << setw(sizeof(char)*3) << hex << pwm_raw;
+	string pwm_hex( stream.str() );
+	
+	cout << pwm_hex << endl;	//debug line
+	
+	std::ofstream pwm_file ("/dev/lpc313x_pwm");
+	pwm_file << pwm_hex;	
+	return;
+}
+
+
+
+//********************** setClock *************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the Clock divider
+ *      
+ * @param clock number (integer). 
+ * 1: clk1, no clock divider, 1400 Hz 
+ * 2: clk2, half clock
+ * 3: clk3, quarter clock
+ * 4: clk4, eighth clock
+ *
+ * @~german
+ * @brief Definiert den Clock-Teiler
+ *
+ * @param delimiterSign Zeichen, welches als Trennsymbol genutzt werden soll 
+ * 1: clk1, Clock-Teiler aus, 1400 Hz
+ * 2: clk2, Halbe Clock
+ * 3: clk3, Viertel Clock
+ * 4: clk4, Achtel Clock
+ *
+ */
+
+void gnublin_pwm::setClock(int num) {
+	string clock_str;
+
+	switch (num) {
+		case 1:		clock_str = "clk1";
+							break;
+		case 2:		clock_str = "clk2";
+							break;
+		case 3:		clock_str = "clk3";
+							break;
+		case 4: 	clock_str = "clk4";
+							break;
+		default:	clock_str = "clk1";
+							break;
+	}
+
+	ofstream pwm_file ("/dev/lpc313x_pwm");
+	pwm_file << clock_str;
+	return;
+}
+
+
+
+
+
+
+>>>>>>> develop
 //***************************************************************************
 // Class for accesing the GNUBLIN MODULE-DISPLAY 2x16
 //***************************************************************************
@@ -4417,6 +4561,101 @@ int gnublin_module_lcd::init(){
 	
 	return 1;
 }
+//*******************************************************************
+//Class for accessing the LM75 IC via I2C
+//*******************************************************************
+
+//------------------Konstruktor------------------
+/** @~english 
+* @brief Sets the error_flag to "false", the closemode to "1" (see i2c for details) and the standard i2c Address to 0x4f
+*
+* @~german 
+* @brief Setzt das error_flag auf "false", den closemode auf "1" (siehe i2c für Details) und die Standard i2c Adresse auf 0x4f
+*
+*/
+gnublin_module_dac::gnublin_module_dac()
+{
+	setAddress(0x60);
+	_channel[0] = _channel[1] = _channel[2] = _channel[3] = 0;
+}
+
+
+//-------------get Error Message-------------
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This function returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
+/*
+const char *gnublin_module_lm75::getErrorMessage(){
+	return ErrorMessage.c_str();
+}
+*/
+
+
+//-------------------------------Fail-------------------------------
+/** @~english 
+* @brief returns the error flag to check if the last operation went wrong
+*
+* @return error_flag as boolean
+*
+* @~german 
+* @brief Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist
+*
+* @return error_flag als bool
+*/
+/*
+bool gnublin_module_lm75::fail(){
+	return error_flag;
+}
+*/
+
+
+
+//-------------set Address-------------
+/** @~english 
+* @brief Set the i2c slave address 
+*
+* With this function you can set the individual I2C Slave-Address.
+* @param Address new I2C slave Address
+*
+* @~german 
+* @brief Setzt die i2c slave Adresse
+*
+* Mit dieser Funktion kann die individuelle I2C Slave-Adresse gesetzt werden.
+* @param Address neue I2C slave Adresse
+*/
+void gnublin_module_dac::setAddress(int Address){
+	i2c.setAddress(Address);
+}
+
+
+void gnublin_module_dac::write(int channel, int value) {
+	_channel[channel] = value;   
+	int i;
+	char lowByte[4];
+	char highByte[4];
+
+	for (i=0; i<4; i++) {
+		lowByte[i] = (char) (_channel[i] & 0xff);
+		highByte[i] = (char) ((_channel[i] >> 8) & 0xff);
+	}
+
+	unsigned char buffer[8]={	highByte[0],lowByte[0],
+														highByte[1],lowByte[1],
+														highByte[2],lowByte[2],
+														highByte[3],lowByte[3]};
+
+   i2c.send(buffer,8);
+
+}
 /* 
 
    base64.cpp and base64.h
@@ -6573,4 +6812,254 @@ std::string ECSmtp::GetErrorText() const
 			return "Undefined error id";
 	}
 }
+
+
+//***************************************************************************
+// Class for creating csv files
+//***************************************************************************
+
+/**
+* @~english
+* @brief Default delimiters are set if necessary.
+*
+* Default delimiters:
+* delimiterRowSign: \r\n
+* delimiterColumnSign: ;
+* delimiterFieldSign: "
+* @~german
+* @brief Standard Trennsymbole werden falls nötig gesetzt
+*
+* Standard Trennsymbole:
+* delimiterRowSign: \r\n
+* delimiterColumnSign: ;
+* delimiterFieldSign: "
+*
+*/
+
+
+//******************** constructor ******************************************
+/**
+* @~english
+* @brief Set Default delimiters
+*
+* @~german
+* @brief Setzt Default Trennsymbole
+*
+*/
+
+gnublin_csv::gnublin_csv() {
+	user_file_handle = true;
+	delimiterRowSign = "\r\n";
+	delimiterColumnSign = ';';
+	delimiterFieldSign = '"';
+}
+
+
+//******************** overloaded constructor *******************************
+/**
+ * @~english
+ * @brief Set Default delimiters and creates a csv file. addRow() will automatically open() and close() the file at each call.
+ * 
+ * @param new_filename name of the file
+ *
+ * @~german
+ * @brief Setzt Default Trennsymbole und erstellt eine csv Datei. open() und close() wird automatisch bei jedem Aufruf von addRow() ausgeführt.
+ *
+ * @param new_filename Name der Datei
+ *
+ */
+
+gnublin_csv::gnublin_csv(string new_filename) {
+	user_file_handle = false;
+	filename = new_filename;
+
+	ofstream file(filename.c_str());
+  if (file < 0) {
+  }
+  file.close();
+
+  delimiterRowSign = "\r\n";
+  delimiterColumnSign = ';';
+  delimiterFieldSign = '"';
+}
+
+
+//********************** open ***********************************************
+/**
+ *
+ * @~english
+ * @brief Creates a csv file. Use this method in combination with default constructer and close() for faster access. (No automated open() and close() in addRow() )
+ *  
+ * @param new_filename name of the file
+ * @return 1 by success, -1 by failure
+ *
+ * @~german
+ * @brief Erstellt eine csv Datei. Benutze diese Methode in Kombination mit dem Default Konstruktor und close() um schnelleren Dateizugriff zu ermöglichen. (Kein automatisches open() und close() in addRow() )
+ *
+ * @param new_filename Name der Datei
+ * @return 1 bei Erfolg, -1 im Fehlerfall
+ *
+ */
+
+int gnublin_csv::open(string new_filename) {
+	filename = new_filename;
+	
+  std::ofstream file (filename.c_str());
+  if (file < 0) {
+    return -1;
+  }
+	return 0;
+}
+
+
+//********************** addRow *********************************************
+/**
+ *
+ * @~english
+ * @brief Adds a row to the csv file. Example: gnublin_csv csv; string str = "Hello"; float f = 3.2; addRow(2, str.c_str(), (csv.NumberToString(f)).c_str());
+ *  
+ * @param quantity number of strings
+ * @param ... C-strings, which should be written to the file. (Convert C++-Strings with str.c_str(); and numbers with NumberToString() memeber to Strings)
+ * @return 1 by success, -1 by failure
+ *
+ * @~german
+ * @brief Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = "Hello"; float f = 3.2; addRow(2, str.c_str(), (csv.NumberToString(f)).c_str());
+ *
+ * @param quantity Anzahl der Strings
+ * @param ... C-Strings, welche in die Datei geschrieben werden sollen. (Konvertiere C++-Strings mit str.c_str(); und Zahlen mit NumberToString zu Strings) 
+ * @return 1 bei Erfolg, -1 im Fehlerfall
+ *
+ */
+
+int gnublin_csv::addRow(int quantity, ...) {
+	ofstream file (filename.c_str(), ios::out|ios::app);
+	va_list params;
+	char* par;
+	va_start(params, quantity);
+	for (int i=0; i<quantity; i++) {
+		par = va_arg(params, char*);
+		if (delimiterFieldSign != '\0') {
+			file << delimiterFieldSign << par << delimiterFieldSign << delimiterColumnSign;
+		} else {
+			file << par << delimiterColumnSign;
+		}
+	}	
+
+	file << delimiterRowSign;
+	va_end(params);
+	if (!user_file_handle) {
+		file.close();
+	}
+	return 0;	
+}
+
+//********************** close **********************************************
+/**
+ *
+ * @~english
+ * @brief Closes file. Use this method in combination with default constructor and open() for faster access. (No automated open and close in addRow() )
+ *
+ * @return 1 by success, -1 by failure
+ * 
+ * @~german
+ * @brief Schließt die Datei. Benutze diese Methode in Kombination mit dem Default Konstruktur und open() um schnelleren Dateizugriff zu ermöglichen. (Kein automatisches open() und close() in addRow() )
+ *
+ * @return 1 bei Erfolg, -1 im Fehlerfall
+ *
+ */
+
+void gnublin_csv::close() {
+	ofstream file (filename.c_str(), ios::out|ios::app);
+	file.close();
+}
+
+//********************** delimiterRow ***************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the delimiter of each row
+ *  
+ * @param delimiterSign Sign which should be used as delimiter
+ *
+ * @~german
+ * @brief Definiert das Trennsymbol zwischen den einzelnen Zeilen
+ *
+ * @param delimiterSign Zeichen, welches als Trennsymbol genutzt werden soll 
+ *
+ */
+
+void gnublin_csv::delimiterRow(string delimiterSign) {
+	delimiterRowSign = delimiterSign;
+}
+
+
+//********************** delimiterColumn ************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the delimiter of each column
+ *      
+ * @param delimiterSign Sign which should be used as delimiter
+ *
+ * @~german
+ * @brief Definiert das Trennsymbol zwischen den einzelnen Spalten
+ *
+ * @param delimiterSign Zeichen, welches als Trennsymbol genutzt werden soll 
+ *
+ */
+
+void gnublin_csv::delimiterColumn(char delimiterSign) {
+	delimiterColumnSign = delimiterSign;
+}
+
+
+//********************** delimiterField *************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the delimiter of each field
+ *      
+ * @param delimiterSign Sign which should be used as delimiter
+ *
+ * @~german
+ * @brief Definiert das Trennsymbol zwischen den einzelnen Feldern
+ *
+ * @param delimiterSign Zeichen, welches als Trennsymbol genutzt werden soll 
+ *
+ */
+
+void gnublin_csv::delimiterField(char delimiterSign) {
+	delimiterFieldSign = delimiterSign;
+}
+
+
+//********************** overloaded delimiterField **************************
+/**
+ *
+ * @~english
+ * @brief Set no delimiter for each field
+ *      
+ * @~german
+ * @brief Kein Zeichen wird als Trennsymbol definiert
+ *
+ */
+
+void gnublin_csv::delimiterField() {
+	delimiterFieldSign = '\0';
+}
+/*
+template <class T>
+string NumberToString ( T Number )
+{
+  ostringstream ss;
+  ss << Number;
+  return ss.c_str();
+}
+*/
+
+
+
+
+
+
 

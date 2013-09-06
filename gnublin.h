@@ -1,6 +1,10 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
+<<<<<<< HEAD
 //build date: 08/23/13 07:08
+=======
+//build date: 09/06/13 19:12
+>>>>>>> develop
 //******************************************** 
 
 
@@ -251,6 +255,44 @@ public:
 	int setBaudrate(int rate);
 
 };
+<<<<<<< HEAD
+=======
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+
+//***************************************************************************
+// Class for creating pwm signals
+//***************************************************************************
+
+/**
+* @class gnublin_pwm
+* @~english
+* @brief Class for creating pwm signals
+*
+* This class manages the duty-cycle and the clock divider of a pwm signal.
+* @~german
+* @brief Klasse zum Erstellen von pwm Signalen
+*
+* Diese Klasse ermöglicht das Einstellen des Duty-Cycle und das Einstellen eines Clock Teilers.
+*/
+
+using namespace std;
+
+class gnublin_pwm{
+  public:
+    gnublin_pwm();
+		void setValue(float v);
+		void setClock(int num);
+};
+
+
+
+
+
+>>>>>>> develop
 //***** NEW BLOCK *****
 
 //***************************************************************************
@@ -573,6 +615,36 @@ public:
 		int init();
 		
 };
+//***** NEW BLOCK *****
+
+//*******************************************************************
+//Class for accessing the LM75 IC via I2C
+//*******************************************************************
+/**
+* @class gnublin_module_lm75
+* @~english
+* @brief Class for accessing the LM75 IC via I2C
+*
+* @~german 
+* @brief Klasse für den zugriff auf den LM75 IC via I2C Bus
+*
+*/
+class gnublin_module_dac {
+private:
+	//bool error_flag;
+	gnublin_i2c i2c;
+	int _channel[4];
+	//std::string ErrorMessage;
+public:
+	gnublin_module_dac();
+	//const char *getErrorMessage();
+	//bool fail();
+	void setAddress(int Address);
+	//int* read(int);
+	
+	void write(int channel, int value);
+
+};
 #include <string>
 
 #ifndef _BASE64_H_
@@ -790,4 +862,61 @@ private:
 
 
 #endif // __CSMTP_H__
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <sstream>
+
+//***************************************************************************
+// Class for creating csv files
+//***************************************************************************
+
+/**
+* @class gnublin_csv
+* @~english
+* @brief Class for creating csv files
+*
+* This class manages creating of csv files und writing content to them.
+* @~german
+* @brief Klasse zum Erstellen von csv Dateien
+*
+* Diese Klasse ermöglicht das Erstellen der Dateien sowie das Schreiben von Inhalten.
+*/
+
+using namespace std;
+
+class gnublin_csv{
+  public:
+    gnublin_csv();
+		gnublin_csv(string new_filename);
+  	int open(string new_filename);
+		int addRow(int quantity, ...);
+		void close();
+		void delimiterRow(string delimiterSign);
+	  void delimiterColumn(char delimiterSign);
+  	void delimiterField(char delimiterSign);
+		void delimiterField();
+		template <typename T>
+		string NumberToString(T Number) {
+  		string str;
+			stringstream ss;
+  		ss << Number;
+			str = ss.str();
+  		return ss.str();
+		}
+
+
+
+	private:
+		string filename;
+		bool user_file_handle;
+		string delimiterRowSign;
+		char delimiterColumnSign;
+		char delimiterFieldSign;
+};
+
+
+
 #endif
