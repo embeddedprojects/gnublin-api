@@ -1,0 +1,6 @@
+digraph "gnublin_csv"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{gnublin_csv\n||+ gnublin_csv()\l+ gnublin_csv()\l+ open()\l+ addRow()\l+ close()\l+ delimiterRow()\l+ delimiterColumn()\l+ delimiterField()\l+ delimiterField()\l+ NumberToString()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+}
