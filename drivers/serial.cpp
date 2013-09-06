@@ -223,16 +223,19 @@ int gnublin_serial::open_fd()
 			    printf("Error set I/O Speed\n");
 			}
 		break;
+/*
 		case 76800:
 			if(cfsetispeed(&config, B76800) < 0 || cfsetospeed(&config, B76800) < 0) {
 			    printf("Error set I/O Speed\n");
 			}
 		break;
+*/
 		case 115200:
 			if(cfsetispeed(&config, B115200) < 0 || cfsetospeed(&config, B115200) < 0) {
 			    printf("Error set I/O Speed\n");
 			}
 		break;
+/*
 		case 153600:
 			if(cfsetispeed(&config, B153600) < 0 || cfsetospeed(&config, B153600) < 0) {
 			    printf("Error set I/O Speed\n");
@@ -253,6 +256,7 @@ int gnublin_serial::open_fd()
 			    printf("Error set I/O Speed\n");
 			}
 		break;
+*/
 	}
 	//
 	// Finally, apply the configuration

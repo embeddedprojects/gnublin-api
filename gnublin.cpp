@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 07/15/13 11:16
+//build date: 09/06/13 19:12
 //******************************************** 
 
 #include "gnublin.h"
@@ -1164,11 +1164,11 @@ int gnublin_spi::message(unsigned char* tx, int tx_length, unsigned char* rx, in
 */
 gnublin_adc::gnublin_adc(){
 	#if (BOARD == BEAGLEBONE_BLACK)
-	std::ifstream file("/sys/devices/ocp.2/helper.*/AIN1");
+	std::ifstream file("/sys/devices/ocp.2/helper.14/AIN1");
 	if (file.fail()) {
-		std::ofstream file("/sys/devices/bone_capemgr.*/slots");
-		file << "cape-bone-iio";
-		file.close();
+		std::ofstream file2("/sys/devices/bone_capemgr.14/slots");
+		file2 << "cape-bone-iio";
+		file2.close();
 		sleep(1);
 	}
 	#else
@@ -1274,12 +1274,12 @@ int gnublin_adc::getVoltage(int pin){
 	int value;
 	std::stringstream ss;
 	ss << pin;
-	std::string device = "/sys/devices/ocp.2/helper.*/AIN" + ss.str();
-	std::ifstream dev_file(device.c_str());
+	std::string device = "/sys/devices/ocp.2/helper.14/AIN" + ss.str();
 	for (int i=0; i<2; i++){
+		std::ifstream dev_file(device.c_str());
 		dev_file >> value;
+		dev_file.close();
 	}
-	dev_file.close();
 	#else
 	int value = getValue(pin);
 	value = value*825/256;
@@ -1309,6 +1309,496 @@ int gnublin_adc::setReference(int ref){
 
 
 #endif
+
+//*******************************************************************
+//Class for accessing GNUBLIN serial interface
+//*******************************************************************
+
+//------------------local defines-----------------
+/** @~english 
+* @brief creates macro reference for default device "/dev/eser0"
+*
+* @~german 
+* @brief definiert das Standard seriell device "/dev/eser0"
+*
+*/
+#define BAUDRATE B9600
+#define SERIALDEVICE "/dev/eser0"
+
+//------------------Konstruktor------------------
+/** @~english
+* @brief initalizes the serial interface. Sets the devicefile to "/dev/eser0"
+*
+* @~german
+* @brief initialisiert die serielle Schnittstelle. Setzt das standard serielle device auf "/dev/eser0"
+*
+*/
+gnublin_serial::gnublin_serial() 
+{
+	init(SERIALDEVICE, BAUDRATE);
+}
+
+//------------------Konstruktor------------------
+/** @~english
+* @brief initalizes the serial interface. Sets the devicefile to "/dev/eser0"
+*
+* @~german
+* @brief initialisiert die serielle Schnittstelle. Setzt das standard serielle device auf "/dev/eser0"
+*
+*/
+gnublin_serial::gnublin_serial(std::string Devicefile) 
+{
+	init(Devicefile, BAUDRATE);
+}
+
+//------------------Konstruktor------------------
+/** @~english
+* @brief initalizes the serial interface. Sets the devicefile to "/dev/eser0"
+*
+* @~german
+* @brief initialisiert die serielle Schnittstelle. Setzt das standard serielle device auf "/dev/eser0"
+*
+*/
+gnublin_serial::gnublin_serial(std::string Devicefile, int rate) 
+{
+	init(Devicefile, rate);
+}
+
+//------------------init------------------
+/** @~english
+* @brief Called by the constructors to initialize class variables.
+* @param Devicefile new serial device file, e.g. "/dev/eser1"
+* @param rate new Baudrate e.g. 38400
+*
+* @~german
+* @brief Wird von den Konstruktoren der Klasse aufgerufen um die Variablen zu initialisieren.
+* @param Devicefile neues serial device file, z.B. "/dev/eser1"
+* @param rate Neue Baudrate z.B. 38400
+*
+*/
+void gnublin_serial::init(std::string Devicefile, int rate) 
+{
+	devicefile=Devicefile;
+	baudrate=rate;
+	error_flag=false;
+        fd = 0;	
+}
+
+//------------------error messaging------------------
+/** @~english
+* @brief Called by the send and receive Methods when an Error occures
+*
+* @param message String contents that describe the error.
+* @return -1
+*
+* @~german
+* @brief Wird von den send und receive Methoden aufgerufen, wenn ein Fehler auftritt
+*
+* @param message String der den Fehler beschreibt.
+* @return -1
+*
+*/
+int gnublin_serial::errorMsg(std::string message)
+{
+	ErrorMessage=message;
+	error_flag=true; 
+	close_fd();
+	return -1; 
+}
+
+//------------------close file descriptor------------------
+/** @~english
+* @brief Closes the file if open and resets the variable.
+*
+* @~german
+* @brief Schließt die Datei wenn sie offen ist und setzt die Variable zurück.
+*
+*/
+void gnublin_serial::close_fd()
+{
+	if (fd) {
+		close(fd);
+		fd = 0;
+	}
+}
+
+//------------------open file descriptor------------------
+/** @~english
+* @brief Opens the devicefile. If a file is already open it is closed first.  A new file is opened
+* and settings based on the class values for devicefile and baudrate were made
+*
+* @return success: 0, failure: -1
+*
+* @~german
+* @brief Öffnet die Geräte Datei. Wenn eine Datei bereits geöffnet ist, wird sie zunächst geschlossen. 
+* Eine neue Datei wird geöffnet und Einstellungen vorgenommen, basierend auf den Klassenvariablen devicefile und Baudrate
+*
+* @return Erfolg: 0, Misserfolg: -1
+*
+*/
+int gnublin_serial::open_fd() 
+{
+	error_flag = false;
+
+	if (fd) { 
+		close_fd(); 
+		fd = 0;
+	}
+
+	if ((fd = open(devicefile.c_str(), O_RDWR | O_NOCTTY | O_NDELAY)) < 0) 
+		return errorMsg("ERROR opening: " + devicefile + "\n");
+
+	if(!isatty(fd)) { errorMsg("Error isatty(fd)\n"); }
+	if(tcgetattr(fd, &config) < 0) { errorMsg("Error tcgetattr\n"); }
+	//
+	// Input flags - Turn off input processing
+	// convert break to null byte, no CR to NL translation,
+	// no NL to CR translation, don't mark parity errors or breaks
+	// no input parity check, don't strip high bit off,
+	// no XON/XOFF software flow control
+	//
+	config.c_iflag &= ~(IGNBRK | BRKINT | ICRNL |
+		            INLCR | PARMRK | INPCK | ISTRIP | IXON);
+	//
+	// Output flags - Turn off output processing
+	// no CR to NL translation, no NL to CR-NL translation,
+	// no NL to CR translation, no column 0 CR suppression,
+	// no Ctrl-D suppression, no fill characters, no case mapping,
+	// no local output processing
+	//
+	// config.c_oflag &= ~(OCRNL | ONLCR | ONLRET |
+	//                     ONOCR | ONOEOT| OFILL | OLCUC | OPOST);
+	config.c_oflag = 0;
+	//
+	// No line processing:
+	// echo off, echo newline off, canonical mode off, 
+	// extended input processing off, signal chars off
+	//
+	config.c_lflag &= ~(ECHO | ECHONL | ICANON | IEXTEN | ISIG);
+	//
+	// Turn off character processing
+	// clear current char size mask, no parity checking,
+	// no output processing, force 8 bit input
+	//
+	config.c_cflag &= ~(CSIZE | PARENB);
+	config.c_cflag |= CS8;
+	//
+	// One input byte is enough to return from read()
+	// Inter-character timer off
+	//
+	config.c_cc[VMIN]  = 1;
+	config.c_cc[VTIME] = 0;
+	//
+	// Communication speed (simple version, using the predefined
+	// constants)
+	//
+	switch(baudrate){
+		case 300:
+			if(cfsetispeed(&config, B300) < 0 || cfsetospeed(&config, B300) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+		case 600:
+			if(cfsetispeed(&config, B600) < 0 || cfsetospeed(&config, B600) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+		case 1200:
+			if(cfsetispeed(&config, B1200) < 0 || cfsetospeed(&config, B1200) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+		case 2400:
+			if(cfsetispeed(&config, B2400) < 0 || cfsetospeed(&config, B2400) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;	
+		case 4800:
+			if(cfsetispeed(&config, B4800) < 0 || cfsetospeed(&config, B4800) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+		case 9600:
+			if(cfsetispeed(&config, B9600) < 0 || cfsetospeed(&config, B9600) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+		case 19200:
+			if(cfsetispeed(&config, B19200) < 0 || cfsetospeed(&config, B19200) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+		case 38400:
+			if(cfsetispeed(&config, B38400) < 0 || cfsetospeed(&config, B38400) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+/*
+		case 76800:
+			if(cfsetispeed(&config, B76800) < 0 || cfsetospeed(&config, B76800) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+*/
+		case 115200:
+			if(cfsetispeed(&config, B115200) < 0 || cfsetospeed(&config, B115200) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+/*
+		case 153600:
+			if(cfsetispeed(&config, B153600) < 0 || cfsetospeed(&config, B153600) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+		case 307200:
+			if(cfsetispeed(&config, B307200) < 0 || cfsetospeed(&config, B307200) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+		case 614400:
+			if(cfsetispeed(&config, B614400) < 0 || cfsetospeed(&config, B614400) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+		case 1228800:
+			if(cfsetispeed(&config, B1228800) < 0 || cfsetospeed(&config, B1228800) < 0) {
+			    printf("Error set I/O Speed\n");
+			}
+		break;
+*/
+	}
+	//
+	// Finally, apply the configuration
+	//
+	if(tcsetattr(fd, TCSAFLUSH, &config) < 0) {  printf("Error set Attr\n"); }
+
+	return 0;
+}
+
+//-------------------------------Fail-------------------------------
+/** @~english 
+* @brief returns the error flag to check if the last operation went wrong
+*
+* @return error_flag as boolean
+*
+* @~german 
+* @brief Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist
+*
+* @return error_flag als bool
+*/
+bool gnublin_serial::fail(){
+	return error_flag;
+}
+
+//-------------------set devicefile----------------
+/** @~english
+* @brief set the serial device file. default is "/dev/eser0"
+*
+* This function sets the devicefile you want to access. by default "/dev/eser0" is set.
+* @param filename path to the devicefile e.g. "/dev/eser0"
+* @return failure: -1 
+*
+* @~german
+* @brief setzt die Serielle Device Datei. Standard ist die "/dev/eser0"
+*
+* Diese Funktion setzt die Geräte Datei, auf die man zugreifen möchte. Standardmäßig ist bereits "/dev/eser0" gesetzt.
+* @param filename Dateipfad zur Geräte Datei, z.B. "/dev/eser0"
+* @return failure: -1 
+*/
+int gnublin_serial::setDevicefile(std::string filename){
+	devicefile = filename;
+	return open_fd();
+}
+
+//-------------------set baudrate----------------
+/** @~english
+* @brief sets the baudrate
+*
+* This function sets the baudrate you want. supported baudrates are: 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 76800, 115200, 153600, 307200, 614400 and 1228800
+* @param rate Baudrate
+* @return failure: -1 
+*
+* @~german
+* @brief setzt die I2C Device Datei. Standard ist die "/dev/i2c-1"
+*
+* Diese Funktion setzt die Baudrate. Es werden folgende Baudraten unterstüzt: 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 76800, 115200, 153600, 307200, 614400 und 1228800
+* @param rate Baudrate
+* @return failure: -1 
+*/
+int gnublin_serial::setBaudrate(int rate){
+	baudrate=rate;
+	return open_fd();
+}
+
+//----------------------------------send----------------------------------
+/** @~english 
+* @brief send bytes to the serial Interface
+*
+* This function sends "length" number of bytes from the "TxBuf" to the serial interface. At success the function returns 1, on failure -1.<br>
+* e.g.<br>
+* send 2 bytes from buf to the serial interface<br>
+* send (buf, 2);
+* @param TxBuf Transmit buffer. The bytes you want to send are stored in it.
+* @param length Amount of bytes that will be send.
+* @return success: 1, failure: -1
+*
+* @~german 
+* @brief sendet Bytes an den serielle Schnittstelle.
+*
+* Diese Funktion sendet "length" Anzahl an Bytes aus dem "TxBuf" an die serielle Schnittstelle. Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br>
+* Beispiele:<br>
+* Sende 2 Bytes von "buf" an den i2c Bus:
+* send(buf, 2);
+* @param RxBuf Sende Puffer. Die zu sendenden Bytes sind hier gespeichert.
+* @param length Anzahl der zu sendenden Bytes.
+* @return Erfolg: 1, Misserfolg: -1
+*/
+int gnublin_serial::send(unsigned char *TxBuf, int length){
+
+	if (TxBuf == 0)
+		return errorMsg("Send method received a null TxBuf pointer.\n");
+	if (length < 1)
+		return errorMsg("Send method received an invalid buffer length.\n");
+
+	if (!fd)
+		if (open_fd() == -1)
+			  return -1;
+
+	error_flag=false;	
+
+	if(write(fd, TxBuf, length) != length)
+		return errorMsg("serial write error!\n");
+
+	return 1;
+}
+
+
+//***************************************************************************
+// Class for creating pwm signals
+//***************************************************************************
+
+
+/**
+* @~english
+* @brief Default clock is clk1 with 1400 Hz.
+*
+* Clock divider:
+* clk1: clock divider off
+* clk2: half clock
+* clk3: quarter clock
+* clk4: eighth clock
+* @~german
+* @brief Standard Clock ist clk1i.
+*
+* Clock-Teiler:
+* clk1: Clock-Teiler aus
+* clk2: Halbe Clock
+* clk3: Viertel Clock
+* clk4: Achtel Clock
+*/
+
+
+//******************** constructor ******************************************
+/**
+* @~english
+* @brief Constructs the object.
+*
+* @~german
+* @brief Konstruiert das Objekt.
+*
+*/
+
+gnublin_pwm::gnublin_pwm() {  }		// ctor
+
+
+
+//********************** setValue **********************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the Duty-Cycle. 0 would be equal to LOW and 100 would be equal to HIGH.
+ *
+ *      
+ * @param Float vlaue from 0 to 100. Other values will be ignored.
+ *
+ * @~german
+ * @brief Definiert den Duty-Cycle. 0 wäre wie ein logisches LOW und 100 ein logisches HIGH.
+ *
+ * @param Float Wert von 0 bis 100. Andere Werte werden ignoriert.
+ *
+ */
+
+void gnublin_pwm::setValue(float v) {
+ 	int pwm_raw = 0;
+	pwm_raw = int(v/100 * 4095);
+	
+	if(pwm_raw < 0 || pwm_raw > 4095) {
+		printf("Enter a value between 0 and 100");
+		return;
+	}
+	// Convert to hex
+	stringstream stream;
+	stream << setfill ('0') << setw(sizeof(char)*3) << hex << pwm_raw;
+	string pwm_hex( stream.str() );
+	
+	cout << pwm_hex << endl;	//debug line
+	
+	std::ofstream pwm_file ("/dev/lpc313x_pwm");
+	pwm_file << pwm_hex;	
+	return;
+}
+
+
+
+//********************** setClock *************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the Clock divider
+ *      
+ * @param clock number (integer). 
+ * 1: clk1, no clock divider, 1400 Hz 
+ * 2: clk2, half clock
+ * 3: clk3, quarter clock
+ * 4: clk4, eighth clock
+ *
+ * @~german
+ * @brief Definiert den Clock-Teiler
+ *
+ * @param delimiterSign Zeichen, welches als Trennsymbol genutzt werden soll 
+ * 1: clk1, Clock-Teiler aus, 1400 Hz
+ * 2: clk2, Halbe Clock
+ * 3: clk3, Viertel Clock
+ * 4: clk4, Achtel Clock
+ *
+ */
+
+void gnublin_pwm::setClock(int num) {
+	string clock_str;
+
+	switch (num) {
+		case 1:		clock_str = "clk1";
+							break;
+		case 2:		clock_str = "clk2";
+							break;
+		case 3:		clock_str = "clk3";
+							break;
+		case 4: 	clock_str = "clk4";
+							break;
+		default:	clock_str = "clk1";
+							break;
+	}
+
+	ofstream pwm_file ("/dev/lpc313x_pwm");
+	pwm_file << clock_str;
+	return;
+}
+
+
+
+
+
 
 //***************************************************************************
 // Class for accesing the GNUBLIN MODULE-DISPLAY 2x16
@@ -4055,6 +4545,101 @@ int gnublin_module_lcd::init(){
 	
 	return 1;
 }
+//*******************************************************************
+//Class for accessing the LM75 IC via I2C
+//*******************************************************************
+
+//------------------Konstruktor------------------
+/** @~english 
+* @brief Sets the error_flag to "false", the closemode to "1" (see i2c for details) and the standard i2c Address to 0x4f
+*
+* @~german 
+* @brief Setzt das error_flag auf "false", den closemode auf "1" (siehe i2c für Details) und die Standard i2c Adresse auf 0x4f
+*
+*/
+gnublin_module_dac::gnublin_module_dac()
+{
+	setAddress(0x60);
+	_channel[0] = _channel[1] = _channel[2] = _channel[3] = 0;
+}
+
+
+//-------------get Error Message-------------
+/** @~english 
+* @brief Get the last Error Message.
+*
+* This function returns the last Error Message, which occurred in that Class.
+* @return ErrorMessage as c-string
+*
+* @~german 
+* @brief Gibt die letzte Error Nachricht zurück.
+*
+* Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
+* @return ErrorMessage als c-string
+*/
+/*
+const char *gnublin_module_lm75::getErrorMessage(){
+	return ErrorMessage.c_str();
+}
+*/
+
+
+//-------------------------------Fail-------------------------------
+/** @~english 
+* @brief returns the error flag to check if the last operation went wrong
+*
+* @return error_flag as boolean
+*
+* @~german 
+* @brief Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist
+*
+* @return error_flag als bool
+*/
+/*
+bool gnublin_module_lm75::fail(){
+	return error_flag;
+}
+*/
+
+
+
+//-------------set Address-------------
+/** @~english 
+* @brief Set the i2c slave address 
+*
+* With this function you can set the individual I2C Slave-Address.
+* @param Address new I2C slave Address
+*
+* @~german 
+* @brief Setzt die i2c slave Adresse
+*
+* Mit dieser Funktion kann die individuelle I2C Slave-Adresse gesetzt werden.
+* @param Address neue I2C slave Adresse
+*/
+void gnublin_module_dac::setAddress(int Address){
+	i2c.setAddress(Address);
+}
+
+
+void gnublin_module_dac::write(int channel, int value) {
+	_channel[channel] = value;   
+	int i;
+	char lowByte[4];
+	char highByte[4];
+
+	for (i=0; i<4; i++) {
+		lowByte[i] = (char) (_channel[i] & 0xff);
+		highByte[i] = (char) ((_channel[i] >> 8) & 0xff);
+	}
+
+	unsigned char buffer[8]={	highByte[0],lowByte[0],
+														highByte[1],lowByte[1],
+														highByte[2],lowByte[2],
+														highByte[3],lowByte[3]};
+
+   i2c.send(buffer,8);
+
+}
 /* 
 
    base64.cpp and base64.h
@@ -6211,4 +6796,254 @@ std::string ECSmtp::GetErrorText() const
 			return "Undefined error id";
 	}
 }
+
+
+//***************************************************************************
+// Class for creating csv files
+//***************************************************************************
+
+/**
+* @~english
+* @brief Default delimiters are set if necessary.
+*
+* Default delimiters:
+* delimiterRowSign: \r\n
+* delimiterColumnSign: ;
+* delimiterFieldSign: "
+* @~german
+* @brief Standard Trennsymbole werden falls nötig gesetzt
+*
+* Standard Trennsymbole:
+* delimiterRowSign: \r\n
+* delimiterColumnSign: ;
+* delimiterFieldSign: "
+*
+*/
+
+
+//******************** constructor ******************************************
+/**
+* @~english
+* @brief Set Default delimiters
+*
+* @~german
+* @brief Setzt Default Trennsymbole
+*
+*/
+
+gnublin_csv::gnublin_csv() {
+	user_file_handle = true;
+	delimiterRowSign = "\r\n";
+	delimiterColumnSign = ';';
+	delimiterFieldSign = '"';
+}
+
+
+//******************** overloaded constructor *******************************
+/**
+ * @~english
+ * @brief Set Default delimiters and creates a csv file. addRow() will automatically open() and close() the file at each call.
+ * 
+ * @param new_filename name of the file
+ *
+ * @~german
+ * @brief Setzt Default Trennsymbole und erstellt eine csv Datei. open() und close() wird automatisch bei jedem Aufruf von addRow() ausgeführt.
+ *
+ * @param new_filename Name der Datei
+ *
+ */
+
+gnublin_csv::gnublin_csv(string new_filename) {
+	user_file_handle = false;
+	filename = new_filename;
+
+	ofstream file(filename.c_str());
+  if (file < 0) {
+  }
+  file.close();
+
+  delimiterRowSign = "\r\n";
+  delimiterColumnSign = ';';
+  delimiterFieldSign = '"';
+}
+
+
+//********************** open ***********************************************
+/**
+ *
+ * @~english
+ * @brief Creates a csv file. Use this method in combination with default constructer and close() for faster access. (No automated open() and close() in addRow() )
+ *  
+ * @param new_filename name of the file
+ * @return 1 by success, -1 by failure
+ *
+ * @~german
+ * @brief Erstellt eine csv Datei. Benutze diese Methode in Kombination mit dem Default Konstruktor und close() um schnelleren Dateizugriff zu ermöglichen. (Kein automatisches open() und close() in addRow() )
+ *
+ * @param new_filename Name der Datei
+ * @return 1 bei Erfolg, -1 im Fehlerfall
+ *
+ */
+
+int gnublin_csv::open(string new_filename) {
+	filename = new_filename;
+	
+  std::ofstream file (filename.c_str());
+  if (file < 0) {
+    return -1;
+  }
+	return 0;
+}
+
+
+//********************** addRow *********************************************
+/**
+ *
+ * @~english
+ * @brief Adds a row to the csv file. Example: gnublin_csv csv; string str = "Hello"; float f = 3.2; addRow(2, str.c_str(), (csv.NumberToString(f)).c_str());
+ *  
+ * @param quantity number of strings
+ * @param ... C-strings, which should be written to the file. (Convert C++-Strings with str.c_str(); and numbers with NumberToString() memeber to Strings)
+ * @return 1 by success, -1 by failure
+ *
+ * @~german
+ * @brief Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = "Hello"; float f = 3.2; addRow(2, str.c_str(), (csv.NumberToString(f)).c_str());
+ *
+ * @param quantity Anzahl der Strings
+ * @param ... C-Strings, welche in die Datei geschrieben werden sollen. (Konvertiere C++-Strings mit str.c_str(); und Zahlen mit NumberToString zu Strings) 
+ * @return 1 bei Erfolg, -1 im Fehlerfall
+ *
+ */
+
+int gnublin_csv::addRow(int quantity, ...) {
+	ofstream file (filename.c_str(), ios::out|ios::app);
+	va_list params;
+	char* par;
+	va_start(params, quantity);
+	for (int i=0; i<quantity; i++) {
+		par = va_arg(params, char*);
+		if (delimiterFieldSign != '\0') {
+			file << delimiterFieldSign << par << delimiterFieldSign << delimiterColumnSign;
+		} else {
+			file << par << delimiterColumnSign;
+		}
+	}	
+
+	file << delimiterRowSign;
+	va_end(params);
+	if (!user_file_handle) {
+		file.close();
+	}
+	return 0;	
+}
+
+//********************** close **********************************************
+/**
+ *
+ * @~english
+ * @brief Closes file. Use this method in combination with default constructor and open() for faster access. (No automated open and close in addRow() )
+ *
+ * @return 1 by success, -1 by failure
+ * 
+ * @~german
+ * @brief Schließt die Datei. Benutze diese Methode in Kombination mit dem Default Konstruktur und open() um schnelleren Dateizugriff zu ermöglichen. (Kein automatisches open() und close() in addRow() )
+ *
+ * @return 1 bei Erfolg, -1 im Fehlerfall
+ *
+ */
+
+void gnublin_csv::close() {
+	ofstream file (filename.c_str(), ios::out|ios::app);
+	file.close();
+}
+
+//********************** delimiterRow ***************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the delimiter of each row
+ *  
+ * @param delimiterSign Sign which should be used as delimiter
+ *
+ * @~german
+ * @brief Definiert das Trennsymbol zwischen den einzelnen Zeilen
+ *
+ * @param delimiterSign Zeichen, welches als Trennsymbol genutzt werden soll 
+ *
+ */
+
+void gnublin_csv::delimiterRow(string delimiterSign) {
+	delimiterRowSign = delimiterSign;
+}
+
+
+//********************** delimiterColumn ************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the delimiter of each column
+ *      
+ * @param delimiterSign Sign which should be used as delimiter
+ *
+ * @~german
+ * @brief Definiert das Trennsymbol zwischen den einzelnen Spalten
+ *
+ * @param delimiterSign Zeichen, welches als Trennsymbol genutzt werden soll 
+ *
+ */
+
+void gnublin_csv::delimiterColumn(char delimiterSign) {
+	delimiterColumnSign = delimiterSign;
+}
+
+
+//********************** delimiterField *************************************
+/**
+ *
+ * @~english
+ * @brief Specifies the delimiter of each field
+ *      
+ * @param delimiterSign Sign which should be used as delimiter
+ *
+ * @~german
+ * @brief Definiert das Trennsymbol zwischen den einzelnen Feldern
+ *
+ * @param delimiterSign Zeichen, welches als Trennsymbol genutzt werden soll 
+ *
+ */
+
+void gnublin_csv::delimiterField(char delimiterSign) {
+	delimiterFieldSign = delimiterSign;
+}
+
+
+//********************** overloaded delimiterField **************************
+/**
+ *
+ * @~english
+ * @brief Set no delimiter for each field
+ *      
+ * @~german
+ * @brief Kein Zeichen wird als Trennsymbol definiert
+ *
+ */
+
+void gnublin_csv::delimiterField() {
+	delimiterFieldSign = '\0';
+}
+/*
+template <class T>
+string NumberToString ( T Number )
+{
+  ostringstream ss;
+  ss << Number;
+  return ss.c_str();
+}
+*/
+
+
+
+
+
+
 
