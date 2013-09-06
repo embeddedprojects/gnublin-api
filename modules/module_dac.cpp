@@ -1,18 +1,19 @@
-#include "module_lm75.h"
+#include "module_dac.h"
 //*******************************************************************
-//Class for accessing the LM75 IC via I2C
+//Class for accessing the MCP4728 digital to analog IC via I2C
 //*******************************************************************
 
 //------------------Konstruktor------------------
 /** @~english 
-* @brief Sets the error_flag to "false", the closemode to "1" (see i2c for details) and the standard i2c Address to 0x4f
+* @brief Sets the error_flag to "false", the closemode to "1" (see i2c for details) and the standard i2c Address to 0x60
 *
 * @~german 
-* @brief Setzt das error_flag auf "false", den closemode auf "1" (siehe i2c für Details) und die Standard i2c Adresse auf 0x4f
+* @brief Setzt das error_flag auf "false", den closemode auf "1" (siehe i2c für Details) und die Standard i2c Adresse auf 0x60
 *
 */
 gnublin_module_dac::gnublin_module_dac()
 {
+        error_flag=false;
 	setAddress(0x60);
 	_channel[0] = _channel[1] = _channel[2] = _channel[3] = 0;
 }
@@ -31,11 +32,11 @@ gnublin_module_dac::gnublin_module_dac()
 * Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde.
 * @return ErrorMessage als c-string
 */
-/*
-const char *gnublin_module_lm75::getErrorMessage(){
+
+const char *gnublin_module_dac::getErrorMessage(){
 	return ErrorMessage.c_str();
 }
-*/
+
 
 
 //-------------------------------Fail-------------------------------
@@ -49,11 +50,10 @@ const char *gnublin_module_lm75::getErrorMessage(){
 *
 * @return error_flag als bool
 */
-/*
-bool gnublin_module_lm75::fail(){
+
+bool gnublin_module_dac::fail(){
 	return error_flag;
 }
-*/
 
 
 

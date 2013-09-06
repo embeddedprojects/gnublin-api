@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.4"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
 <title>gnublin-api: examples/module_step.cpp Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -33,7 +33,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Erzeugt von Doxygen 1.8.4 -->
+<!-- Erzeugt von Doxygen 1.8.3.1 -->
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Hauptseite</span></a></li>
@@ -73,23 +73,23 @@ $(document).ready(function(){initNavTree('examples_2module__step_8cpp_source.htm
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;ios&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;gnublin.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="examples_2module__step_8cpp.html#ae6d8a7256489202f0beccf3e57edb553">    7</a></span>&#160;<a class="code" href="classgnublin__module__step.html" title="Klasse für den zugriff auf das GNUBLIN module-step. ">gnublin_module_step</a> <a class="code" href="examples_2module__step_8cpp.html#ae6d8a7256489202f0beccf3e57edb553">Motor</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="examples_2module__step_8cpp.html#ae6d8a7256489202f0beccf3e57edb553">    7</a></span>&#160;<a class="code" href="classgnublin__module__step.html" title="Klasse für den zugriff auf das GNUBLIN module-step.">gnublin_module_step</a> <a class="code" href="examples_2module__step_8cpp.html#ae6d8a7256489202f0beccf3e57edb553">Motor</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="examples_2module__step_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   10</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="examples_2adc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> () {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//SetMotorParam</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;Motor.<a class="code" href="classgnublin__module__step.html#a7efdb13438dc9265a59fb49566c26922" title="Setze Vmax. ">setVmax</a>(4);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;Motor.<a class="code" href="classgnublin__module__step.html#a1a65aaa089987c5fc88d9873c1ec867c" title="Setze Motor Parameter. ">setMotorParam</a>();          </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;Motor.<a class="code" href="classgnublin__module__step.html#a7efdb13438dc9265a59fb49566c26922" title="Setze Vmax.">setVmax</a>(4);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;Motor.<a class="code" href="classgnublin__module__step.html#a1a65aaa089987c5fc88d9873c1ec867c" title="Setze Motor Parameter.">setMotorParam</a>();          </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//GetFullStatus1 command:  This Command must be executed before Operating</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Motor.<a class="code" href="classgnublin__module__step.html#a9944d86e965debcb0f07b6794ba455b6" title="Get full Status 1. ">getFullStatus1</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Motor.<a class="code" href="classgnublin__module__step.html#a9944d86e965debcb0f07b6794ba455b6" title="Get full Status 1.">getFullStatus1</a>();</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//RunInit command:  This Command must be executed before Operating</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    Motor.<a class="code" href="classgnublin__module__step.html#a2025a51c309a15b99d46049a474fc99f" title="Run Init. ">runInit</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Motor.<a class="code" href="classgnublin__module__step.html#a1294ca5d808044f702e446b473bbf5c0" title="Fahre. ">drive</a>(10000);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordflow">while</span>(Motor.<a class="code" href="classgnublin__module__step.html#a1d6a86fcf598665c07bd376bfbd90173" title="Bewegungs-Status. ">getMotionStatus</a>()!=0){  <span class="comment">//wait until Motor stands still</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    Motor.<a class="code" href="classgnublin__module__step.html#a2025a51c309a15b99d46049a474fc99f" title="Run Init.">runInit</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Motor.<a class="code" href="classgnublin__module__step.html#a1294ca5d808044f702e446b473bbf5c0" title="Fahre.">drive</a>(10000);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordflow">while</span>(Motor.<a class="code" href="classgnublin__module__step.html#a1d6a86fcf598665c07bd376bfbd90173" title="Bewegungs-Status.">getMotionStatus</a>()!=0){  <span class="comment">//wait until Motor stands still</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    usleep(10000);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;Motor.<a class="code" href="classgnublin__module__step.html#a1294ca5d808044f702e446b473bbf5c0" title="Fahre. ">drive</a>(-10000);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;Motor.<a class="code" href="classgnublin__module__step.html#a1294ca5d808044f702e446b473bbf5c0" title="Fahre.">drive</a>(-10000);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -97,9 +97,9 @@ $(document).ready(function(){initNavTree('examples_2module__step_8cpp_source.htm
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="examples_2module__step_8cpp.html">module_step.cpp</a></li>
-    <li class="footer">Erzeugt am Don Jul 4 2013 10:49:50 für gnublin-api von
+    <li class="footer">Erzeugt am Fre Sep 6 2013 19:38:52 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
   </ul>
 </div>
 </body>

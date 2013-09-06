@@ -1,5 +1,6 @@
 var includes_8h =
 [
+    [ "BEAGLEBONE_BLACK", "includes_8h.html#ae33ce1ca42d2c8084a9cc2c77a14f2bc", null ],
     [ "GNUBLIN", "includes_8h.html#a283fde64ffeb04d9f8ccdc1de2697f7d", null ],
     [ "HIGH", "includes_8h.html#a5bb885982ff66a2e0a0a45a8ee9c35e2", null ],
     [ "IN", "includes_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928", null ],

@@ -4,6 +4,10 @@ var dir_e05d7e2b1ecd646af5bb94391405f3b5 =
     [ "module_adc.h", "module__adc_8h.html", [
       [ "gnublin_module_adc", "classgnublin__module__adc.html", "classgnublin__module__adc" ]
     ] ],
+    [ "module_dac.cpp", "modules_2module__dac_8cpp.html", null ],
+    [ "module_dac.h", "module__dac_8h.html", [
+      [ "gnublin_module_dac", "classgnublin__module__dac.html", "classgnublin__module__dac" ]
+    ] ],
     [ "module_dogm.cpp", "module__dogm_8cpp.html", null ],
     [ "module_dogm.h", "module__dogm_8h.html", [
       [ "gnublin_module_dogm", "classgnublin__module__dogm.html", "classgnublin__module__dogm" ]

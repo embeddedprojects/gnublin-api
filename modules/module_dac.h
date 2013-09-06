@@ -2,15 +2,15 @@
 #include "../drivers/i2c.cpp"
 
 //*******************************************************************
-//Class for accessing the LM75 IC via I2C
+//Class for accessing the MCP4728 digital to analog IC via I2C
 //*******************************************************************
 /**
-* @class gnublin_module_lm75
+* @class gnublin_module_dac
 * @~english
-* @brief Class for accessing the LM75 IC via I2C
+* @brief Class for accessing the MCP4728 digital to analog IC via I2C
 *
 * @~german 
-* @brief Klasse für den zugriff auf den LM75 IC via I2C Bus
+* @brief Klasse für den zugriff auf den MCP4728 digital zu analog Wandler 
 *
 */
 class gnublin_module_dac {

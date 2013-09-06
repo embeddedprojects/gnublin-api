@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.4"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
 <title>gnublin-api: modules/module_pca9555.cpp Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -33,7 +33,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Erzeugt von Doxygen 1.8.4 -->
+<!-- Erzeugt von Doxygen 1.8.3.1 -->
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Hauptseite</span></a></li>
@@ -77,12 +77,12 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a3036314dbb06581a192f943d96476b45">   15</a></span>&#160;<span class="comment"></span><a class="code" href="classgnublin__module__pca9555.html#a3036314dbb06581a192f943d96476b45" title="Setze standard i2c Adresse 0x20, den closemode auf &quot;1&quot; (siehe i2c für Details) und setze das ErrorFla...">gnublin_module_pca9555::gnublin_module_pca9555</a>() </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    error_flag=<span class="keyword">false</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classgnublin__module__pca9555.html#a4c1446e6ffb05ecab759af97a9624277" title="Setzt die i2c slave Adresse. ">setAddress</a>(0x20);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classgnublin__module__pca9555.html#a4c1446e6ffb05ecab759af97a9624277" title="Setzt die i2c slave Adresse.">setAddress</a>(0x20);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//-------------get Error Message-------------</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a3ddcc1d5b2057e7abb44ab41771e8ddd">   35</a></span>&#160;<span class="comment"></span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__pca9555.html#a3ddcc1d5b2057e7abb44ab41771e8ddd" title="Gibt die letzte Error Nachricht zurück. ">gnublin_module_pca9555::getErrorMessage</a>(){</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a3ddcc1d5b2057e7abb44ab41771e8ddd">   35</a></span>&#160;<span class="comment"></span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__pca9555.html#a3ddcc1d5b2057e7abb44ab41771e8ddd" title="Gibt die letzte Error Nachricht zurück.">gnublin_module_pca9555::getErrorMessage</a>(){</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> ErrorMessage.c_str();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
@@ -92,18 +92,18 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">//-------------set Address-------------</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a4c1446e6ffb05ecab759af97a9624277">   67</a></span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__pca9555.html#a4c1446e6ffb05ecab759af97a9624277" title="Setzt die i2c slave Adresse. ">gnublin_module_pca9555::setAddress</a>(<span class="keywordtype">int</span> Address){</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    i2c.<a class="code" href="classgnublin__i2c.html#a90a93e09d54776eea8672f0bfe420682" title="Setzt die i2c slave Adresse. ">setAddress</a>(Address);</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a4c1446e6ffb05ecab759af97a9624277">   67</a></span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__pca9555.html#a4c1446e6ffb05ecab759af97a9624277" title="Setzt die i2c slave Adresse.">gnublin_module_pca9555::setAddress</a>(<span class="keywordtype">int</span> Address){</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    i2c.<a class="code" href="classgnublin__i2c.html#a90a93e09d54776eea8672f0bfe420682" title="Setzt die i2c slave Adresse.">setAddress</a>(Address);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">//-------------------set devicefile----------------</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045">   85</a></span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot; ">gnublin_module_pca9555::setDevicefile</a>(std::string filename){</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    i2c.<a class="code" href="classgnublin__i2c.html#a181a9cfd2156dab527f88dcd9507fb2e" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot; ">setDevicefile</a>(filename);</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045">   85</a></span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">gnublin_module_pca9555::setDevicefile</a>(std::string filename){</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    i2c.<a class="code" href="classgnublin__i2c.html#a181a9cfd2156dab527f88dcd9507fb2e" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">setDevicefile</a>(filename);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">//-----------------------------------Pin Mode-----------------------------------</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826">  106</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826" title="Setzt den Pin Modus (Eingang/Ausgang) ">gnublin_module_pca9555::pinMode</a>(<span class="keywordtype">int</span> pin, std::string direction){</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826">  106</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826" title="Setzt den Pin Modus (Eingang/Ausgang)">gnublin_module_pca9555::pinMode</a>(<span class="keywordtype">int</span> pin, std::string direction){</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    error_flag=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> TxBuf[1];</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RxBuf[1];</div>
@@ -118,11 +118,11 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            TxBuf[0]=pow(2, pin); <span class="comment">//convert pin into its binary form e. g. Pin 3 = 8</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">if</span> (i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus. ">receive</a>(0x06, RxBuf, 1)&gt;0){ <span class="comment">//read the current state</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">if</span> (i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x06, RxBuf, 1)&gt;0){ <span class="comment">//read the current state</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordflow">if</span> (direction==<span class="stringliteral">&quot;out&quot;</span>){</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    TxBuf[0]=RxBuf[0] &amp; ~TxBuf[0]; <span class="comment">// at output you have to invert the pin you want to set und AND it to change only the pin </span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x06, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x06, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                    <span class="keywordflow">else</span> {</div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                }</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (direction==<span class="stringliteral">&quot;in&quot;</span>){</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                    TxBuf[0]=RxBuf[0] | TxBuf[0]; <span class="comment">// at input you just have to do a OR</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x06, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x06, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                    }</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                    <span class="keywordflow">else</span> {</div>
@@ -159,11 +159,11 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            TxBuf[0]=pow(2, (pin-8)); <span class="comment">//convert pin into its binary form e. g. Pin 3 = 8</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus. ">receive</a>(0x07, RxBuf, 1)&gt;0){ <span class="comment">//read the current state</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x07, RxBuf, 1)&gt;0){ <span class="comment">//read the current state</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <span class="keywordflow">if</span> (direction==<span class="stringliteral">&quot;out&quot;</span>){</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                    TxBuf[0]=RxBuf[0] &amp; ~TxBuf[0];</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x07, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x07, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                    }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                    <span class="keywordflow">else</span> {</div>
@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                }</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (direction==<span class="stringliteral">&quot;in&quot;</span>){</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                    TxBuf[0]=RxBuf[0] | TxBuf[0];</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x07, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x07, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                    }</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                    <span class="keywordflow">else</span> {</div>
@@ -200,7 +200,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">//-----------------------------------Port Mode-----------------------------------</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e">  219</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e" title="Setzt den Port Modus (Eingang/Ausgang) ">gnublin_module_pca9555::portMode</a>(<span class="keywordtype">int</span> port, std::string direction){</div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e">  219</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e" title="Setzt den Port Modus (Eingang/Ausgang)">gnublin_module_pca9555::portMode</a>(<span class="keywordtype">int</span> port, std::string direction){</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    error_flag=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> TxBuf[1];</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
@@ -214,7 +214,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="keywordflow">if</span> (direction==<span class="stringliteral">&quot;out&quot;</span>){</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                TxBuf[0]=0x00;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x06, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x06, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                }</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                <span class="keywordflow">else</span> {</div>
@@ -226,7 +226,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            }</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (direction==<span class="stringliteral">&quot;in&quot;</span>){</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                TxBuf[0]=0xff;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x06, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x06, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                }</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                <span class="keywordflow">else</span> {</div>
@@ -245,7 +245,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        </div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keywordflow">if</span> (direction==<span class="stringliteral">&quot;out&quot;</span>){</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                TxBuf[0]=0x00;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x07, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x07, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                }</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                <span class="keywordflow">else</span> {</div>
@@ -256,7 +256,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            }</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (direction==<span class="stringliteral">&quot;in&quot;</span>){</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                TxBuf[0]=0xff;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x07, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x07, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                }</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                <span class="keywordflow">else</span> {</div>
@@ -276,7 +276,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">//-----------------------------------digital Write-----------------------------------</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad">  311</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad" title="Setzt den Pegel eines Ausgangs (HIGH/LOW) ">gnublin_module_pca9555::digitalWrite</a>(<span class="keywordtype">int</span> pin, <span class="keywordtype">int</span> value){</div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad">  311</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad" title="Setzt den Pegel eines Ausgangs (HIGH/LOW)">gnublin_module_pca9555::digitalWrite</a>(<span class="keywordtype">int</span> pin, <span class="keywordtype">int</span> value){</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    error_flag=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> TxBuf[1];</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RxBuf[1];</div>
@@ -292,11 +292,11 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            TxBuf[0]=pow(2, pin); <span class="comment">//convert pin into its binary form e. g. Pin 3 = 8</span></div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <span class="keywordflow">if</span> (i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus. ">receive</a>(0x02, RxBuf, 1)&gt;0){ <span class="comment">//read the current state</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <span class="keywordflow">if</span> (i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x02, RxBuf, 1)&gt;0){ <span class="comment">//read the current state</span></div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                <span class="keywordflow">if</span> (value==0){</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                    TxBuf[0]=(RxBuf[0] &amp; ~TxBuf[0]); <span class="comment">// at low you have to invert the pin you want to set and do a AND to change only the pin you want </span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x02, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x02, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                    }</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                    <span class="keywordflow">else</span> {</div>
@@ -308,7 +308,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                }</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (value==1){</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                    TxBuf[0]=(RxBuf[0] | TxBuf[0]); <span class="comment">// at high you just have to do a OR</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x02, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x02, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                    }</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                    <span class="keywordflow">else</span> {  </div>
@@ -333,11 +333,11 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            TxBuf[0]=pow(2, (pin-8)); <span class="comment">//convert pin into its binary form e. g. Pin 3 = 8</span></div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus. ">receive</a>(0x03, RxBuf, 1)&gt;0){ <span class="comment">//read the current state</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x03, RxBuf, 1)&gt;0){ <span class="comment">//read the current state</span></div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                <span class="keywordflow">if</span> (value==0){</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                    </div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                    TxBuf[0]=RxBuf[0] &amp; ~TxBuf[0];</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x03, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x03, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                    }</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                    <span class="keywordflow">else</span> {</div>
@@ -348,7 +348,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                }</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (value==1){</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                    TxBuf[0]=RxBuf[0] | TxBuf[0];</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x03, TxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                    <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x03, TxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                    }</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                    <span class="keywordflow">else</span> {</div>
@@ -373,13 +373,13 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;}</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="comment">//-----------------------------------write Port-----------------------------------</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#aa9982a37fe13f786d6a4fccb6cd8ed7b">  424</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#aa9982a37fe13f786d6a4fccb6cd8ed7b" title="Schreibt ein Byte an einen kompletten Port. ">gnublin_module_pca9555::writePort</a>(<span class="keywordtype">int</span> port, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> value){</div>
+<div class="line"><a name="l00424"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#aa9982a37fe13f786d6a4fccb6cd8ed7b">  424</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#aa9982a37fe13f786d6a4fccb6cd8ed7b" title="Schreibt ein Byte an einen kompletten Port.">gnublin_module_pca9555::writePort</a>(<span class="keywordtype">int</span> port, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> value){</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    error_flag=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> buffer[1];</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    buffer[0]=value;</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="keywordflow">if</span>(port==0){ <span class="comment">// Port 0</span></div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x02, buffer, 1)&gt;0){</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x02, buffer, 1)&gt;0){</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        }</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <span class="keywordflow">else</span> {</div>
@@ -389,7 +389,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        }</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    }</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(port==1){</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus. ">send</a>(0x03, buffer, 1)&gt;0){</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a494281d965dc96b7d59e75882da3ba0e" title="sendet Bytes an den I2C Bus.">send</a>(0x03, buffer, 1)&gt;0){</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        }</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keywordflow">else</span> {</div>
@@ -407,7 +407,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;}</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment">//-----------------------------------digital read-----------------------------------</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a8045664522ef69bc1bcbcfe88794243a">  472</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#a8045664522ef69bc1bcbcfe88794243a" title="Liest den Zustand eins Eingang-Pins und gibt ihn zurück. ">gnublin_module_pca9555::digitalRead</a>(<span class="keywordtype">int</span> pin) {</div>
+<div class="line"><a name="l00472"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a8045664522ef69bc1bcbcfe88794243a">  472</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#a8045664522ef69bc1bcbcfe88794243a" title="Liest den Zustand eins Eingang-Pins und gibt ihn zurück.">gnublin_module_pca9555::digitalRead</a>(<span class="keywordtype">int</span> pin) {</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    error_flag=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RxBuf[1];</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;</div>
@@ -418,7 +418,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    }</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    </div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="keywordflow">if</span>(pin &gt;= 0 &amp;&amp; pin &lt;= 7){ <span class="comment">// Port 0     </span></div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus. ">receive</a>(0x00, RxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x00, RxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;                RxBuf[0]&lt;&lt;=(7-pin); <span class="comment">// MSB is now the pin you want to read from</span></div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                RxBuf[0]&amp;=128; <span class="comment">// set all bits to 0 except the MSB</span></div>
@@ -442,7 +442,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;        }</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    }</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(pin &gt;= 8 &amp;&amp; pin &lt;= 15){ <span class="comment">// Port 1</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus. ">receive</a>(0x01, RxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x01, RxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                RxBuf[0]&lt;&lt;=(15-pin); <span class="comment">// MSB is now the pin you want to read from</span></div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                RxBuf[0]&amp;=128;  <span class="comment">// set all bits to 0 except the MSB </span></div>
@@ -471,12 +471,12 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;}</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="comment">//-----------------------------------read Port-----------------------------------</span></div>
-<div class="line"><a name="l00550"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a1f0bc565a06d1706f2c571b781c9ddb8">  550</a></span>&#160;<span class="comment"></span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="classgnublin__module__pca9555.html#a1f0bc565a06d1706f2c571b781c9ddb8" title="Liest den Zustand eins Eingang-Ports und gibt ihn zurück. ">gnublin_module_pca9555::readPort</a>(<span class="keywordtype">int</span> port) {</div>
+<div class="line"><a name="l00550"></a><span class="lineno"><a class="code" href="classgnublin__module__pca9555.html#a1f0bc565a06d1706f2c571b781c9ddb8">  550</a></span>&#160;<span class="comment"></span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="classgnublin__module__pca9555.html#a1f0bc565a06d1706f2c571b781c9ddb8" title="Liest den Zustand eins Eingang-Ports und gibt ihn zurück.">gnublin_module_pca9555::readPort</a>(<span class="keywordtype">int</span> port) {</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    error_flag=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RxBuf[1];</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keywordflow">if</span>(port == 0 ){ <span class="comment">// Port 0       </span></div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus. ">receive</a>(0x00, RxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x00, RxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;            <span class="keywordflow">return</span> RxBuf[0];</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;                </div>
@@ -488,7 +488,7 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        }</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    }</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(port == 1){ <span class="comment">// Port 1</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus. ">receive</a>(0x01, RxBuf, 1)&gt;0){</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x01, RxBuf, 1)&gt;0){</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;            <span class="keywordflow">return</span> RxBuf[0];</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;                </div>
@@ -511,9 +511,9 @@ $(document).ready(function(){initNavTree('modules_2module__pca9555_8cpp_source.h
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e05d7e2b1ecd646af5bb94391405f3b5.html">modules</a></li><li class="navelem"><a class="el" href="modules_2module__pca9555_8cpp.html">module_pca9555.cpp</a></li>
-    <li class="footer">Erzeugt am Don Jul 4 2013 10:49:50 für gnublin-api von
+    <li class="footer">Erzeugt am Fre Sep 6 2013 19:38:52 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
   </ul>
 </div>
 </body>
