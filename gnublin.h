@@ -1,10 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-<<<<<<< HEAD
-//build date: 08/23/13 07:08
-=======
-//build date: 09/06/13 19:12
->>>>>>> develop
+//build date: 09/07/13 18:57
 //******************************************** 
 
 
@@ -255,8 +251,6 @@ public:
 	int setBaudrate(int rate);
 
 };
-<<<<<<< HEAD
-=======
 #include <fstream>
 #include <string>
 #include <iostream>
@@ -292,7 +286,6 @@ class gnublin_pwm{
 
 
 
->>>>>>> develop
 //***** NEW BLOCK *****
 
 //***************************************************************************
@@ -618,27 +611,27 @@ public:
 //***** NEW BLOCK *****
 
 //*******************************************************************
-//Class for accessing the LM75 IC via I2C
+//Class for accessing the MCP4728 digital to analog IC via I2C
 //*******************************************************************
 /**
-* @class gnublin_module_lm75
+* @class gnublin_module_dac
 * @~english
-* @brief Class for accessing the LM75 IC via I2C
+* @brief Class for accessing the MCP4728 digital to analog IC via I2C
 *
 * @~german 
-* @brief Klasse für den zugriff auf den LM75 IC via I2C Bus
+* @brief Klasse für den zugriff auf den MCP4728 digital zu analog Wandler 
 *
 */
 class gnublin_module_dac {
 private:
-	//bool error_flag;
+	bool error_flag;
 	gnublin_i2c i2c;
 	int _channel[4];
-	//std::string ErrorMessage;
+	std::string ErrorMessage;
 public:
 	gnublin_module_dac();
-	//const char *getErrorMessage();
-	//bool fail();
+	const char *getErrorMessage();
+	bool fail();
 	void setAddress(int Address);
 	//int* read(int);
 	

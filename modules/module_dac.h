@@ -15,14 +15,14 @@
 */
 class gnublin_module_dac {
 private:
-	//bool error_flag;
+	bool error_flag;
 	gnublin_i2c i2c;
 	int _channel[4];
-	//std::string ErrorMessage;
+	std::string ErrorMessage;
 public:
 	gnublin_module_dac();
-	//const char *getErrorMessage();
-	//bool fail();
+	const char *getErrorMessage();
+	bool fail();
 	void setAddress(int Address);
 	//int* read(int);
 	
