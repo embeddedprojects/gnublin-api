@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 09/07/13 18:57
+//build date: 09/10/13 15:12
 //******************************************** 
 
 #include "gnublin.h"
@@ -4055,9 +4055,16 @@ int gnublin_module_step::drive(int steps){
 	int old_position;
 	int new_position;
 
+	// mindestens 4 mal gleicher wert
 	old_position = getActualPosition();
 	new_position = old_position+steps;
 	if(setPosition(new_position)){
+sleep(1);
+int i=0;
+for(i=0;i<10;i++)
+{
+	printf("Wert %i %i\r\n",i,getActualPosition());
+}
 		return 1;
 	}
 	else return -1;
@@ -4098,7 +4105,9 @@ int gnublin_module_step::drive(int steps){
 int gnublin_module_step::getMotionStatus(){
 	unsigned char RxBuf[8];
 	int motionStatus = -1;
-	getFullStatus1();
+	if(getFullStatus1()==-1)
+		return -1;
+	
 	
     	if(!i2c.receive(RxBuf, 8))
 		return -1;
@@ -4131,7 +4140,9 @@ int gnublin_module_step::getSwitch(){
 	unsigned char RxBuf[8];    	
 	int swi = 0;
 
-    	getFullStatus1();
+	if(getFullStatus1()==-1)
+		return -1;
+	
 
     	if(i2c.receive(RxBuf, 8)){
 	

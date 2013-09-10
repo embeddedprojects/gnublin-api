@@ -526,9 +526,8 @@ int gnublin_module_step::drive(int steps){
 
 	old_position = getActualPosition();
 	new_position = old_position+steps;
-	if(setPosition(new_position)){
+	if(setPosition(new_position))
 		return 1;
-	}
 	else return -1;
 }
 
@@ -567,7 +566,9 @@ int gnublin_module_step::drive(int steps){
 int gnublin_module_step::getMotionStatus(){
 	unsigned char RxBuf[8];
 	int motionStatus = -1;
-	getFullStatus1();
+	if(getFullStatus1()==-1)
+		return -1;
+	
 	
     	if(!i2c.receive(RxBuf, 8))
 		return -1;
@@ -600,7 +601,9 @@ int gnublin_module_step::getSwitch(){
 	unsigned char RxBuf[8];    	
 	int swi = 0;
 
-    	getFullStatus1();
+	if(getFullStatus1()==-1)
+		return -1;
+	
 
     	if(i2c.receive(RxBuf, 8)){
 	
