@@ -1,4 +1,4 @@
-OBJ := gpio dogm lcd lm75 pca9555 relay step adcmod
+OBJ := gpio dogm lcd lm75 pca9555 relay step adcmod dac
 SUBDIRS := $(OBJ:%=gnublin-tools/gnublin-%)
 CLEANDIRS := $(SUBDIRS:%=clean-%)
 INSTALLDIRS := $(SUBDIRS:%=install-%)

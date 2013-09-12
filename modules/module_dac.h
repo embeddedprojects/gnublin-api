@@ -18,14 +18,20 @@ private:
 	bool error_flag;
 	gnublin_i2c i2c;
 	int _channel[4];
+	int _gain[4];
+	int _vRef[4];
 	std::string ErrorMessage;
 public:
 	gnublin_module_dac();
 	const char *getErrorMessage();
 	bool fail();
 	void setAddress(int Address);
-	//int* read(int);
-	
-	void write(int channel, int value);
-
+	int read(int);
+	void gain(int channel, int val);
+	void gainEeprom(int channel, int val);	
+	void vRef(int channel, int val);
+	void vRefEeprom(int channel, int val);
+	void writeAll(int val_0, int val_1, int val_2, int val_3);
+	void write(int channel, int value);										
+	void writeEeprom(int channel, int value);
 };
