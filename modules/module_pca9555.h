@@ -27,6 +27,7 @@ public:
 		int portMode(int port, std::string direction);
 		int digitalWrite(int pin, int value);
 		int digitalRead(int pin);
+		int readState(int pin);
 		int writePort(int port, unsigned char value);
 		unsigned char readPort(int port);
 };

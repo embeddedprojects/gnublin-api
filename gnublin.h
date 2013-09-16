@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- HEADER FILE
-//build date: 09/10/13 15:12
+//build date: 09/16/13 13:57
 //******************************************** 
 
 
@@ -418,6 +418,7 @@ public:
 		int portMode(int port, std::string direction);
 		int digitalWrite(int pin, int value);
 		int digitalRead(int pin);
+		int readState(int pin);
 		int writePort(int port, unsigned char value);
 		unsigned char readPort(int port);
 };
@@ -440,6 +441,7 @@ public:
 */ 
 class gnublin_module_relay {
 	gnublin_module_pca9555 pca9555;
+	gnublin_i2c i2c;
 	bool error_flag;
 	std::string ErrorMessage;
 public:
@@ -449,6 +451,7 @@ public:
 	void setAddress(int Address);
 	void setDevicefile(std::string filename);
 	int switchPin(int pin, int value);
+	int readState(int pin);
 };
 
 /**
@@ -627,16 +630,22 @@ private:
 	bool error_flag;
 	gnublin_i2c i2c;
 	int _channel[4];
+	int _gain[4];
+	int _vRef[4];
 	std::string ErrorMessage;
 public:
 	gnublin_module_dac();
 	const char *getErrorMessage();
 	bool fail();
 	void setAddress(int Address);
-	//int* read(int);
-	
-	void write(int channel, int value);
-
+	int read(int);
+	void gain(int channel, int val);
+	void gainEeprom(int channel, int val);	
+	void vRef(int channel, int val);
+	void vRefEeprom(int channel, int val);
+	void writeAll(int val_0, int val_1, int val_2, int val_3);
+	void write(int channel, int value);										
+	void writeEeprom(int channel, int value);
 };
 #include <string>
 

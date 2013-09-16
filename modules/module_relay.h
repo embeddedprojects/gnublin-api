@@ -18,6 +18,7 @@
 */ 
 class gnublin_module_relay {
 	gnublin_module_pca9555 pca9555;
+	gnublin_i2c i2c;
 	bool error_flag;
 	std::string ErrorMessage;
 public:
@@ -27,5 +28,6 @@ public:
 	void setAddress(int Address);
 	void setDevicefile(std::string filename);
 	int switchPin(int pin, int value);
+	int readState(int pin);
 };
 

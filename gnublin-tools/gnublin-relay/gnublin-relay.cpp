@@ -4,9 +4,10 @@ using namespace std;
 
 
 gnublin_module_relay relay;
-
+gnublin_module_pca9555 pca;
 
 int c,hflag=0;
+int input_flag = 0;
 int json_flag = 0;
 int brute_flag = 0;
 int pin=-1;
@@ -19,12 +20,15 @@ string helpstring="This program was designed to easily interact with the relay m
 "-o <value> set pin as output with given <value>(0= low / 1 = high)\n"
 "-a <Address> specifiy the module address (default is 0x20)\n"
 "-j show output in json format\n"
-"-b show output in raw format\n\n"               
-
+"-b show output in raw format\n"               
+"-i show value at pin\n\n"
 "Examples:\n"
 
 "Set relay 1 high\n"
 "gnublin-relay -p 1 -o 1\n\n"
+
+"Show state of a pin 1\n"
+"gnublin-relay -p 1 -i\n\n"
 
 "Set relay 1 on a Module connected to Address 0x21 low\n"
 "gnublin-relay -a 0x21 -p 1 -o 0\n\n";
@@ -32,7 +36,7 @@ string helpstring="This program was designed to easily interact with the relay m
 void parse_opts(int argc, char **argv)
 {
 
-	while((c = getopt(argc,argv,"hp:o:a:jb")) != -1)
+	while((c = getopt(argc,argv,"hp:o:a:jbi")) != -1)
 	{
 		switch(c)
 		{
@@ -44,6 +48,7 @@ void parse_opts(int argc, char **argv)
 			case 'a' : 	relay.setAddress(strtol (optarg,NULL,16));		break;
 			case 'j' : 	json_flag = 1;						break;
 			case 'b' : 	brute_flag = 1;						break;			
+			case 'i' :	input_flag = 1;
 		}
 	}
 	if (hflag)
@@ -57,8 +62,17 @@ int main (int argc, char **argv) {
 //	relay.setAddress(0x20);
 	parse_opts(argc, argv);
 
-
-	if(relay.switchPin(pin, value)<0){
+	if(input_flag && pin > 0 && pin <= 4) {
+    pca.pinMode(pin, OUTPUT);  
+    if(json_flag==1){
+      printf("{\"value\" : \"%i\",\"pin\" : \"%i\", \"result\" : \"0\"}\n", relay.readState(pin), pin);
+    }
+    else if (brute_flag==1){
+      printf("%i\n", relay.readState(pin));
+    }
+    else printf("Value pin %i: %i\n", pin, relay.readState(pin));
+  }
+	else if(relay.switchPin(pin, value)<0){
 		if(json_flag ==1){
 		printf("{ \"error_msg\" : \"%s\",\"result\" : \"-1\" }\n" ,relay.getErrorMessage());
 		return -1;
@@ -68,5 +82,10 @@ int main (int argc, char **argv) {
 		return -1;
 		}
 	}
+
+
+
+
+
 	return 1; 
 }

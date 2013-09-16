@@ -581,3 +581,85 @@ unsigned char gnublin_module_pca9555::readPort(int port) {
 		return -1;
 	}
 }
+
+
+//-----------------------------------readState-----------------------------------
+/** @~english
+* @brief reads the state of a OUTPUT pin and returns it
+*
+* With this function you can read the level of a pin.
+* @param pin Number of the pin (0-15) you want to read from
+* @return 0/1 logical level of the pin, failure: -1
+*
+* @~german
+* @brief Liest den Zustand eines OUTPUT Pins und gibt ihn zurück
+*
+* Mit dieser Funktion kann man den Zustand eines Pins auslesen.
+* @param pin Nummer des Pins (0-15) von dem man lesen will.
+* @return 0/1 logischer Pegel des Pins, Misserfolg: -1
+*/
+int gnublin_module_pca9555::readState(int pin) {
+  error_flag=false;
+  unsigned char RxBuf[1];
+
+  if (pin < 0 || pin > 15){
+    error_flag=true;
+    ErrorMessage="Pin Number is not between 0-15\n";
+    return -1;
+  }
+
+  if(pin >= 0 && pin <= 7){ // Port 0   
+    if(i2c.receive(0x02, RxBuf, 1)>0){
+
+        RxBuf[0]<<=(7-pin); // MSB is now the pin you want to read from
+        RxBuf[0]&=128; // set all bits to 0 except the MSB
+
+        if(RxBuf[0]==0){
+          return 0;
+        }
+        else if (RxBuf[0]==128){
+          return 1;
+        }
+        else{
+          error_flag=true;
+          ErrorMessage="bitshift failed\n";
+          return -1;
+        }
+    }
+    else{
+      error_flag=true;
+      ErrorMessage="i2c.receive Error";
+      return -1;
+    }
+  }
+  else if(pin >= 8 && pin <= 15){ // Port 1
+		if(i2c.receive(0x01, RxBuf, 1)>0){
+
+				RxBuf[0]<<=(15-pin); // MSB is now the pin you want to read from
+				RxBuf[0]&=128;	// set all bits to 0 except the MSB	
+		
+				if(RxBuf[0]==0){
+					return 0;
+				}
+				else if (RxBuf[0]==128){
+					return 1;
+				}
+				else{
+					error_flag=true;
+					ErrorMessage="bitshift failed\n";
+					return -1;
+				}
+		}
+		else{
+			error_flag=true;
+			ErrorMessage="i2c.receive Error";
+			return -1;
+		}
+	}
+  
+  
+  error_flag=true;
+  ErrorMessage="something went wrong";
+  return -1;
+}
+
