@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: modules/module_lm75.cpp Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('module__lm75_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">modules/module_lm75.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="module__lm75_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="module__lm75_8h.html">module_lm75.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="comment">//*******************************************************************</span>
+<a name="l00003"></a>00003 <span class="comment">//Class for accessing the LM75 IC via I2C</span>
+<a name="l00004"></a>00004 <span class="comment">//*******************************************************************</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="comment">//------------------Konstruktor------------------</span>
+<a name="l00014"></a><a class="code" href="classgnublin__module__lm75.html#afa8943ed3f140b8acd37a8a683ad43c1">00014</a> <span class="comment"></span><a class="code" href="classgnublin__module__lm75.html#afa8943ed3f140b8acd37a8a683ad43c1" title="Setzt das error_flag auf &quot;false&quot;, den closemode auf &quot;1&quot; (siehe i2c für Details) und die Standard i2c ...">gnublin_module_lm75::gnublin_module_lm75</a>()
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016     error_flag=<span class="keyword">false</span>;
+<a name="l00017"></a>00017     <a class="code" href="classgnublin__module__lm75.html#a62c5af59cf2db400e64174b019e6494c" title="Setzt die i2c slave Adresse.">setAddress</a>(0x4f);
+<a name="l00018"></a>00018 }
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="comment">//-------------get Error Message-------------</span>
+<a name="l00034"></a><a class="code" href="classgnublin__module__lm75.html#aa5efb67553533a84d9b4b71b7541265c">00034</a> <span class="comment"></span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__lm75.html#aa5efb67553533a84d9b4b71b7541265c" title="Gibt die letzte Error Nachricht zurück.">gnublin_module_lm75::getErrorMessage</a>(){
+<a name="l00035"></a>00035     <span class="keywordflow">return</span> ErrorMessage.c_str();
+<a name="l00036"></a>00036 }
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="comment">//-------------------------------Fail-------------------------------</span>
+<a name="l00049"></a><a class="code" href="classgnublin__module__lm75.html#ad628c7dd8ad16585f42b7601b56fdd10">00049</a> <span class="comment"></span><span class="keywordtype">bool</span> <a class="code" href="classgnublin__module__lm75.html#ad628c7dd8ad16585f42b7601b56fdd10" title="Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist...">gnublin_module_lm75::fail</a>(){
+<a name="l00050"></a>00050     <span class="keywordflow">return</span> error_flag;
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="comment">//-------------set Address-------------</span>
+<a name="l00066"></a><a class="code" href="classgnublin__module__lm75.html#a62c5af59cf2db400e64174b019e6494c">00066</a> <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__lm75.html#a62c5af59cf2db400e64174b019e6494c" title="Setzt die i2c slave Adresse.">gnublin_module_lm75::setAddress</a>(<span class="keywordtype">int</span> Address){
+<a name="l00067"></a>00067     i2c.<a class="code" href="classgnublin__i2c.html#a90a93e09d54776eea8672f0bfe420682" title="Setzt die i2c slave Adresse.">setAddress</a>(Address);
+<a name="l00068"></a>00068 }
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="comment">//-------------------set devicefile----------------</span>
+<a name="l00084"></a><a class="code" href="classgnublin__module__lm75.html#a363716d889c320f202abe5d35479c4de">00084</a> <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__lm75.html#a363716d889c320f202abe5d35479c4de" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">gnublin_module_lm75::setDevicefile</a>(std::string filename){
+<a name="l00085"></a>00085     i2c.<a class="code" href="classgnublin__i2c.html#a181a9cfd2156dab527f88dcd9507fb2e" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">setDevicefile</a>(filename);
+<a name="l00086"></a>00086 }
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="comment">//-----------------------------------get Temp-----------------------------------</span>
+<a name="l00100"></a><a class="code" href="classgnublin__module__lm75.html#af68c7031cfa9fdd6d592df3d0a6f482d">00100</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lm75.html#af68c7031cfa9fdd6d592df3d0a6f482d" title="liest die Roh-Daten aus dem LM75 und berechnet die Temperatur">gnublin_module_lm75::getTemp</a>(){
+<a name="l00101"></a>00101     <span class="keywordtype">short</span> value=0;
+<a name="l00102"></a>00102     <span class="keywordtype">int</span> temp;   
+<a name="l00103"></a>00103     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> rx_buf[2];
+<a name="l00104"></a>00104     error_flag=<span class="keyword">false</span>;
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106     <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x00, rx_buf, 2)&gt;0){
+<a name="l00107"></a>00107         <span class="comment">// rx_buf[0] = MSByte</span>
+<a name="l00108"></a>00108         <span class="comment">// rx_buf[1] = LSByte</span>
+<a name="l00109"></a>00109         <span class="comment">// save the MSB</span>
+<a name="l00110"></a>00110         value = rx_buf[0];
+<a name="l00111"></a>00111         <span class="comment">// make space for the LSB</span>
+<a name="l00112"></a>00112         value&lt;&lt;=8;
+<a name="l00113"></a>00113         <span class="comment">// save the LSB</span>
+<a name="l00114"></a>00114         value |= rx_buf[1];
+<a name="l00115"></a>00115         <span class="comment">// Bit 0-4 isn&#39;t used in the LM75, so shift right 5 times</span>
+<a name="l00116"></a>00116         value&gt;&gt;=5;
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118         <span class="comment">//check if temperature is negative</span>
+<a name="l00119"></a>00119         <span class="keywordflow">if</span>(rx_buf[0] &amp; 0x80)
+<a name="l00120"></a>00120         {
+<a name="l00121"></a>00121             value = value|0xF800;
+<a name="l00122"></a>00122             value =~value +1;
+<a name="l00123"></a>00123             temp = value*(-0.125);
+<a name="l00124"></a>00124             <span class="keywordflow">return</span> temp;
+<a name="l00125"></a>00125         }
+<a name="l00126"></a>00126         <span class="keywordflow">else</span> { <span class="comment">//temperature is positive</span>
+<a name="l00127"></a>00127             temp = value*0.125;
+<a name="l00128"></a>00128             <span class="keywordflow">return</span> temp;
+<a name="l00129"></a>00129         }
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132     }
+<a name="l00133"></a>00133     <span class="keywordflow">else</span>{
+<a name="l00134"></a>00134         error_flag=<span class="keyword">true</span>;
+<a name="l00135"></a>00135         ErrorMessage = <span class="stringliteral">&quot;Error i2c receive\n&quot;</span>;
+<a name="l00136"></a>00136         <span class="keywordflow">return</span> 0;   
+<a name="l00137"></a>00137     }
+<a name="l00138"></a>00138 }
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141 <span class="comment">//--------------------------------get Temp float--------------------------------</span>
+<a name="l00152"></a><a class="code" href="classgnublin__module__lm75.html#aa64b578d8847ac28abdd0aa2ab86855b">00152</a> <span class="comment"></span><span class="keywordtype">float</span> <a class="code" href="classgnublin__module__lm75.html#aa64b578d8847ac28abdd0aa2ab86855b" title="liest die Roh-Daten aus dem LM75 und berechnet die Temperatur">gnublin_module_lm75::getTempFloat</a>(){
+<a name="l00153"></a>00153     <span class="keywordtype">short</span> value=0;
+<a name="l00154"></a>00154     <span class="keywordtype">float</span> temp; 
+<a name="l00155"></a>00155     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> rx_buf[2];
+<a name="l00156"></a>00156     error_flag=<span class="keyword">false</span>;
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158     <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x00, rx_buf, 2)&gt;0){
+<a name="l00159"></a>00159         <span class="comment">// rx_buf[0] = MSByte</span>
+<a name="l00160"></a>00160         <span class="comment">// rx_buf[1] = LSByte</span>
+<a name="l00161"></a>00161         <span class="comment">// save the MSB</span>
+<a name="l00162"></a>00162         value = rx_buf[0];
+<a name="l00163"></a>00163         <span class="comment">// make space for the LSB</span>
+<a name="l00164"></a>00164         value&lt;&lt;=8;
+<a name="l00165"></a>00165         <span class="comment">// save the LSB</span>
+<a name="l00166"></a>00166         value |= rx_buf[1];
+<a name="l00167"></a>00167         <span class="comment">// Bit 0-4 isn&#39;t used in the LM75, so shift right 5 times</span>
+<a name="l00168"></a>00168         value&gt;&gt;=5;
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170         <span class="comment">//check if temperature is negative</span>
+<a name="l00171"></a>00171         <span class="keywordflow">if</span>(rx_buf[0] &amp; 0x80)
+<a name="l00172"></a>00172         {
+<a name="l00173"></a>00173             value = value|0xF800;
+<a name="l00174"></a>00174             value =~value +1;
+<a name="l00175"></a>00175             temp = value*(-0.125);
+<a name="l00176"></a>00176             <span class="keywordflow">return</span> temp;
+<a name="l00177"></a>00177         }
+<a name="l00178"></a>00178         <span class="keywordflow">else</span> { <span class="comment">//temperature is positive</span>
+<a name="l00179"></a>00179             temp = value*0.125;
+<a name="l00180"></a>00180             <span class="keywordflow">return</span> temp;
+<a name="l00181"></a>00181         }
+<a name="l00182"></a>00182         
+<a name="l00183"></a>00183     }
+<a name="l00184"></a>00184     <span class="keywordflow">else</span>{   
+<a name="l00185"></a>00185         error_flag=<span class="keyword">true</span>;
+<a name="l00186"></a>00186         ErrorMessage=<span class="stringliteral">&quot;Error i2c receive\n&quot;</span>;
+<a name="l00187"></a>00187         <span class="keywordflow">return</span> 0;
+<a name="l00188"></a>00188     }
+<a name="l00189"></a>00189         
+<a name="l00190"></a>00190 }
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193 <span class="comment">//--------------------------------get Value---------------------------------</span>
+<a name="l00204"></a><a class="code" href="classgnublin__module__lm75.html#a65168fbb03782fa3b82e8448b9769929">00204</a> <span class="comment"></span><span class="keywordtype">short</span> <a class="code" href="classgnublin__module__lm75.html#a65168fbb03782fa3b82e8448b9769929" title="liest die Roh-Daten aus dem LM75 und schiebt die Bits in die richtige Reihenfolge">gnublin_module_lm75::getValue</a>(){
+<a name="l00205"></a>00205     <span class="keywordtype">short</span> value=0;
+<a name="l00206"></a>00206     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> rx_buf[2];
+<a name="l00207"></a>00207     error_flag=<span class="keyword">false</span>;
+<a name="l00208"></a>00208     <span class="keywordflow">if</span>(i2c.<a class="code" href="classgnublin__i2c.html#a1a5aa8a33747395fc037e09527f138b5" title="Empfängt Bytes vom I2C Bus.">receive</a>(0x00, rx_buf, 2)&gt;0){
+<a name="l00209"></a>00209         
+<a name="l00210"></a>00210         <span class="comment">// rx_buf[0] = MSByte</span>
+<a name="l00211"></a>00211         <span class="comment">// rx_buf[1] = LSByte</span>
+<a name="l00212"></a>00212         <span class="comment">// save the MSB</span>
+<a name="l00213"></a>00213         value = rx_buf[0];
+<a name="l00214"></a>00214         <span class="comment">// make space for the LSB</span>
+<a name="l00215"></a>00215         value&lt;&lt;=8;
+<a name="l00216"></a>00216         <span class="comment">// save the LSB</span>
+<a name="l00217"></a>00217         value |= rx_buf[1];
+<a name="l00218"></a>00218         <span class="comment">// Bit 0-4 isn&#39;t used in the LM75, so shift right 5 times</span>
+<a name="l00219"></a>00219         value&gt;&gt;=5;
+<a name="l00220"></a>00220         <span class="keywordflow">return</span> value;
+<a name="l00221"></a>00221         
+<a name="l00222"></a>00222     }
+<a name="l00223"></a>00223     <span class="keywordflow">else</span>{
+<a name="l00224"></a>00224         error_flag=<span class="keyword">true</span>;
+<a name="l00225"></a>00225         ErrorMessage=<span class="stringliteral">&quot;Error i2c receive\n&quot;</span>;
+<a name="l00226"></a>00226         <span class="keywordflow">return</span> 0;
+<a name="l00227"></a>00227     }
+<a name="l00228"></a>00228 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="module__lm75_8cpp.html">module_lm75.cpp</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

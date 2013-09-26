@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: examples/csv-parse.cpp Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('csv-parse_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">examples/csv-parse.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="csv-parse_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;gnublin.h&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="csv-parse_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">00006</a> <span class="keywordtype">int</span> <a class="code" href="examples_2adc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {
+<a name="l00007"></a>00007     
+<a name="l00008"></a>00008     <span class="keywordtype">string</span> str1, str2, str3;
+<a name="l00009"></a>00009     str1 = <span class="stringliteral">&quot;Erster Eintrag&quot;</span>;
+<a name="l00010"></a>00010     str2 = <span class="stringliteral">&quot;Zweiter Eintrag&quot;</span>;
+<a name="l00011"></a>00011     str3 = <span class="stringliteral">&quot;Dritter Eintrag&quot;</span>;
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014     <span class="comment">//Open file with open(string filename) and customized delimiters</span>
+<a name="l00015"></a>00015     <a class="code" href="classgnublin__csv.html" title="Klasse zum Erstellen von csv Dateien.">gnublin_csv</a> csv;
+<a name="l00016"></a>00016     
+<a name="l00017"></a>00017     csv.<a class="code" href="classgnublin__csv.html#a17e136b66dd8ed2df7d0e05d4fba4acf" title="Erstellt eine csv Datei. Benutze diese Methode in Kombination mit dem Default Konstruktor und close()...">open</a>(<span class="stringliteral">&quot;test.csv&quot;</span>);
+<a name="l00018"></a>00018     
+<a name="l00019"></a>00019   csv.<a class="code" href="classgnublin__csv.html#a306d63937eac1a842028db006764c0b8" title="Definiert das Trennsymbol zwischen den einzelnen Zeilen.">delimiterRow</a>(<span class="stringliteral">&quot;\r\n\n&quot;</span>);   <span class="comment">// Default: &quot;\r\n&quot;</span>
+<a name="l00020"></a>00020   csv.<a class="code" href="classgnublin__csv.html#abde166d200439a5879bcea570781d290" title="Definiert das Trennsymbol zwischen den einzelnen Feldern.">delimiterField</a>(<span class="charliteral">&#39;\0&#39;</span>);     <span class="comment">// Default: &#39;&quot;&#39;</span>
+<a name="l00021"></a>00021   csv.<a class="code" href="classgnublin__csv.html#abe2dc9944acdd7c046c6156d2c0e8525" title="Definiert das Trennsymbol zwischen den einzelnen Spalten.">delimiterColumn</a>(<span class="charliteral">&#39;\t&#39;</span>);    <span class="comment">// Default: &#39;;&#39;</span>
+<a name="l00022"></a>00022     
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024     csv.<a class="code" href="classgnublin__csv.html#a86333325a5a7381ce4da72f6018c10f6" title="Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = &quot;Hello&quot;; float f = 3...">addRow</a>(3, str1.c_str(), str2.c_str(), str3.c_str());
+<a name="l00025"></a>00025     csv.<a class="code" href="classgnublin__csv.html#a86333325a5a7381ce4da72f6018c10f6" title="Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = &quot;Hello&quot;; float f = 3...">addRow</a>(3, <span class="stringliteral">&quot;Ja&quot;</span>, <span class="stringliteral">&quot;mal&quot;</span>, <span class="stringliteral">&quot;schaun&quot;</span>);
+<a name="l00026"></a>00026     csv.<a class="code" href="classgnublin__csv.html#a86333325a5a7381ce4da72f6018c10f6" title="Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = &quot;Hello&quot;; float f = 3...">addRow</a>(3, <span class="stringliteral">&quot;Noch&quot;</span>, <span class="stringliteral">&quot;eine&quot;</span>, <span class="stringliteral">&quot;Reihe&quot;</span>);
+<a name="l00027"></a>00027     
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031     <span class="comment">//Open file with constructor and default delimiters</span>
+<a name="l00032"></a>00032     <a class="code" href="classgnublin__csv.html" title="Klasse zum Erstellen von csv Dateien.">gnublin_csv</a> csv2(<span class="stringliteral">&quot;test2.csv&quot;</span>);
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034   csv2.<a class="code" href="classgnublin__csv.html#a86333325a5a7381ce4da72f6018c10f6" title="Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = &quot;Hello&quot;; float f = 3...">addRow</a>(3, str1.c_str(), str2.c_str(), str3.c_str());
+<a name="l00035"></a>00035   csv2.<a class="code" href="classgnublin__csv.html#a86333325a5a7381ce4da72f6018c10f6" title="Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = &quot;Hello&quot;; float f = 3...">addRow</a>(3, <span class="stringliteral">&quot;Ja&quot;</span>, <span class="stringliteral">&quot;mal&quot;</span>, <span class="stringliteral">&quot;schaun&quot;</span>);
+<a name="l00036"></a>00036   csv2.<a class="code" href="classgnublin__csv.html#a86333325a5a7381ce4da72f6018c10f6" title="Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = &quot;Hello&quot;; float f = 3...">addRow</a>(3, <span class="stringliteral">&quot;Noch&quot;</span>, <span class="stringliteral">&quot;eine&quot;</span>, <span class="stringliteral">&quot;Reihe&quot;</span>);
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038     <span class="comment">//Add integer and float variables</span>
+<a name="l00039"></a>00039     <a class="code" href="classgnublin__csv.html" title="Klasse zum Erstellen von csv Dateien.">gnublin_csv</a> csv3(<span class="stringliteral">&quot;test3.csv&quot;</span>);
+<a name="l00040"></a>00040     
+<a name="l00041"></a>00041     <span class="keywordtype">int</span> iWert1 = 1, iWert2 = 2, iWert3 = 4;
+<a name="l00042"></a>00042     <span class="keywordtype">float</span> fWert1 = 1.18283811, fWert2 = 1231232.2352352, fWert3 = 213.003;  
+<a name="l00043"></a>00043     <span class="keywordtype">double</span> dWert1 = 2.3123123123, dWert2 = 9992822223.21, dWert3 = 60219.203;
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045     csv3.<a class="code" href="classgnublin__csv.html#a86333325a5a7381ce4da72f6018c10f6" title="Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = &quot;Hello&quot;; float f = 3...">addRow</a>(3, (csv3.<a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(iWert1)).c_str(), (csv3.<a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(iWert2)).c_str(), (csv3.<a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(iWert3)).c_str());
+<a name="l00046"></a>00046     csv3.<a class="code" href="classgnublin__csv.html#a86333325a5a7381ce4da72f6018c10f6" title="Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = &quot;Hello&quot;; float f = 3...">addRow</a>(3, (csv3.<a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(fWert1)).c_str(), (csv3.<a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(fWert2)).c_str(), (csv3.<a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(fWert3)).c_str());
+<a name="l00047"></a>00047     csv3.<a class="code" href="classgnublin__csv.html#a86333325a5a7381ce4da72f6018c10f6" title="Fügt eine Zeile in der csv Datei hinzu. Beispiel: gnublin_csv csv; string str = &quot;Hello&quot;; float f = 3...">addRow</a>(3, (csv3.<a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(dWert1)).c_str(), (csv3.<a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(dWert2)).c_str(), (csv3.<a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(dWert3)).c_str());
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049     <span class="keywordflow">return</span> 0;
+<a name="l00050"></a>00050 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="csv-parse_8cpp.html">csv-parse.cpp</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

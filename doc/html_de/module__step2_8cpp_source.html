@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: examples/module_step2.cpp Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('module__step2_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">examples/module_step2.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="module__step2_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;iomanip&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;ios&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="module__step2_8cpp.html#a51ed2bd47e7f4b9e8c005338d2b5d965">00006</a> <span class="preprocessor">#define BOARD RASPBERRY_PI</span>
+<a name="l00007"></a>00007 <span class="preprocessor"></span><span class="preprocessor">#include &quot;gnublin.h&quot;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a><a class="code" href="module__step2_8cpp.html#ae6d8a7256489202f0beccf3e57edb553">00009</a> <a class="code" href="classgnublin__module__step.html" title="Klasse für den zugriff auf das GNUBLIN module-step.">gnublin_module_step</a> <a class="code" href="examples_2module__step_8cpp.html#ae6d8a7256489202f0beccf3e57edb553">Motor</a>;
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a><a class="code" href="module__step2_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">00012</a> <span class="keywordtype">int</span> <a class="code" href="examples_2adc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> () {
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keywordtype">int</span> pos= -10000, n=0, s;
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="comment">// Motor.setAddress( 0x60 );</span>
+<a name="l00017"></a>00017 Motor.<a class="code" href="classgnublin__module__step.html#ad3f3a593b2c48bb979891fe2e81f8c7c" title="Setzt Slave Adresse.">setAddress</a>( 0x61 );
+<a name="l00018"></a>00018 Motor.<a class="code" href="classgnublin__module__step.html#a7efdb13438dc9265a59fb49566c26922" title="Setze Vmax.">setVmax</a>(4); <span class="comment">//SetMotorParam</span>
+<a name="l00019"></a>00019 Motor.<a class="code" href="classgnublin__module__step.html#a1a65aaa089987c5fc88d9873c1ec867c" title="Setze Motor Parameter.">setMotorParam</a>( 3,3,3,3 );
+<a name="l00020"></a>00020 <span class="comment">//GetFullStatus1 command: This Command must be executed before Operating</span>
+<a name="l00021"></a>00021 Motor.<a class="code" href="classgnublin__module__step.html#a9944d86e965debcb0f07b6794ba455b6" title="Get full Status 1.">getFullStatus1</a>();
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="comment">//RunInit command: This Command must be executed before Operating</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 printf(<span class="stringliteral">&quot; Init %d\n&quot;</span>, Motor.<a class="code" href="classgnublin__module__step.html#a2025a51c309a15b99d46049a474fc99f" title="Run Init.">runInit</a>());
+<a name="l00026"></a>00026 sleep(1);
+<a name="l00027"></a>00027 printf(<span class="stringliteral">&quot; Reset_pos %d\n&quot;</span>, Motor.<a class="code" href="classgnublin__module__step.html#ae932e373598928409d844b7d223586d1" title="Reset Position.">resetPosition</a>());
+<a name="l00028"></a>00028 printf(<span class="stringliteral">&quot; Reset_pos %d\n&quot;</span>, Motor.<a class="code" href="classgnublin__module__step.html#ae932e373598928409d844b7d223586d1" title="Reset Position.">resetPosition</a>());
+<a name="l00029"></a>00029 printf(<span class="stringliteral">&quot; Act_Pos: %d\n&quot;</span>, Motor.<a class="code" href="classgnublin__module__step.html#a3728b7bdd3696bfdff312fccdba040e1" title="Aktuelle Position ausgeben.">getActualPosition</a>());
+<a name="l00030"></a>00030 fflush(stdout);
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 Motor.<a class="code" href="classgnublin__module__step.html#a1294ca5d808044f702e446b473bbf5c0" title="Fahre.">drive</a>(pos);
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keywordflow">while</span>( (s=Motor.<a class="code" href="classgnublin__module__step.html#a1d6a86fcf598665c07bd376bfbd90173" title="Bewegungs-Status.">getMotionStatus</a>()) !=0 ) <span class="comment">// wait until Motor stands still</span>
+<a name="l00035"></a>00035 {
+<a name="l00036"></a>00036 <span class="keywordflow">if</span>( ++n &gt; 80 ) <span class="keywordflow">break</span>;
+<a name="l00037"></a>00037 printf(<span class="stringliteral">&quot;%d &quot;</span>,s); fflush(stdout);
+<a name="l00038"></a>00038 usleep(50000);
+<a name="l00039"></a>00039 }
+<a name="l00040"></a>00040 Motor.<a class="code" href="classgnublin__module__step.html#ae17a0baf6e78a0da8a1de0e431138cf9" title="Soft Stop.">softStop</a>();
+<a name="l00041"></a>00041 printf(<span class="stringliteral">&quot;\n Act_Pos: %d Stop %d\n&quot;</span>, Motor.<a class="code" href="classgnublin__module__step.html#a3728b7bdd3696bfdff312fccdba040e1" title="Aktuelle Position ausgeben.">getActualPosition</a>(),n);
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 Motor.<a class="code" href="classgnublin__module__step.html#a1294ca5d808044f702e446b473bbf5c0" title="Fahre.">drive</a>(-pos);
+<a name="l00044"></a>00044 sleep(2);
+<a name="l00045"></a>00045 printf(<span class="stringliteral">&quot; Act_Pos: %d\n&quot;</span>, Motor.<a class="code" href="classgnublin__module__step.html#a3728b7bdd3696bfdff312fccdba040e1" title="Aktuelle Position ausgeben.">getActualPosition</a>());
+<a name="l00046"></a>00046 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="module__step2_8cpp.html">module_step2.cpp</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

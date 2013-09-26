@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: modules/module_dogm.cpp Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('module__dogm_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">modules/module_dogm.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="module__dogm_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="module__dogm_8h.html">module_dogm.h</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="comment">//***************************************************************************</span>
+<a name="l00004"></a>00004 <span class="comment">// Class for accesing the GNUBLIN MODULE-DISPLAY 2x16</span>
+<a name="l00005"></a>00005 <span class="comment">//***************************************************************************</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="comment">//********** Constructor ***************************</span>
+<a name="l00009"></a>00009 
+<a name="l00027"></a><a class="code" href="classgnublin__module__dogm.html#a41e540957ba0d3ea126b33c1a4ef7ef1">00027</a> <a class="code" href="classgnublin__module__dogm.html#a41e540957ba0d3ea126b33c1a4ef7ef1" title="Setzt die standard RS-Pins.">gnublin_module_dogm::gnublin_module_dogm</a>(){
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="preprocessor">#if (BOARD == RASPBERRY_PI)</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span>    rs_pin = 4;
+<a name="l00031"></a>00031 <span class="preprocessor">#elif (BOARD == BEAGLEBONE_BLACK)</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span>    rs_pin = 60;
+<a name="l00033"></a>00033 <span class="preprocessor">#else</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span>    rs_pin = 14;
+<a name="l00035"></a>00035 <span class="preprocessor">#endif</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span>    gpio.<a class="code" href="classgnublin__gpio.html#acf30370d7bb20d96ec56e8771bda6e02" title="Pin Modi festlegen.">pinMode</a>(rs_pin, <a class="code" href="includes_8h.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);
+<a name="l00037"></a>00037     error_flag = <span class="keyword">false</span>;
+<a name="l00038"></a>00038     spi.<a class="code" href="classgnublin__spi.html#aa41d3b1e523e775f77c912533ce501ee" title="Legt die Geschwindigkeit des SPI-Buses fest.">setSpeed</a>(100000);
+<a name="l00039"></a>00039     spi.<a class="code" href="classgnublin__spi.html#a25cbef19a01866710adf83c08a4e7ee8" title="Legt die Länge der gesendeten Wörter fest.">setLength</a>(8);   
+<a name="l00040"></a>00040 }
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="comment">//********* init()**********************************</span>
+<a name="l00043"></a>00043 <span class="comment">// execute initialisation of the display</span>
+<a name="l00044"></a>00044 <span class="comment">// parameters:  NONE</span>
+<a name="l00045"></a>00045 <span class="comment">// return:  * [int] 1   for success</span>
+<a name="l00046"></a>00046 <span class="comment">//      * [int] -1      for failure</span>
+<a name="l00047"></a>00047 
+<a name="l00059"></a><a class="code" href="classgnublin__module__dogm.html#a8165ef375f35797a8750a4dc3c814e21">00059</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a8165ef375f35797a8750a4dc3c814e21" title="Initialisiert das Display.">gnublin_module_dogm::init</a>(){
+<a name="l00060"></a>00060     __u8 init_str[] = {0x39, 0x14, 0x55, 0x6D, 0x78, 0x38, 0x0C, 0x01, 0x06};
+<a name="l00061"></a>00061     <span class="keywordflow">if</span> (gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(rs_pin, <a class="code" href="includes_8h.html#ab811d8c6ff3a505312d3276590444289">LOW</a>) &lt;0){
+<a name="l00062"></a>00062             error_flag = <span class="keyword">true</span>;
+<a name="l00063"></a>00063             <span class="keywordflow">return</span> -1;
+<a name="l00064"></a>00064     }
+<a name="l00065"></a>00065     <span class="keywordflow">if</span> (spi.<a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(init_str, 9) &lt; 0){
+<a name="l00066"></a>00066         error_flag = <span class="keyword">true</span>;
+<a name="l00067"></a>00067         <span class="keywordflow">return</span> -1;
+<a name="l00068"></a>00068     }
+<a name="l00069"></a>00069     error_flag = <span class="keyword">false</span>;
+<a name="l00070"></a>00070     <span class="keywordflow">return</span> 1;
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="comment">//************ fail() *******************************</span>
+<a name="l00077"></a>00077 
+<a name="l00089"></a><a class="code" href="classgnublin__module__dogm.html#ad33768709796e1cdf120fe5a0a47f70e">00089</a> <span class="keywordtype">bool</span> <a class="code" href="classgnublin__module__dogm.html#ad33768709796e1cdf120fe5a0a47f70e" title="Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.">gnublin_module_dogm::fail</a>(){
+<a name="l00090"></a>00090     <span class="keywordflow">return</span> error_flag;
+<a name="l00091"></a>00091 }
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 <span class="comment">//-------------get Error Message-------------</span>
+<a name="l00106"></a><a class="code" href="classgnublin__module__dogm.html#aa1224e3f7ae5db4b820c6eff7deddd20">00106</a> <span class="comment"></span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__dogm.html#aa1224e3f7ae5db4b820c6eff7deddd20" title="Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.">gnublin_module_dogm::getErrorMessage</a>(){
+<a name="l00107"></a>00107     <span class="keywordflow">return</span> ErrorMessage.c_str();
+<a name="l00108"></a>00108 }
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 <span class="comment">//*********** setRsPin() *****************************</span>
+<a name="l00112"></a>00112 
+<a name="l00126"></a><a class="code" href="classgnublin__module__dogm.html#afdbfe7f1ba1b40bbc386bef55668a53d">00126</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#afdbfe7f1ba1b40bbc386bef55668a53d" title="Setzt den benutzerdefinierten RS-Pin.">gnublin_module_dogm::setRsPin</a>(<span class="keywordtype">int</span> pin){
+<a name="l00127"></a>00127     rs_pin = pin;
+<a name="l00128"></a>00128     gpio.<a class="code" href="classgnublin__gpio.html#acf30370d7bb20d96ec56e8771bda6e02" title="Pin Modi festlegen.">pinMode</a>(rs_pin, <a class="code" href="includes_8h.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);
+<a name="l00129"></a>00129     <span class="keywordflow">return</span> 1;
+<a name="l00130"></a>00130 }
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 <span class="comment">//*********** setCS ************************************</span>
+<a name="l00134"></a>00134 
+<a name="l00148"></a><a class="code" href="classgnublin__module__dogm.html#a75cfabf06be90c7efa6b288a6b4ab1c0">00148</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a75cfabf06be90c7efa6b288a6b4ab1c0" title="Setzt den benutzerdefinierten Chipselect-Pin.">gnublin_module_dogm::setCS</a>(<span class="keywordtype">int</span> cs){
+<a name="l00149"></a>00149     <span class="keywordflow">if</span> (spi.<a class="code" href="classgnublin__spi.html#a54d51354605b76945ed458c4df439d7c" title="Setzt den benutzerdefinierten Chipselect-Pin.">setCS</a>(cs) &lt; 0){
+<a name="l00150"></a>00150         error_flag = <span class="keyword">true</span>;
+<a name="l00151"></a>00151         <span class="keywordflow">return</span> -1;
+<a name="l00152"></a>00152     }
+<a name="l00153"></a>00153     error_flag = <span class="keyword">false</span>;
+<a name="l00154"></a>00154     <span class="keywordflow">return</span> 1;
+<a name="l00155"></a>00155 }
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158 <span class="comment">//************ print() **********************************</span>
+<a name="l00159"></a>00159 
+<a name="l00173"></a><a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32">00173</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">gnublin_module_dogm::print</a>(<span class="keywordtype">char</span>* buffer){
+<a name="l00174"></a>00174     __u8 tmp[32];
+<a name="l00175"></a>00175     <span class="keywordtype">int</span> len = strlen(buffer);
+<a name="l00176"></a>00176     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;len; i++){
+<a name="l00177"></a>00177         tmp[i] = buffer[i];
+<a name="l00178"></a>00178     }
+<a name="l00179"></a>00179     gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(rs_pin, <a class="code" href="includes_8h.html#a5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);
+<a name="l00180"></a>00180     <span class="keywordflow">if</span> (spi.<a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(tmp, len) &lt; 0){
+<a name="l00181"></a>00181         gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(rs_pin, <a class="code" href="includes_8h.html#ab811d8c6ff3a505312d3276590444289">LOW</a>);
+<a name="l00182"></a>00182         error_flag = <span class="keyword">true</span>;
+<a name="l00183"></a>00183         <span class="keywordflow">return</span> -1;
+<a name="l00184"></a>00184     }
+<a name="l00185"></a>00185     gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(rs_pin, <a class="code" href="includes_8h.html#ab811d8c6ff3a505312d3276590444289">LOW</a>);
+<a name="l00186"></a>00186     error_flag = <span class="keyword">false</span>;
+<a name="l00187"></a>00187     <span class="keywordflow">return</span> 1;
+<a name="l00188"></a>00188 }
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191 <span class="comment">//************ print() **********************************</span>
+<a name="l00192"></a>00192 
+<a name="l00208"></a><a class="code" href="classgnublin__module__dogm.html#aeedef465e60b63fbf3443d711065debe">00208</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">gnublin_module_dogm::print</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">int</span> line){
+<a name="l00209"></a>00209     error_flag = <span class="keyword">false</span>;
+<a name="l00210"></a>00210     <span class="keywordflow">if</span> (<a class="code" href="classgnublin__module__dogm.html#a7caae14916fc9dac10a5d6a9a470c36e" title="Resetet das Display.">returnHome</a>() &lt; 0){
+<a name="l00211"></a>00211         <span class="keywordflow">return</span> -1;
+<a name="l00212"></a>00212     }
+<a name="l00213"></a>00213     <span class="keywordflow">if</span> (line == 1){
+<a name="l00214"></a>00214         <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>(buffer);
+<a name="l00215"></a>00215     }
+<a name="l00216"></a>00216     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line == 2) {
+<a name="l00217"></a>00217         <a class="code" href="classgnublin__module__dogm.html#a21fb00e088162c0568ffceea407e7530" title="Setzt den Cursor an eine bestimmte Position.">offset</a>(16);
+<a name="l00218"></a>00218         <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>(buffer);
+<a name="l00219"></a>00219     }
+<a name="l00220"></a>00220     <span class="keywordflow">else</span> {
+<a name="l00221"></a>00221         error_flag = <span class="keyword">true</span>;
+<a name="l00222"></a>00222         <span class="keywordflow">return</span> -1;
+<a name="l00223"></a>00223     }
+<a name="l00224"></a>00224     <span class="keywordflow">return</span> -1;
+<a name="l00225"></a>00225 }
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228 <span class="comment">//************ print() **********************************</span>
+<a name="l00229"></a>00229 
+<a name="l00247"></a><a class="code" href="classgnublin__module__dogm.html#ade29bdc1a5302ca1a5fe65256a7a90a8">00247</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">gnublin_module_dogm::print</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">int</span> line, <span class="keywordtype">int</span> off){
+<a name="l00248"></a>00248     error_flag = <span class="keyword">false</span>;
+<a name="l00249"></a>00249     <a class="code" href="classgnublin__module__dogm.html#a7caae14916fc9dac10a5d6a9a470c36e" title="Resetet das Display.">returnHome</a>();
+<a name="l00250"></a>00250     <span class="keywordflow">if</span> (line == 1){
+<a name="l00251"></a>00251         <a class="code" href="classgnublin__module__dogm.html#a21fb00e088162c0568ffceea407e7530" title="Setzt den Cursor an eine bestimmte Position.">offset</a>(off);
+<a name="l00252"></a>00252         <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>(buffer);
+<a name="l00253"></a>00253     }
+<a name="l00254"></a>00254     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line == 2) {
+<a name="l00255"></a>00255         off +=16;
+<a name="l00256"></a>00256         <a class="code" href="classgnublin__module__dogm.html#a21fb00e088162c0568ffceea407e7530" title="Setzt den Cursor an eine bestimmte Position.">offset</a>(off);
+<a name="l00257"></a>00257         <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>(buffer);
+<a name="l00258"></a>00258     }
+<a name="l00259"></a>00259     <span class="keywordflow">else</span> {
+<a name="l00260"></a>00260         error_flag = <span class="keyword">true</span>;
+<a name="l00261"></a>00261         <span class="keywordflow">return</span> -1;
+<a name="l00262"></a>00262     }
+<a name="l00263"></a>00263     <span class="keywordflow">return</span> -1;
+<a name="l00264"></a>00264 }
+<a name="l00265"></a>00265 
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267 <span class="comment">//****************** offset() **********************************</span>
+<a name="l00268"></a>00268 
+<a name="l00282"></a><a class="code" href="classgnublin__module__dogm.html#a21fb00e088162c0568ffceea407e7530">00282</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a21fb00e088162c0568ffceea407e7530" title="Setzt den Cursor an eine bestimmte Position.">gnublin_module_dogm::offset</a>(<span class="keywordtype">int</span> num){
+<a name="l00283"></a>00283     __u8 tmp;
+<a name="l00284"></a>00284     <span class="keywordflow">if</span> (num &gt;= 0 &amp;&amp; num &lt; 16){
+<a name="l00285"></a>00285         tmp = num + 128;
+<a name="l00286"></a>00286     }
+<a name="l00287"></a>00287     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (num &gt;= 16 &amp;&amp; num &lt; 32){
+<a name="l00288"></a>00288         tmp = num - 16 + 192;
+<a name="l00289"></a>00289     }
+<a name="l00290"></a>00290     <span class="keywordflow">else</span> {
+<a name="l00291"></a>00291         error_flag = <span class="keyword">true</span>;
+<a name="l00292"></a>00292         <span class="keywordflow">return</span> -1;
+<a name="l00293"></a>00293     }
+<a name="l00294"></a>00294     <span class="keywordflow">if</span> (spi.<a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(&amp;tmp, 1) &lt; 0){
+<a name="l00295"></a>00295         error_flag = <span class="keyword">true</span>;
+<a name="l00296"></a>00296         <span class="keywordflow">return</span> -1;
+<a name="l00297"></a>00297     }
+<a name="l00298"></a>00298     error_flag = <span class="keyword">false</span>;
+<a name="l00299"></a>00299     <span class="keywordflow">return</span> 1;
+<a name="l00300"></a>00300 }
+<a name="l00301"></a>00301 
+<a name="l00302"></a>00302 
+<a name="l00303"></a>00303 <span class="comment">//*************** clear() ****************************************</span>
+<a name="l00304"></a>00304 
+<a name="l00316"></a><a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9">00316</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9" title="Löscht den Inhalt des Displays.">gnublin_module_dogm::clear</a>(){
+<a name="l00317"></a>00317     __u8 clear_cmd = 0x01;
+<a name="l00318"></a>00318     <span class="keywordflow">if</span> (spi.<a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(&amp;clear_cmd, 1) &lt; 0){
+<a name="l00319"></a>00319         error_flag = <span class="keyword">true</span>;
+<a name="l00320"></a>00320         <span class="keywordflow">return</span> -1;
+<a name="l00321"></a>00321     }
+<a name="l00322"></a>00322     <span class="keywordflow">return</span> 1;
+<a name="l00323"></a>00323 }
+<a name="l00324"></a>00324 
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326 <span class="comment">//**************** returnHome() ************************************</span>
+<a name="l00327"></a>00327 
+<a name="l00339"></a><a class="code" href="classgnublin__module__dogm.html#a7caae14916fc9dac10a5d6a9a470c36e">00339</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a7caae14916fc9dac10a5d6a9a470c36e" title="Resetet das Display.">gnublin_module_dogm::returnHome</a>(){
+<a name="l00340"></a>00340     __u8 return_cmd = 0x02;
+<a name="l00341"></a>00341     <span class="keywordflow">if</span> (spi.<a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(&amp;return_cmd, 1) &lt; 0){
+<a name="l00342"></a>00342         error_flag = <span class="keyword">true</span>;
+<a name="l00343"></a>00343         <span class="keywordflow">return</span> -1;
+<a name="l00344"></a>00344     }
+<a name="l00345"></a>00345     <span class="keywordflow">return</span> 1;
+<a name="l00346"></a>00346 }   
+<a name="l00347"></a>00347 
+<a name="l00348"></a>00348 
+<a name="l00349"></a>00349 <span class="comment">//**************** shift() *****************************************</span>
+<a name="l00350"></a>00350 
+<a name="l00364"></a><a class="code" href="classgnublin__module__dogm.html#afaa41235e01a2e2b09be139af0d0f9de">00364</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#afaa41235e01a2e2b09be139af0d0f9de" title="Verschiebt das ganze Display.">gnublin_module_dogm::shift</a>(<span class="keywordtype">int</span> num){
+<a name="l00365"></a>00365     __u8 shift_cmd;
+<a name="l00366"></a>00366     <span class="keywordflow">if</span> (num &gt; 0){
+<a name="l00367"></a>00367         shift_cmd = 0x1C;
+<a name="l00368"></a>00368         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; num; i++){
+<a name="l00369"></a>00369             <span class="keywordflow">if</span>(spi.<a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(&amp;shift_cmd, 1) &lt; 0){
+<a name="l00370"></a>00370                 error_flag = <span class="keyword">true</span>;
+<a name="l00371"></a>00371                 <span class="keywordflow">return</span> -1;
+<a name="l00372"></a>00372             }
+<a name="l00373"></a>00373         }
+<a name="l00374"></a>00374     }
+<a name="l00375"></a>00375     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (num &lt; 0){
+<a name="l00376"></a>00376         shift_cmd = 0x18;
+<a name="l00377"></a>00377         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &gt; num; i--){
+<a name="l00378"></a>00378             <span class="keywordflow">if</span>(spi.<a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(&amp;shift_cmd, 1) &lt; 0){
+<a name="l00379"></a>00379                 error_flag = <span class="keyword">true</span>;
+<a name="l00380"></a>00380                 <span class="keywordflow">return</span> -1;
+<a name="l00381"></a>00381             }
+<a name="l00382"></a>00382         }
+<a name="l00383"></a>00383     }
+<a name="l00384"></a>00384     <span class="keywordflow">else</span> {
+<a name="l00385"></a>00385         error_flag = <span class="keyword">true</span>;
+<a name="l00386"></a>00386         <span class="keywordflow">return</span> -1;
+<a name="l00387"></a>00387     }
+<a name="l00388"></a>00388     error_flag = <span class="keyword">false</span>;
+<a name="l00389"></a>00389     <span class="keywordflow">return</span> 1;
+<a name="l00390"></a>00390 }
+<a name="l00391"></a>00391 
+<a name="l00392"></a>00392 
+<a name="l00393"></a>00393 <span class="comment">//*********************** controlDisplay() **********************************</span>
+<a name="l00394"></a>00394 
+<a name="l00412"></a><a class="code" href="classgnublin__module__dogm.html#a93a0c10446511bfeea5ae6842930c89b">00412</a> <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a93a0c10446511bfeea5ae6842930c89b" title="Setzt Displayparameter.">gnublin_module_dogm::controlDisplay</a>(<span class="keywordtype">int</span> power, <span class="keywordtype">int</span> cursor, <span class="keywordtype">int</span> blink) {
+<a name="l00413"></a>00413     __u8 display_cmd = 0x08;
+<a name="l00414"></a>00414     <span class="keywordflow">if</span> (power == 1) {
+<a name="l00415"></a>00415         display_cmd += 0x04;
+<a name="l00416"></a>00416     }
+<a name="l00417"></a>00417     <span class="keywordflow">if</span> (cursor == 1) {
+<a name="l00418"></a>00418         display_cmd += 0x02;
+<a name="l00419"></a>00419     }
+<a name="l00420"></a>00420     <span class="keywordflow">if</span> (blink == 1) {
+<a name="l00421"></a>00421         display_cmd += 0x01;
+<a name="l00422"></a>00422     }
+<a name="l00423"></a>00423     <span class="keywordflow">if</span> (spi.<a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(&amp;display_cmd, 1) &lt; 0){
+<a name="l00424"></a>00424         error_flag = <span class="keyword">true</span>;
+<a name="l00425"></a>00425         <span class="keywordflow">return</span> -1;
+<a name="l00426"></a>00426     }
+<a name="l00427"></a>00427     error_flag = <span class="keyword">false</span>;
+<a name="l00428"></a>00428     <span class="keywordflow">return</span> 1;
+<a name="l00429"></a>00429 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="module__dogm_8cpp.html">module_dogm.cpp</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

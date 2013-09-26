@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: gnublin_module_lm75 Klassenreferenz</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('classgnublin__module__lm75.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Öffentliche Methoden</a>  </div>
+  <div class="headertitle">
+<div class="title">gnublin_module_lm75 Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<!-- doxytag: class="gnublin_module_lm75" -->
+<p>Klasse für den zugriff auf den LM75 IC via I2C Bus.  
+ <a href="classgnublin__module__lm75.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="module__lm75_8h_source.html">module_lm75.h</a>&gt;</code></p>
+
+<p><a href="classgnublin__module__lm75-members.html">Aufstellung aller Elemente</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__lm75.html#afa8943ed3f140b8acd37a8a683ad43c1">gnublin_module_lm75</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt das error_flag auf "false", den closemode auf "1" (siehe i2c für Details) und die Standard i2c Adresse auf 0x4f.  <a href="#afa8943ed3f140b8acd37a8a683ad43c1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__lm75.html#aa5efb67553533a84d9b4b71b7541265c">getErrorMessage</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die letzte Error Nachricht zurück.  <a href="#aa5efb67553533a84d9b4b71b7541265c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__lm75.html#ad628c7dd8ad16585f42b7601b56fdd10">fail</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist.  <a href="#ad628c7dd8ad16585f42b7601b56fdd10"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__lm75.html#a62c5af59cf2db400e64174b019e6494c">setAddress</a> (int Address)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt die i2c slave Adresse.  <a href="#a62c5af59cf2db400e64174b019e6494c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__lm75.html#a363716d889c320f202abe5d35479c4de">setDevicefile</a> (std::string filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">setzt die I2C Device Datei. Standard ist die "/dev/i2c-1"  <a href="#a363716d889c320f202abe5d35479c4de"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__lm75.html#af68c7031cfa9fdd6d592df3d0a6f482d">getTemp</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">liest die Roh-Daten aus dem LM75 und berechnet die Temperatur  <a href="#af68c7031cfa9fdd6d592df3d0a6f482d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__lm75.html#aa64b578d8847ac28abdd0aa2ab86855b">getTempFloat</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">liest die Roh-Daten aus dem LM75 und berechnet die Temperatur  <a href="#aa64b578d8847ac28abdd0aa2ab86855b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__lm75.html#a65168fbb03782fa3b82e8448b9769929">getValue</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">liest die Roh-Daten aus dem LM75 und schiebt die Bits in die richtige Reihenfolge  <a href="#a65168fbb03782fa3b82e8448b9769929"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Klasse für den zugriff auf den LM75 IC via I2C Bus. </p>
+
+<p>Definiert in Zeile <a class="el" href="module__lm75_8h_source.html#l00015">15</a> der Datei <a class="el" href="module__lm75_8h_source.html">module_lm75.h</a>.</p>
+</div><hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="afa8943ed3f140b8acd37a8a683ad43c1"></a><!-- doxytag: member="gnublin_module_lm75::gnublin_module_lm75" ref="afa8943ed3f140b8acd37a8a683ad43c1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__module__lm75.html#afa8943ed3f140b8acd37a8a683ad43c1">gnublin_module_lm75::gnublin_module_lm75</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt das error_flag auf "false", den closemode auf "1" (siehe i2c für Details) und die Standard i2c Adresse auf 0x4f. </p>
+
+<p>Definiert in Zeile <a class="el" href="module__lm75_8cpp_source.html#l00014">14</a> der Datei <a class="el" href="module__lm75_8cpp_source.html">module_lm75.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="ad628c7dd8ad16585f42b7601b56fdd10"></a><!-- doxytag: member="gnublin_module_lm75::fail" ref="ad628c7dd8ad16585f42b7601b56fdd10" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classgnublin__module__lm75.html#ad628c7dd8ad16585f42b7601b56fdd10">gnublin_module_lm75::fail</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>error_flag als bool </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="module__lm75_8cpp_source.html#l00049">49</a> der Datei <a class="el" href="module__lm75_8cpp_source.html">module_lm75.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5efb67553533a84d9b4b71b7541265c"></a><!-- doxytag: member="gnublin_module_lm75::getErrorMessage" ref="aa5efb67553533a84d9b4b71b7541265c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__module__lm75.html#aa5efb67553533a84d9b4b71b7541265c">gnublin_module_lm75::getErrorMessage</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die letzte Error Nachricht zurück. </p>
+<p>Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>ErrorMessage als c-string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="module__lm75_8cpp_source.html#l00034">34</a> der Datei <a class="el" href="module__lm75_8cpp_source.html">module_lm75.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af68c7031cfa9fdd6d592df3d0a6f482d"></a><!-- doxytag: member="gnublin_module_lm75::getTemp" ref="af68c7031cfa9fdd6d592df3d0a6f482d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__lm75.html#af68c7031cfa9fdd6d592df3d0a6f482d">gnublin_module_lm75::getTemp</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>liest die Roh-Daten aus dem LM75 und berechnet die Temperatur </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Temperatur, im Fehlerfall 0 (überprüfen mit <a class="el" href="classgnublin__module__lm75.html#ad628c7dd8ad16585f42b7601b56fdd10" title="Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist...">fail()</a> und <a class="el" href="classgnublin__module__lm75.html#aa5efb67553533a84d9b4b71b7541265c" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage()</a>) </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="module__lm75_8cpp_source.html#l00100">100</a> der Datei <a class="el" href="module__lm75_8cpp_source.html">module_lm75.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa64b578d8847ac28abdd0aa2ab86855b"></a><!-- doxytag: member="gnublin_module_lm75::getTempFloat" ref="aa64b578d8847ac28abdd0aa2ab86855b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="classgnublin__module__lm75.html#aa64b578d8847ac28abdd0aa2ab86855b">gnublin_module_lm75::getTempFloat</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>liest die Roh-Daten aus dem LM75 und berechnet die Temperatur </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Temperatur als Fließkommazahl, im Fehlerfall 0 (überprüfen mit <a class="el" href="classgnublin__module__lm75.html#ad628c7dd8ad16585f42b7601b56fdd10" title="Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist...">fail()</a> und <a class="el" href="classgnublin__module__lm75.html#aa5efb67553533a84d9b4b71b7541265c" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage()</a>) </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="module__lm75_8cpp_source.html#l00152">152</a> der Datei <a class="el" href="module__lm75_8cpp_source.html">module_lm75.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65168fbb03782fa3b82e8448b9769929"></a><!-- doxytag: member="gnublin_module_lm75::getValue" ref="a65168fbb03782fa3b82e8448b9769929" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short <a class="el" href="classgnublin__module__lm75.html#a65168fbb03782fa3b82e8448b9769929">gnublin_module_lm75::getValue</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>liest die Roh-Daten aus dem LM75 und schiebt die Bits in die richtige Reihenfolge </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Rohwert, im Fehlerfall 0 (überprüfen mit <a class="el" href="classgnublin__module__lm75.html#ad628c7dd8ad16585f42b7601b56fdd10" title="Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist...">fail()</a> und <a class="el" href="classgnublin__module__lm75.html#aa5efb67553533a84d9b4b71b7541265c" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage()</a>) </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="module__lm75_8cpp_source.html#l00204">204</a> der Datei <a class="el" href="module__lm75_8cpp_source.html">module_lm75.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a62c5af59cf2db400e64174b019e6494c"></a><!-- doxytag: member="gnublin_module_lm75::setAddress" ref="a62c5af59cf2db400e64174b019e6494c" args="(int Address)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__lm75.html#a62c5af59cf2db400e64174b019e6494c">gnublin_module_lm75::setAddress</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Address</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt die i2c slave Adresse. </p>
+<p>Mit dieser Funktion kann die individuelle I2C Slave-Adresse gesetzt werden. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Address</td><td>neue I2C slave Adresse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="module__lm75_8cpp_source.html#l00066">66</a> der Datei <a class="el" href="module__lm75_8cpp_source.html">module_lm75.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a363716d889c320f202abe5d35479c4de"></a><!-- doxytag: member="gnublin_module_lm75::setDevicefile" ref="a363716d889c320f202abe5d35479c4de" args="(std::string filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__lm75.html#a363716d889c320f202abe5d35479c4de">gnublin_module_lm75::setDevicefile</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>setzt die I2C Device Datei. Standard ist die "/dev/i2c-1" </p>
+<p>Diese Funktion setzt die Geräte Datei, auf die man zugreifen möchte. Standardmäßig ist bereits "/dev/i2c-1" gesetzt. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Dateipfad zur Geräte Datei, z.B. "/dev/i2c-0" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="module__lm75_8cpp_source.html#l00084">84</a> der Datei <a class="el" href="module__lm75_8cpp_source.html">module_lm75.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>modules/<a class="el" href="module__lm75_8h_source.html">module_lm75.h</a></li>
+<li>modules/<a class="el" href="module__lm75_8cpp_source.html">module_lm75.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="classgnublin__module__lm75.html">gnublin_module_lm75</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

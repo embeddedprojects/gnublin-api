@@ -1,0 +1,1316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: gnublin_smtp Klassenreferenz</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('classgnublin__smtp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Klassen</a> &#124;
+<a href="#pub-types">Öffentliche Typen</a> &#124;
+<a href="#pub-methods">Öffentliche Methoden</a>  </div>
+  <div class="headertitle">
+<div class="title">gnublin_smtp Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<!-- doxytag: class="gnublin_smtp" -->
+<p>Klasse um Mails zu versenden.  
+ <a href="classgnublin__smtp.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="CSmtp_8h_source.html">CSmtp.h</a>&gt;</code></p>
+
+<p><a href="classgnublin__smtp-members.html">Aufstellung aller Elemente</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>Recipient</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Öffentliche Typen</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">CSmtpError</a> { <br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a9c5aed17c59986ac44682fa3756f2bbc">CSMTP_NO_ERROR</a> =  0, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ad4ba38eff0d23031c775f8bf4d09280c">WSA_STARTUP</a> =  100, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a727ff618869e536d3b93bd5a4824d3a5">WSA_VER</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a8c414dde211e3b3cf40c4cd872d05daf">WSA_SEND</a>, 
+<br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8af57453889c72f035f50f29ba940255a7">WSA_RECV</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aa41d991721e9f3a4c0928a3fbfd045fb">WSA_CONNECT</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a353b088ab6d7d965f3d504ebc2d923f7">WSA_GETHOSTBY_NAME_ADDR</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ab6017796998fcf57afb133f614892ba3">WSA_INVALID_SOCKET</a>, 
+<br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a88d031c9e1d5af40fc20cc579c8e1eed">WSA_HOSTNAME</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a1bc86cfb2430e5195499f26ee980159f">WSA_IOCTLSOCKET</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a363e32827537602cc92167d27cd628d0">WSA_SELECT</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a6203dc8a198205e82ddcc3707bcbbf85">BAD_IPV4_ADDR</a>, 
+<br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a87b2b5f58457185d2aca46896bb347d1">UNDEF_MSG_HEADER</a> =  200, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a954e20179b3ec8a0d431d87fecc9e096">UNDEF_MAIL_FROM</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8adc3ef4d882d8439dd4d49bcc0a53d8ff">UNDEF_SUBJECT</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a68d2518f86910f685b4269500f713724">UNDEF_RECIPIENTS</a>, 
+<br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a1ca6984e6bbcce5ef9a485f9444f43c6">UNDEF_LOGIN</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8afc3ad6f8a091baaf16c9a55801515b8e">UNDEF_PASSWORD</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aeba2e000fe8c7924469089ee043d9716">UNDEF_RECIPIENT_MAIL</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a36d39141faab555337dd6414295e8c33">COMMAND_MAIL_FROM</a> =  300, 
+<br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8af6abe6a62af653c6712623f0c58ff6e2">COMMAND_EHLO</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8afb4ceb1bf31dd7e30ad5a5c84da194c5">COMMAND_AUTH_LOGIN</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a987ba956ee4c64d3c4327eb8d62736e4">COMMAND_DATA</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a8fe88cf0cba02c396f9332e4ce27a614">COMMAND_QUIT</a>, 
+<br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a981c57544e6b04174d0d5dbd854de731">COMMAND_RCPT_TO</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ab98a4edb65904d2045e297d5fb37b055">MSG_BODY_ERROR</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aa33c2be7cdc7bfd38f3b37a016d4b0b2">CONNECTION_CLOSED</a> =  400, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a3f1291484dc41b3c5c1ae0317d07f59f">SERVER_NOT_READY</a>, 
+<br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8af5ee5e53c4fa3b3eb7d3e38e749435f2">SERVER_NOT_RESPONDING</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a78d7d2914226a7e7269a63c1b54cba8c">SELECT_TIMEOUT</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a94760f4b3f8d376f1041f15ad0969500">FILE_NOT_EXIST</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8abe2fdf4bcd34d6f21d85b84e4b34f641">MSG_TOO_BIG</a>, 
+<br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a7d3c7babc50eeb1b5b0d017c71cbbbac">BAD_LOGIN_PASS</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a0a9a32e1ea096b379eaafd4562d3b5c0">UNDEF_XYZ_RESPONSE</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a51cf5d261162eb786ff3173c121ac8ca">LACK_OF_MEMORY</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a31fd0cfefbf9c8c354a95c972d074610">TIME_ERROR</a>, 
+<br/>
+&#160;&#160;<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ad5749163dc7e7bffd41d642cde25ecf9">RECVBUF_IS_EMPTY</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aea958cab8bb58cf2d8be3528de7b2775">SENDBUF_IS_EMPTY</a>, 
+<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aee10cd61bc39897e755868b09ec260ea">OUT_OF_MSG_RANGE</a>
+<br/>
+ }</td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a2ad7b5d942691282081ef0f301f06705">gnublin_smtp</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Richtet die Mail-Klasse ein.  <a href="#a2ad7b5d942691282081ef0f301f06705"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a57decfcccb8357db406f78385a5a469c">~gnublin_smtp</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht buffer in der Mail-Klasse.  <a href="#a57decfcccb8357db406f78385a5a469c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a4583aae53b53932e96a0902bb5bde3b0">AddRecipient</a> (const char *email, const char *name=NULL)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt einen neuen Empfänger hinzu.  <a href="#a4583aae53b53932e96a0902bb5bde3b0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a34c88073908830e14c25f6a2332ed426">AddBCCRecipient</a> (const char *email, const char *name=NULL)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt einen neuen BCC-Empfänger hinzu.  <a href="#a34c88073908830e14c25f6a2332ed426"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a4123082a4b72adf5907a516a79387be8">AddCCRecipient</a> (const char *email, const char *name=NULL)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt einen neuen CC-Empfänger hinzu.  <a href="#a4123082a4b72adf5907a516a79387be8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a2f7cdc8cb318a81dcdfc413cebcd295c">AddAttachment</a> (const char *path)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt einen neuen Dateianhang hinzu.  <a href="#a2f7cdc8cb318a81dcdfc413cebcd295c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a8b601bc79681d8598743bffc62c3f694">AddMsgLine</a> (const char *text)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt eine neue Zeile in die Nachricht ein.  <a href="#a8b601bc79681d8598743bffc62c3f694"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#ac895752dcb1c5e616c06b82caf6b9800">DelRecipients</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht alle Empfänger.  <a href="#ac895752dcb1c5e616c06b82caf6b9800"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a1799fe9231b1e757ebaf214d60ec0cec">DelBCCRecipients</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht alle BCC-Empfänger.  <a href="#a1799fe9231b1e757ebaf214d60ec0cec"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a9cd70020ce6903e98662824e2c2cb2ae">DelCCRecipients</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht alle CC-Empfänger.  <a href="#a9cd70020ce6903e98662824e2c2cb2ae"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#add1ccc13541a9f5985e9826085bb967b">DelAttachments</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht alle Dateianhänge.  <a href="#add1ccc13541a9f5985e9826085bb967b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a53f18e543260e690858e94b8892e789d">DelMsgLines</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht den Nachrichtentext.  <a href="#a53f18e543260e690858e94b8892e789d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a898e0c1be9d8ebd4685624166b5d1d56">DelMsgLine</a> (unsigned int line)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht eine bestimmte Zeile in der Nachricht.  <a href="#a898e0c1be9d8ebd4685624166b5d1d56"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a807cfb2dc6cc3e2058ee4e45937b82ab">ModMsgLine</a> (unsigned int line, const char *text)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bearbeiten einer bestimmten Nachrichtenzeile.  <a href="#a807cfb2dc6cc3e2058ee4e45937b82ab"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a2a700a57b21ef2a2938251f16ee359f0">GetBCCRecipientCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die anzahl der BCC-Empfänger zurück.  <a href="#a2a700a57b21ef2a2938251f16ee359f0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a737a42872312d9c965eb8c1c30a93354">GetCCRecipientCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die anzahl der CC-Empfänger zurück.  <a href="#a737a42872312d9c965eb8c1c30a93354"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#aacb54baeace2bcb677b482af6c716e84">GetRecipientCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die anzahl der Empfänger zurück.  <a href="#aacb54baeace2bcb677b482af6c716e84"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#afea14e46d8d63e6bfe6bd114b31117c5">GetLocalHostName</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den lokalen Host Namen zurück.  <a href="#afea14e46d8d63e6bfe6bd114b31117c5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a36a98226b6a73a6a92270b4a993e0a59">GetMsgLineText</a> (unsigned int line) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt Text einer bestimmten Nachrichtenzeile zurück.  <a href="#a36a98226b6a73a6a92270b4a993e0a59"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#aa285dc9da2e351e55e8984d525afe391">GetMsgLines</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a80863be89f1692daf1f457546f6d4198">GetReplyTo</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcReplyTo string zurück.  <a href="#a80863be89f1692daf1f457546f6d4198"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#af36ccf1f24b57edb7455f180be28fbf5">GetMailFrom</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcMailFrom string zurück.  <a href="#af36ccf1f24b57edb7455f180be28fbf5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a1f5818f2d6cc6f6433528d0023c54697">GetSenderName</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcNameFrom string zurück.  <a href="#a1f5818f2d6cc6f6433528d0023c54697"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a8de2638dcbb3c524e237e48c2da1bf60">GetSubject</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcSubject string zurück.  <a href="#a8de2638dcbb3c524e237e48c2da1bf60"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a0c52238a94f5873cf6651ddf9ecb719c">GetXMailer</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcXMailer string zurück.  <a href="#a0c52238a94f5873cf6651ddf9ecb719c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a215a44dddd3066b575bc2aacac7154d0">GetXPriority</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den m_pcXPriority string zurück.  <a href="#a215a44dddd3066b575bc2aacac7154d0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#aacd16ffe720f1f70ea6f11ef62f2a5a1">Send</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">E-Mail verschicken.  <a href="#aacd16ffe720f1f70ea6f11ef62f2a5a1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a772611137f9a40a3b87f1d04baab9a18">SetSubject</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Betraff der Nachricht festlegen.  <a href="#a772611137f9a40a3b87f1d04baab9a18"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#ad53f44a14c45575fe69f41cc853609de">SetSenderName</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Absendername setzen.  <a href="#ad53f44a14c45575fe69f41cc853609de"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a74edec51cef02e82b8625a8e3302f62a">SetSenderMail</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Absenderadresse setzen.  <a href="#a74edec51cef02e82b8625a8e3302f62a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#addb6bf5d39317451c36a2e10cd97772c">SetReplyTo</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Rücksendeadresse festlegen.  <a href="#addb6bf5d39317451c36a2e10cd97772c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a9b7fbe589c75eeb3643fe67ce5f0e5b7">SetXMailer</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Name des Absendeprogramms bestimmen.  <a href="#a9b7fbe589c75eeb3643fe67ce5f0e5b7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#adfef5d8eb9997946f7b8ca33e188a233">SetLogin</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SMTP Benutzername angeben.  <a href="#adfef5d8eb9997946f7b8ca33e188a233"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a02e6e266eaa19fe0be896c55ec3340dc">SetPassword</a> (const char *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Passwort des SMTP accounts angeben.  <a href="#a02e6e266eaa19fe0be896c55ec3340dc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a6050891a6db4dccd6be8f7f9b3aecd43">SetXPriority</a> (<a class="el" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Priorität der Nachricht festlegen.  <a href="#a6050891a6db4dccd6be8f7f9b3aecd43"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a3853b65838dd3e50006d2c4b18ee85f9">SetSMTPServer</a> (const char *server, const unsigned short port=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SMTP Server setzen.  <a href="#a3853b65838dd3e50006d2c4b18ee85f9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a7c04cb09da1457e73e16b91f8ae85a3b">gnublin_smtp</a> (<a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">CSmtpError</a> err_)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">CSmtpError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#ac8d0e5338bc4de58925bd66548837272">GetErrorNum</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__smtp.html#a8e40a85270f15eb1d0f83fd5eaf77eab">GetErrorText</a> (void) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt einen String mit einem spezifischem Fehlercode zurück.  <a href="#a8e40a85270f15eb1d0f83fd5eaf77eab"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Klasse um Mails zu versenden. </p>
+<p>Diese Klasse ermöglicht das Senden und Empfangen von E-Mails. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8h_source.html#l00063">63</a> der Datei <a class="el" href="CSmtp_8h_source.html">CSmtp.h</a>.</p>
+</div><hr/><h2>Dokumentation der Aufzählungstypen</h2>
+<a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8"></a><!-- doxytag: member="gnublin_smtp::CSmtpError" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">gnublin_smtp::CSmtpError</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Aufzählungswerte: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a9c5aed17c59986ac44682fa3756f2bbc"></a><!-- doxytag: member="CSMTP_NO_ERROR" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a9c5aed17c59986ac44682fa3756f2bbc" args="" -->CSMTP_NO_ERROR</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8ad4ba38eff0d23031c775f8bf4d09280c"></a><!-- doxytag: member="WSA_STARTUP" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8ad4ba38eff0d23031c775f8bf4d09280c" args="" -->WSA_STARTUP</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a727ff618869e536d3b93bd5a4824d3a5"></a><!-- doxytag: member="WSA_VER" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a727ff618869e536d3b93bd5a4824d3a5" args="" -->WSA_VER</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a8c414dde211e3b3cf40c4cd872d05daf"></a><!-- doxytag: member="WSA_SEND" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a8c414dde211e3b3cf40c4cd872d05daf" args="" -->WSA_SEND</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8af57453889c72f035f50f29ba940255a7"></a><!-- doxytag: member="WSA_RECV" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8af57453889c72f035f50f29ba940255a7" args="" -->WSA_RECV</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8aa41d991721e9f3a4c0928a3fbfd045fb"></a><!-- doxytag: member="WSA_CONNECT" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8aa41d991721e9f3a4c0928a3fbfd045fb" args="" -->WSA_CONNECT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a353b088ab6d7d965f3d504ebc2d923f7"></a><!-- doxytag: member="WSA_GETHOSTBY_NAME_ADDR" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a353b088ab6d7d965f3d504ebc2d923f7" args="" -->WSA_GETHOSTBY_NAME_ADDR</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8ab6017796998fcf57afb133f614892ba3"></a><!-- doxytag: member="WSA_INVALID_SOCKET" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8ab6017796998fcf57afb133f614892ba3" args="" -->WSA_INVALID_SOCKET</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a88d031c9e1d5af40fc20cc579c8e1eed"></a><!-- doxytag: member="WSA_HOSTNAME" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a88d031c9e1d5af40fc20cc579c8e1eed" args="" -->WSA_HOSTNAME</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a1bc86cfb2430e5195499f26ee980159f"></a><!-- doxytag: member="WSA_IOCTLSOCKET" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a1bc86cfb2430e5195499f26ee980159f" args="" -->WSA_IOCTLSOCKET</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a363e32827537602cc92167d27cd628d0"></a><!-- doxytag: member="WSA_SELECT" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a363e32827537602cc92167d27cd628d0" args="" -->WSA_SELECT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a6203dc8a198205e82ddcc3707bcbbf85"></a><!-- doxytag: member="BAD_IPV4_ADDR" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a6203dc8a198205e82ddcc3707bcbbf85" args="" -->BAD_IPV4_ADDR</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a87b2b5f58457185d2aca46896bb347d1"></a><!-- doxytag: member="UNDEF_MSG_HEADER" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a87b2b5f58457185d2aca46896bb347d1" args="" -->UNDEF_MSG_HEADER</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a954e20179b3ec8a0d431d87fecc9e096"></a><!-- doxytag: member="UNDEF_MAIL_FROM" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a954e20179b3ec8a0d431d87fecc9e096" args="" -->UNDEF_MAIL_FROM</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8adc3ef4d882d8439dd4d49bcc0a53d8ff"></a><!-- doxytag: member="UNDEF_SUBJECT" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8adc3ef4d882d8439dd4d49bcc0a53d8ff" args="" -->UNDEF_SUBJECT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a68d2518f86910f685b4269500f713724"></a><!-- doxytag: member="UNDEF_RECIPIENTS" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a68d2518f86910f685b4269500f713724" args="" -->UNDEF_RECIPIENTS</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a1ca6984e6bbcce5ef9a485f9444f43c6"></a><!-- doxytag: member="UNDEF_LOGIN" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a1ca6984e6bbcce5ef9a485f9444f43c6" args="" -->UNDEF_LOGIN</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8afc3ad6f8a091baaf16c9a55801515b8e"></a><!-- doxytag: member="UNDEF_PASSWORD" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8afc3ad6f8a091baaf16c9a55801515b8e" args="" -->UNDEF_PASSWORD</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8aeba2e000fe8c7924469089ee043d9716"></a><!-- doxytag: member="UNDEF_RECIPIENT_MAIL" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8aeba2e000fe8c7924469089ee043d9716" args="" -->UNDEF_RECIPIENT_MAIL</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a36d39141faab555337dd6414295e8c33"></a><!-- doxytag: member="COMMAND_MAIL_FROM" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a36d39141faab555337dd6414295e8c33" args="" -->COMMAND_MAIL_FROM</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8af6abe6a62af653c6712623f0c58ff6e2"></a><!-- doxytag: member="COMMAND_EHLO" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8af6abe6a62af653c6712623f0c58ff6e2" args="" -->COMMAND_EHLO</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8afb4ceb1bf31dd7e30ad5a5c84da194c5"></a><!-- doxytag: member="COMMAND_AUTH_LOGIN" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8afb4ceb1bf31dd7e30ad5a5c84da194c5" args="" -->COMMAND_AUTH_LOGIN</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a987ba956ee4c64d3c4327eb8d62736e4"></a><!-- doxytag: member="COMMAND_DATA" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a987ba956ee4c64d3c4327eb8d62736e4" args="" -->COMMAND_DATA</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a8fe88cf0cba02c396f9332e4ce27a614"></a><!-- doxytag: member="COMMAND_QUIT" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a8fe88cf0cba02c396f9332e4ce27a614" args="" -->COMMAND_QUIT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a981c57544e6b04174d0d5dbd854de731"></a><!-- doxytag: member="COMMAND_RCPT_TO" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a981c57544e6b04174d0d5dbd854de731" args="" -->COMMAND_RCPT_TO</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8ab98a4edb65904d2045e297d5fb37b055"></a><!-- doxytag: member="MSG_BODY_ERROR" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8ab98a4edb65904d2045e297d5fb37b055" args="" -->MSG_BODY_ERROR</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8aa33c2be7cdc7bfd38f3b37a016d4b0b2"></a><!-- doxytag: member="CONNECTION_CLOSED" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8aa33c2be7cdc7bfd38f3b37a016d4b0b2" args="" -->CONNECTION_CLOSED</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a3f1291484dc41b3c5c1ae0317d07f59f"></a><!-- doxytag: member="SERVER_NOT_READY" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a3f1291484dc41b3c5c1ae0317d07f59f" args="" -->SERVER_NOT_READY</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8af5ee5e53c4fa3b3eb7d3e38e749435f2"></a><!-- doxytag: member="SERVER_NOT_RESPONDING" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8af5ee5e53c4fa3b3eb7d3e38e749435f2" args="" -->SERVER_NOT_RESPONDING</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a78d7d2914226a7e7269a63c1b54cba8c"></a><!-- doxytag: member="SELECT_TIMEOUT" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a78d7d2914226a7e7269a63c1b54cba8c" args="" -->SELECT_TIMEOUT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a94760f4b3f8d376f1041f15ad0969500"></a><!-- doxytag: member="FILE_NOT_EXIST" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a94760f4b3f8d376f1041f15ad0969500" args="" -->FILE_NOT_EXIST</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8abe2fdf4bcd34d6f21d85b84e4b34f641"></a><!-- doxytag: member="MSG_TOO_BIG" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8abe2fdf4bcd34d6f21d85b84e4b34f641" args="" -->MSG_TOO_BIG</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a7d3c7babc50eeb1b5b0d017c71cbbbac"></a><!-- doxytag: member="BAD_LOGIN_PASS" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a7d3c7babc50eeb1b5b0d017c71cbbbac" args="" -->BAD_LOGIN_PASS</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a0a9a32e1ea096b379eaafd4562d3b5c0"></a><!-- doxytag: member="UNDEF_XYZ_RESPONSE" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a0a9a32e1ea096b379eaafd4562d3b5c0" args="" -->UNDEF_XYZ_RESPONSE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a51cf5d261162eb786ff3173c121ac8ca"></a><!-- doxytag: member="LACK_OF_MEMORY" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a51cf5d261162eb786ff3173c121ac8ca" args="" -->LACK_OF_MEMORY</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8a31fd0cfefbf9c8c354a95c972d074610"></a><!-- doxytag: member="TIME_ERROR" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8a31fd0cfefbf9c8c354a95c972d074610" args="" -->TIME_ERROR</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8ad5749163dc7e7bffd41d642cde25ecf9"></a><!-- doxytag: member="RECVBUF_IS_EMPTY" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8ad5749163dc7e7bffd41d642cde25ecf9" args="" -->RECVBUF_IS_EMPTY</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8aea958cab8bb58cf2d8be3528de7b2775"></a><!-- doxytag: member="SENDBUF_IS_EMPTY" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8aea958cab8bb58cf2d8be3528de7b2775" args="" -->SENDBUF_IS_EMPTY</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae89c3aed9bceedc7b2f840ff35c7d7b8aee10cd61bc39897e755868b09ec260ea"></a><!-- doxytag: member="OUT_OF_MSG_RANGE" ref="ae89c3aed9bceedc7b2f840ff35c7d7b8aee10cd61bc39897e755868b09ec260ea" args="" -->OUT_OF_MSG_RANGE</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8h_source.html#l00105">105</a> der Datei <a class="el" href="CSmtp_8h_source.html">CSmtp.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="a2ad7b5d942691282081ef0f301f06705"></a><!-- doxytag: member="gnublin_smtp::gnublin_smtp" ref="a2ad7b5d942691282081ef0f301f06705" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__smtp.html#a2ad7b5d942691282081ef0f301f06705">gnublin_smtp::gnublin_smtp</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Richtet die Mail-Klasse ein. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00039">39</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57decfcccb8357db406f78385a5a469c"></a><!-- doxytag: member="gnublin_smtp::~gnublin_smtp" ref="a57decfcccb8357db406f78385a5a469c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__smtp.html#a57decfcccb8357db406f78385a5a469c">gnublin_smtp::~gnublin_smtp</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht buffer in der Mail-Klasse. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00069">69</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c04cb09da1457e73e16b91f8ae85a3b"></a><!-- doxytag: member="gnublin_smtp::gnublin_smtp" ref="a7c04cb09da1457e73e16b91f8ae85a3b" args="(CSmtpError err_)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__smtp.html#a2ad7b5d942691282081ef0f301f06705">gnublin_smtp::gnublin_smtp</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">CSmtpError</a>&#160;</td>
+          <td class="paramname"><em>err_</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8h_source.html#l00147">147</a> der Datei <a class="el" href="CSmtp_8h_source.html">CSmtp.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="a2f7cdc8cb318a81dcdfc413cebcd295c"></a><!-- doxytag: member="gnublin_smtp::AddAttachment" ref="a2f7cdc8cb318a81dcdfc413cebcd295c" args="(const char *path)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a2f7cdc8cb318a81dcdfc413cebcd295c">gnublin_smtp::AddAttachment</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt einen neuen Dateianhang hinzu. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Path</td><td>Dateiname </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00106">106</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a34c88073908830e14c25f6a2332ed426"></a><!-- doxytag: member="gnublin_smtp::AddBCCRecipient" ref="a34c88073908830e14c25f6a2332ed426" args="(const char *email, const char *name=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a34c88073908830e14c25f6a2332ed426">gnublin_smtp::AddBCCRecipient</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt einen neuen BCC-Empfänger hinzu. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-Mail Adresse des BCC-Empfängers </td></tr>
+    <tr><td class="paramname">name</td><td>Name des BCC-Empfängers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00211">211</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4123082a4b72adf5907a516a79387be8"></a><!-- doxytag: member="gnublin_smtp::AddCCRecipient" ref="a4123082a4b72adf5907a516a79387be8" args="(const char *email, const char *name=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a4123082a4b72adf5907a516a79387be8">gnublin_smtp::AddCCRecipient</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt einen neuen CC-Empfänger hinzu. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-Mail Adresse des CC-Empfängers </td></tr>
+    <tr><td class="paramname">name</td><td>Name des CC-Empfängers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00174">174</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8b601bc79681d8598743bffc62c3f694"></a><!-- doxytag: member="gnublin_smtp::AddMsgLine" ref="a8b601bc79681d8598743bffc62c3f694" args="(const char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a8b601bc79681d8598743bffc62c3f694">gnublin_smtp::AddMsgLine</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt eine neue Zeile in die Nachricht ein. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Text</td><td>Text der neuen Zeile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00245">245</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4583aae53b53932e96a0902bb5bde3b0"></a><!-- doxytag: member="gnublin_smtp::AddRecipient" ref="a4583aae53b53932e96a0902bb5bde3b0" args="(const char *email, const char *name=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a4583aae53b53932e96a0902bb5bde3b0">gnublin_smtp::AddRecipient</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fügt einen neuen Empfänger hinzu. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-Mail Adresse des Empfängers </td></tr>
+    <tr><td class="paramname">name</td><td>Name des Empfängers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00137">137</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add1ccc13541a9f5985e9826085bb967b"></a><!-- doxytag: member="gnublin_smtp::DelAttachments" ref="add1ccc13541a9f5985e9826085bb967b" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#add1ccc13541a9f5985e9826085bb967b">gnublin_smtp::DelAttachments</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht alle Dateianhänge. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00398">398</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1799fe9231b1e757ebaf214d60ec0cec"></a><!-- doxytag: member="gnublin_smtp::DelBCCRecipients" ref="a1799fe9231b1e757ebaf214d60ec0cec" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a1799fe9231b1e757ebaf214d60ec0cec">gnublin_smtp::DelBCCRecipients</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht alle BCC-Empfänger. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00324">324</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9cd70020ce6903e98662824e2c2cb2ae"></a><!-- doxytag: member="gnublin_smtp::DelCCRecipients" ref="a9cd70020ce6903e98662824e2c2cb2ae" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a9cd70020ce6903e98662824e2c2cb2ae">gnublin_smtp::DelCCRecipients</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht alle CC-Empfänger. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00349">349</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a898e0c1be9d8ebd4685624166b5d1d56"></a><!-- doxytag: member="gnublin_smtp::DelMsgLine" ref="a898e0c1be9d8ebd4685624166b5d1d56" args="(unsigned int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a898e0c1be9d8ebd4685624166b5d1d56">gnublin_smtp::DelMsgLine</a> </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>Line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht eine bestimmte Zeile in der Nachricht. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Line</td><td>Zeilennummer die gelöscht werden soll </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00272">272</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53f18e543260e690858e94b8892e789d"></a><!-- doxytag: member="gnublin_smtp::DelMsgLines" ref="a53f18e543260e690858e94b8892e789d" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a53f18e543260e690858e94b8892e789d">gnublin_smtp::DelMsgLines</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht den Nachrichtentext. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00373">373</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac895752dcb1c5e616c06b82caf6b9800"></a><!-- doxytag: member="gnublin_smtp::DelRecipients" ref="ac895752dcb1c5e616c06b82caf6b9800" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#ac895752dcb1c5e616c06b82caf6b9800">gnublin_smtp::DelRecipients</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Löscht alle Empfänger. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00299">299</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2a700a57b21ef2a2938251f16ee359f0"></a><!-- doxytag: member="gnublin_smtp::GetBCCRecipientCount" ref="a2a700a57b21ef2a2938251f16ee359f0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classgnublin__smtp.html#a2a700a57b21ef2a2938251f16ee359f0">gnublin_smtp::GetBCCRecipientCount</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die anzahl der BCC-Empfänger zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Anzahl der BCC-Empfänger </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01373">1373</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a737a42872312d9c965eb8c1c30a93354"></a><!-- doxytag: member="gnublin_smtp::GetCCRecipientCount" ref="a737a42872312d9c965eb8c1c30a93354" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classgnublin__smtp.html#a737a42872312d9c965eb8c1c30a93354">gnublin_smtp::GetCCRecipientCount</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die anzahl der CC-Empfänger zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Anzahl der CC-Empfänger </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01397">1397</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8d0e5338bc4de58925bd66548837272"></a><!-- doxytag: member="gnublin_smtp::GetErrorNum" ref="ac8d0e5338bc4de58925bd66548837272" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">CSmtpError</a> <a class="el" href="classgnublin__smtp.html#ac8d0e5338bc4de58925bd66548837272">gnublin_smtp::GetErrorNum</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8h_source.html#l00148">148</a> der Datei <a class="el" href="CSmtp_8h_source.html">CSmtp.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8e40a85270f15eb1d0f83fd5eaf77eab"></a><!-- doxytag: member="gnublin_smtp::GetErrorText" ref="a8e40a85270f15eb1d0f83fd5eaf77eab" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classgnublin__smtp.html#a8e40a85270f15eb1d0f83fd5eaf77eab">gnublin_smtp::GetErrorText</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt einen String mit einem spezifischem Fehlercode zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Fehlerstring </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01825">1825</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afea14e46d8d63e6bfe6bd114b31117c5"></a><!-- doxytag: member="gnublin_smtp::GetLocalHostName" ref="afea14e46d8d63e6bfe6bd114b31117c5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__smtp.html#afea14e46d8d63e6bfe6bd114b31117c5">gnublin_smtp::GetLocalHostName</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den lokalen Host Namen zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Socket des Remote Service </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01315">1315</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af36ccf1f24b57edb7455f180be28fbf5"></a><!-- doxytag: member="gnublin_smtp::GetMailFrom" ref="af36ccf1f24b57edb7455f180be28fbf5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__smtp.html#af36ccf1f24b57edb7455f180be28fbf5">gnublin_smtp::GetMailFrom</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcMailFrom string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcMailFrom string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01445">1445</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa285dc9da2e351e55e8984d525afe391"></a><!-- doxytag: member="gnublin_smtp::GetMsgLines" ref="aa285dc9da2e351e55e8984d525afe391" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classgnublin__smtp.html#aa285dc9da2e351e55e8984d525afe391">gnublin_smtp::GetMsgLines</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01564">1564</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36a98226b6a73a6a92270b4a993e0a59"></a><!-- doxytag: member="gnublin_smtp::GetMsgLineText" ref="a36a98226b6a73a6a92270b4a993e0a59" args="(unsigned int line) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__smtp.html#a36a98226b6a73a6a92270b4a993e0a59">gnublin_smtp::GetMsgLineText</a> </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>Line</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt Text einer bestimmten Nachrichtenzeile zurück. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Line</td><td>Zeilennummer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Text </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01557">1557</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aacb54baeace2bcb677b482af6c716e84"></a><!-- doxytag: member="gnublin_smtp::GetRecipientCount" ref="aacb54baeace2bcb677b482af6c716e84" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classgnublin__smtp.html#aacb54baeace2bcb677b482af6c716e84">gnublin_smtp::GetRecipientCount</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die anzahl der Empfänger zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Anzahl der Empfänger </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01349">1349</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a80863be89f1692daf1f457546f6d4198"></a><!-- doxytag: member="gnublin_smtp::GetReplyTo" ref="a80863be89f1692daf1f457546f6d4198" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__smtp.html#a80863be89f1692daf1f457546f6d4198">gnublin_smtp::GetReplyTo</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcReplyTo string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcReplyTo string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01421">1421</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1f5818f2d6cc6f6433528d0023c54697"></a><!-- doxytag: member="gnublin_smtp::GetSenderName" ref="a1f5818f2d6cc6f6433528d0023c54697" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__smtp.html#a1f5818f2d6cc6f6433528d0023c54697">gnublin_smtp::GetSenderName</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcNameFrom string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcNameFrom string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01469">1469</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8de2638dcbb3c524e237e48c2da1bf60"></a><!-- doxytag: member="gnublin_smtp::GetSubject" ref="a8de2638dcbb3c524e237e48c2da1bf60" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__smtp.html#a8de2638dcbb3c524e237e48c2da1bf60">gnublin_smtp::GetSubject</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcSubject string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcSubject string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01493">1493</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c52238a94f5873cf6651ddf9ecb719c"></a><!-- doxytag: member="gnublin_smtp::GetXMailer" ref="a0c52238a94f5873cf6651ddf9ecb719c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__smtp.html#a0c52238a94f5873cf6651ddf9ecb719c">gnublin_smtp::GetXMailer</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcXMailer string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcXMailer string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01517">1517</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a215a44dddd3066b575bc2aacac7154d0"></a><!-- doxytag: member="gnublin_smtp::GetXPriority" ref="a215a44dddd3066b575bc2aacac7154d0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a> <a class="el" href="classgnublin__smtp.html#a215a44dddd3066b575bc2aacac7154d0">gnublin_smtp::GetXPriority</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt den m_pcXPriority string zurück. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>m_pcXPriority string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01541">1541</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a807cfb2dc6cc3e2058ee4e45937b82ab"></a><!-- doxytag: member="gnublin_smtp::ModMsgLine" ref="a807cfb2dc6cc3e2058ee4e45937b82ab" args="(unsigned int line, const char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a807cfb2dc6cc3e2058ee4e45937b82ab">gnublin_smtp::ModMsgLine</a> </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>Line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Bearbeiten einer bestimmten Nachrichtenzeile. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Line</td><td>Zu editierende Zeile </td></tr>
+    <tr><td class="paramname">Text</td><td>Neuer Text der Zeile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00428">428</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aacd16ffe720f1f70ea6f11ef62f2a5a1"></a><!-- doxytag: member="gnublin_smtp::Send" ref="aacd16ffe720f1f70ea6f11ef62f2a5a1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#aacd16ffe720f1f70ea6f11ef62f2a5a1">gnublin_smtp::Send</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>E-Mail verschicken. </p>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l00460">460</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adfef5d8eb9997946f7b8ca33e188a233"></a><!-- doxytag: member="gnublin_smtp::SetLogin" ref="adfef5d8eb9997946f7b8ca33e188a233" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#adfef5d8eb9997946f7b8ca33e188a233">gnublin_smtp::SetLogin</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Login</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>SMTP Benutzername angeben. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Login</td><td>Benutzername </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01744">1744</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a02e6e266eaa19fe0be896c55ec3340dc"></a><!-- doxytag: member="gnublin_smtp::SetPassword" ref="a02e6e266eaa19fe0be896c55ec3340dc" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a02e6e266eaa19fe0be896c55ec3340dc">gnublin_smtp::SetPassword</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Password</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Passwort des SMTP accounts angeben. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Password</td><td>Passwort des Accounts </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01770">1770</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="addb6bf5d39317451c36a2e10cd97772c"></a><!-- doxytag: member="gnublin_smtp::SetReplyTo" ref="addb6bf5d39317451c36a2e10cd97772c" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#addb6bf5d39317451c36a2e10cd97772c">gnublin_smtp::SetReplyTo</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ReplyTo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Rücksendeadresse festlegen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ReplyTo</td><td>Rücksendeadresse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01614">1614</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74edec51cef02e82b8625a8e3302f62a"></a><!-- doxytag: member="gnublin_smtp::SetSenderMail" ref="a74edec51cef02e82b8625a8e3302f62a" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a74edec51cef02e82b8625a8e3302f62a">gnublin_smtp::SetSenderMail</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>EMail</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Absenderadresse setzen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E-Mail</td><td>Absenderadresse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01640">1640</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad53f44a14c45575fe69f41cc853609de"></a><!-- doxytag: member="gnublin_smtp::SetSenderName" ref="ad53f44a14c45575fe69f41cc853609de" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#ad53f44a14c45575fe69f41cc853609de">gnublin_smtp::SetSenderName</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Absendername setzen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Name</td><td>Absendername </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01666">1666</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3853b65838dd3e50006d2c4b18ee85f9"></a><!-- doxytag: member="gnublin_smtp::SetSMTPServer" ref="a3853b65838dd3e50006d2c4b18ee85f9" args="(const char *server, const unsigned short port=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a3853b65838dd3e50006d2c4b18ee85f9">gnublin_smtp::SetSMTPServer</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>SrvName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short&#160;</td>
+          <td class="paramname"><em>SrvPort</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>SMTP Server setzen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">SrvName</td><td>Servername </td></tr>
+    <tr><td class="paramname">SrvPort</td><td>Serverport </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01799">1799</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a772611137f9a40a3b87f1d04baab9a18"></a><!-- doxytag: member="gnublin_smtp::SetSubject" ref="a772611137f9a40a3b87f1d04baab9a18" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a772611137f9a40a3b87f1d04baab9a18">gnublin_smtp::SetSubject</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>Subject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Betraff der Nachricht festlegen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Subject</td><td>Betreff </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01692">1692</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b7fbe589c75eeb3643fe67ce5f0e5b7"></a><!-- doxytag: member="gnublin_smtp::SetXMailer" ref="a9b7fbe589c75eeb3643fe67ce5f0e5b7" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a9b7fbe589c75eeb3643fe67ce5f0e5b7">gnublin_smtp::SetXMailer</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>XMailer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Name des Absendeprogramms bestimmen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">XMailer</td><td>Programmname </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01718">1718</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6050891a6db4dccd6be8f7f9b3aecd43"></a><!-- doxytag: member="gnublin_smtp::SetXPriority" ref="a6050891a6db4dccd6be8f7f9b3aecd43" args="(CSmptXPriority)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__smtp.html#a6050891a6db4dccd6be8f7f9b3aecd43">gnublin_smtp::SetXPriority</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a>&#160;</td>
+          <td class="paramname"><em>priority</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Priorität der Nachricht festlegen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">priority</td><td>Priorität der Nachricht (XPRIORITY_HIGH, XPRIORITY_NORMAL, XPRIORITY_LOW) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="CSmtp_8cpp_source.html#l01589">1589</a> der Datei <a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>library/mail/<a class="el" href="CSmtp_8h_source.html">CSmtp.h</a></li>
+<li>library/mail/<a class="el" href="CSmtp_8cpp_source.html">CSmtp.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="classgnublin__smtp.html">gnublin_smtp</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

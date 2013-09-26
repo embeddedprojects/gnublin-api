@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: library/mail/CSmtp.h Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('CSmtp_8h.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">library/mail/CSmtp.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="CSmtp_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// CSmtp.h: interface for the Smtp class.</span>
+<a name="l00002"></a>00002 <span class="comment">//</span>
+<a name="l00004"></a>00004 <span class="comment"></span>
+<a name="l00005"></a>00005 <span class="preprocessor">#pragma once</span>
+<a name="l00006"></a>00006 <span class="preprocessor"></span><span class="preprocessor">#ifndef __CSMTP_H__</span>
+<a name="l00007"></a>00007 <span class="preprocessor"></span><span class="preprocessor">#define __CSMTP_H__</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;assert.h&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;sys/types.h&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;sys/socket.h&gt;</span>
+<a name="l00017"></a>00017 <span class="comment">//#include &lt;sys/ioctl.h&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;sys/unistd.h&gt;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;netinet/in.h&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;arpa/inet.h&gt;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;netdb.h&gt;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;errno.h&gt;</span>
+<a name="l00023"></a>00023 <span class="comment">//#include &lt;stdio.h&gt;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a><a class="code" href="CSmtp_8h.html#a633b0396ff93d336a088412a190a5072">00026</a> <span class="preprocessor">#define SOCKET_ERROR -1</span>
+<a name="l00027"></a><a class="code" href="CSmtp_8h.html#a26769957ec1a2beaf223f33b66ee64ab">00027</a> <span class="preprocessor"></span><span class="preprocessor">#define INVALID_SOCKET -1</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span>    
+<a name="l00029"></a><a class="code" href="CSmtp_8h.html#a197942eefa7db30960ae396d68339b97">00029</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="CSmtp_8h.html#a197942eefa7db30960ae396d68339b97">WORD</a>;
+<a name="l00030"></a><a class="code" href="CSmtp_8h.html#a8dc8083897335125630f1af5dafd5831">00030</a> <span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code" href="CSmtp_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a>;
+<a name="l00031"></a><a class="code" href="CSmtp_8h.html#a29046dc0232f0e5c70adbc25090d77b8">00031</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>sockaddr_in <a class="code" href="CSmtp_8h.html#a29046dc0232f0e5c70adbc25090d77b8">SOCKADDR_IN</a>;
+<a name="l00032"></a><a class="code" href="CSmtp_8h.html#a2ed3b578d11eb691fef5efd121a40c07">00032</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>hostent* <a class="code" href="CSmtp_8h.html#a2ed3b578d11eb691fef5efd121a40c07">LPHOSTENT</a>;
+<a name="l00033"></a><a class="code" href="CSmtp_8h.html#a398c25afc7020446451d2b5ced021aa7">00033</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>servent* <a class="code" href="CSmtp_8h.html#a398c25afc7020446451d2b5ced021aa7">LPSERVENT</a>;
+<a name="l00034"></a><a class="code" href="CSmtp_8h.html#a5eb9fe09b2c4bdb778a3afe9f4a84655">00034</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>in_addr* <a class="code" href="CSmtp_8h.html#a5eb9fe09b2c4bdb778a3afe9f4a84655">LPIN_ADDR</a>;
+<a name="l00035"></a><a class="code" href="CSmtp_8h.html#abd6f533b24db41dd613f5e03457a6b79">00035</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>sockaddr* <a class="code" href="CSmtp_8h.html#abd6f533b24db41dd613f5e03457a6b79">LPSOCKADDR</a>;
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="CSmtp_8h.html#ad3beacef45904ca7d14e068ad4bede93">00037</a> <span class="preprocessor">#define TIME_IN_SEC     10      // how long client will wait for server response in non-blocking mode</span>
+<a name="l00038"></a><a class="code" href="CSmtp_8h.html#a6b20d41d6252e9871430c242cb1a56e7">00038</a> <span class="preprocessor"></span><span class="preprocessor">#define BUFFER_SIZE 10240     // SendData and RecvData buffers sizes</span>
+<a name="l00039"></a><a class="code" href="CSmtp_8h.html#a9837d11374a325a3e8787dafed8ab8ed">00039</a> <span class="preprocessor"></span><span class="preprocessor">#define MSG_SIZE_IN_MB 5        // the maximum size of the message with all attachments</span>
+<a name="l00040"></a><a class="code" href="CSmtp_8h.html#ad8292657d8dd14eecdab2c44dba0a1d3">00040</a> <span class="preprocessor"></span><span class="preprocessor">#define COUNTER_VALUE   100     // how many times program will try to receive data</span>
+<a name="l00041"></a>00041 <span class="preprocessor"></span>
+<a name="l00042"></a><a class="code" href="CSmtp_8h.html#a660eb6ce768604345522904ebef08b41">00042</a> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="CSmtp_8h.html#a660eb6ce768604345522904ebef08b41">BOUNDARY_TEXT</a>[] = <span class="stringliteral">&quot;__MESSAGE__ID__54yg6f6h6y456345&quot;</span>;
+<a name="l00043"></a>00043 
+<a name="l00044"></a><a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">00044</a> <span class="keyword">enum</span> <a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a>
+<a name="l00045"></a>00045 {
+<a name="l00046"></a><a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9eabf8f58f907c17c79411ee353ecc95f50">00046</a>     <a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9eabf8f58f907c17c79411ee353ecc95f50">XPRIORITY_HIGH</a> = 2,
+<a name="l00047"></a><a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9ea7f4e97e5aee0f59cb15e739a6284176f">00047</a>     <a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9ea7f4e97e5aee0f59cb15e739a6284176f">XPRIORITY_NORMAL</a> = 3,
+<a name="l00048"></a><a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9eaf838b63a3181971fb9b981a331957963">00048</a>     <a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9eaf838b63a3181971fb9b981a331957963">XPRIORITY_LOW</a> = 4
+<a name="l00049"></a>00049 };
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 
+<a name="l00063"></a><a class="code" href="classgnublin__smtp.html">00063</a> <span class="keyword">class </span><a class="code" href="classgnublin__smtp.html" title="Klasse um Mails zu versenden.">gnublin_smtp</a>  
+<a name="l00064"></a>00064 {
+<a name="l00065"></a>00065 <span class="keyword">public</span>:
+<a name="l00066"></a>00066     <a class="code" href="classgnublin__smtp.html#a2ad7b5d942691282081ef0f301f06705" title="Richtet die Mail-Klasse ein.">gnublin_smtp</a>();
+<a name="l00067"></a>00067     <span class="keyword">virtual</span> <a class="code" href="classgnublin__smtp.html#a57decfcccb8357db406f78385a5a469c" title="Löscht buffer in der Mail-Klasse.">~gnublin_smtp</a>();
+<a name="l00068"></a>00068     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a4583aae53b53932e96a0902bb5bde3b0" title="Fügt einen neuen Empfänger hinzu.">AddRecipient</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *email, <span class="keyword">const</span> <span class="keywordtype">char</span> *name=NULL);
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a34c88073908830e14c25f6a2332ed426" title="Fügt einen neuen BCC-Empfänger hinzu.">AddBCCRecipient</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *email, <span class="keyword">const</span> <span class="keywordtype">char</span> *name=NULL);
+<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a4123082a4b72adf5907a516a79387be8" title="Fügt einen neuen CC-Empfänger hinzu.">AddCCRecipient</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *email, <span class="keyword">const</span> <span class="keywordtype">char</span> *name=NULL);    
+<a name="l00071"></a>00071     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a2f7cdc8cb318a81dcdfc413cebcd295c" title="Fügt einen neuen Dateianhang hinzu.">AddAttachment</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *path);   
+<a name="l00072"></a>00072     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a8b601bc79681d8598743bffc62c3f694" title="Fügt eine neue Zeile in die Nachricht ein.">AddMsgLine</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text);
+<a name="l00073"></a>00073     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#ac895752dcb1c5e616c06b82caf6b9800" title="Löscht alle Empfänger.">DelRecipients</a>(<span class="keywordtype">void</span>);
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a1799fe9231b1e757ebaf214d60ec0cec" title="Löscht alle BCC-Empfänger.">DelBCCRecipients</a>(<span class="keywordtype">void</span>);
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a9cd70020ce6903e98662824e2c2cb2ae" title="Löscht alle CC-Empfänger.">DelCCRecipients</a>(<span class="keywordtype">void</span>);
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#add1ccc13541a9f5985e9826085bb967b" title="Löscht alle Dateianhänge.">DelAttachments</a>(<span class="keywordtype">void</span>);
+<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a53f18e543260e690858e94b8892e789d" title="Löscht den Nachrichtentext.">DelMsgLines</a>(<span class="keywordtype">void</span>);
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a898e0c1be9d8ebd4685624166b5d1d56" title="Löscht eine bestimmte Zeile in der Nachricht.">DelMsgLine</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line);
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a807cfb2dc6cc3e2058ee4e45937b82ab" title="Bearbeiten einer bestimmten Nachrichtenzeile.">ModMsgLine</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line,<span class="keyword">const</span> <span class="keywordtype">char</span>* text);
+<a name="l00080"></a>00080     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classgnublin__smtp.html#a2a700a57b21ef2a2938251f16ee359f0" title="Gibt die anzahl der BCC-Empfänger zurück.">GetBCCRecipientCount</a>() <span class="keyword">const</span>;    
+<a name="l00081"></a>00081     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classgnublin__smtp.html#a737a42872312d9c965eb8c1c30a93354" title="Gibt die anzahl der CC-Empfänger zurück.">GetCCRecipientCount</a>() <span class="keyword">const</span>;
+<a name="l00082"></a>00082     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classgnublin__smtp.html#aacb54baeace2bcb677b482af6c716e84" title="Gibt die anzahl der Empfänger zurück.">GetRecipientCount</a>() <span class="keyword">const</span>;    
+<a name="l00083"></a>00083 <span class="comment">//  const char* GetLocalHostIP() const;</span>
+<a name="l00084"></a>00084     <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classgnublin__smtp.html#afea14e46d8d63e6bfe6bd114b31117c5" title="Gibt den lokalen Host Namen zurück.">GetLocalHostName</a>() <span class="keyword">const</span>;
+<a name="l00085"></a>00085     <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classgnublin__smtp.html#a36a98226b6a73a6a92270b4a993e0a59" title="Gibt Text einer bestimmten Nachrichtenzeile zurück.">GetMsgLineText</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line) <span class="keyword">const</span>;
+<a name="l00086"></a>00086     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classgnublin__smtp.html#aa285dc9da2e351e55e8984d525afe391">GetMsgLines</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;
+<a name="l00087"></a>00087     <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classgnublin__smtp.html#a80863be89f1692daf1f457546f6d4198" title="Gibt den m_pcReplyTo string zurück.">GetReplyTo</a>() <span class="keyword">const</span>;
+<a name="l00088"></a>00088     <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classgnublin__smtp.html#af36ccf1f24b57edb7455f180be28fbf5" title="Gibt den m_pcMailFrom string zurück.">GetMailFrom</a>() <span class="keyword">const</span>;
+<a name="l00089"></a>00089     <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classgnublin__smtp.html#a1f5818f2d6cc6f6433528d0023c54697" title="Gibt den m_pcNameFrom string zurück.">GetSenderName</a>() <span class="keyword">const</span>;
+<a name="l00090"></a>00090     <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classgnublin__smtp.html#a8de2638dcbb3c524e237e48c2da1bf60" title="Gibt den m_pcSubject string zurück.">GetSubject</a>() <span class="keyword">const</span>;
+<a name="l00091"></a>00091     <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classgnublin__smtp.html#a0c52238a94f5873cf6651ddf9ecb719c" title="Gibt den m_pcXMailer string zurück.">GetXMailer</a>() <span class="keyword">const</span>;
+<a name="l00092"></a>00092     <a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a> <a class="code" href="classgnublin__smtp.html#a215a44dddd3066b575bc2aacac7154d0" title="Gibt den m_pcXPriority string zurück.">GetXPriority</a>() <span class="keyword">const</span>;
+<a name="l00093"></a>00093     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#aacd16ffe720f1f70ea6f11ef62f2a5a1" title="E-Mail verschicken.">Send</a>();
+<a name="l00094"></a>00094     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a772611137f9a40a3b87f1d04baab9a18" title="Betraff der Nachricht festlegen.">SetSubject</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*);
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#ad53f44a14c45575fe69f41cc853609de" title="Absendername setzen.">SetSenderName</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*);
+<a name="l00096"></a>00096     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a74edec51cef02e82b8625a8e3302f62a" title="Absenderadresse setzen.">SetSenderMail</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*);
+<a name="l00097"></a>00097     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#addb6bf5d39317451c36a2e10cd97772c" title="Rücksendeadresse festlegen.">SetReplyTo</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*);
+<a name="l00098"></a>00098     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a9b7fbe589c75eeb3643fe67ce5f0e5b7" title="Name des Absendeprogramms bestimmen.">SetXMailer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*);
+<a name="l00099"></a>00099     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#adfef5d8eb9997946f7b8ca33e188a233" title="SMTP Benutzername angeben.">SetLogin</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*);
+<a name="l00100"></a>00100     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a02e6e266eaa19fe0be896c55ec3340dc" title="Passwort des SMTP accounts angeben.">SetPassword</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*);
+<a name="l00101"></a>00101     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a6050891a6db4dccd6be8f7f9b3aecd43" title="Priorität der Nachricht festlegen.">SetXPriority</a>(<a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a>);
+<a name="l00102"></a>00102     <span class="keywordtype">void</span> <a class="code" href="classgnublin__smtp.html#a3853b65838dd3e50006d2c4b18ee85f9" title="SMTP Server setzen.">SetSMTPServer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* server,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> port=0);
+<a name="l00103"></a>00103     
+<a name="l00104"></a>00104     <span class="comment">//Error handling</span>
+<a name="l00105"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">00105</a>     <span class="keyword">enum</span> <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">CSmtpError</a>
+<a name="l00106"></a>00106     {
+<a name="l00107"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a9c5aed17c59986ac44682fa3756f2bbc">00107</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a9c5aed17c59986ac44682fa3756f2bbc">CSMTP_NO_ERROR</a> = 0,
+<a name="l00108"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ad4ba38eff0d23031c775f8bf4d09280c">00108</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ad4ba38eff0d23031c775f8bf4d09280c">WSA_STARTUP</a> = 100, <span class="comment">// WSAGetLastError()</span>
+<a name="l00109"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a727ff618869e536d3b93bd5a4824d3a5">00109</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a727ff618869e536d3b93bd5a4824d3a5">WSA_VER</a>,
+<a name="l00110"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a8c414dde211e3b3cf40c4cd872d05daf">00110</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a8c414dde211e3b3cf40c4cd872d05daf">WSA_SEND</a>,
+<a name="l00111"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8af57453889c72f035f50f29ba940255a7">00111</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8af57453889c72f035f50f29ba940255a7">WSA_RECV</a>,
+<a name="l00112"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aa41d991721e9f3a4c0928a3fbfd045fb">00112</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aa41d991721e9f3a4c0928a3fbfd045fb">WSA_CONNECT</a>,
+<a name="l00113"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a353b088ab6d7d965f3d504ebc2d923f7">00113</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a353b088ab6d7d965f3d504ebc2d923f7">WSA_GETHOSTBY_NAME_ADDR</a>,
+<a name="l00114"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ab6017796998fcf57afb133f614892ba3">00114</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ab6017796998fcf57afb133f614892ba3">WSA_INVALID_SOCKET</a>,
+<a name="l00115"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a88d031c9e1d5af40fc20cc579c8e1eed">00115</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a88d031c9e1d5af40fc20cc579c8e1eed">WSA_HOSTNAME</a>,
+<a name="l00116"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a1bc86cfb2430e5195499f26ee980159f">00116</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a1bc86cfb2430e5195499f26ee980159f">WSA_IOCTLSOCKET</a>,
+<a name="l00117"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a363e32827537602cc92167d27cd628d0">00117</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a363e32827537602cc92167d27cd628d0">WSA_SELECT</a>,
+<a name="l00118"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a6203dc8a198205e82ddcc3707bcbbf85">00118</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a6203dc8a198205e82ddcc3707bcbbf85">BAD_IPV4_ADDR</a>,
+<a name="l00119"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a87b2b5f58457185d2aca46896bb347d1">00119</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a87b2b5f58457185d2aca46896bb347d1">UNDEF_MSG_HEADER</a> = 200,
+<a name="l00120"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a954e20179b3ec8a0d431d87fecc9e096">00120</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a954e20179b3ec8a0d431d87fecc9e096">UNDEF_MAIL_FROM</a>,
+<a name="l00121"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8adc3ef4d882d8439dd4d49bcc0a53d8ff">00121</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8adc3ef4d882d8439dd4d49bcc0a53d8ff">UNDEF_SUBJECT</a>,
+<a name="l00122"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a68d2518f86910f685b4269500f713724">00122</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a68d2518f86910f685b4269500f713724">UNDEF_RECIPIENTS</a>,
+<a name="l00123"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a1ca6984e6bbcce5ef9a485f9444f43c6">00123</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a1ca6984e6bbcce5ef9a485f9444f43c6">UNDEF_LOGIN</a>,
+<a name="l00124"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8afc3ad6f8a091baaf16c9a55801515b8e">00124</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8afc3ad6f8a091baaf16c9a55801515b8e">UNDEF_PASSWORD</a>,
+<a name="l00125"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aeba2e000fe8c7924469089ee043d9716">00125</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aeba2e000fe8c7924469089ee043d9716">UNDEF_RECIPIENT_MAIL</a>,
+<a name="l00126"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a36d39141faab555337dd6414295e8c33">00126</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a36d39141faab555337dd6414295e8c33">COMMAND_MAIL_FROM</a> = 300,
+<a name="l00127"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8af6abe6a62af653c6712623f0c58ff6e2">00127</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8af6abe6a62af653c6712623f0c58ff6e2">COMMAND_EHLO</a>,
+<a name="l00128"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8afb4ceb1bf31dd7e30ad5a5c84da194c5">00128</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8afb4ceb1bf31dd7e30ad5a5c84da194c5">COMMAND_AUTH_LOGIN</a>,
+<a name="l00129"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a987ba956ee4c64d3c4327eb8d62736e4">00129</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a987ba956ee4c64d3c4327eb8d62736e4">COMMAND_DATA</a>,
+<a name="l00130"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a8fe88cf0cba02c396f9332e4ce27a614">00130</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a8fe88cf0cba02c396f9332e4ce27a614">COMMAND_QUIT</a>,
+<a name="l00131"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a981c57544e6b04174d0d5dbd854de731">00131</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a981c57544e6b04174d0d5dbd854de731">COMMAND_RCPT_TO</a>,
+<a name="l00132"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ab98a4edb65904d2045e297d5fb37b055">00132</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ab98a4edb65904d2045e297d5fb37b055">MSG_BODY_ERROR</a>,
+<a name="l00133"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aa33c2be7cdc7bfd38f3b37a016d4b0b2">00133</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aa33c2be7cdc7bfd38f3b37a016d4b0b2">CONNECTION_CLOSED</a> = 400, <span class="comment">// by server</span>
+<a name="l00134"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a3f1291484dc41b3c5c1ae0317d07f59f">00134</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a3f1291484dc41b3c5c1ae0317d07f59f">SERVER_NOT_READY</a>, <span class="comment">// remote server</span>
+<a name="l00135"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8af5ee5e53c4fa3b3eb7d3e38e749435f2">00135</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8af5ee5e53c4fa3b3eb7d3e38e749435f2">SERVER_NOT_RESPONDING</a>,
+<a name="l00136"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a78d7d2914226a7e7269a63c1b54cba8c">00136</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a78d7d2914226a7e7269a63c1b54cba8c">SELECT_TIMEOUT</a>,
+<a name="l00137"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a94760f4b3f8d376f1041f15ad0969500">00137</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a94760f4b3f8d376f1041f15ad0969500">FILE_NOT_EXIST</a>,
+<a name="l00138"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8abe2fdf4bcd34d6f21d85b84e4b34f641">00138</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8abe2fdf4bcd34d6f21d85b84e4b34f641">MSG_TOO_BIG</a>,
+<a name="l00139"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a7d3c7babc50eeb1b5b0d017c71cbbbac">00139</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a7d3c7babc50eeb1b5b0d017c71cbbbac">BAD_LOGIN_PASS</a>,
+<a name="l00140"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a0a9a32e1ea096b379eaafd4562d3b5c0">00140</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a0a9a32e1ea096b379eaafd4562d3b5c0">UNDEF_XYZ_RESPONSE</a>,
+<a name="l00141"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a51cf5d261162eb786ff3173c121ac8ca">00141</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a51cf5d261162eb786ff3173c121ac8ca">LACK_OF_MEMORY</a>,
+<a name="l00142"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a31fd0cfefbf9c8c354a95c972d074610">00142</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8a31fd0cfefbf9c8c354a95c972d074610">TIME_ERROR</a>,
+<a name="l00143"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ad5749163dc7e7bffd41d642cde25ecf9">00143</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8ad5749163dc7e7bffd41d642cde25ecf9">RECVBUF_IS_EMPTY</a>,
+<a name="l00144"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aea958cab8bb58cf2d8be3528de7b2775">00144</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aea958cab8bb58cf2d8be3528de7b2775">SENDBUF_IS_EMPTY</a>,
+<a name="l00145"></a><a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aee10cd61bc39897e755868b09ec260ea">00145</a>         <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8aee10cd61bc39897e755868b09ec260ea">OUT_OF_MSG_RANGE</a>,
+<a name="l00146"></a>00146     };
+<a name="l00147"></a><a class="code" href="classgnublin__smtp.html#a7c04cb09da1457e73e16b91f8ae85a3b">00147</a>     <a class="code" href="classgnublin__smtp.html#a7c04cb09da1457e73e16b91f8ae85a3b">gnublin_smtp</a> (<a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">CSmtpError</a> err_) : ErrorCode(err_) {}
+<a name="l00148"></a><a class="code" href="classgnublin__smtp.html#ac8d0e5338bc4de58925bd66548837272">00148</a>     <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">CSmtpError</a> <a class="code" href="classgnublin__smtp.html#ac8d0e5338bc4de58925bd66548837272">GetErrorNum</a>(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{<span class="keywordflow">return</span> ErrorCode;}
+<a name="l00149"></a>00149     std::string <a class="code" href="classgnublin__smtp.html#a8e40a85270f15eb1d0f83fd5eaf77eab" title="Gibt einen String mit einem spezifischem Fehlercode zurück.">GetErrorText</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151 
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155 <span class="keyword">private</span>:    
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157     <a class="code" href="classgnublin__smtp.html#ae89c3aed9bceedc7b2f840ff35c7d7b8">CSmtpError</a> ErrorCode;
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160     std::string m_sLocalHostName;
+<a name="l00161"></a>00161     std::string m_sMailFrom;
+<a name="l00162"></a>00162     std::string m_sNameFrom;
+<a name="l00163"></a>00163     std::string m_sSubject;
+<a name="l00164"></a>00164     std::string m_sXMailer;
+<a name="l00165"></a>00165     std::string m_sReplyTo;
+<a name="l00166"></a>00166     std::string m_sIPAddr;
+<a name="l00167"></a>00167     std::string m_sLogin;
+<a name="l00168"></a>00168     std::string m_sPassword;
+<a name="l00169"></a>00169     std::string m_sSMTPSrvName;
+<a name="l00170"></a>00170     <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> m_iSMTPSrvPort;
+<a name="l00171"></a>00171     <a class="code" href="CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e">CSmptXPriority</a> m_iXPriority;
+<a name="l00172"></a>00172     <span class="keywordtype">char</span> *SendBuf;
+<a name="l00173"></a>00173     <span class="keywordtype">char</span> *RecvBuf;
+<a name="l00174"></a>00174     
+<a name="l00175"></a>00175     <a class="code" href="CSmtp_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> hSocket;
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177     <span class="keyword">struct </span>Recipient
+<a name="l00178"></a>00178     {
+<a name="l00179"></a>00179         std::string Name;
+<a name="l00180"></a>00180         std::string Mail;
+<a name="l00181"></a>00181     };
+<a name="l00182"></a>00182 
+<a name="l00183"></a>00183     std::vector&lt;Recipient&gt; Recipients;
+<a name="l00184"></a>00184     std::vector&lt;Recipient&gt; CCRecipients;
+<a name="l00185"></a>00185     std::vector&lt;Recipient&gt; BCCRecipients;
+<a name="l00186"></a>00186     std::vector&lt;std::string&gt; Attachments;
+<a name="l00187"></a>00187     std::vector&lt;std::string&gt; MsgBody;
+<a name="l00188"></a>00188  
+<a name="l00189"></a>00189     <span class="keywordtype">void</span> ReceiveData();
+<a name="l00190"></a>00190     <span class="keywordtype">void</span> SendData();
+<a name="l00191"></a>00191     <span class="keywordtype">void</span> FormatHeader(<span class="keywordtype">char</span>*);
+<a name="l00192"></a>00192     <span class="keywordtype">int</span> SmtpXYZdigits();
+<a name="l00193"></a>00193     <a class="code" href="CSmtp_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> ConnectRemoteServer(<span class="keyword">const</span> <span class="keywordtype">char</span>* server, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> port=0);
+<a name="l00194"></a>00194     
+<a name="l00195"></a>00195 };
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198 <span class="preprocessor">#endif // __CSMTP_H__</span>
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="CSmtp_8h.html">CSmtp.h</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

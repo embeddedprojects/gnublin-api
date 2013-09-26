@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: modules/module_lcd.h Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('module__lcd_8h.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">modules/module_lcd.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="module__lcd_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00002"></a>00002 <span class="comment">//connection on the Portexpander Port 0</span>
+<a name="l00003"></a><a class="code" href="module__lcd_8h.html#a1640ffbc0d8ec0f7edb04a2b93918072">00003</a> <span class="preprocessor">#define LCD_EN          0x04</span>
+<a name="l00004"></a><a class="code" href="module__lcd_8h.html#a4781e073871c6f27f89b9463ad3a4ed1">00004</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_RS          0x01</span>
+<a name="l00005"></a><a class="code" href="module__lcd_8h.html#a26089a10ddd59a0dc7283c19ccc02533">00005</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_RW          0x02</span>
+<a name="l00006"></a>00006 <span class="preprocessor"></span>
+<a name="l00007"></a>00007 <span class="comment">// LCD Timings</span>
+<a name="l00008"></a><a class="code" href="module__lcd_8h.html#a325c0c63643bd143da53737d8f2f127c">00008</a> <span class="preprocessor">#define LCD_BOOTUP_MS           15000</span>
+<a name="l00009"></a><a class="code" href="module__lcd_8h.html#aba354ba91f37c0140ee638a67e916dff">00009</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_ENABLE_US           20</span>
+<a name="l00010"></a><a class="code" href="module__lcd_8h.html#a03c19357ceb49b2162fd377538acc8e4">00010</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_WRITEDATA_US        46</span>
+<a name="l00011"></a><a class="code" href="module__lcd_8h.html#a68b515b6853388889682f655e1d329b9">00011</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_COMMAND_US          42</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a><a class="code" href="module__lcd_8h.html#ae715c695f22d48761bc384e3e06c9fea">00013</a> <span class="preprocessor">#define LCD_SOFT_RESET_MS       5000</span>
+<a name="l00014"></a><a class="code" href="module__lcd_8h.html#a5015442d0a3513d33d43d3a717db282e">00014</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_SET_8BITMODE_MS     5000</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span>
+<a name="l00016"></a><a class="code" href="module__lcd_8h.html#a165c3b523d3622560e3cb201de87cc68">00016</a> <span class="preprocessor">#define LCD_CLEAR_DISPLAY_MS    2000</span>
+<a name="l00017"></a><a class="code" href="module__lcd_8h.html#ab7aac6dfdfd6674c47de979e45b15a32">00017</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_CURSOR_HOME_MS      2000</span>
+<a name="l00018"></a>00018 <span class="preprocessor"></span>
+<a name="l00020"></a>00020 <span class="comment">//definitions of the lines of an 4x20 Display</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a><a class="code" href="module__lcd_8h.html#a05ffcae51ec7ff367058e2b08c60a3d8">00022</a> <span class="preprocessor">#define LCD_DDADR_LINE1         0x00</span>
+<a name="l00023"></a><a class="code" href="module__lcd_8h.html#a8fbdf97d22a49d57e8b4d7fc8cb6cac1">00023</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_DDADR_LINE2         0x40</span>
+<a name="l00024"></a><a class="code" href="module__lcd_8h.html#a4bea6ce34c74298c67014fbc0585bba7">00024</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_DDADR_LINE3         0x14</span>
+<a name="l00025"></a><a class="code" href="module__lcd_8h.html#af0df211984f684c8703dae861e6e66c3">00025</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_DDADR_LINE4         0x54</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span>
+<a name="l00028"></a>00028 <span class="comment">// LCD instructions and arguments</span>
+<a name="l00029"></a>00029 <span class="comment">// to use with lcd_command</span>
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="comment">// Clear Display -------------- 0b00000001</span>
+<a name="l00032"></a><a class="code" href="module__lcd_8h.html#a3f2897b31d9b8ee5ada65f840adb635b">00032</a> <span class="preprocessor">#define LCD_CLEAR_DISPLAY       0x01</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span>
+<a name="l00034"></a>00034 <span class="comment">// Cursor Home ---------------- 0b0000001x</span>
+<a name="l00035"></a><a class="code" href="module__lcd_8h.html#a9ef8c6297a6e150e9bd7c972e8d1428f">00035</a> <span class="preprocessor">#define LCD_CURSOR_HOME         0x02</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span>
+<a name="l00037"></a>00037 <span class="comment">// Set Entry Mode ------------- 0b000001xx</span>
+<a name="l00038"></a><a class="code" href="module__lcd_8h.html#a34f8442d304271a503049b35d6991f72">00038</a> <span class="preprocessor">#define LCD_SET_ENTRY           0x04</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span>
+<a name="l00040"></a><a class="code" href="module__lcd_8h.html#abc818eec0946bafefd4cdb0bcd6786d3">00040</a> <span class="preprocessor">#define LCD_ENTRY_DECREASE      0x00</span>
+<a name="l00041"></a><a class="code" href="module__lcd_8h.html#a70b322a8a98fec4a7d9053243bc03e22">00041</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_ENTRY_INCREASE      0x02</span>
+<a name="l00042"></a><a class="code" href="module__lcd_8h.html#af107015bc67e09fe356a0785a64144c5">00042</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_ENTRY_NOSHIFT       0x00</span>
+<a name="l00043"></a><a class="code" href="module__lcd_8h.html#a14d0c7fda147e0dc8cdaa4a2629b3532">00043</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_ENTRY_SHIFT         0x01</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="comment">// Set Display ---------------- 0b00001xxx</span>
+<a name="l00046"></a><a class="code" href="module__lcd_8h.html#a80974b81a1b79dcca3c6b95f75da6d29">00046</a> <span class="preprocessor">#define LCD_SET_DISPLAY         0x08</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>
+<a name="l00048"></a><a class="code" href="module__lcd_8h.html#ab1b96426e59139b68ae95df45d697087">00048</a> <span class="preprocessor">#define LCD_DISPLAY_OFF         0x00</span>
+<a name="l00049"></a><a class="code" href="module__lcd_8h.html#a846dac5d1bb72bef7a76ee110c0445b6">00049</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_DISPLAY_ON          0x04</span>
+<a name="l00050"></a><a class="code" href="module__lcd_8h.html#a7a6a930d205b2819be910af194576dca">00050</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_CURSOR_OFF          0x00</span>
+<a name="l00051"></a><a class="code" href="module__lcd_8h.html#a8dae7021acb10d4e5f8458a5fba78729">00051</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_CURSOR_ON           0x02</span>
+<a name="l00052"></a><a class="code" href="module__lcd_8h.html#a45ceab13b2dd69220290a91df577005a">00052</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_BLINKING_OFF        0x00</span>
+<a name="l00053"></a><a class="code" href="module__lcd_8h.html#a058503e5404981067ac6a84027a41cc0">00053</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_BLINKING_ON         0x01</span>
+<a name="l00054"></a>00054 <span class="preprocessor"></span>
+<a name="l00055"></a>00055 <span class="comment">// Set Shift ------------------ 0b0001xxxx</span>
+<a name="l00056"></a><a class="code" href="module__lcd_8h.html#ac2a42f6907507e58005939445bc62a82">00056</a> <span class="preprocessor">#define LCD_SET_SHIFT           0x10</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span>
+<a name="l00058"></a><a class="code" href="module__lcd_8h.html#a19c84a576c52be42a8f36fa82018807d">00058</a> <span class="preprocessor">#define LCD_CURSOR_MOVE         0x00</span>
+<a name="l00059"></a><a class="code" href="module__lcd_8h.html#af28b516fdfb684933ae1384c73882714">00059</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_DISPLAY_SHIFT       0x08</span>
+<a name="l00060"></a><a class="code" href="module__lcd_8h.html#a941377571f34b9d898b61ce89f10226d">00060</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_SHIFT_LEFT          0x00</span>
+<a name="l00061"></a><a class="code" href="module__lcd_8h.html#a8ab3108396a0d33dbf7f3ab6477ba01d">00061</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_SHIFT_RIGHT         0x04</span>
+<a name="l00062"></a>00062 <span class="preprocessor"></span>
+<a name="l00063"></a>00063 <span class="comment">// Set Function --------------- 0b001xxxxx</span>
+<a name="l00064"></a><a class="code" href="module__lcd_8h.html#ae24cc41b792088d5fa249f7d61a7b0a6">00064</a> <span class="preprocessor">#define LCD_SET_FUNCTION        0x20</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span>
+<a name="l00066"></a><a class="code" href="module__lcd_8h.html#a88267db52f73473e317ac0da8294239f">00066</a> <span class="preprocessor">#define LCD_FUNCTION_4BIT       0x00</span>
+<a name="l00067"></a><a class="code" href="module__lcd_8h.html#a91d15d8e3008f6cb141406a8b5d0d3c0">00067</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_FUNCTION_8BIT       0x10</span>
+<a name="l00068"></a><a class="code" href="module__lcd_8h.html#acae6bef7acd5c61dcfe7f76790023bad">00068</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_FUNCTION_1LINE      0x00</span>
+<a name="l00069"></a><a class="code" href="module__lcd_8h.html#a7fdf6132ae6d044e9d4ed178e0bcc066">00069</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_FUNCTION_2LINE      0x08</span>
+<a name="l00070"></a><a class="code" href="module__lcd_8h.html#a63d3712e0f9eb59ad595dc81b9242cd8">00070</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_FUNCTION_5X7        0x00</span>
+<a name="l00071"></a><a class="code" href="module__lcd_8h.html#abab4b090c0bfe36c5933496803c34f98">00071</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_FUNCTION_5X10       0x04</span>
+<a name="l00072"></a>00072 <span class="preprocessor"></span>
+<a name="l00073"></a><a class="code" href="module__lcd_8h.html#a86bd8c0b82e21cca73198ab0bb2095ef">00073</a> <span class="preprocessor">#define LCD_SOFT_RESET          0x30</span>
+<a name="l00074"></a>00074 <span class="preprocessor"></span>
+<a name="l00075"></a>00075 <span class="comment">// Set DD RAM Address --------- 0b1xxxxxxx  (Display Data RAM)</span>
+<a name="l00076"></a><a class="code" href="module__lcd_8h.html#a4bba792fe8b91317c8a1286a7bc88569">00076</a> <span class="preprocessor">#define LCD_SET_DDADR           0x80</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span>
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 
+<a name="l00091"></a><a class="code" href="classgnublin__module__lcd.html">00091</a> <span class="keyword">class </span><a class="code" href="classgnublin__module__lcd.html" title="Klasse für den zugriff auf das GNUBLIN Module-LCD 4x20.">gnublin_module_lcd</a> {
+<a name="l00092"></a>00092         <span class="keywordtype">bool</span> error_flag;
+<a name="l00093"></a>00093         <a class="code" href="classgnublin__module__pca9555.html" title="Klasse für den zugriff auf den PCA9555 IC via I2C Bus.">gnublin_module_pca9555</a> pca;
+<a name="l00094"></a>00094         std::string ErrorMessage;
+<a name="l00095"></a>00095         <span class="keyword">const</span> <span class="keywordtype">char</span> *version;
+<a name="l00096"></a>00096 <span class="keyword">public</span>:
+<a name="l00097"></a>00097         <a class="code" href="classgnublin__module__lcd.html#a23e54d3d093651dbb34cbfe91d767aed" title="Setzt das ErrorFlag zurück.">gnublin_module_lcd</a>();
+<a name="l00098"></a>00098         <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__lcd.html#af0b2dd994e99baef679907da6acb2cc8" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage</a>();
+<a name="l00099"></a>00099         <span class="keywordtype">bool</span> <a class="code" href="classgnublin__module__lcd.html#ab6d269c6fde025ad22939946e05eec10" title="Gibt das Error Flag zurück.">fail</a>();
+<a name="l00100"></a>00100         <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__lcd.html#a04105e908ef026c59ec146349ef842f6" title="Gibt das Error Flag zurück.">setAddress</a>(<span class="keywordtype">int</span> Address);
+<a name="l00101"></a>00101         <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__lcd.html#a43c20d8f3af6e614a23bce793ea43349" title="Setzt Device Datei.">setDevicefile</a>(std::string filename);
+<a name="l00102"></a>00102         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lcd.html#a4da0c03174541b8ab45a88a9c5e9346a" title="Sendet Daten.">out</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> rsrw, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> data );
+<a name="l00103"></a>00103         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lcd.html#a88af4b62c2924c156c22d5b85ad6da4c" title="Sendet Daten an das Display.">sendData</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> data);
+<a name="l00104"></a>00104         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lcd.html#a9b7d4876940acc66895cf3edc37fe6f6" title="Sendet einen Befehl an das Display.">command</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> data);
+<a name="l00105"></a>00105         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lcd.html#af336caa51644c694b7ce1cd39a5243b4" title="Bereinigt das Display.">clear</a>();
+<a name="l00106"></a>00106         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lcd.html#a786d0d109a2a7769a052c03c62a506f6" title="Setzt den Cursor auf Anfangsposition oben links.">home</a>();
+<a name="l00107"></a>00107         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lcd.html#a7ce6f890819e03a5d6035e5a42f1284a" title="Display Einstellungen Befehl.">setdisplay</a>(<span class="keywordtype">int</span> cursor, <span class="keywordtype">int</span> blink);
+<a name="l00108"></a>00108         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lcd.html#ae9259135b75481b9c9449f2a71c21aa3" title="Setzt den Cursor an die übergebene Position auf das Display.">setcursor</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> y);
+<a name="l00109"></a>00109         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lcd.html#aad805626da724dbcfa937e708145a21d" title="Sendet den String an das Display.">string</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *data);
+<a name="l00110"></a>00110         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__lcd.html#a5d0eff4b7d02cd682c03d197fb65f290" title="Initialisiert das LCD.">init</a>();
+<a name="l00111"></a>00111         
+<a name="l00112"></a>00112 };
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="module__lcd_8h.html">module_lcd.h</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

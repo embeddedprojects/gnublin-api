@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: gnublin_module_adc Klassenreferenz</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('classgnublin__module__adc.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Öffentliche Methoden</a>  </div>
+  <div class="headertitle">
+<div class="title">gnublin_module_adc Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<!-- doxytag: class="gnublin_module_adc" -->
+<p>Klasse für den Zugriff auf das GNUBLIN MODULE-ADC.  
+ <a href="classgnublin__module__adc.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="module__adc_8h_source.html">module_adc.h</a>&gt;</code></p>
+
+<p><a href="classgnublin__module__adc-members.html">Aufstellung aller Elemente</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#aeaf9541603d446cb00351fc4534f368b">gnublin_module_adc</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt die standard I2C Adresse und die Referenzspannung auf intern.  <a href="#aeaf9541603d446cb00351fc4534f368b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#a4b064d1a5a77ca70cde76355fda5954f">setAddress</a> (int adr)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt die I2C Adresse.  <a href="#a4b064d1a5a77ca70cde76355fda5954f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#abec8ea6ec294f61ab526afd64712f15d">setDevicefile</a> (std::string file)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt ein benutzerdefiniertes Devicefile.  <a href="#abec8ea6ec294f61ab526afd64712f15d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#a9f0a034f2188edfa7e7469311a4e05eb">setReference</a> (int value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt die referenzspannung auf intern oder extern.  <a href="#a9f0a034f2188edfa7e7469311a4e05eb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#adec34fe461abb18645d9db55e8331daa">getValue</a> (int channel)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert den Wert eine ADC Ports bezogen zu GND.  <a href="#adec34fe461abb18645d9db55e8331daa"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#a5b1f31eaf30c3963c91f642aee9ec472">getValue</a> (int channel1, int channel2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert den Wert eines ADC Ports bezogen auf einen zweiten ADC Port (differentielle Messung)  <a href="#a5b1f31eaf30c3963c91f642aee9ec472"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#a7cbc21844232dcedd48ee38cd005ac9e">getVoltage</a> (int channel)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert den Wert eine ADC Ports bezogen zu GND in mV.  <a href="#a7cbc21844232dcedd48ee38cd005ac9e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#af557e19a606b69c9526109f8727f8639">getVoltage</a> (int channel1, int channel2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert den Wert eines ADC Ports bezogen auf einen zweiten ADC Port in mV (differentielle Messung)  <a href="#af557e19a606b69c9526109f8727f8639"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#a7fdcd19426bff46830d9d3a66733fa77">fail</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.  <a href="#a7fdcd19426bff46830d9d3a66733fa77"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__adc.html#ab17ba4ceae7dbf0a6112ef839b531465">getErrorMessage</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.  <a href="#ab17ba4ceae7dbf0a6112ef839b531465"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Klasse für den Zugriff auf das GNUBLIN MODULE-ADC. </p>
+<p>Mit dieser Klasse kann auf das GNUBLIN MODULE-ADC zugegriffen werden. </p>
+
+<p>Definiert in Zeile <a class="el" href="module__adc_8h_source.html#l00019">19</a> der Datei <a class="el" href="module__adc_8h_source.html">module_adc.h</a>.</p>
+</div><hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="aeaf9541603d446cb00351fc4534f368b"></a><!-- doxytag: member="gnublin_module_adc::gnublin_module_adc" ref="aeaf9541603d446cb00351fc4534f368b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__module__adc.html#aeaf9541603d446cb00351fc4534f368b">gnublin_module_adc::gnublin_module_adc</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt die standard I2C Adresse und die Referenzspannung auf intern. </p>
+<p>Standard I2C Addresse: 0x48 </p>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00019">19</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="a7fdcd19426bff46830d9d3a66733fa77"></a><!-- doxytag: member="gnublin_module_adc::fail" ref="a7fdcd19426bff46830d9d3a66733fa77" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classgnublin__module__adc.html#a7fdcd19426bff46830d9d3a66733fa77">gnublin_module_adc::fail</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>error_flag </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00057">57</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab17ba4ceae7dbf0a6112ef839b531465"></a><!-- doxytag: member="gnublin_module_adc::getErrorMessage" ref="ab17ba4ceae7dbf0a6112ef839b531465" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__module__adc.html#ab17ba4ceae7dbf0a6112ef839b531465">gnublin_module_adc::getErrorMessage</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>ErrorMessage als C-String </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00039">39</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adec34fe461abb18645d9db55e8331daa"></a><!-- doxytag: member="gnublin_module_adc::getValue" ref="adec34fe461abb18645d9db55e8331daa" args="(int channel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__adc.html#adec34fe461abb18645d9db55e8331daa">gnublin_module_adc::getValue</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Liefert den Wert eine ADC Ports bezogen zu GND. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Nummer des ADC-Ports (1-8) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Wert </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00167">167</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5b1f31eaf30c3963c91f642aee9ec472"></a><!-- doxytag: member="gnublin_module_adc::getValue" ref="a5b1f31eaf30c3963c91f642aee9ec472" args="(int channel1, int channel2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__adc.html#adec34fe461abb18645d9db55e8331daa">gnublin_module_adc::getValue</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Liefert den Wert eines ADC Ports bezogen auf einen zweiten ADC Port (differentielle Messung) </p>
+<p>Dies Kombinationen sind möglich:<br/>
+ 1 - 2<br/>
+ 3 - 4<br/>
+ 5 - 6<br/>
+ 7 - 8<br/>
+ 2 - 1<br/>
+ 4 - 3<br/>
+ 6 - 5<br/>
+ 8 - 7<br/>
+ </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel1</td><td>Nummer des ersten ADC-Ports </td></tr>
+    <tr><td class="paramname">channel2</td><td>Nummer des zweiten ADC-Ports </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Wert </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00246">246</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7cbc21844232dcedd48ee38cd005ac9e"></a><!-- doxytag: member="gnublin_module_adc::getVoltage" ref="a7cbc21844232dcedd48ee38cd005ac9e" args="(int channel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__adc.html#a7cbc21844232dcedd48ee38cd005ac9e">gnublin_module_adc::getVoltage</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Liefert den Wert eine ADC Ports bezogen zu GND in mV. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Nummer des ADC-Ports (1-8) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Wert in mV </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00311">311</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af557e19a606b69c9526109f8727f8639"></a><!-- doxytag: member="gnublin_module_adc::getVoltage" ref="af557e19a606b69c9526109f8727f8639" args="(int channel1, int channel2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__adc.html#a7cbc21844232dcedd48ee38cd005ac9e">gnublin_module_adc::getVoltage</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Liefert den Wert eines ADC Ports bezogen auf einen zweiten ADC Port in mV (differentielle Messung) </p>
+<p>Dies Kombinationen sind möglich:<br/>
+ 1 - 2<br/>
+ 3 - 4<br/>
+ 5 - 6<br/>
+ 7 - 8<br/>
+ 2 - 1<br/>
+ 4 - 3<br/>
+ 6 - 5<br/>
+ 8 - 7<br/>
+ </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel1</td><td>Nummer des ersten ADC-Ports </td></tr>
+    <tr><td class="paramname">channel2</td><td>Nummer des zweiten ADC-Ports </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Wert in mV </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00356">356</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b064d1a5a77ca70cde76355fda5954f"></a><!-- doxytag: member="gnublin_module_adc::setAddress" ref="a4b064d1a5a77ca70cde76355fda5954f" args="(int adr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__adc.html#a4b064d1a5a77ca70cde76355fda5954f">gnublin_module_adc::setAddress</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>address</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt die I2C Adresse. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>I2C Adresse </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00079">79</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abec8ea6ec294f61ab526afd64712f15d"></a><!-- doxytag: member="gnublin_module_adc::setDevicefile" ref="abec8ea6ec294f61ab526afd64712f15d" args="(std::string file)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__adc.html#abec8ea6ec294f61ab526afd64712f15d">gnublin_module_adc::setDevicefile</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt ein benutzerdefiniertes Devicefile. </p>
+<p>Standard Devicefile ist "/dev/i2c-1" </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Pfad zum Devicefile </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00109">109</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f0a034f2188edfa7e7469311a4e05eb"></a><!-- doxytag: member="gnublin_module_adc::setReference" ref="a9f0a034f2188edfa7e7469311a4e05eb" args="(int value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__adc.html#a9f0a034f2188edfa7e7469311a4e05eb">gnublin_module_adc::setReference</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt die referenzspannung auf intern oder extern. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>IN (1) für intern (2,5V), OUT (0) für extern (3,3V) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>1 bei Erfolg, -1 im Fehlerfall </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__adc_8cpp_source.html#l00134">134</a> der Datei <a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>modules/<a class="el" href="module__adc_8h_source.html">module_adc.h</a></li>
+<li>modules/<a class="el" href="modules_2module__adc_8cpp_source.html">module_adc.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="classgnublin__module__adc.html">gnublin_module_adc</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

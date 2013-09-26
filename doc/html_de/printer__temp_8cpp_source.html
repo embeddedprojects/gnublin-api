@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: examples/printer_temp.cpp Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('printer__temp_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">examples/printer_temp.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="printer__temp_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;gnublin.h&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;signal.h&gt;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="printer__temp_8cpp.html#a30e11d944dd8cedb9a31abb973d33f86">00006</a> <a class="code" href="classgnublin__module__dogm.html" title="Klasse für den Zugriff auf das GNUBLIN MODULE-DISPLAY 2x16.">gnublin_module_dogm</a> <a class="code" href="printer__temp_8cpp.html#a30e11d944dd8cedb9a31abb973d33f86">display</a>;
+<a name="l00007"></a><a class="code" href="printer__temp_8cpp.html#ad08c6bc10fc2aff29a0db92027decdbb">00007</a> <a class="code" href="classgnublin__gpio.html" title="Klasse für den zugriff auf die GPIO Pins.">gnublin_gpio</a> <a class="code" href="printer__temp_8cpp.html#ad08c6bc10fc2aff29a0db92027decdbb">gpio</a>;
+<a name="l00008"></a><a class="code" href="printer__temp_8cpp.html#afcf90d1e2256fe3e75222a1a9d9bd181">00008</a> <a class="code" href="classgnublin__adc.html" title="Klasse für den zugriff auf die GPAs.">gnublin_adc</a> <a class="code" href="printer__temp_8cpp.html#afcf90d1e2256fe3e75222a1a9d9bd181">adc</a>;
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keyword">using namespace </span>std;
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="printer__temp_8cpp.html#a13848d945610347db87a059fe0b43f35">00013</a> <span class="keywordtype">void</span> <a class="code" href="printer_8cpp.html#a13848d945610347db87a059fe0b43f35">my_handler</a>(<span class="keywordtype">int</span> s){
+<a name="l00014"></a>00014     gpio.<a class="code" href="classgnublin__gpio.html#acf30370d7bb20d96ec56e8771bda6e02" title="Pin Modi festlegen.">pinMode</a>(18, <a class="code" href="includes_8h.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);
+<a name="l00015"></a>00015     gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(18, <a class="code" href="includes_8h.html#ab811d8c6ff3a505312d3276590444289">LOW</a>);
+<a name="l00016"></a>00016     display.<a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9" title="Löscht den Inhalt des Displays.">clear</a>();
+<a name="l00017"></a>00017     display.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Heizung: aus&quot;</span>, 2);
+<a name="l00018"></a>00018     exit(1); 
+<a name="l00019"></a>00019 }
+<a name="l00020"></a>00020 
+<a name="l00021"></a><a class="code" href="printer__temp_8cpp.html#ad74ffeabbe77c29f5a1335f3b0d174b1">00021</a> <span class="keywordtype">float</span> <a class="code" href="printer__temp_8cpp.html#ad74ffeabbe77c29f5a1335f3b0d174b1">get_temperature</a>(){
+<a name="l00022"></a>00022     <span class="keywordtype">int</span> voltage =0;
+<a name="l00023"></a>00023     <span class="keywordtype">float</span> resistance=0;
+<a name="l00024"></a>00024     <span class="keywordtype">float</span> temperature=0;
+<a name="l00025"></a>00025     
+<a name="l00026"></a>00026     
+<a name="l00027"></a>00027     <span class="keywordflow">if</span>((voltage = adc.<a class="code" href="classgnublin__adc.html#a0e075bd9dbab25f2a265ed199a486c32" title="Ließt Spannung.">getVoltage</a>(1))==-1){
+<a name="l00028"></a>00028         <span class="keywordflow">return</span> -1;
+<a name="l00029"></a>00029     }
+<a name="l00030"></a>00030     <span class="keywordflow">else</span> {
+<a name="l00031"></a>00031         resistance = (voltage * 330) / (3300 - voltage);
+<a name="l00032"></a>00032         temperature = ((resistance/100)-1)*259.74;
+<a name="l00033"></a>00033     }
+<a name="l00034"></a>00034     <span class="keywordflow">return</span> temperature;
+<a name="l00035"></a>00035 }
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="printer__temp_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">00037</a> <span class="keywordtype">int</span> <a class="code" href="examples_2adc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv){
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039     <span class="keywordtype">int</span> initial=1;
+<a name="l00040"></a>00040     <span class="keywordtype">char</span> tempchar[13];
+<a name="l00041"></a>00041     <span class="keywordtype">float</span> temperature;
+<a name="l00042"></a>00042     <span class="keywordtype">int</span> heating=0;
+<a name="l00043"></a>00043     signal (SIGINT,<a class="code" href="printer_8cpp.html#a13848d945610347db87a059fe0b43f35">my_handler</a>);
+<a name="l00044"></a>00044     
+<a name="l00045"></a>00045     gpio.<a class="code" href="classgnublin__gpio.html#acf30370d7bb20d96ec56e8771bda6e02" title="Pin Modi festlegen.">pinMode</a>(18, <a class="code" href="includes_8h.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);
+<a name="l00046"></a>00046     gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(18, <a class="code" href="includes_8h.html#a5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);
+<a name="l00047"></a>00047         
+<a name="l00048"></a>00048     <span class="keywordflow">while</span>(1){
+<a name="l00049"></a>00049         
+<a name="l00050"></a>00050         temperature = <a class="code" href="printer__temp_8cpp.html#ad74ffeabbe77c29f5a1335f3b0d174b1">get_temperature</a>();
+<a name="l00051"></a>00051         <span class="keywordflow">if</span>((temperature &lt; 900) &amp; (temperature &gt; -100)){
+<a name="l00052"></a>00052             sprintf(tempchar, <span class="stringliteral">&quot;Temp: %.2f&quot;</span>, temperature);
+<a name="l00053"></a>00053             display.<a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9" title="Löscht den Inhalt des Displays.">clear</a>();
+<a name="l00054"></a>00054             display.<a class="code" href="classgnublin__module__dogm.html#a93a0c10446511bfeea5ae6842930c89b" title="Setzt Displayparameter.">controlDisplay</a>(1,0,0);
+<a name="l00055"></a>00055             display.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>(tempchar);
+<a name="l00056"></a>00056             <span class="keywordflow">if</span>(temperature &lt; 230){
+<a name="l00057"></a>00057                 gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(18, <a class="code" href="includes_8h.html#a5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);
+<a name="l00058"></a>00058                 heating = 1;
+<a name="l00059"></a>00059             }
+<a name="l00060"></a>00060             <span class="keywordflow">else</span>{
+<a name="l00061"></a>00061                 <span class="keywordflow">if</span>(temperature &gt; 240){
+<a name="l00062"></a>00062                     <span class="keywordflow">if</span>(initial){
+<a name="l00063"></a>00063                         initial = 0;
+<a name="l00064"></a>00064                         system(<span class="stringliteral">&quot;gnublin-pwm -v 0x400&quot;</span>);
+<a name="l00065"></a>00065                         sleep(1);
+<a name="l00066"></a>00066                         system(<span class="stringliteral">&quot;gnublin-pwm -v 0x000&quot;</span>);
+<a name="l00067"></a>00067                     }
+<a name="l00068"></a>00068                     gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(18, <a class="code" href="includes_8h.html#ab811d8c6ff3a505312d3276590444289">LOW</a>);
+<a name="l00069"></a>00069                     heating = 0;
+<a name="l00070"></a>00070                 }
+<a name="l00071"></a>00071             }
+<a name="l00072"></a>00072             <span class="keywordflow">if</span>(heating)display.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Heizung: ein&quot;</span>, 2);
+<a name="l00073"></a>00073             <span class="keywordflow">if</span>(!heating)display.<a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>((<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;Heizung: aus&quot;</span>, 2);
+<a name="l00074"></a>00074         }
+<a name="l00075"></a>00075         sleep(10);
+<a name="l00076"></a>00076         }
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079     <span class="keywordflow">return</span> 1;
+<a name="l00080"></a>00080 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="printer__temp_8cpp.html">printer_temp.cpp</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

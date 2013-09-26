@@ -1,0 +1,26 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$adc_8h.html" title="drivers/adc.h" alt="" coords="16,83,112,112"/>
+<area shape="rect" id="node7" href="$gpio_8h.html" title="drivers/gpio.h" alt="" coords="205,83,304,112"/>
+<area shape="rect" id="node11" href="$module__dogm_8h.html" title="modules/module_dogm.h" alt="" coords="161,237,327,267"/>
+<area shape="rect" id="node15" href="$i2c_8h.html" title="drivers/i2c.h" alt="" coords="629,83,723,112"/>
+<area shape="rect" id="node19" href="$module__dac_8h.html" title="modules/module_dac.h" alt="" coords="405,237,560,267"/>
+<area shape="rect" id="node23" href="$module__pca9555_8h.html" title="modules/module_pca9555.h" alt="" coords="584,237,768,267"/>
+<area shape="rect" id="node27" href="$module__lcd_8cpp.html" title="modules/module_lcd.cpp" alt="" coords="487,392,652,421"/>
+<area shape="rect" id="node29" href="$module__relay_8h.html" title="modules/module_relay.h" alt="" coords="747,392,909,421"/>
+<area shape="rect" id="node33" href="$module__lm75_8h.html" title="modules/module_lm75.h" alt="" coords="792,237,955,267"/>
+<area shape="rect" id="node37" href="$module__adc_8h.html" title="modules/module_adc.h" alt="" coords="804,160,959,189"/>
+<area shape="rect" id="node41" href="$serial_8h.html" title="drivers/serial.h" alt="" coords="1224,83,1331,112"/>
+<area shape="rect" id="node45" href="$spi_8h.html" title="drivers/spi.h" alt="" coords="337,83,431,112"/>
+<area shape="rect" id="node57" href="$modules_2module__step_8cpp.html" title="modules/module_step.cpp" alt="" coords="1355,83,1528,112"/>
+<area shape="rect" id="node5" href="$drivers_2adc_8cpp.html" title="drivers/adc.cpp" alt="" coords="5,160,115,189"/>
+<area shape="rect" id="node9" href="$gpio_8cpp.html" title="drivers/gpio.cpp" alt="" coords="189,160,304,189"/>
+<area shape="rect" id="node13" href="$module__dogm_8cpp.html" title="modules/module_dogm.cpp" alt="" coords="149,315,331,344"/>
+<area shape="rect" id="node17" href="$drivers_2i2c_8cpp.html" title="drivers/i2c.cpp" alt="" coords="623,160,729,189"/>
+<area shape="rect" id="node21" href="$modules_2module__dac_8cpp.html" title="modules/module_dac.cpp" alt="" coords="405,315,576,344"/>
+<area shape="rect" id="node25" href="$modules_2module__pca9555_8cpp.html" title="modules/module_pca9555.cpp" alt="" coords="600,315,797,344"/>
+<area shape="rect" id="node31" href="$modules_2module__relay_8cpp.html" title="modules/module_relay.cpp" alt="" coords="740,469,916,499"/>
+<area shape="rect" id="node35" href="$module__lm75_8cpp.html" title="modules/module_lm75.cpp" alt="" coords="821,315,997,344"/>
+<area shape="rect" id="node39" href="$modules_2module__adc_8cpp.html" title="modules/module_adc.cpp" alt="" coords="979,237,1149,267"/>
+<area shape="rect" id="node43" href="$serial_8cpp.html" title="drivers/serial.cpp" alt="" coords="1224,160,1344,189"/>
+<area shape="rect" id="node47" href="$drivers_2spi_8cpp.html" title="drivers/spi.cpp" alt="" coords="328,160,435,189"/>
+</map>

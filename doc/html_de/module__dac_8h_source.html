@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: modules/module_dac.h Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('module__dac_8h.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">modules/module_dac.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="module__dac_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;../include/includes.h&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;../drivers/i2c.cpp&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 <span class="comment">//*******************************************************************</span>
+<a name="l00005"></a>00005 <span class="comment">//Class for accessing the MCP4728 digital to analog IC via I2C</span>
+<a name="l00006"></a>00006 <span class="comment">//*******************************************************************</span>
+<a name="l00016"></a><a class="code" href="classgnublin__module__dac.html">00016</a> <span class="comment"></span><span class="keyword">class </span><a class="code" href="classgnublin__module__dac.html" title="Klasse für den zugriff auf den MCP4728 digital zu analog Wandler.">gnublin_module_dac</a> {
+<a name="l00017"></a>00017 <span class="keyword">private</span>:
+<a name="l00018"></a>00018     <span class="keywordtype">bool</span> error_flag;
+<a name="l00019"></a>00019     <a class="code" href="classgnublin__i2c.html" title="Klasse für den zugriff auf den GNUBLIN I2C Bus.">gnublin_i2c</a> i2c;
+<a name="l00020"></a>00020     <span class="keywordtype">int</span> _channel[4];
+<a name="l00021"></a>00021     <span class="keywordtype">int</span> _gain[4];
+<a name="l00022"></a>00022     <span class="keywordtype">int</span> _vRef[4];
+<a name="l00023"></a>00023     std::string ErrorMessage;
+<a name="l00024"></a>00024 <span class="keyword">public</span>:
+<a name="l00025"></a>00025     <a class="code" href="classgnublin__module__dac.html#aeaae346b1703953e2d842b07071bc404" title="Setzt das error_flag auf &quot;false&quot;, den closemode auf &quot;1&quot; (siehe i2c für Details) und die Standard i2c ...">gnublin_module_dac</a>();
+<a name="l00026"></a>00026     <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__dac.html#a73daea4f60895ce1b81f3ecd3bf20d68" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage</a>();
+<a name="l00027"></a>00027     <span class="keywordtype">bool</span> <a class="code" href="classgnublin__module__dac.html#a1481dfc83e8c5ef3732e349f4e2f6f2f" title="Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist...">fail</a>();
+<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#a61e23424e17f3dd5cc1c301cec480016" title="Setzt die i2c slave Adresse.">setAddress</a>(<span class="keywordtype">int</span> Address);
+<a name="l00029"></a>00029     <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dac.html#a05d07c7aa266555894f0fb4b982dab71" title="Liest den Wert des Registers eines ausgewählten Kanals.">read</a>(<span class="keywordtype">int</span>);
+<a name="l00030"></a>00030     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#acc28a87d1328d64d1909e4708c3b8b8b" title="Bestimmt die Verstärkung. 1x oder 2x.">gain</a>(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> val);
+<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#a33eab5181ecb72d4bf9de45d750c05c7" title="Bestimmt die Verstärkung und schreibt ins Register und EEPROM.">gainEeprom</a>(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> val);  
+<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#ac893ef4dd8673f4cfd7defe787402b41" title="Bestimmt vRef. External oder Internal. Kein EEPROM, schneller Zugriff.">vRef</a>(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> val);
+<a name="l00033"></a>00033     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#a70921fe491ab15da279860ceb0d5b14c" title="Bestimmt vRef. External oder Internal. Schreibt ins EEPROM.">vRefEeprom</a>(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> val);
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#a63f4650ff954ad8b6ed21cb48f224ae4" title="Schreibt in alle Kanäle. Kein EEPROM.">writeAll</a>(<span class="keywordtype">int</span> val_0, <span class="keywordtype">int</span> val_1, <span class="keywordtype">int</span> val_2, <span class="keywordtype">int</span> val_3);
+<a name="l00035"></a>00035     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#a9e52a2ca1badaca4e9f1fc510a04ec13" title="Bestimmt den Wert eines ausgewählten Channels. Kein EEPROM.">write</a>(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> value);                                     
+<a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#a49773d0166f574bf090de4f4a36b2de9" title="Bestimmt den Wert eines ausgewählten Channels und schreibt den Wert in das EEPROM.">writeEeprom</a>(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> value);
+<a name="l00037"></a>00037 };
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="module__dac_8h.html">module_dac.h</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

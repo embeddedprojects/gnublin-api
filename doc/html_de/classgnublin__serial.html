@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: gnublin_serial Klassenreferenz</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('classgnublin__serial.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Öffentliche Methoden</a>  </div>
+  <div class="headertitle">
+<div class="title">gnublin_serial Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<!-- doxytag: class="gnublin_serial" -->
+<p>Klasse für den zugriff auf die serielle Schnittstelle des GNUBLIN.  
+ <a href="classgnublin__serial.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="serial_8h_source.html">serial.h</a>&gt;</code></p>
+
+<p><a href="classgnublin__serial-members.html">Aufstellung aller Elemente</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__serial.html#afe695b480ecb54c3b864bc03afc84643">gnublin_serial</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">initialisiert die serielle Schnittstelle. Setzt das standard serielle device auf "/dev/eser0"  <a href="#afe695b480ecb54c3b864bc03afc84643"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__serial.html#a0cb22b9349decd7f6643d51b64e554f0">gnublin_serial</a> (std::string Devicefile)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">initialisiert die serielle Schnittstelle. Setzt das standard serielle device auf "/dev/eser0"  <a href="#a0cb22b9349decd7f6643d51b64e554f0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__serial.html#aa38d0af7c47416e70b494329d9c7efb0">gnublin_serial</a> (std::string Devicefile, int rate)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">initialisiert die serielle Schnittstelle. Setzt das standard serielle device auf "/dev/eser0"  <a href="#aa38d0af7c47416e70b494329d9c7efb0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__serial.html#adc137988b6602ab6cdb73cebb269a63f">fail</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist.  <a href="#adc137988b6602ab6cdb73cebb269a63f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__serial.html#a352b96e2380fe037ad4fa58577393a7e">send</a> (unsigned char *TxBuf, int length)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">sendet Bytes an den serielle Schnittstelle.  <a href="#a352b96e2380fe037ad4fa58577393a7e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__serial.html#a627298b9e6cebeaa4a58af4beede7c47">setDevicefile</a> (std::string filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">setzt die Serielle Device Datei. Standard ist die "/dev/eser0"  <a href="#a627298b9e6cebeaa4a58af4beede7c47"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__serial.html#a59f4072cad7726ceb6e48cf779fd910a">setBaudrate</a> (int rate)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">setzt die I2C Device Datei. Standard ist die "/dev/i2c-1"  <a href="#a59f4072cad7726ceb6e48cf779fd910a"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Klasse für den zugriff auf die serielle Schnittstelle des GNUBLIN. </p>
+<p>Die GNUBLIN I2C Klasse gewährt einfachen Zugriff auf die serielle schnittstelle des GNUBLIN </p>
+
+<p>Definiert in Zeile <a class="el" href="serial_8h_source.html#l00021">21</a> der Datei <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+</div><hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="afe695b480ecb54c3b864bc03afc84643"></a><!-- doxytag: member="gnublin_serial::gnublin_serial" ref="afe695b480ecb54c3b864bc03afc84643" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__serial.html#afe695b480ecb54c3b864bc03afc84643">gnublin_serial::gnublin_serial</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>initialisiert die serielle Schnittstelle. Setzt das standard serielle device auf "/dev/eser0" </p>
+
+<p>Definiert in Zeile <a class="el" href="serial_8cpp_source.html#l00026">26</a> der Datei <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0cb22b9349decd7f6643d51b64e554f0"></a><!-- doxytag: member="gnublin_serial::gnublin_serial" ref="a0cb22b9349decd7f6643d51b64e554f0" args="(std::string Devicefile)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__serial.html#afe695b480ecb54c3b864bc03afc84643">gnublin_serial::gnublin_serial</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>Devicefile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>initialisiert die serielle Schnittstelle. Setzt das standard serielle device auf "/dev/eser0" </p>
+
+<p>Definiert in Zeile <a class="el" href="serial_8cpp_source.html#l00039">39</a> der Datei <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa38d0af7c47416e70b494329d9c7efb0"></a><!-- doxytag: member="gnublin_serial::gnublin_serial" ref="aa38d0af7c47416e70b494329d9c7efb0" args="(std::string Devicefile, int rate)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__serial.html#afe695b480ecb54c3b864bc03afc84643">gnublin_serial::gnublin_serial</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>Devicefile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>initialisiert die serielle Schnittstelle. Setzt das standard serielle device auf "/dev/eser0" </p>
+
+<p>Definiert in Zeile <a class="el" href="serial_8cpp_source.html#l00052">52</a> der Datei <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="adc137988b6602ab6cdb73cebb269a63f"></a><!-- doxytag: member="gnublin_serial::fail" ref="adc137988b6602ab6cdb73cebb269a63f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classgnublin__serial.html#adc137988b6602ab6cdb73cebb269a63f">gnublin_serial::fail</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>error_flag als bool </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="serial_8cpp_source.html#l00279">279</a> der Datei <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a352b96e2380fe037ad4fa58577393a7e"></a><!-- doxytag: member="gnublin_serial::send" ref="a352b96e2380fe037ad4fa58577393a7e" args="(unsigned char *TxBuf, int length)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__serial.html#a352b96e2380fe037ad4fa58577393a7e">gnublin_serial::send</a> </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>TxBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>sendet Bytes an den serielle Schnittstelle. </p>
+<p>Diese Funktion sendet "length" Anzahl an Bytes aus dem "TxBuf" an die serielle Schnittstelle. Bei Erfolg wird 1 zurück gegeben, bei Misserfolg -1.<br/>
+ Beispiele:<br/>
+ Sende 2 Bytes von "buf" an den i2c Bus: send(buf, 2); </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">RxBuf</td><td>Sende Puffer. Die zu sendenden Bytes sind hier gespeichert. </td></tr>
+    <tr><td class="paramname">length</td><td>Anzahl der zu sendenden Bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Erfolg: 1, Misserfolg: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="serial_8cpp_source.html#l00346">346</a> der Datei <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a59f4072cad7726ceb6e48cf779fd910a"></a><!-- doxytag: member="gnublin_serial::setBaudrate" ref="a59f4072cad7726ceb6e48cf779fd910a" args="(int rate)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__serial.html#a59f4072cad7726ceb6e48cf779fd910a">gnublin_serial::setBaudrate</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>setzt die I2C Device Datei. Standard ist die "/dev/i2c-1" </p>
+<p>Diese Funktion setzt die Baudrate. Es werden folgende Baudraten unterstüzt: 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 76800, 115200, 153600, 307200, 614400 und 1228800 </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rate</td><td>Baudrate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>failure: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="serial_8cpp_source.html#l00318">318</a> der Datei <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a627298b9e6cebeaa4a58af4beede7c47"></a><!-- doxytag: member="gnublin_serial::setDevicefile" ref="a627298b9e6cebeaa4a58af4beede7c47" args="(std::string filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__serial.html#a627298b9e6cebeaa4a58af4beede7c47">gnublin_serial::setDevicefile</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>setzt die Serielle Device Datei. Standard ist die "/dev/eser0" </p>
+<p>Diese Funktion setzt die Geräte Datei, auf die man zugreifen möchte. Standardmäßig ist bereits "/dev/eser0" gesetzt. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Dateipfad zur Geräte Datei, z.B. "/dev/eser0" </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>failure: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="serial_8cpp_source.html#l00298">298</a> der Datei <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>drivers/<a class="el" href="serial_8h_source.html">serial.h</a></li>
+<li>drivers/<a class="el" href="serial_8cpp_source.html">serial.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="classgnublin__serial.html">gnublin_serial</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

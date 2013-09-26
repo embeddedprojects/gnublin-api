@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: drivers/spi.h Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('spi_8h.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">drivers/spi.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="spi_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;../include/includes.h&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="comment">//***************************************************************************</span>
+<a name="l00004"></a>00004 <span class="comment">// Class for accessing the SPI-Bus</span>
+<a name="l00005"></a>00005 <span class="comment">//***************************************************************************</span>
+<a name="l00006"></a>00006 
+<a name="l00018"></a><a class="code" href="classgnublin__spi.html">00018</a> <span class="keyword">class </span><a class="code" href="classgnublin__spi.html" title="Klasse für den Zugriff auf den SPI-Bus.">gnublin_spi</a>{
+<a name="l00019"></a>00019     <span class="keyword">public</span>:
+<a name="l00020"></a>00020         <a class="code" href="classgnublin__spi.html#ac790b3cfaba3dfeca1c8a39704e65622" title="Die Standart SPI-Treiber werden geladen, wenn sie noch nicht vorhanden sind.">gnublin_spi</a>();
+<a name="l00021"></a>00021         <a class="code" href="classgnublin__spi.html#a5a40d501e737bcdda7d9218e7bb3c7fc">~gnublin_spi</a>();
+<a name="l00022"></a>00022         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#a1baaa0ac7d511131a7cde508fe1b6248" title="Setzt den SPI-Modus.">setMode</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> mode);
+<a name="l00023"></a>00023         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#a8e6935bcd95dd9c3f15947f8bdc7ccd6" title="Gibt den eingestellten SPI-Modus zurück.">getMode</a>();
+<a name="l00024"></a>00024         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#adfe7447cc567e81ac2b58417f45579f2" title="Setzt den LSB-Modus.">setLSB</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> lsb);
+<a name="l00025"></a>00025         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#aeb550ebd56e83aac5fe77813edb59fe6" title="Gibt den eingestellten LSB-Modus zurück.">getLSB</a>();
+<a name="l00026"></a>00026         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#a25cbef19a01866710adf83c08a4e7ee8" title="Legt die Länge der gesendeten Wörter fest.">setLength</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> bits);
+<a name="l00027"></a>00027         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#a1145f5b9a9c350bca5110bb076309733" title="Gibt die Anzahl von Bits je Wort zurück.">getLength</a>();
+<a name="l00028"></a>00028         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#aa41d3b1e523e775f77c912533ce501ee" title="Legt die Geschwindigkeit des SPI-Buses fest.">setSpeed</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> speed);
+<a name="l00029"></a>00029         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#afde01e3c3444cbd36652aab8871513e6" title="Gibt die Geschwindigkeit des SPI-Buses zurück.">getSpeed</a>();
+<a name="l00030"></a>00030         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#a9815912c27d892499ba1e8907794bd26" title="Empfängt Daten über den SPI-Bus.">receive</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">int</span> len);
+<a name="l00031"></a>00031         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#afff249ca377350571ea1b88786144c3e" title="Sendet Daten über den SPI-Bus.">send</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* tx, <span class="keywordtype">int</span> length);
+<a name="l00032"></a>00032         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#a54d51354605b76945ed458c4df439d7c" title="Setzt den benutzerdefinierten Chipselect-Pin.">setCS</a>(<span class="keywordtype">int</span> cs);
+<a name="l00033"></a>00033         <span class="keywordtype">int</span> <a class="code" href="classgnublin__spi.html#aa169a288e8d28fd08a64352adf5c099e" title="Sendet und empfängt daten über den SPI-Bus (halb duplex).">message</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* tx, <span class="keywordtype">int</span> tx_length, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* rx, <span class="keywordtype">int</span> rx_length);
+<a name="l00034"></a>00034         <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__spi.html#a605feea3ee93a0e0c9411f36639fc0f6" title="Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.">getErrorMessage</a>();
+<a name="l00035"></a>00035         <span class="keywordtype">bool</span> <a class="code" href="classgnublin__spi.html#a9b897815f1ed73816c947e3a024eb3e0" title="Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.">fail</a>();
+<a name="l00036"></a>00036     <span class="keyword">private</span>:
+<a name="l00037"></a>00037         <span class="keywordtype">int</span> fd;
+<a name="l00038"></a>00038         <span class="keywordtype">bool</span> error_flag;
+<a name="l00039"></a>00039         std::string ErrorMessage;
+<a name="l00040"></a>00040         
+<a name="l00041"></a>00041 };
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="spi_8h.html">spi.h</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

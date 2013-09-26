@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: gnublin_module_dac Klassenreferenz</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('classgnublin__module__dac.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Öffentliche Methoden</a>  </div>
+  <div class="headertitle">
+<div class="title">gnublin_module_dac Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<!-- doxytag: class="gnublin_module_dac" -->
+<p>Klasse für den zugriff auf den MCP4728 digital zu analog Wandler.  
+ <a href="classgnublin__module__dac.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="module__dac_8h_source.html">module_dac.h</a>&gt;</code></p>
+
+<p><a href="classgnublin__module__dac-members.html">Aufstellung aller Elemente</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#aeaae346b1703953e2d842b07071bc404">gnublin_module_dac</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt das error_flag auf "false", den closemode auf "1" (siehe i2c für Details) und die Standard i2c Adresse auf 0x60.  <a href="#aeaae346b1703953e2d842b07071bc404"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#a73daea4f60895ce1b81f3ecd3bf20d68">getErrorMessage</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die letzte Error Nachricht zurück.  <a href="#a73daea4f60895ce1b81f3ecd3bf20d68"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#a1481dfc83e8c5ef3732e349f4e2f6f2f">fail</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist.  <a href="#a1481dfc83e8c5ef3732e349f4e2f6f2f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#a61e23424e17f3dd5cc1c301cec480016">setAddress</a> (int Address)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt die i2c slave Adresse.  <a href="#a61e23424e17f3dd5cc1c301cec480016"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#a05d07c7aa266555894f0fb4b982dab71">read</a> (int)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liest den Wert des Registers eines ausgewählten Kanals.  <a href="#a05d07c7aa266555894f0fb4b982dab71"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#acc28a87d1328d64d1909e4708c3b8b8b">gain</a> (int channel, int val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestimmt die Verstärkung. 1x oder 2x.  <a href="#acc28a87d1328d64d1909e4708c3b8b8b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#a33eab5181ecb72d4bf9de45d750c05c7">gainEeprom</a> (int channel, int val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestimmt die Verstärkung und schreibt ins Register und EEPROM.  <a href="#a33eab5181ecb72d4bf9de45d750c05c7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#ac893ef4dd8673f4cfd7defe787402b41">vRef</a> (int channel, int val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestimmt vRef. External oder Internal. Kein EEPROM, schneller Zugriff.  <a href="#ac893ef4dd8673f4cfd7defe787402b41"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#a70921fe491ab15da279860ceb0d5b14c">vRefEeprom</a> (int channel, int val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestimmt vRef. External oder Internal. Schreibt ins EEPROM.  <a href="#a70921fe491ab15da279860ceb0d5b14c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#a63f4650ff954ad8b6ed21cb48f224ae4">writeAll</a> (int val_0, int val_1, int val_2, int val_3)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Schreibt in alle Kanäle. Kein EEPROM.  <a href="#a63f4650ff954ad8b6ed21cb48f224ae4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#a9e52a2ca1badaca4e9f1fc510a04ec13">write</a> (int channel, int value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestimmt den Wert eines ausgewählten Channels. Kein EEPROM.  <a href="#a9e52a2ca1badaca4e9f1fc510a04ec13"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__dac.html#a49773d0166f574bf090de4f4a36b2de9">writeEeprom</a> (int channel, int value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestimmt den Wert eines ausgewählten Channels und schreibt den Wert in das EEPROM.  <a href="#a49773d0166f574bf090de4f4a36b2de9"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Klasse für den zugriff auf den MCP4728 digital zu analog Wandler. </p>
+
+<p>Definiert in Zeile <a class="el" href="module__dac_8h_source.html#l00016">16</a> der Datei <a class="el" href="module__dac_8h_source.html">module_dac.h</a>.</p>
+</div><hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="aeaae346b1703953e2d842b07071bc404"></a><!-- doxytag: member="gnublin_module_dac::gnublin_module_dac" ref="aeaae346b1703953e2d842b07071bc404" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__module__dac.html#aeaae346b1703953e2d842b07071bc404">gnublin_module_dac::gnublin_module_dac</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt das error_flag auf "false", den closemode auf "1" (siehe i2c für Details) und die Standard i2c Adresse auf 0x60. </p>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00014">14</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="a1481dfc83e8c5ef3732e349f4e2f6f2f"></a><!-- doxytag: member="gnublin_module_dac::fail" ref="a1481dfc83e8c5ef3732e349f4e2f6f2f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classgnublin__module__dac.html#a1481dfc83e8c5ef3732e349f4e2f6f2f">gnublin_module_dac::fail</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>error_flag als bool </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00059">59</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc28a87d1328d64d1909e4708c3b8b8b"></a><!-- doxytag: member="gnublin_module_dac::gain" ref="acc28a87d1328d64d1909e4708c3b8b8b" args="(int channel, int val)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__dac.html#acc28a87d1328d64d1909e4708c3b8b8b">gnublin_module_dac::gain</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Bestimmt die Verstärkung. 1x oder 2x. </p>
+<p>Mit dieser Funktion kann man die Verstärkung festlegen. Es wird ausschließlich ins Register geschrieben. Kein EEPROM. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Kanal für die Verstärkung </td></tr>
+    <tr><td class="paramname">value</td><td>0 = 1x Verstärkung, 1 = 2x Verstärkung </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00266">266</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a33eab5181ecb72d4bf9de45d750c05c7"></a><!-- doxytag: member="gnublin_module_dac::gainEeprom" ref="a33eab5181ecb72d4bf9de45d750c05c7" args="(int channel, int val)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__dac.html#a33eab5181ecb72d4bf9de45d750c05c7">gnublin_module_dac::gainEeprom</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Bestimmt die Verstärkung und schreibt ins Register und EEPROM. </p>
+<p>Mit dieser Funktion kann man die Verstärkung festlegen. Es wird ins Register und ins EEPROM geschrieben. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Kanal für Verstärkung </td></tr>
+    <tr><td class="paramname">value</td><td>0 = 1x, 1 = 2x. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00310">310</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a73daea4f60895ce1b81f3ecd3bf20d68"></a><!-- doxytag: member="gnublin_module_dac::getErrorMessage" ref="a73daea4f60895ce1b81f3ecd3bf20d68" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__module__dac.html#a73daea4f60895ce1b81f3ecd3bf20d68">gnublin_module_dac::getErrorMessage</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die letzte Error Nachricht zurück. </p>
+<p>Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>ErrorMessage als c-string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00041">41</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a05d07c7aa266555894f0fb4b982dab71"></a><!-- doxytag: member="gnublin_module_dac::read" ref="a05d07c7aa266555894f0fb4b982dab71" args="(int)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__dac.html#a05d07c7aa266555894f0fb4b982dab71">gnublin_module_dac::read</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Liest den Wert des Registers eines ausgewählten Kanals. </p>
+<p>Mit dieser Funktion kann man den Zustand des Register eines bestimmten Kanals auslesen. Maximaler Wert ist 4095. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Kanal, von welchem gelesen werden soll.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Gibt den Wert des Registers zurück </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00234">234</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a61e23424e17f3dd5cc1c301cec480016"></a><!-- doxytag: member="gnublin_module_dac::setAddress" ref="a61e23424e17f3dd5cc1c301cec480016" args="(int Address)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__dac.html#a61e23424e17f3dd5cc1c301cec480016">gnublin_module_dac::setAddress</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Address</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt die i2c slave Adresse. </p>
+<p>Mit dieser Funktion kann die individuelle I2C Slave-Adresse gesetzt werden. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Address</td><td>neue I2C slave Adresse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00078">78</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac893ef4dd8673f4cfd7defe787402b41"></a><!-- doxytag: member="gnublin_module_dac::vRef" ref="ac893ef4dd8673f4cfd7defe787402b41" args="(int channel, int val)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__dac.html#ac893ef4dd8673f4cfd7defe787402b41">gnublin_module_dac::vRef</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Bestimmt vRef. External oder Internal. Kein EEPROM, schneller Zugriff. </p>
+<p>Mit dieser Funktion kann die Spannungsreferenz festgelegt werden. External wäre 3,3V und Internal 2,048. Da kein EEPROM Zugriff stattfindet, ist ein schneller Zugriff gewährleistet. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Kanal auf welchen die Spannungsreferenz angewandt werden soll </td></tr>
+    <tr><td class="paramname">value</td><td>0 = External Ref, 1 = Internal Ref </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00288">288</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a70921fe491ab15da279860ceb0d5b14c"></a><!-- doxytag: member="gnublin_module_dac::vRefEeprom" ref="a70921fe491ab15da279860ceb0d5b14c" args="(int channel, int val)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__dac.html#a70921fe491ab15da279860ceb0d5b14c">gnublin_module_dac::vRefEeprom</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Bestimmt vRef. External oder Internal. Schreibt ins EEPROM. </p>
+<p>Mit dieser Funktion kann die Spannungsreferenz festgelegt werden. External wäre 3,3V und Internal 2,048. Schreibt ins Register und ins EEPROM. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Kanal auf welchen die Spannungsreferenz angewandt werden soll </td></tr>
+    <tr><td class="paramname">value</td><td>0 = External Ref, 1 = Internal Ref </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00334">334</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e52a2ca1badaca4e9f1fc510a04ec13"></a><!-- doxytag: member="gnublin_module_dac::write" ref="a9e52a2ca1badaca4e9f1fc510a04ec13" args="(int channel, int value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__dac.html#a9e52a2ca1badaca4e9f1fc510a04ec13">gnublin_module_dac::write</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Bestimmt den Wert eines ausgewählten Channels. Kein EEPROM. </p>
+<p>Mit dieser Funktion kann man ein analoges Signal in einen bestimmten Kanal schreiben. Wert wird nur in das Register geschrieben, nicht in das EEPROM. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Kanal für den analogen Wert </td></tr>
+    <tr><td class="paramname">value</td><td>Wert für den ausgewählten Kanal </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00188">188</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a63f4650ff954ad8b6ed21cb48f224ae4"></a><!-- doxytag: member="gnublin_module_dac::writeAll" ref="a63f4650ff954ad8b6ed21cb48f224ae4" args="(int val_0, int val_1, int val_2, int val_3)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__dac.html#a63f4650ff954ad8b6ed21cb48f224ae4">gnublin_module_dac::writeAll</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val_0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val_1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val_2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val_3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Schreibt in alle Kanäle. Kein EEPROM. </p>
+<p>Mit dieser Funktion kann man in alle Kanäle schreiben. Werte werden nicht ins EEPROM geschrieben. Dadurch ist schneller Zugriff gewährleistet. Auf dem Chip MCP4728 entspricht dies dem fast write command. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val_0</td><td>Wert des ersten Kanals </td></tr>
+    <tr><td class="paramname">val_1</td><td>Wert des zweiten Kanals </td></tr>
+    <tr><td class="paramname">val_2</td><td>Wert des dritten Kanals </td></tr>
+    <tr><td class="paramname">val_3</td><td>Wert des vierten Kanals </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00104">104</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a49773d0166f574bf090de4f4a36b2de9"></a><!-- doxytag: member="gnublin_module_dac::writeEeprom" ref="a49773d0166f574bf090de4f4a36b2de9" args="(int channel, int value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__dac.html#a49773d0166f574bf090de4f4a36b2de9">gnublin_module_dac::writeEeprom</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Bestimmt den Wert eines ausgewählten Channels und schreibt den Wert in das EEPROM. </p>
+<p>Mit dieser Funktion kann man ein analoges Signal in einen bestimmten Kanal (Register und dessen EEPROM) schreiben. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Kanal für den analogen Wert </td></tr>
+    <tr><td class="paramname">value</td><td>Wert für den ausgewählten Kanal </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__dac_8cpp_source.html#l00145">145</a> der Datei <a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>modules/<a class="el" href="module__dac_8h_source.html">module_dac.h</a></li>
+<li>modules/<a class="el" href="modules_2module__dac_8cpp_source.html">module_dac.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="classgnublin__module__dac.html">gnublin_module_dac</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

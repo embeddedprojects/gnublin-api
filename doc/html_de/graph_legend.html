@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: Erklärung des Graphen</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('graph_legend.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Erklärung des Graphen</div>  </div>
+</div><!--header-->
+<div class="contents">
+<p>Diese Seite erklärt die Interpretation der von doxygen erzeugten Graphen.</p>
+<p>Beispiel: </p>
+<div class="fragment"><pre class="fragment"><span class="comment">/*! Wegen Verkürzung unsichtbare Klasse */</span>
+<span class="keyword">class </span>Invisible { };
+<span class="comment"></span>
+<span class="comment">/*! Klasse verkürzt dargestellt, Vererbungsbeziehung ist versteckt */</span>
+<span class="keyword">class </span>Truncated : <span class="keyword">public</span> Invisible { };
+
+<span class="comment">/* Nicht mit doxygen-Kommentaren dokumentierte Klasse */</span>
+<span class="keyword">class </span>Undocumented { };
+<span class="comment"></span>
+<span class="comment">/*! Mithilfe öffentlicher Vererbung vererbte Klasse */</span>
+<span class="keyword">class </span>PublicBase : <span class="keyword">public</span> Truncated { };
+<span class="comment"></span>
+<span class="comment">/*! Eine Template-Klasse */</span>
+<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>Templ { };
+<span class="comment"></span>
+<span class="comment">/*! Mithilfe geschützter Vererbung vererbte Klasse */</span>
+<span class="keyword">class </span>ProtectedBase { };
+<span class="comment"></span>
+<span class="comment">/*! Mithilfe privater Vererbung vererbte Klasse */</span>
+<span class="keyword">class </span>PrivateBase { };
+<span class="comment"></span>
+<span class="comment">/*! Von der Klasse Inherited benutzte Klasse */</span>
+<span class="keyword">class </span>Used { };
+<span class="comment"></span>
+<span class="comment">/*! Superklasse, die von mehreren anderen Klassen erbt */</span>
+<span class="keyword">class </span>Inherited : <span class="keyword">public</span> PublicBase,
+                  <span class="keyword">protected</span> ProtectedBase,
+                  <span class="keyword">private</span> PrivateBase,
+                  <span class="keyword">public</span> Undocumented,
+                  <span class="keyword">public</span> Templ&lt;int&gt;
+{
+  <span class="keyword">private</span>:
+    Used *m_usedClass;
+};
+</pre></div><p> Dies liefert den folgenden Graphen:</p>
+<center><div class="image">
+<img src="graph_legend.png" />
+</div>
+</center> <p>Die Rechtecke in obigem Graphen bedeuten:  </p>
+<ul>
+<li>
+Ein grau gefülltes Rechteck stellt die Struktur oder Klasse dar, für die der Graph erzeugt wurde. </li>
+<li>
+Ein Rechteck mit schwarzem Rahmen kennzeichnet eine dokumentierte Struktur oder Klasse. </li>
+<li>
+Ein Rechteck mit grauem Rahmen kennzeichnet eine undokumentierte Struktur oder Klasse. </li>
+<li>
+Ein Rechteck mit rotem Rahmen kennzeichnet eine dokumentierte Struktur oder Klasse, für die nicht alle Vererbungs-/Enthaltenseinsbeziehungen dargestellt werden. Ein Graph wird gekürzt, wenn er nicht in die angegebenen Schranken passt. </li>
+</ul>
+<p>Die Pfeile bedeuten:  </p>
+<ul>
+<li>
+Ein dunkelblauer Pfeil stellt eine öffentliche Vererbungsbeziehung zwischen zwei Klassen dar. </li>
+<li>
+Ein dunkelgrüner Pfeil stellt geschützte Vererbung dar. </li>
+<li>
+Ein dunkelroter Pfeil stellt private Vererbung dar. </li>
+<li>
+Ein gestrichelter violetter Pfeil bedeutet, dass eine Klasse in einer anderen enthalten ist oder von einer anderen benutzt wird. Am Pfeil stehen die Variable(n), mit deren Hilfe auf die Struktur oder Klasse an der Pfeilspitze zugegriffen werden kann. </li>
+<li>
+Ein gestrichelter gelber Pfeil kennzeichnet eine Verknüpfung zwischen einer Template Instanz und der Template Klasse von welcher es abstammt. Neben dem Pfeil sind die Template Parameter aufgeführt. </li>
+</ul>
+</div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

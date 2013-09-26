@@ -1,0 +1,27 @@
+var classgnublin__module__step =
+[
+    [ "gnublin_module_step", "classgnublin__module__step.html#a222257585c29616f2503f3ceb2dc0602", null ],
+    [ "burnNewAddress", "classgnublin__module__step.html#a146c3b8a989dedfec5cc93c5ad886db2", null ],
+    [ "drive", "classgnublin__module__step.html#a1294ca5d808044f702e446b473bbf5c0", null ],
+    [ "getActualPosition", "classgnublin__module__step.html#a3728b7bdd3696bfdff312fccdba040e1", null ],
+    [ "getErrorMessage", "classgnublin__module__step.html#a8ee127209a0c60d048d084ed7b794790", null ],
+    [ "getFullStatus1", "classgnublin__module__step.html#a9944d86e965debcb0f07b6794ba455b6", null ],
+    [ "getFullStatus2", "classgnublin__module__step.html#a9dd651483a38fb4ce154824332bdaa14", null ],
+    [ "getMotionStatus", "classgnublin__module__step.html#a1d6a86fcf598665c07bd376bfbd90173", null ],
+    [ "getSwitch", "classgnublin__module__step.html#af7c318ffb44a3288d3722880b16203a2", null ],
+    [ "hardStop", "classgnublin__module__step.html#a4ed1e5f4b7c14786e8558dd4f363b230", null ],
+    [ "readTMC", "classgnublin__module__step.html#a4a0976389735a3a8c5e33beecd15f923", null ],
+    [ "resetPosition", "classgnublin__module__step.html#ae932e373598928409d844b7d223586d1", null ],
+    [ "runInit", "classgnublin__module__step.html#a2025a51c309a15b99d46049a474fc99f", null ],
+    [ "setAddress", "classgnublin__module__step.html#ad3f3a593b2c48bb979891fe2e81f8c7c", null ],
+    [ "setDevicefile", "classgnublin__module__step.html#aa39b5e5f60add80a7b18b0adae2d3646", null ],
+    [ "setIhold", "classgnublin__module__step.html#a09e4c2ad5fd22952f4bb5d29cf6c7cc8", null ],
+    [ "setIrun", "classgnublin__module__step.html#aefb783512a20ee452eadb8951735d6f5", null ],
+    [ "setMotorParam", "classgnublin__module__step.html#a1a65aaa089987c5fc88d9873c1ec867c", null ],
+    [ "setMotorParam", "classgnublin__module__step.html#a0ef51bae13392a0ca62b63b27fecff3b", null ],
+    [ "setPosition", "classgnublin__module__step.html#a18f67de5488cf54651ca7e3b595c8259", null ],
+    [ "setVmax", "classgnublin__module__step.html#a7efdb13438dc9265a59fb49566c26922", null ],
+    [ "setVmin", "classgnublin__module__step.html#a508a6eb22ca87584b83cc36aae617417", null ],
+    [ "softStop", "classgnublin__module__step.html#ae17a0baf6e78a0da8a1de0e431138cf9", null ],
+    [ "writeTMC", "classgnublin__module__step.html#a4b0becb0530d077fe1135f7c0b25a2d2", null ]
+];

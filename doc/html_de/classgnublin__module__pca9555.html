@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: gnublin_module_pca9555 Klassenreferenz</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('classgnublin__module__pca9555.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Öffentliche Methoden</a>  </div>
+  <div class="headertitle">
+<div class="title">gnublin_module_pca9555 Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<!-- doxytag: class="gnublin_module_pca9555" -->
+<p>Klasse für den zugriff auf den PCA9555 IC via I2C Bus.  
+ <a href="classgnublin__module__pca9555.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="module__pca9555_8h_source.html">module_pca9555.h</a>&gt;</code></p>
+
+<p><a href="classgnublin__module__pca9555-members.html">Aufstellung aller Elemente</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a3036314dbb06581a192f943d96476b45">gnublin_module_pca9555</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setze standard i2c Adresse 0x20, den closemode auf "1" (siehe i2c für Details) und setze das ErrorFlag auf false.  <a href="#a3036314dbb06581a192f943d96476b45"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a3ddcc1d5b2057e7abb44ab41771e8ddd">getErrorMessage</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die letzte Error Nachricht zurück.  <a href="#a3ddcc1d5b2057e7abb44ab41771e8ddd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a9201edc6d71acd6fdde41f2ee01931cc">fail</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist.  <a href="#a9201edc6d71acd6fdde41f2ee01931cc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a4c1446e6ffb05ecab759af97a9624277">setAddress</a> (int Address)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt die i2c slave Adresse.  <a href="#a4c1446e6ffb05ecab759af97a9624277"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045">setDevicefile</a> (std::string filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">setzt die I2C Device Datei. Standard ist die "/dev/i2c-1"  <a href="#a1845d88a4d8418ac6c55990d67737045"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826">pinMode</a> (int pin, std::string direction)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt den Pin Modus (Eingang/Ausgang)  <a href="#af7e6b9f65112b099fa7cb7d2a6361826"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e">portMode</a> (int port, std::string direction)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt den Port Modus (Eingang/Ausgang)  <a href="#a135ee83e3d9023061f385075f2cd911e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad">digitalWrite</a> (int pin, int value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt den Pegel eines Ausgangs (HIGH/LOW)  <a href="#ab8e890d0380ca17e02b1a1a5342d90ad"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a8045664522ef69bc1bcbcfe88794243a">digitalRead</a> (int pin)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liest den Zustand eins Eingang-Pins und gibt ihn zurück.  <a href="#a8045664522ef69bc1bcbcfe88794243a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a8b1bb3449d85b9c9b43d2e844b285843">readState</a> (int pin)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liest den Zustand eines OUTPUT Pins und gibt ihn zurück.  <a href="#a8b1bb3449d85b9c9b43d2e844b285843"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#aa9982a37fe13f786d6a4fccb6cd8ed7b">writePort</a> (int port, unsigned char value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Schreibt ein Byte an einen kompletten Port.  <a href="#aa9982a37fe13f786d6a4fccb6cd8ed7b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnublin__module__pca9555.html#a1f0bc565a06d1706f2c571b781c9ddb8">readPort</a> (int port)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liest den Zustand eins Eingang-Ports und gibt ihn zurück.  <a href="#a1f0bc565a06d1706f2c571b781c9ddb8"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Klasse für den zugriff auf den PCA9555 IC via I2C Bus. </p>
+
+<p>Definiert in Zeile <a class="el" href="module__pca9555_8h_source.html#l00016">16</a> der Datei <a class="el" href="module__pca9555_8h_source.html">module_pca9555.h</a>.</p>
+</div><hr/><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="a3036314dbb06581a192f943d96476b45"></a><!-- doxytag: member="gnublin_module_pca9555::gnublin_module_pca9555" ref="a3036314dbb06581a192f943d96476b45" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnublin__module__pca9555.html#a3036314dbb06581a192f943d96476b45">gnublin_module_pca9555::gnublin_module_pca9555</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setze standard i2c Adresse 0x20, den closemode auf "1" (siehe i2c für Details) und setze das ErrorFlag auf false. </p>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00015">15</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="a8045664522ef69bc1bcbcfe88794243a"></a><!-- doxytag: member="gnublin_module_pca9555::digitalRead" ref="a8045664522ef69bc1bcbcfe88794243a" args="(int pin)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__pca9555.html#a8045664522ef69bc1bcbcfe88794243a">gnublin_module_pca9555::digitalRead</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Liest den Zustand eins Eingang-Pins und gibt ihn zurück. </p>
+<p>Mit dieser Funktion kann man den Zustand eines Pins auslesen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>Nummer des Pins (0-15) von dem man lesen will. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>0/1 logischer Pegel des Pins, Misserfolg: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00472">472</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab8e890d0380ca17e02b1a1a5342d90ad"></a><!-- doxytag: member="gnublin_module_pca9555::digitalWrite" ref="ab8e890d0380ca17e02b1a1a5342d90ad" args="(int pin, int value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad">gnublin_module_pca9555::digitalWrite</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt den Pegel eines Ausgangs (HIGH/LOW) </p>
+<p>Mit dieser Funktion kann man den Pegel eines Ausgangs entweder auf HIGH oder auf LOW setzen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>Nummer des Pins (0-15) </td></tr>
+    <tr><td class="paramname">value</td><td>HIGH (1) oder LOW (0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Erfolg: 1, Misserfolg: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00311">311</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9201edc6d71acd6fdde41f2ee01931cc"></a><!-- doxytag: member="gnublin_module_pca9555::fail" ref="a9201edc6d71acd6fdde41f2ee01931cc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classgnublin__module__pca9555.html#a9201edc6d71acd6fdde41f2ee01931cc">gnublin_module_pca9555::fail</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>error_flag als bool </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00050">50</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3ddcc1d5b2057e7abb44ab41771e8ddd"></a><!-- doxytag: member="gnublin_module_pca9555::getErrorMessage" ref="a3ddcc1d5b2057e7abb44ab41771e8ddd" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * <a class="el" href="classgnublin__module__pca9555.html#a3ddcc1d5b2057e7abb44ab41771e8ddd">gnublin_module_pca9555::getErrorMessage</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gibt die letzte Error Nachricht zurück. </p>
+<p>Diese Funktion gibt die Letzte Error Nachricht zurück, welche in dieser Klasse gespeichert wurde. </p>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>ErrorMessage als c-string </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00035">35</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af7e6b9f65112b099fa7cb7d2a6361826"></a><!-- doxytag: member="gnublin_module_pca9555::pinMode" ref="af7e6b9f65112b099fa7cb7d2a6361826" args="(int pin, std::string direction)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826">gnublin_module_pca9555::pinMode</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt den Pin Modus (Eingang/Ausgang) </p>
+<p>Mit dieser Funktion kann man einen einzelnen Pin entweder als Eingang oder als Ausgang setzen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>Nummer des Pins (0-15) </td></tr>
+    <tr><td class="paramname">direction</td><td>INPUT (Eingang) oder OUTPUT (Ausgang) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Erfolg: 1, Misserfolg: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00106">106</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a135ee83e3d9023061f385075f2cd911e"></a><!-- doxytag: member="gnublin_module_pca9555::portMode" ref="a135ee83e3d9023061f385075f2cd911e" args="(int port, std::string direction)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e">gnublin_module_pca9555::portMode</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt den Port Modus (Eingang/Ausgang) </p>
+<p>Mit dieser Funktion kann man einen ganzen Port entweder als Eingang oder als Ausgang setzen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Nummer des Ports (0-1) </td></tr>
+    <tr><td class="paramname">direction</td><td>INPUT (Eingang) oder OUTPUT (Ausgang) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Erfolg: 1, Misserfolg: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00219">219</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1f0bc565a06d1706f2c571b781c9ddb8"></a><!-- doxytag: member="gnublin_module_pca9555::readPort" ref="a1f0bc565a06d1706f2c571b781c9ddb8" args="(int port)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="classgnublin__module__pca9555.html#a1f0bc565a06d1706f2c571b781c9ddb8">gnublin_module_pca9555::readPort</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Liest den Zustand eins Eingang-Ports und gibt ihn zurück. </p>
+<p>Mit dieser Funktion kann man den Zustand eines Ports auslesen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Nummer des Ports (0-1) von dem man lesen will. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>unsigned char mit den Pegeln des Ports, Misserfolg: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00550">550</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8b1bb3449d85b9c9b43d2e844b285843"></a><!-- doxytag: member="gnublin_module_pca9555::readState" ref="a8b1bb3449d85b9c9b43d2e844b285843" args="(int pin)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__pca9555.html#a8b1bb3449d85b9c9b43d2e844b285843">gnublin_module_pca9555::readState</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Liest den Zustand eines OUTPUT Pins und gibt ihn zurück. </p>
+<p>Mit dieser Funktion kann man den Zustand eines Pins auslesen. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>Nummer des Pins (0-15) von dem man lesen will. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>0/1 logischer Pegel des Pins, Misserfolg: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00601">601</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c1446e6ffb05ecab759af97a9624277"></a><!-- doxytag: member="gnublin_module_pca9555::setAddress" ref="a4c1446e6ffb05ecab759af97a9624277" args="(int Address)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__pca9555.html#a4c1446e6ffb05ecab759af97a9624277">gnublin_module_pca9555::setAddress</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Address</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setzt die i2c slave Adresse. </p>
+<p>Mit dieser Funktion kann die individuelle I2C Slave-Adresse des PCA9555 gesetzt werden. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Address</td><td>neue I2C slave Adresse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00067">67</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1845d88a4d8418ac6c55990d67737045"></a><!-- doxytag: member="gnublin_module_pca9555::setDevicefile" ref="a1845d88a4d8418ac6c55990d67737045" args="(std::string filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045">gnublin_module_pca9555::setDevicefile</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>setzt die I2C Device Datei. Standard ist die "/dev/i2c-1" </p>
+<p>Diese Funktion setzt die Geräte Datei, auf die man zugreifen möchte. Standardmäßig ist bereits "/dev/i2c-1" gesetzt. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Dateipfad zur Geräte Datei, z.B. "/dev/i2c-0" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00085">85</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9982a37fe13f786d6a4fccb6cd8ed7b"></a><!-- doxytag: member="gnublin_module_pca9555::writePort" ref="aa9982a37fe13f786d6a4fccb6cd8ed7b" args="(int port, unsigned char value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classgnublin__module__pca9555.html#aa9982a37fe13f786d6a4fccb6cd8ed7b">gnublin_module_pca9555::writePort</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Schreibt ein Byte an einen kompletten Port. </p>
+<p>Mit dieser Funktion kann man ein komplettes Byte an einen ganzen Port des PCA9555 schreiben. </p>
+<dl class="params"><dt><b>Parameter:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Nummer des Ports (0-1) </td></tr>
+    <tr><td class="paramname">value</td><td>Das Byte, dass man schreiben möchte. z.B. 0x12 um 00010010 zu schreiben. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Rückgabe:</b></dt><dd>Erfolg: 1, Misserfolg: -1 </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="modules_2module__pca9555_8cpp_source.html#l00424">424</a> der Datei <a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>modules/<a class="el" href="module__pca9555_8h_source.html">module_pca9555.h</a></li>
+<li>modules/<a class="el" href="modules_2module__pca9555_8cpp_source.html">module_pca9555.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="classgnublin__module__pca9555.html">gnublin_module_pca9555</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

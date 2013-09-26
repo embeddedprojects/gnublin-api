@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>gnublin-api: modules/module_dogm.h Quellcode</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('module__dogm_8h.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">modules/module_dogm.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="module__dogm_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;../include/includes.h&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;../drivers/spi.cpp&quot;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &quot;../drivers/gpio.cpp&quot;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="comment">//***************************************************************************</span>
+<a name="l00006"></a>00006 <span class="comment">// Class for accesing the GNUBLIN MODULE-DISPLAY 2x16</span>
+<a name="l00007"></a>00007 <span class="comment">//***************************************************************************</span>
+<a name="l00008"></a>00008 
+<a name="l00020"></a><a class="code" href="classgnublin__module__dogm.html">00020</a> <span class="keyword">class </span><a class="code" href="classgnublin__module__dogm.html" title="Klasse für den Zugriff auf das GNUBLIN MODULE-DISPLAY 2x16.">gnublin_module_dogm</a>{
+<a name="l00021"></a>00021     <span class="keyword">public</span>:
+<a name="l00022"></a>00022         <a class="code" href="classgnublin__module__dogm.html#a41e540957ba0d3ea126b33c1a4ef7ef1" title="Setzt die standard RS-Pins.">gnublin_module_dogm</a>();
+<a name="l00023"></a>00023         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a8165ef375f35797a8750a4dc3c814e21" title="Initialisiert das Display.">init</a>();
+<a name="l00024"></a>00024         <span class="keywordtype">bool</span> <a class="code" href="classgnublin__module__dogm.html#ad33768709796e1cdf120fe5a0a47f70e" title="Gibt das errorflag zurück, um Fehler in der zuvor aufgerugfenen Methode zu erkennen.">fail</a>();
+<a name="l00025"></a>00025         <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__dogm.html#aa1224e3f7ae5db4b820c6eff7deddd20" title="Gibt die Fehlernachricht des zuvor aufgetretenen Fehlers zurück, wenn weine exisitert.">getErrorMessage</a>();
+<a name="l00026"></a>00026         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#afdbfe7f1ba1b40bbc386bef55668a53d" title="Setzt den benutzerdefinierten RS-Pin.">setRsPin</a>(<span class="keywordtype">int</span> pin);
+<a name="l00027"></a>00027         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a75cfabf06be90c7efa6b288a6b4ab1c0" title="Setzt den benutzerdefinierten Chipselect-Pin.">setCS</a>(<span class="keywordtype">int</span> cs);
+<a name="l00028"></a>00028         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>(<span class="keywordtype">char</span>* buffer);
+<a name="l00029"></a>00029         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">int</span> line);
+<a name="l00030"></a>00030         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#ab11a6ba2fcfdeb3c256d7e1755d7ca32" title="Schreibt String auf das Display.">print</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">int</span> line, <span class="keywordtype">int</span> off);
+<a name="l00031"></a>00031         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a21fb00e088162c0568ffceea407e7530" title="Setzt den Cursor an eine bestimmte Position.">offset</a>(<span class="keywordtype">int</span> num);
+<a name="l00032"></a>00032         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#ab49a40d16cd23f47350ac8a5477eb1b9" title="Löscht den Inhalt des Displays.">clear</a>();
+<a name="l00033"></a>00033         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a7caae14916fc9dac10a5d6a9a470c36e" title="Resetet das Display.">returnHome</a>();
+<a name="l00034"></a>00034         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#afaa41235e01a2e2b09be139af0d0f9de" title="Verschiebt das ganze Display.">shift</a>(<span class="keywordtype">int</span> num);
+<a name="l00035"></a>00035         <span class="keywordtype">int</span> <a class="code" href="classgnublin__module__dogm.html#a93a0c10446511bfeea5ae6842930c89b" title="Setzt Displayparameter.">controlDisplay</a>(<span class="keywordtype">int</span> power, <span class="keywordtype">int</span> cursor, <span class="keywordtype">int</span> blink);
+<a name="l00036"></a>00036     <span class="keyword">private</span>:
+<a name="l00037"></a>00037         <a class="code" href="classgnublin__spi.html" title="Klasse für den Zugriff auf den SPI-Bus.">gnublin_spi</a> spi;
+<a name="l00038"></a>00038         <a class="code" href="classgnublin__gpio.html" title="Klasse für den zugriff auf die GPIO Pins.">gnublin_gpio</a> gpio;
+<a name="l00039"></a>00039         <span class="keywordtype">bool</span> error_flag;
+<a name="l00040"></a>00040         <span class="keywordtype">int</span> rs_pin;
+<a name="l00041"></a>00041         std::string ErrorMessage;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 };
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="module__dogm_8h.html">module_dogm.h</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>
