@@ -48,22 +48,60 @@ enum CSmptXPriority
 	XPRIORITY_LOW = 4
 };
 
+
 /**
-* @class ECSmtp
+* @class gnublin_smtp
 * @~english
-
-* @brief Class for error handling of the class CSmtp.
+* @brief Class for sending mails.
 *
-*
+* This class manages to send mails.
 * @~german
-* @brief Klasse für Fehleranalyse der Klasse CSmtp.
-
+* @brief Klasse um Mails zu versenden.
 *
 * Diese Klasse ermöglicht das Senden und Empfangen von E-Mails.
 */
-class ECSmtp
+class gnublin_smtp  
 {
 public:
+	gnublin_smtp();
+	virtual ~gnublin_smtp();
+	void AddRecipient(const char *email, const char *name=NULL);
+	void AddBCCRecipient(const char *email, const char *name=NULL);
+	void AddCCRecipient(const char *email, const char *name=NULL);    
+	void AddAttachment(const char *path);   
+	void AddMsgLine(const char* text);
+	void DelRecipients(void);
+	void DelBCCRecipients(void);
+	void DelCCRecipients(void);
+	void DelAttachments(void);
+	void DelMsgLines(void);
+	void DelMsgLine(unsigned int line);
+	void ModMsgLine(unsigned int line,const char* text);
+	unsigned int GetBCCRecipientCount() const;    
+	unsigned int GetCCRecipientCount() const;
+	unsigned int GetRecipientCount() const;    
+//	const char* GetLocalHostIP() const;
+	const char* GetLocalHostName() const;
+	const char* GetMsgLineText(unsigned int line) const;
+	unsigned int GetMsgLines(void) const;
+	const char* GetReplyTo() const;
+	const char* GetMailFrom() const;
+	const char* GetSenderName() const;
+	const char* GetSubject() const;
+	const char* GetXMailer() const;
+	CSmptXPriority GetXPriority() const;
+	void Send();
+	void SetSubject(const char*);
+	void SetSenderName(const char*);
+	void SetSenderMail(const char*);
+	void SetReplyTo(const char*);
+	void SetXMailer(const char*);
+	void SetLogin(const char*);
+	void SetPassword(const char*);
+	void SetXPriority(CSmptXPriority);
+	void SetSMTPServer(const char* server,const unsigned short port=0);
+	
+	//Error handling
 	enum CSmtpError
 	{
 		CSMTP_NO_ERROR = 0,
@@ -106,67 +144,19 @@ public:
 		SENDBUF_IS_EMPTY,
 		OUT_OF_MSG_RANGE,
 	};
-	ECSmtp(CSmtpError err_) : ErrorCode(err_) {}
+	gnublin_smtp (CSmtpError err_) : ErrorCode(err_) {}
 	CSmtpError GetErrorNum(void) const {return ErrorCode;}
 	std::string GetErrorText(void) const;
 
-private:
-	CSmtpError ErrorCode;
-};
 
-/**
-* @class CSmtp
-* @~english
-* @brief Class for sending mails.
-*
-* This class manages to send mails.
-* @~german
-* @brief Klasse um Mails zu versenden.
-*
-* Diese Klasse ermöglicht das Senden und Empfangen von E-Mails.
-*/
-class CSmtp  
-{
-public:
-	CSmtp();
-	virtual ~CSmtp();
-	void AddRecipient(const char *email, const char *name=NULL);
-	void AddBCCRecipient(const char *email, const char *name=NULL);
-	void AddCCRecipient(const char *email, const char *name=NULL);    
-	void AddAttachment(const char *path);   
-	void AddMsgLine(const char* text);
-	void DelRecipients(void);
-	void DelBCCRecipients(void);
-	void DelCCRecipients(void);
-	void DelAttachments(void);
-	void DelMsgLines(void);
-	void DelMsgLine(unsigned int line);
-	void ModMsgLine(unsigned int line,const char* text);
-	unsigned int GetBCCRecipientCount() const;    
-	unsigned int GetCCRecipientCount() const;
-	unsigned int GetRecipientCount() const;    
-//	const char* GetLocalHostIP() const;
-	const char* GetLocalHostName() const;
-	const char* GetMsgLineText(unsigned int line) const;
-	unsigned int GetMsgLines(void) const;
-	const char* GetReplyTo() const;
-	const char* GetMailFrom() const;
-	const char* GetSenderName() const;
-	const char* GetSubject() const;
-	const char* GetXMailer() const;
-	CSmptXPriority GetXPriority() const;
-	void Send();
-	void SetSubject(const char*);
-	void SetSenderName(const char*);
-	void SetSenderMail(const char*);
-	void SetReplyTo(const char*);
-	void SetXMailer(const char*);
-	void SetLogin(const char*);
-	void SetPassword(const char*);
-	void SetXPriority(CSmptXPriority);
-	void SetSMTPServer(const char* server,const unsigned short port=0);
+
+
 
 private:	
+
+	CSmtpError ErrorCode;
+
+
 	std::string m_sLocalHostName;
 	std::string m_sMailFrom;
 	std::string m_sNameFrom;

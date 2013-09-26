@@ -1,6 +1,8 @@
-digraph "gnublin_module_dac"
+digraph G
 {
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="{gnublin_module_dac\n||+ gnublin_module_dac()\l+ setAddress()\l+ write()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 [label="{gnublin_module_dac\n|- error_flag\l- i2c\l- _channel\l- _gain\l- _vRef\l- ErrorMessage\l|+ gnublin_module_dac()\l+ getErrorMessage()\l+ fail()\l+ setAddress()\l+ read()\l+ gain()\l+ gainEeprom()\l+ vRef()\l+ vRefEeprom()\l+ writeAll()\l+ write()\l+ writeEeprom()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir=back,color="darkorchid3",fontsize="10",style="dashed",label="i2c",arrowtail="open",fontname="Helvetica"];
+  Node2 [label="{gnublin_i2c\n|- error_flag\l- slave_address\l- devicefile\l- ErrorMessage\l- fd\l|+ gnublin_i2c()\l+ gnublin_i2c()\l+ gnublin_i2c()\l+ ~gnublin_i2c()\l+ fail()\l+ setAddress()\l+ getAddress()\l+ getErrorMessage()\l+ setDevicefile()\l+ receive()\l+ receive()\l+ send()\l+ send()\l+ send()\l- errorMsg()\l- open_fd()\l- close_fd()\l- init()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classgnublin__i2c.html",tooltip="Klasse für den zugriff auf den GNUBLIN I2C Bus."];
 }

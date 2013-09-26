@@ -2,126 +2,80 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.3.1"/>
 <title>gnublin-api: library/csv/csv.h Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">gnublin-api
-   &#160;<span id="projectnumber">Version 0.4</span>
-   </div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-<!-- end header part -->
-<!-- Erzeugt von Doxygen 1.8.3.1 -->
-  <div id="navrow1" class="tabs">
+<!-- Erzeugt von Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
     <ul class="tablist">
-      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="main.html"><span>Hauptseite</span></a></li>
       <li><a href="annotated.html"><span>Klassen</span></a></li>
       <li class="current"><a href="files.html"><span>Dateien</span></a></li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
+  <div class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
       <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('csv_8h_source.html','');});
-</script>
-<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">csv.h</div>  </div>
-</div><!--header-->
-<div class="contents">
-<a href="csv_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdarg.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//***************************************************************************</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// Class for creating csv files</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//***************************************************************************</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classgnublin__csv.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgnublin__csv.html" title="Klasse zum Erstellen von csv Dateien.">gnublin_csv</a>{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classgnublin__csv.html" title="Klasse zum Erstellen von csv Dateien.">gnublin_csv</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="classgnublin__csv.html" title="Klasse zum Erstellen von csv Dateien.">gnublin_csv</a>(<span class="keywordtype">string</span> new_filename);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> open(<span class="keywordtype">string</span> new_filename);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">int</span> addRow(<span class="keywordtype">int</span> quantity, ...);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> close();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> delimiterRow(<span class="keywordtype">string</span> delimiterSign);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="keywordtype">void</span> delimiterColumn(<span class="keywordtype">char</span> delimiterSign);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> delimiterField(<span class="keywordtype">char</span> delimiterSign);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">void</span> delimiterField();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">   38</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classgnublin__csv.html#a9b16ae29061073940445932cbbfc00b7">NumberToString</a>(T Number) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">string</span> str;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            stringstream ss;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        ss &lt;&lt; Number;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            str = ss.str();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">string</span> filename;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">bool</span> user_file_handle;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">string</span> delimiterRowSign;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">char</span> delimiterColumnSign;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">char</span> delimiterFieldSign;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-</div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
-<!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_e3d620c6b6fdb93ed3bc6186215bde2e.html">library</a></li><li class="navelem"><a class="el" href="dir_eea1bb687171681cb3233bae8d66cdaf.html">csv</a></li><li class="navelem"><a class="el" href="csv_8h.html">csv.h</a></li>
-    <li class="footer">Erzeugt am Fre Sep 6 2013 19:38:52 für gnublin-api von
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
-  </ul>
+<h1>library/csv/csv.h</h1>  </div>
 </div>
+<div class="contents">
+<a href="csv_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &lt;fstream&gt;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;stdarg.h&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;sstream&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="comment">//***************************************************************************</span>
+<a name="l00009"></a>00009 <span class="comment">// Class for creating csv files</span>
+<a name="l00010"></a>00010 <span class="comment">//***************************************************************************</span>
+<a name="l00011"></a>00011 
+<a name="l00024"></a>00024 <span class="keyword">using namespace </span>std;
+<a name="l00025"></a>00025 
+<a name="l00026"></a><a class="code" href="classgnublin__csv.html">00026</a> <span class="keyword">class </span><a class="code" href="classgnublin__csv.html" title="Klasse zum Erstellen von csv Dateien.">gnublin_csv</a>{
+<a name="l00027"></a>00027   <span class="keyword">public</span>:
+<a name="l00028"></a>00028     <a class="code" href="classgnublin__csv.html" title="Klasse zum Erstellen von csv Dateien.">gnublin_csv</a>();
+<a name="l00029"></a>00029         <a class="code" href="classgnublin__csv.html" title="Klasse zum Erstellen von csv Dateien.">gnublin_csv</a>(<span class="keywordtype">string</span> new_filename);
+<a name="l00030"></a>00030     <span class="keywordtype">int</span> open(<span class="keywordtype">string</span> new_filename);
+<a name="l00031"></a>00031         <span class="keywordtype">int</span> addRow(<span class="keywordtype">int</span> quantity, ...);
+<a name="l00032"></a>00032         <span class="keywordtype">void</span> close();
+<a name="l00033"></a>00033         <span class="keywordtype">void</span> delimiterRow(<span class="keywordtype">string</span> delimiterSign);
+<a name="l00034"></a>00034       <span class="keywordtype">void</span> delimiterColumn(<span class="keywordtype">char</span> delimiterSign);
+<a name="l00035"></a>00035     <span class="keywordtype">void</span> delimiterField(<span class="keywordtype">char</span> delimiterSign);
+<a name="l00036"></a>00036         <span class="keywordtype">void</span> delimiterField();
+<a name="l00037"></a>00037         <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+<a name="l00038"></a><a class="code" href="classgnublin__csv.html#a0ab1786a6b785083cf5567104ce2bf5b">00038</a>         <span class="keywordtype">string</span> <a class="code" href="classgnublin__csv.html#a0ab1786a6b785083cf5567104ce2bf5b">NumberToString</a>(T Number) {
+<a name="l00039"></a>00039         <span class="keywordtype">string</span> str;
+<a name="l00040"></a>00040             stringstream ss;
+<a name="l00041"></a>00041         ss &lt;&lt; Number;
+<a name="l00042"></a>00042             str = ss.str();
+<a name="l00043"></a>00043         <span class="keywordflow">return</span> ss.str();
+<a name="l00044"></a>00044         }
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048     <span class="keyword">private</span>:
+<a name="l00049"></a>00049         <span class="keywordtype">string</span> filename;
+<a name="l00050"></a>00050         <span class="keywordtype">bool</span> user_file_handle;
+<a name="l00051"></a>00051         <span class="keywordtype">string</span> delimiterRowSign;
+<a name="l00052"></a>00052         <span class="keywordtype">char</span> delimiterColumnSign;
+<a name="l00053"></a>00053         <span class="keywordtype">char</span> delimiterFieldSign;
+<a name="l00054"></a>00054 };
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 
+</pre></div></div>
+</div>
+<hr class="footer"/><address class="footer"><small>Erzeugt am Thu Sep 26 2013 08:19:30 für gnublin-api von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
 </html>

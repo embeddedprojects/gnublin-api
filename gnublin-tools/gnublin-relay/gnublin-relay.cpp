@@ -21,7 +21,7 @@ string helpstring="This program was designed to easily interact with the relay m
 "-a <Address> specifiy the module address (default is 0x20)\n"
 "-j show output in json format\n"
 "-b show output in raw format\n"               
-"-i show value at pin\n\n"
+"-r show value at a pin\n\n"
 "Examples:\n"
 
 "Set relay 1 high\n"
@@ -36,7 +36,7 @@ string helpstring="This program was designed to easily interact with the relay m
 void parse_opts(int argc, char **argv)
 {
 
-	while((c = getopt(argc,argv,"hp:o:a:jbi")) != -1)
+	while((c = getopt(argc,argv,"hp:o:a:jbr")) != -1)
 	{
 		switch(c)
 		{
@@ -48,7 +48,7 @@ void parse_opts(int argc, char **argv)
 			case 'a' : 	relay.setAddress(strtol (optarg,NULL,16));		break;
 			case 'j' : 	json_flag = 1;						break;
 			case 'b' : 	brute_flag = 1;						break;			
-			case 'i' :	input_flag = 1;
+			case 'r' :	input_flag = 1;
 		}
 	}
 	if (hflag)

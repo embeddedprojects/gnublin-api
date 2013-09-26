@@ -11,7 +11,7 @@ int main()
 
 	try
 	{
-		CSmtp mail;
+		gnublin_smtp mail;
 
 		mail.SetSMTPServer("mail.domain.tld",587);
 		mail.SetLogin("smtptest@domain.tld");
@@ -35,7 +35,7 @@ int main()
 		
 		mail.Send();
 	}
-	catch(ECSmtp e)
+	catch(gnublin_smtp e)
 	{
 		std::cout << "Error: " << e.GetErrorText().c_str() << ".\n";
 		bError = true;

@@ -36,16 +36,16 @@
 * @brief Richtet die Mail-Klasse ein
 */
 
-CSmtp::CSmtp()
+gnublin_smtp::gnublin_smtp()
 {
 	m_iXPriority = XPRIORITY_NORMAL;
 	m_iSMTPSrvPort = 0;
 	
 	if((RecvBuf = new char[BUFFER_SIZE]) == NULL)
-		throw ECSmtp(ECSmtp::LACK_OF_MEMORY);
+		throw gnublin_smtp(gnublin_smtp::LACK_OF_MEMORY);
 	
 	if((SendBuf = new char[BUFFER_SIZE]) == NULL)
-		throw ECSmtp(ECSmtp::LACK_OF_MEMORY);
+		throw gnublin_smtp(gnublin_smtp::LACK_OF_MEMORY);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ CSmtp::CSmtp()
 * @~german
 * @brief Löscht buffer in der Mail-Klasse
 */
-CSmtp::~CSmtp()
+gnublin_smtp::~gnublin_smtp()
 {
 	if(SendBuf)
 	{
@@ -103,7 +103,7 @@ CSmtp::~CSmtp()
 *
 * @param Path Dateiname
 */
-void CSmtp::AddAttachment(const char *Path)
+void gnublin_smtp::AddAttachment(const char *Path)
 {
 	assert(Path);
 	Attachments.insert(Attachments.end(),Path);
@@ -134,10 +134,10 @@ void CSmtp::AddAttachment(const char *Path)
 * @param email E-Mail Adresse des Empfängers
 * @param name Name des Empfängers
 */
-void CSmtp::AddRecipient(const char *email, const char *name)
+void gnublin_smtp::AddRecipient(const char *email, const char *name)
 {	
 	if(!email)
-		throw ECSmtp(ECSmtp::UNDEF_RECIPIENT_MAIL);
+		throw gnublin_smtp(gnublin_smtp::UNDEF_RECIPIENT_MAIL);
 
 	Recipient recipient;
 	recipient.Mail.insert(0,email);
@@ -171,10 +171,10 @@ void CSmtp::AddRecipient(const char *email, const char *name)
 * @param email E-Mail Adresse des CC-Empfängers
 * @param name Name des CC-Empfängers
 */
-void CSmtp::AddCCRecipient(const char *email, const char *name)
+void gnublin_smtp::AddCCRecipient(const char *email, const char *name)
 {	
 	if(!email)
-		throw ECSmtp(ECSmtp::UNDEF_RECIPIENT_MAIL);
+		throw gnublin_smtp(gnublin_smtp::UNDEF_RECIPIENT_MAIL);
 
 	Recipient recipient;
 	recipient.Mail.insert(0,email);
@@ -208,10 +208,10 @@ void CSmtp::AddCCRecipient(const char *email, const char *name)
 * @param email E-Mail Adresse des BCC-Empfängers
 * @param name Name des BCC-Empfängers
 */
-void CSmtp::AddBCCRecipient(const char *email, const char *name)
+void gnublin_smtp::AddBCCRecipient(const char *email, const char *name)
 {	
 	if(!email)
-		throw ECSmtp(ECSmtp::UNDEF_RECIPIENT_MAIL);
+		throw gnublin_smtp(gnublin_smtp::UNDEF_RECIPIENT_MAIL);
 
 	Recipient recipient;
 	recipient.Mail.insert(0,email);
@@ -242,7 +242,7 @@ void CSmtp::AddBCCRecipient(const char *email, const char *name)
 *
 * @param Text Text der neuen Zeile
 */
-void CSmtp::AddMsgLine(const char* Text)
+void gnublin_smtp::AddMsgLine(const char* Text)
 {
 	MsgBody.insert(MsgBody.end(),Text);
 }
@@ -269,10 +269,10 @@ void CSmtp::AddMsgLine(const char* Text)
 *
 * @param Line Zeilennummer die gelöscht werden soll
 */
-void CSmtp::DelMsgLine(unsigned int Line)
+void gnublin_smtp::DelMsgLine(unsigned int Line)
 {
 	if(Line > MsgBody.size())
-		throw ECSmtp(ECSmtp::OUT_OF_MSG_RANGE);
+		throw gnublin_smtp(gnublin_smtp::OUT_OF_MSG_RANGE);
 	MsgBody.erase(MsgBody.begin()+Line);
 }
 
@@ -296,7 +296,7 @@ void CSmtp::DelMsgLine(unsigned int Line)
 * @brief Löscht alle Empfänger
 *
 */
-void CSmtp::DelRecipients()
+void gnublin_smtp::DelRecipients()
 {
 	Recipients.clear();
 }
@@ -321,7 +321,7 @@ void CSmtp::DelRecipients()
 * @brief Löscht alle BCC-Empfänger
 *
 */
-void CSmtp::DelBCCRecipients()
+void gnublin_smtp::DelBCCRecipients()
 {
 	BCCRecipients.clear();
 }
@@ -346,7 +346,7 @@ void CSmtp::DelBCCRecipients()
 * @brief Löscht alle CC-Empfänger
 *
 */
-void CSmtp::DelCCRecipients()
+void gnublin_smtp::DelCCRecipients()
 {
 	CCRecipients.clear();
 }
@@ -370,7 +370,7 @@ void CSmtp::DelCCRecipients()
 * @brief Löscht den Nachrichtentext
 *
 */
-void CSmtp::DelMsgLines()
+void gnublin_smtp::DelMsgLines()
 {
 	MsgBody.clear();
 }
@@ -395,7 +395,7 @@ void CSmtp::DelMsgLines()
 * @brief Löscht alle Dateianhänge.
 *
 */
-void CSmtp::DelAttachments()
+void gnublin_smtp::DelAttachments()
 {
 	Attachments.clear();
 }
@@ -425,12 +425,12 @@ void CSmtp::DelAttachments()
 * @param Line Zu editierende Zeile
 * @param Text Neuer Text der Zeile
 */
-void CSmtp::ModMsgLine(unsigned int Line,const char* Text)
+void gnublin_smtp::ModMsgLine(unsigned int Line,const char* Text)
 {
 	if(Text)
 	{
 		if(Line > MsgBody.size())
-			throw ECSmtp(ECSmtp::OUT_OF_MSG_RANGE);
+			throw gnublin_smtp(gnublin_smtp::OUT_OF_MSG_RANGE);
 		MsgBody.at(Line) = std::string(Text);
 	}
 }
@@ -457,7 +457,7 @@ void CSmtp::ModMsgLine(unsigned int Line,const char* Text)
 * @brief E-Mail verschicken.
 *
 */
-void CSmtp::Send()
+void gnublin_smtp::Send()
 {
 	unsigned int i,rcpt_count,res,FileId;
 	char *FileBuf = NULL, *FileName = NULL;
@@ -469,7 +469,7 @@ void CSmtp::Send()
 
 	// connecting to remote host:
 	if( (hSocket = ConnectRemoteServer(m_sSMTPSrvName.c_str(), m_iSMTPSrvPort)) == INVALID_SOCKET ) 
-		throw ECSmtp(ECSmtp::WSA_INVALID_SOCKET);
+		throw gnublin_smtp(gnublin_smtp::WSA_INVALID_SOCKET);
 
 	bAccepted = false;
 	do
@@ -481,7 +481,7 @@ void CSmtp::Send()
 				bAccepted = true;
 				break;
 			default:
-				throw ECSmtp(ECSmtp::SERVER_NOT_READY);
+				throw gnublin_smtp(gnublin_smtp::SERVER_NOT_READY);
 		}
 	}while(!bAccepted);
 
@@ -498,7 +498,7 @@ void CSmtp::Send()
 				bAccepted = true;
 				break;
 			default:
-				throw ECSmtp(ECSmtp::COMMAND_EHLO);
+				throw gnublin_smtp(gnublin_smtp ::COMMAND_EHLO);
 		}
 	}while(!bAccepted);
 
@@ -517,13 +517,13 @@ void CSmtp::Send()
 				bAccepted = true;
 				break;
 			default:
-				throw ECSmtp(ECSmtp::COMMAND_AUTH_LOGIN);
+				throw gnublin_smtp(gnublin_smtp ::COMMAND_AUTH_LOGIN);
 		}
 	}while(!bAccepted);
 
 	// send login:
 	if(!m_sLogin.size())
-		throw ECSmtp(ECSmtp::UNDEF_LOGIN);
+		throw gnublin_smtp(gnublin_smtp ::UNDEF_LOGIN);
 	std::string encoded_login = base64_encode(reinterpret_cast<const unsigned char*>(m_sLogin.c_str()),m_sLogin.size());
 	sprintf(SendBuf,"%s\r\n",encoded_login.c_str());
 	SendData();
@@ -537,13 +537,13 @@ void CSmtp::Send()
 				bAccepted = true;
 				break;
 			default:
-				throw ECSmtp(ECSmtp::UNDEF_XYZ_RESPONSE);
+				throw gnublin_smtp(gnublin_smtp ::UNDEF_XYZ_RESPONSE);
 		}
 	}while(!bAccepted);
 	
 	// send password:
 	if(!m_sPassword.size())
-		throw ECSmtp(ECSmtp::UNDEF_PASSWORD);
+		throw gnublin_smtp(gnublin_smtp ::UNDEF_PASSWORD);
 	std::string encoded_password = base64_encode(reinterpret_cast<const unsigned char*>(m_sPassword.c_str()),m_sPassword.size());
 	sprintf(SendBuf,"%s\r\n",encoded_password.c_str());
 	SendData();
@@ -559,9 +559,9 @@ void CSmtp::Send()
 			case 334:
 				break;
 			case 535:
-				throw ECSmtp(ECSmtp::BAD_LOGIN_PASS);
+				throw gnublin_smtp(gnublin_smtp ::BAD_LOGIN_PASS);
 			default:
-				throw ECSmtp(ECSmtp::UNDEF_XYZ_RESPONSE);
+				throw gnublin_smtp(gnublin_smtp ::UNDEF_XYZ_RESPONSE);
 		}
 	}while(!bAccepted);
 
@@ -569,7 +569,7 @@ void CSmtp::Send()
 	
 	// MAIL <SP> FROM:<reverse-path> <CRLF>
 	if(!m_sMailFrom.size())
-		throw ECSmtp(ECSmtp::UNDEF_MAIL_FROM);
+		throw gnublin_smtp(gnublin_smtp ::UNDEF_MAIL_FROM);
 	sprintf(SendBuf,"MAIL FROM:<%s>\r\n",m_sMailFrom.c_str());
 	SendData();
 	bAccepted = false;
@@ -582,13 +582,13 @@ void CSmtp::Send()
 				bAccepted = true;
 				break;
 			default:
-				throw ECSmtp(ECSmtp::COMMAND_MAIL_FROM);
+				throw gnublin_smtp(gnublin_smtp ::COMMAND_MAIL_FROM);
 		}
 	}while(!bAccepted);
 
 	// RCPT <SP> TO:<forward-path> <CRLF>
 	if(!(rcpt_count = Recipients.size()))
-		throw ECSmtp(ECSmtp::UNDEF_RECIPIENTS);
+		throw gnublin_smtp(gnublin_smtp ::UNDEF_RECIPIENTS);
 	for(i=0;i<Recipients.size();i++)
 	{
 		sprintf(SendBuf,"RCPT TO:<%s>\r\n",(Recipients.at(i).Mail).c_str());
@@ -608,7 +608,7 @@ void CSmtp::Send()
 		}while(!bAccepted);
 	}
 	if(rcpt_count <= 0)
-		throw ECSmtp(ECSmtp::COMMAND_RCPT_TO);
+		throw gnublin_smtp(gnublin_smtp ::COMMAND_RCPT_TO);
 
 	for(i=0;i<CCRecipients.size();i++)
 	{
@@ -663,7 +663,7 @@ void CSmtp::Send()
 			case 250:
 				break;
 			default:
-				throw ECSmtp(ECSmtp::COMMAND_DATA);
+				throw gnublin_smtp(gnublin_smtp ::COMMAND_DATA);
 		}
 	}while(!bAccepted);
 	
@@ -688,10 +688,10 @@ void CSmtp::Send()
 
 	// next goes attachments (if they are)
 	if((FileBuf = new char[55]) == NULL)
-		throw ECSmtp(ECSmtp::LACK_OF_MEMORY);
+		throw gnublin_smtp(gnublin_smtp ::LACK_OF_MEMORY);
 
 	if((FileName = new char[255]) == NULL)
-		throw ECSmtp(ECSmtp::LACK_OF_MEMORY);
+		throw gnublin_smtp(gnublin_smtp ::LACK_OF_MEMORY);
 
 	TotalSize = 0;
 	for(FileId=0;FileId<Attachments.size();FileId++)
@@ -713,7 +713,7 @@ void CSmtp::Send()
 		// opening the file:
 		hFile = fopen(FileName,"rb");
 		if(hFile == NULL)
-			throw ECSmtp(ECSmtp::FILE_NOT_EXIST);
+			throw gnublin_smtp(gnublin_smtp ::FILE_NOT_EXIST);
 		
 		// checking file size:
 		FileSize = 0;
@@ -723,7 +723,7 @@ void CSmtp::Send()
 
 		// sending the file:
 		if(TotalSize/1024 > MSG_SIZE_IN_MB*1024)
-			throw ECSmtp(ECSmtp::MSG_TOO_BIG);
+			throw gnublin_smtp(gnublin_smtp ::MSG_TOO_BIG);
 		else
 		{
 			fseek (hFile,0,SEEK_SET);
@@ -773,7 +773,7 @@ void CSmtp::Send()
 				bAccepted = true;
 				break;
 			default:
-				throw ECSmtp(ECSmtp::MSG_BODY_ERROR);
+				throw gnublin_smtp(gnublin_smtp ::MSG_BODY_ERROR);
 		}
 	}while(!bAccepted);
 
@@ -792,7 +792,7 @@ void CSmtp::Send()
 				bAccepted = true;
 				break;
 			default:
-				throw ECSmtp(ECSmtp::COMMAND_QUIT);
+				throw gnublin_smtp(gnublin_smtp ::COMMAND_QUIT);
 		}
 	}while(!bAccepted);
 
@@ -829,7 +829,7 @@ void CSmtp::Send()
 * @param Port Port des Service
 * @return Socket des Remote Server
 */
-SOCKET CSmtp::ConnectRemoteServer(const char *szServer,const unsigned short nPort_)
+SOCKET gnublin_smtp::ConnectRemoteServer(const char *szServer,const unsigned short nPort_)
 {
 	unsigned short nPort = 0;
 	LPSERVENT lpServEnt;
@@ -845,7 +845,7 @@ SOCKET CSmtp::ConnectRemoteServer(const char *szServer,const unsigned short nPor
 	SOCKET hSocket = INVALID_SOCKET;
 
 	if((hSocket = socket(PF_INET, SOCK_STREAM,0)) == INVALID_SOCKET)
-		throw ECSmtp(ECSmtp::WSA_INVALID_SOCKET);
+		throw gnublin_smtp(gnublin_smtp ::WSA_INVALID_SOCKET);
 
 	if(nPort_ != 0)
 		nPort = htons(nPort_);
@@ -870,7 +870,7 @@ SOCKET CSmtp::ConnectRemoteServer(const char *szServer,const unsigned short nPor
 		else
 		{
 			close(hSocket);
-			throw ECSmtp(ECSmtp::WSA_GETHOSTBY_NAME_ADDR);
+			throw gnublin_smtp(gnublin_smtp ::WSA_GETHOSTBY_NAME_ADDR);
 		}				
 	}
 
@@ -878,7 +878,7 @@ SOCKET CSmtp::ConnectRemoteServer(const char *szServer,const unsigned short nPor
 	if(ioctl(hSocket,FIONBIO, (unsigned long*)&ul) == SOCKET_ERROR)
 	{
 		close(hSocket);
-		throw ECSmtp(ECSmtp::WSA_IOCTLSOCKET);
+		throw gnublin_smtp(gnublin_smtp ::WSA_IOCTLSOCKET);
 	}
 
 	if(connect(hSocket,(LPSOCKADDR)&sockAddr,sizeof(sockAddr)) == SOCKET_ERROR)
@@ -887,7 +887,7 @@ SOCKET CSmtp::ConnectRemoteServer(const char *szServer,const unsigned short nPor
 
 		{
 			close(hSocket);
-			throw ECSmtp(ECSmtp::WSA_CONNECT);
+			throw gnublin_smtp(gnublin_smtp ::WSA_CONNECT);
 		}
 	}
 	else
@@ -904,20 +904,20 @@ SOCKET CSmtp::ConnectRemoteServer(const char *szServer,const unsigned short nPor
 		if((res = select(hSocket+1,NULL,&fdwrite,&fdexcept,&timeout)) == SOCKET_ERROR)
 		{
 			close(hSocket);
-			throw ECSmtp(ECSmtp::WSA_SELECT);
+			throw gnublin_smtp(gnublin_smtp ::WSA_SELECT);
 		}
 
 		if(!res)
 		{
 			close(hSocket);
-			throw ECSmtp(ECSmtp::SELECT_TIMEOUT);
+			throw gnublin_smtp(gnublin_smtp ::SELECT_TIMEOUT);
 		}
 		if(res && FD_ISSET(hSocket,&fdwrite))
 			break;
 		if(res && FD_ISSET(hSocket,&fdexcept))
 		{
 			close(hSocket);
-			throw ECSmtp(ECSmtp::WSA_SELECT);
+			throw gnublin_smtp(gnublin_smtp ::WSA_SELECT);
 		}
 	} // while
 
@@ -946,7 +946,7 @@ SOCKET CSmtp::ConnectRemoteServer(const char *szServer,const unsigned short nPor
 * @brief Konvertiert drei Buchstaben des RecvBuf in Zahlen.
 * @return Zahl im integer-Format
 */
-int CSmtp::SmtpXYZdigits()
+int gnublin_smtp::SmtpXYZdigits()
 {
 	assert(RecvBuf);
 	if(RecvBuf == NULL)
@@ -976,7 +976,7 @@ int CSmtp::SmtpXYZdigits()
 *
 * @param header Formatierter Header-String
 */
-void CSmtp::FormatHeader(char* header)
+void gnublin_smtp::FormatHeader(char* header)
 {
 	char month[][4] = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 	size_t i;
@@ -990,7 +990,7 @@ void CSmtp::FormatHeader(char* header)
 	if(time(&rawtime) > 0)
 		timeinfo = localtime(&rawtime);
 	else
-		throw ECSmtp(ECSmtp::TIME_ERROR);
+		throw gnublin_smtp(gnublin_smtp ::TIME_ERROR);
 
 	// check for at least one recipient
 	if(Recipients.size())
@@ -1006,7 +1006,7 @@ void CSmtp::FormatHeader(char* header)
 		}
 	}
 	else
-		throw ECSmtp(ECSmtp::UNDEF_RECIPIENTS);
+		throw gnublin_smtp(gnublin_smtp ::UNDEF_RECIPIENTS);
 
 	if(CCRecipients.size())
 	{
@@ -1044,7 +1044,7 @@ void CSmtp::FormatHeader(char* header)
 	
 	// From: <SP> <sender>  <SP> "<" <sender-email> ">" <CRLF>
 	if(!m_sMailFrom.size())
-		throw ECSmtp(ECSmtp::UNDEF_MAIL_FROM);
+		throw gnublin_smtp(gnublin_smtp ::UNDEF_MAIL_FROM);
 	strcat(header,"From: ");
 	if(m_sNameFrom.size())
 		strcat(header, m_sNameFrom.c_str());
@@ -1163,7 +1163,7 @@ void CSmtp::FormatHeader(char* header)
 * @brief Empfängt eine mi '\n' terminierte Zeile.
 *
 */
-void CSmtp::ReceiveData()
+void gnublin_smtp::ReceiveData()
 {
 	int res,i = 0;
 	fd_set fdread;
@@ -1175,7 +1175,7 @@ void CSmtp::ReceiveData()
 	assert(RecvBuf);
 
 	if(RecvBuf == NULL)
-		throw ECSmtp(ECSmtp::RECVBUF_IS_EMPTY);
+		throw gnublin_smtp(gnublin_smtp ::RECVBUF_IS_EMPTY);
 
 	while(1)
 	{
@@ -1186,14 +1186,14 @@ void CSmtp::ReceiveData()
 		if((res = select(hSocket+1, &fdread, NULL, NULL, &time)) == SOCKET_ERROR)
 		{
 			FD_CLR(hSocket,&fdread);
-			throw ECSmtp(ECSmtp::WSA_SELECT);
+			throw gnublin_smtp(gnublin_smtp ::WSA_SELECT);
 		}
 
 		if(!res)
 		{
 			//timeout
 			FD_CLR(hSocket,&fdread);
-			throw ECSmtp(ECSmtp::SERVER_NOT_RESPONDING);
+			throw gnublin_smtp(gnublin_smtp ::SERVER_NOT_RESPONDING);
 		}
 
 		if(res && FD_ISSET(hSocket,&fdread))
@@ -1201,12 +1201,12 @@ void CSmtp::ReceiveData()
 			if(i >= BUFFER_SIZE)
 			{
 				FD_CLR(hSocket,&fdread);
-				throw ECSmtp(ECSmtp::LACK_OF_MEMORY);
+				throw gnublin_smtp(gnublin_smtp ::LACK_OF_MEMORY);
 			}
 			if(recv(hSocket,&RecvBuf[i++],1,0) == SOCKET_ERROR)
 			{
 				FD_CLR(hSocket,&fdread);
-				throw ECSmtp(ECSmtp::WSA_RECV);
+				throw gnublin_smtp(gnublin_smtp ::WSA_RECV);
 			}
 			if(RecvBuf[i-1]=='\n')
 			{
@@ -1238,7 +1238,7 @@ void CSmtp::ReceiveData()
 * @brief Sendet die daten des SendBuf.
 *
 */
-void CSmtp::SendData()
+void gnublin_smtp::SendData()
 {
 	int idx = 0,res,nLeft = strlen(SendBuf);
 	fd_set fdwrite;
@@ -1250,7 +1250,7 @@ void CSmtp::SendData()
 	assert(SendBuf);
 
 	if(SendBuf == NULL)
-		throw ECSmtp(ECSmtp::SENDBUF_IS_EMPTY);
+		throw gnublin_smtp(gnublin_smtp ::SENDBUF_IS_EMPTY);
 
 	while(1)
 	{
@@ -1261,14 +1261,14 @@ void CSmtp::SendData()
 		if((res = select(hSocket+1,NULL,&fdwrite,NULL,&time)) == SOCKET_ERROR)
 		{
 			FD_CLR(hSocket,&fdwrite);
-			throw ECSmtp(ECSmtp::WSA_SELECT);
+			throw gnublin_smtp(gnublin_smtp ::WSA_SELECT);
 		}
 
 		if(!res)
 		{
 			//timeout
 			FD_CLR(hSocket,&fdwrite);
-			throw ECSmtp(ECSmtp::SERVER_NOT_RESPONDING);
+			throw gnublin_smtp(gnublin_smtp ::SERVER_NOT_RESPONDING);
 		}
 
 		if(res && FD_ISSET(hSocket,&fdwrite))
@@ -1278,7 +1278,7 @@ void CSmtp::SendData()
 				if((res = send(hSocket,&SendBuf[idx],nLeft,0)) == SOCKET_ERROR)
 				{
 					FD_CLR(hSocket,&fdwrite);
-					throw ECSmtp(ECSmtp::WSA_SEND);
+					throw gnublin_smtp(gnublin_smtp ::WSA_SEND);
 				}
 				if(!res)
 					break;
@@ -1312,16 +1312,16 @@ void CSmtp::SendData()
 * @brief Gibt den lokalen Host Namen zurück.
 * @return Socket des Remote Service
 */
-const char* CSmtp::GetLocalHostName() const
+const char* gnublin_smtp::GetLocalHostName() const
 {
 	char* str = NULL;
 
 	if((str = new char[255]) == NULL)
-		throw ECSmtp(ECSmtp::LACK_OF_MEMORY);
+		throw gnublin_smtp(gnublin_smtp ::LACK_OF_MEMORY);
 	if(gethostname(str,255) == SOCKET_ERROR)
 	{
 		delete[] str;
-		throw ECSmtp(ECSmtp::WSA_HOSTNAME);
+		throw gnublin_smtp(gnublin_smtp ::WSA_HOSTNAME);
 	}
 	delete[] str;
 	return m_sLocalHostName.c_str();
@@ -1346,7 +1346,7 @@ const char* CSmtp::GetLocalHostName() const
 * @brief Gibt die anzahl der Empfänger zurück.
 * @return Anzahl der Empfänger
 */
-unsigned int CSmtp::GetRecipientCount() const
+unsigned int gnublin_smtp::GetRecipientCount() const
 {
 	return Recipients.size();
 }
@@ -1370,7 +1370,7 @@ unsigned int CSmtp::GetRecipientCount() const
 * @brief Gibt die anzahl der BCC-Empfänger zurück.
 * @return Anzahl der BCC-Empfänger
 */
-unsigned int CSmtp::GetBCCRecipientCount() const
+unsigned int gnublin_smtp::GetBCCRecipientCount() const
 {
 	return BCCRecipients.size();
 }
@@ -1394,7 +1394,7 @@ unsigned int CSmtp::GetBCCRecipientCount() const
 * @brief Gibt die anzahl der CC-Empfänger zurück.
 * @return Anzahl der CC-Empfänger
 */
-unsigned int CSmtp::GetCCRecipientCount() const
+unsigned int gnublin_smtp::GetCCRecipientCount() const
 {
 	return CCRecipients.size();
 }
@@ -1418,7 +1418,7 @@ unsigned int CSmtp::GetCCRecipientCount() const
 * @brief Gibt den m_pcReplyTo string zurück.
 * @return m_pcReplyTo string
 */
-const char* CSmtp::GetReplyTo() const
+const char* gnublin_smtp::GetReplyTo() const
 {
 	return m_sReplyTo.c_str();
 }
@@ -1442,7 +1442,7 @@ const char* CSmtp::GetReplyTo() const
 * @brief Gibt den m_pcMailFrom string zurück.
 * @return m_pcMailFrom string
 */
-const char* CSmtp::GetMailFrom() const
+const char* gnublin_smtp::GetMailFrom() const
 {
 	return m_sMailFrom.c_str();
 }
@@ -1466,7 +1466,7 @@ const char* CSmtp::GetMailFrom() const
 * @brief Gibt den m_pcNameFrom string zurück.
 * @return m_pcNameFrom string
 */
-const char* CSmtp::GetSenderName() const
+const char* gnublin_smtp::GetSenderName() const
 {
 	return m_sNameFrom.c_str();
 }
@@ -1490,7 +1490,7 @@ const char* CSmtp::GetSenderName() const
 * @brief Gibt den m_pcSubject string zurück.
 * @return m_pcSubject string
 */
-const char* CSmtp::GetSubject() const
+const char* gnublin_smtp::GetSubject() const
 {
 	return m_sSubject.c_str();
 }
@@ -1514,7 +1514,7 @@ const char* CSmtp::GetSubject() const
 * @brief Gibt den m_pcXMailer string zurück.
 * @return m_pcXMailer string
 */
-const char* CSmtp::GetXMailer() const
+const char* gnublin_smtp::GetXMailer() const
 {
 	return m_sXMailer.c_str();
 }
@@ -1538,7 +1538,7 @@ const char* CSmtp::GetXMailer() const
 * @brief Gibt den m_pcXPriority string zurück.
 * @return m_pcXPriority string
 */
-CSmptXPriority CSmtp::GetXPriority() const
+CSmptXPriority gnublin_smtp::GetXPriority() const
 {
 	return m_iXPriority;
 }
@@ -1554,14 +1554,14 @@ CSmptXPriority CSmtp::GetXPriority() const
 * @param Line Zeilennummer
 * @return Text
 */
-const char* CSmtp::GetMsgLineText(unsigned int Line) const
+const char* gnublin_smtp::GetMsgLineText(unsigned int Line) const
 {
 	if(Line > MsgBody.size())
-		throw ECSmtp(ECSmtp::OUT_OF_MSG_RANGE);
+		throw gnublin_smtp(gnublin_smtp ::OUT_OF_MSG_RANGE);
 	return MsgBody.at(Line).c_str();
 }
 
-unsigned int CSmtp::GetMsgLines() const
+unsigned int gnublin_smtp::GetMsgLines() const
 {
 	return MsgBody.size();
 }
@@ -1586,7 +1586,7 @@ unsigned int CSmtp::GetMsgLines() const
 * @brief Priorität der Nachricht festlegen
 * @param priority Priorität der Nachricht (XPRIORITY_HIGH, XPRIORITY_NORMAL, XPRIORITY_LOW)
 */
-void CSmtp::SetXPriority(CSmptXPriority priority)
+void gnublin_smtp::SetXPriority(CSmptXPriority priority)
 {
 	m_iXPriority = priority;
 }
@@ -1611,7 +1611,7 @@ void CSmtp::SetXPriority(CSmptXPriority priority)
 * @brief Rücksendeadresse festlegen
 * @param ReplyTo Rücksendeadresse
 */
-void CSmtp::SetReplyTo(const char *ReplyTo)
+void gnublin_smtp::SetReplyTo(const char *ReplyTo)
 {
 	//m_sReplyTo.erase();
 	m_sReplyTo.insert(0,ReplyTo);
@@ -1637,7 +1637,7 @@ void CSmtp::SetReplyTo(const char *ReplyTo)
 * @brief Absenderadresse setzen
 * @param E-Mail Absenderadresse
 */
-void CSmtp::SetSenderMail(const char *EMail)
+void gnublin_smtp::SetSenderMail(const char *EMail)
 {
 	m_sMailFrom.erase();
 	m_sMailFrom.insert(0,EMail);
@@ -1663,7 +1663,7 @@ void CSmtp::SetSenderMail(const char *EMail)
 * @brief Absendername setzen
 * @param Name Absendername
 */
-void CSmtp::SetSenderName(const char *Name)
+void gnublin_smtp::SetSenderName(const char *Name)
 {
 	m_sNameFrom.erase();
 	m_sNameFrom.insert(0,Name);
@@ -1689,7 +1689,7 @@ void CSmtp::SetSenderName(const char *Name)
 * @brief Betraff der Nachricht festlegen
 * @param Subject Betreff
 */
-void CSmtp::SetSubject(const char *Subject)
+void gnublin_smtp::SetSubject(const char *Subject)
 {
 	m_sSubject.erase();
 	m_sSubject.insert(0,Subject);
@@ -1715,7 +1715,7 @@ void CSmtp::SetSubject(const char *Subject)
 * @brief Name des Absendeprogramms bestimmen
 * @param XMailer Programmname
 */
-void CSmtp::SetXMailer(const char *XMailer)
+void gnublin_smtp::SetXMailer(const char *XMailer)
 {
 	m_sXMailer.erase();
 	m_sXMailer.insert(0,XMailer);
@@ -1741,7 +1741,7 @@ void CSmtp::SetXMailer(const char *XMailer)
 * @brief SMTP Benutzername angeben
 * @param Login Benutzername
 */
-void CSmtp::SetLogin(const char *Login)
+void gnublin_smtp::SetLogin(const char *Login)
 {
 	m_sLogin.erase();
 	m_sLogin.insert(0,Login);
@@ -1767,7 +1767,7 @@ void CSmtp::SetLogin(const char *Login)
 * @brief Passwort des SMTP accounts angeben
 * @param Password Passwort des Accounts
 */
-void CSmtp::SetPassword(const char *Password)
+void gnublin_smtp::SetPassword(const char *Password)
 {
 	m_sPassword.erase();
 	m_sPassword.insert(0,Password);
@@ -1796,7 +1796,7 @@ void CSmtp::SetPassword(const char *Password)
 * @param SrvName Servername
 * @param SrvPort Serverport
 */
-void CSmtp::SetSMTPServer(const char* SrvName,const unsigned short SrvPort)
+void gnublin_smtp::SetSMTPServer(const char* SrvName,const unsigned short SrvPort)
 {
 	m_iSMTPSrvPort = SrvPort;
 	m_sSMTPSrvName.erase();
@@ -1822,83 +1822,83 @@ void CSmtp::SetSMTPServer(const char* SrvName,const unsigned short SrvPort)
 * @brief Gibt einen String mit einem spezifischem Fehlercode zurück.
 * @return Fehlerstring
 */
-std::string ECSmtp::GetErrorText() const
+std::string gnublin_smtp::GetErrorText() const
 {
 	switch(ErrorCode)
 	{
-		case ECSmtp::CSMTP_NO_ERROR:
+		case gnublin_smtp::CSMTP_NO_ERROR:
 			return "";
-		case ECSmtp::WSA_STARTUP:
+		case gnublin_smtp::WSA_STARTUP:
 			return "Unable to initialise winsock2";
-		case ECSmtp::WSA_VER:
+		case gnublin_smtp::WSA_VER:
 			return "Wrong version of the winsock2";
-		case ECSmtp::WSA_SEND:
+		case gnublin_smtp::WSA_SEND:
 			return "Function send() failed";
-		case ECSmtp::WSA_RECV:
+		case gnublin_smtp::WSA_RECV:
 			return "Function recv() failed";
-		case ECSmtp::WSA_CONNECT:
+		case gnublin_smtp::WSA_CONNECT:
 			return "Function connect failed";
-		case ECSmtp::WSA_GETHOSTBY_NAME_ADDR:
+		case gnublin_smtp::WSA_GETHOSTBY_NAME_ADDR:
 			return "Unable to determine remote server";
-		case ECSmtp::WSA_INVALID_SOCKET:
+		case gnublin_smtp::WSA_INVALID_SOCKET:
 			return "Invalid winsock2 socket";
-		case ECSmtp::WSA_HOSTNAME:
+		case gnublin_smtp::WSA_HOSTNAME:
 			return "Function hostname() failed";
-		case ECSmtp::WSA_IOCTLSOCKET:
+		case gnublin_smtp::WSA_IOCTLSOCKET:
 			return "Function ioctlsocket() failed";
-		case ECSmtp::BAD_IPV4_ADDR:
+		case gnublin_smtp::BAD_IPV4_ADDR:
 			return "Improper IPv4 address";
-		case ECSmtp::UNDEF_MSG_HEADER:
+		case gnublin_smtp::UNDEF_MSG_HEADER:
 			return "Undefined message header";
-		case ECSmtp::UNDEF_MAIL_FROM:
+		case gnublin_smtp::UNDEF_MAIL_FROM:
 			return "Undefined mail sender";
-		case ECSmtp::UNDEF_SUBJECT:
+		case gnublin_smtp::UNDEF_SUBJECT:
 			return "Undefined message subject";
-		case ECSmtp::UNDEF_RECIPIENTS:
+		case gnublin_smtp::UNDEF_RECIPIENTS:
 			return "Undefined at least one reciepent";
-		case ECSmtp::UNDEF_RECIPIENT_MAIL:
+		case gnublin_smtp::UNDEF_RECIPIENT_MAIL:
 			return "Undefined recipent mail";
-		case ECSmtp::UNDEF_LOGIN:
+		case gnublin_smtp::UNDEF_LOGIN:
 			return "Undefined user login";
-		case ECSmtp::UNDEF_PASSWORD:
+		case gnublin_smtp::UNDEF_PASSWORD:
 			return "Undefined user password";
-		case ECSmtp::COMMAND_MAIL_FROM:
+		case gnublin_smtp::COMMAND_MAIL_FROM:
 			return "Server returned error after sending MAIL FROM";
-		case ECSmtp::COMMAND_EHLO:
+		case gnublin_smtp::COMMAND_EHLO:
 			return "Server returned error after sending EHLO";
-		case ECSmtp::COMMAND_AUTH_LOGIN:
+		case gnublin_smtp::COMMAND_AUTH_LOGIN:
 			return "Server returned error after sending AUTH LOGIN";
-		case ECSmtp::COMMAND_DATA:
+		case gnublin_smtp::COMMAND_DATA:
 			return "Server returned error after sending DATA";
-		case ECSmtp::COMMAND_QUIT:
+		case gnublin_smtp::COMMAND_QUIT:
 			return "Server returned error after sending QUIT";
-		case ECSmtp::COMMAND_RCPT_TO:
+		case gnublin_smtp::COMMAND_RCPT_TO:
 			return "Server returned error after sending RCPT TO";
-		case ECSmtp::MSG_BODY_ERROR:
+		case gnublin_smtp::MSG_BODY_ERROR:
 			return "Error in message body";
-		case ECSmtp::CONNECTION_CLOSED:
+		case gnublin_smtp::CONNECTION_CLOSED:
 			return "Server has closed the connection";
-		case ECSmtp::SERVER_NOT_READY:
+		case gnublin_smtp::SERVER_NOT_READY:
 			return "Server is not ready";
-		case ECSmtp::SERVER_NOT_RESPONDING:
+		case gnublin_smtp::SERVER_NOT_RESPONDING:
 			return "Server not responding";
-		case ECSmtp::FILE_NOT_EXIST:
+		case gnublin_smtp::FILE_NOT_EXIST:
 			return "File not exist";
-		case ECSmtp::MSG_TOO_BIG:
+		case gnublin_smtp::MSG_TOO_BIG:
 			return "Message is too big";
-		case ECSmtp::BAD_LOGIN_PASS:
+		case gnublin_smtp::BAD_LOGIN_PASS:
 			return "Bad login or password";
-		case ECSmtp::UNDEF_XYZ_RESPONSE:
+		case gnublin_smtp::UNDEF_XYZ_RESPONSE:
 			return "Undefined xyz SMTP response";
-		case ECSmtp::LACK_OF_MEMORY:
+		case gnublin_smtp::LACK_OF_MEMORY:
 			return "Lack of memory";
-		case ECSmtp::TIME_ERROR:
+		case gnublin_smtp::TIME_ERROR:
 			return "time() error";
-		case ECSmtp::RECVBUF_IS_EMPTY:
+		case gnublin_smtp::RECVBUF_IS_EMPTY:
 			return "RecvBuf is empty";
-		case ECSmtp::SENDBUF_IS_EMPTY:
+		case gnublin_smtp::SENDBUF_IS_EMPTY:
 			return "SendBuf is empty";
-		case ECSmtp::OUT_OF_MSG_RANGE:
+		case gnublin_smtp::OUT_OF_MSG_RANGE:
 			return "Specified line number is out of message size";
 		default:
 			return "Undefined error id";

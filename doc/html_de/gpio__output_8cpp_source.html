@@ -2,97 +2,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.3.1"/>
 <title>gnublin-api: examples/gpio_output.cpp Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">gnublin-api
-   &#160;<span id="projectnumber">Version 0.4</span>
-   </div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-<!-- end header part -->
-<!-- Erzeugt von Doxygen 1.8.3.1 -->
-  <div id="navrow1" class="tabs">
+<!-- Erzeugt von Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
     <ul class="tablist">
-      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="main.html"><span>Hauptseite</span></a></li>
       <li><a href="annotated.html"><span>Klassen</span></a></li>
       <li class="current"><a href="files.html"><span>Dateien</span></a></li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
+  <div class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
       <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('gpio__output_8cpp_source.html','');});
-</script>
-<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">gpio_output.cpp</div>  </div>
-</div><!--header-->
-<div class="contents">
-<a href="gpio__output_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;gnublin.h&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="code" href="gpio__output_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    4</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="examples_2adc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;   <a class="code" href="classgnublin__gpio.html" title="Klasse für den zugriff auf die GPIO Pins.">gnublin_gpio</a> <a class="code" href="printer__temp_8cpp.html#ad08c6bc10fc2aff29a0db92027decdbb">gpio</a>;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;   gpio.<a class="code" href="classgnublin__gpio.html#acf30370d7bb20d96ec56e8771bda6e02" title="Pin Modi festlegen.">pinMode</a>(3,<a class="code" href="includes_8h.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;   <span class="keywordflow">while</span>(1){</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;     gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(3,<a class="code" href="includes_8h.html#a5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;     sleep(2);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;     gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(3,<a class="code" href="includes_8h.html#ab811d8c6ff3a505312d3276590444289">LOW</a>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;     sleep(2);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;   }</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-</div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
-<!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="gpio__output_8cpp.html">gpio_output.cpp</a></li>
-    <li class="footer">Erzeugt am Fre Sep 6 2013 19:38:52 für gnublin-api von
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
-  </ul>
+<h1>examples/gpio_output.cpp</h1>  </div>
 </div>
+<div class="contents">
+<a href="gpio__output_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;gnublin.h&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003  
+<a name="l00004"></a><a class="code" href="gpio__output_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">00004</a> <span class="keywordtype">int</span> <a class="code" href="examples_2adc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()
+<a name="l00005"></a>00005 {
+<a name="l00006"></a>00006    <a class="code" href="classgnublin__gpio.html" title="Klasse für den zugriff auf die GPIO Pins.">gnublin_gpio</a> <a class="code" href="printer__temp_8cpp.html#ad08c6bc10fc2aff29a0db92027decdbb">gpio</a>;
+<a name="l00007"></a>00007  
+<a name="l00008"></a>00008    gpio.<a class="code" href="classgnublin__gpio.html#acf30370d7bb20d96ec56e8771bda6e02" title="Pin Modi festlegen.">pinMode</a>(3,<a class="code" href="includes_8h.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);
+<a name="l00009"></a>00009  
+<a name="l00010"></a>00010    <span class="keywordflow">while</span>(1){
+<a name="l00011"></a>00011      gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(3,<a class="code" href="includes_8h.html#a5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);
+<a name="l00012"></a>00012      sleep(2);
+<a name="l00013"></a>00013      gpio.<a class="code" href="classgnublin__gpio.html#a29ee682224f7dfa134b94d41912fa6f9" title="Pin schreiben.">digitalWrite</a>(3,<a class="code" href="includes_8h.html#ab811d8c6ff3a505312d3276590444289">LOW</a>);
+<a name="l00014"></a>00014      sleep(2);
+<a name="l00015"></a>00015    }
+<a name="l00016"></a>00016 }
+</pre></div></div>
+</div>
+<hr class="footer"/><address class="footer"><small>Erzeugt am Thu Sep 26 2013 08:19:30 für gnublin-api von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
 </html>
