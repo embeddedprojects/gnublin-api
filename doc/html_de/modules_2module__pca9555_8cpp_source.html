@@ -2,30 +2,77 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <title>gnublin-api: modules/module_pca9555.cpp Quellcode</title>
+
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
 </head>
 <body>
-<!-- Erzeugt von Doxygen 1.7.1 -->
-<div class="navigation" id="top">
-  <div class="tabs">
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li><a href="main.html"><span>Hauptseite</span></a></li>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
       <li><a href="annotated.html"><span>Klassen</span></a></li>
       <li class="current"><a href="files.html"><span>Dateien</span></a></li>
     </ul>
   </div>
-  <div class="tabs2">
+  <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
       <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
     </ul>
   </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('modules_2module__pca9555_8cpp.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<h1>modules/module_pca9555.cpp</h1>  </div>
-</div>
+<div class="title">modules/module_pca9555.cpp</div>  </div>
+</div><!--header-->
 <div class="contents">
 <a href="modules_2module__pca9555_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="module__pca9555_8h.html">module_pca9555.h</a>&quot;</span>
 <a name="l00002"></a>00002 
@@ -34,7 +81,7 @@
 <a name="l00005"></a>00005 <span class="comment">//*******************************************************************</span>
 <a name="l00006"></a>00006 
 <a name="l00007"></a>00007 <span class="comment">//------------------Konstruktor------------------</span>
-<a name="l00015"></a><a class="code" href="classgnublin__module__pca9555.html#a3036314dbb06581a192f943d96476b45">00015</a> <span class="comment"></span><a class="code" href="classgnublin__module__pca9555.html#a3036314dbb06581a192f943d96476b45" title="Setze standard i2c Adresse 0x20, den closemode auf &amp;quot;1&amp;quot; (siehe i2c für Details) und setze da...">gnublin_module_pca9555::gnublin_module_pca9555</a>() 
+<a name="l00015"></a><a class="code" href="classgnublin__module__pca9555.html#a3036314dbb06581a192f943d96476b45">00015</a> <span class="comment"></span><a class="code" href="classgnublin__module__pca9555.html#a3036314dbb06581a192f943d96476b45" title="Setze standard i2c Adresse 0x20, den closemode auf &quot;1&quot; (siehe i2c für Details) und setze das ErrorFla...">gnublin_module_pca9555::gnublin_module_pca9555</a>() 
 <a name="l00016"></a>00016 {
 <a name="l00017"></a>00017     error_flag=<span class="keyword">false</span>;
 <a name="l00018"></a>00018     <a class="code" href="classgnublin__module__pca9555.html#a4c1446e6ffb05ecab759af97a9624277" title="Setzt die i2c slave Adresse.">setAddress</a>(0x20);
@@ -58,12 +105,12 @@
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 
 <a name="l00072"></a>00072 <span class="comment">//-------------------set devicefile----------------</span>
-<a name="l00085"></a><a class="code" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045">00085</a> <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045" title="setzt die I2C Device Datei. Standard ist die &amp;quot;/dev/i2c-1&amp;quot;">gnublin_module_pca9555::setDevicefile</a>(std::string filename){
-<a name="l00086"></a>00086     i2c.<a class="code" href="classgnublin__i2c.html#a181a9cfd2156dab527f88dcd9507fb2e" title="setzt die I2C Device Datei. Standard ist die &amp;quot;/dev/i2c-1&amp;quot;">setDevicefile</a>(filename);
+<a name="l00085"></a><a class="code" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045">00085</a> <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="classgnublin__module__pca9555.html#a1845d88a4d8418ac6c55990d67737045" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">gnublin_module_pca9555::setDevicefile</a>(std::string filename){
+<a name="l00086"></a>00086     i2c.<a class="code" href="classgnublin__i2c.html#a181a9cfd2156dab527f88dcd9507fb2e" title="setzt die I2C Device Datei. Standard ist die &quot;/dev/i2c-1&quot;">setDevicefile</a>(filename);
 <a name="l00087"></a>00087 }
 <a name="l00088"></a>00088 
 <a name="l00089"></a>00089 <span class="comment">//-----------------------------------Pin Mode-----------------------------------</span>
-<a name="l00106"></a><a class="code" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826">00106</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826" title="Setzt den Pin Modus (Eingang/Ausgang).">gnublin_module_pca9555::pinMode</a>(<span class="keywordtype">int</span> pin, std::string direction){
+<a name="l00106"></a><a class="code" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826">00106</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#af7e6b9f65112b099fa7cb7d2a6361826" title="Setzt den Pin Modus (Eingang/Ausgang)">gnublin_module_pca9555::pinMode</a>(<span class="keywordtype">int</span> pin, std::string direction){
 <a name="l00107"></a>00107     error_flag=<span class="keyword">false</span>;
 <a name="l00108"></a>00108     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> TxBuf[1];
 <a name="l00109"></a>00109     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RxBuf[1];
@@ -160,7 +207,7 @@
 <a name="l00200"></a>00200 
 <a name="l00201"></a>00201 
 <a name="l00202"></a>00202 <span class="comment">//-----------------------------------Port Mode-----------------------------------</span>
-<a name="l00219"></a><a class="code" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e">00219</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e" title="Setzt den Port Modus (Eingang/Ausgang).">gnublin_module_pca9555::portMode</a>(<span class="keywordtype">int</span> port, std::string direction){
+<a name="l00219"></a><a class="code" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e">00219</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#a135ee83e3d9023061f385075f2cd911e" title="Setzt den Port Modus (Eingang/Ausgang)">gnublin_module_pca9555::portMode</a>(<span class="keywordtype">int</span> port, std::string direction){
 <a name="l00220"></a>00220     error_flag=<span class="keyword">false</span>;
 <a name="l00221"></a>00221     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> TxBuf[1];
 <a name="l00222"></a>00222 
@@ -236,7 +283,7 @@
 <a name="l00292"></a>00292 
 <a name="l00293"></a>00293 
 <a name="l00294"></a>00294 <span class="comment">//-----------------------------------digital Write-----------------------------------</span>
-<a name="l00311"></a><a class="code" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad">00311</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad" title="Setzt den Pegel eines Ausgangs (HIGH/LOW).">gnublin_module_pca9555::digitalWrite</a>(<span class="keywordtype">int</span> pin, <span class="keywordtype">int</span> value){
+<a name="l00311"></a><a class="code" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad">00311</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__module__pca9555.html#ab8e890d0380ca17e02b1a1a5342d90ad" title="Setzt den Pegel eines Ausgangs (HIGH/LOW)">gnublin_module_pca9555::digitalWrite</a>(<span class="keywordtype">int</span> pin, <span class="keywordtype">int</span> value){
 <a name="l00312"></a>00312     error_flag=<span class="keyword">false</span>;
 <a name="l00313"></a>00313     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> TxBuf[1];
 <a name="l00314"></a>00314     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> RxBuf[1];
@@ -533,10 +580,18 @@
 <a name="l00663"></a>00663   <span class="keywordflow">return</span> -1;
 <a name="l00664"></a>00664 }
 <a name="l00665"></a>00665 
-</pre></div></div>
+</pre></div></div><!-- contents -->
 </div>
-<hr class="footer"/><address class="footer"><small>Erzeugt am Thu Sep 26 2013 08:19:30 für gnublin-api von&nbsp;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="modules_2module__pca9555_8cpp.html">module_pca9555.cpp</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 10:40:48 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
 </body>
 </html>

@@ -1,7 +1,5 @@
 var annotated =
 [
-    [ "CSmtp", "classCSmtp.html", "classCSmtp" ],
-    [ "ECSmtp", "classECSmtp.html", "classECSmtp" ],
     [ "gnublin_adc", "classgnublin__adc.html", "classgnublin__adc" ],
     [ "gnublin_csv", "classgnublin__csv.html", "classgnublin__csv" ],
     [ "gnublin_gpio", "classgnublin__gpio.html", "classgnublin__gpio" ],
@@ -16,5 +14,6 @@ var annotated =
     [ "gnublin_module_step", "classgnublin__module__step.html", "classgnublin__module__step" ],
     [ "gnublin_pwm", "classgnublin__pwm.html", "classgnublin__pwm" ],
     [ "gnublin_serial", "classgnublin__serial.html", "classgnublin__serial" ],
+    [ "gnublin_smtp", "classgnublin__smtp.html", "classgnublin__smtp" ],
     [ "gnublin_spi", "classgnublin__spi.html", "classgnublin__spi" ]
 ];

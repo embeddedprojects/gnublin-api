@@ -2,30 +2,77 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <title>gnublin-api: modules/module_dac.h Quellcode</title>
+
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
 </head>
 <body>
-<!-- Erzeugt von Doxygen 1.7.1 -->
-<div class="navigation" id="top">
-  <div class="tabs">
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">gnublin-api
+   &#160;<span id="projectnumber">Version 0.4</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Erzeugt von Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li><a href="main.html"><span>Hauptseite</span></a></li>
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
       <li><a href="annotated.html"><span>Klassen</span></a></li>
       <li class="current"><a href="files.html"><span>Dateien</span></a></li>
     </ul>
   </div>
-  <div class="tabs2">
+  <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
       <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
     </ul>
   </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('module__dac_8h.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<h1>modules/module_dac.h</h1>  </div>
-</div>
+<div class="title">modules/module_dac.h</div>  </div>
+</div><!--header-->
 <div class="contents">
 <a href="module__dac_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;../include/includes.h&quot;</span>
 <a name="l00002"></a>00002 <span class="preprocessor">#include &quot;../drivers/i2c.cpp&quot;</span>
@@ -42,7 +89,7 @@
 <a name="l00022"></a>00022     <span class="keywordtype">int</span> _vRef[4];
 <a name="l00023"></a>00023     std::string ErrorMessage;
 <a name="l00024"></a>00024 <span class="keyword">public</span>:
-<a name="l00025"></a>00025     <a class="code" href="classgnublin__module__dac.html#aeaae346b1703953e2d842b07071bc404" title="Setzt das error_flag auf &amp;quot;false&amp;quot;, den closemode auf &amp;quot;1&amp;quot; (siehe i2c für Details) u...">gnublin_module_dac</a>();
+<a name="l00025"></a>00025     <a class="code" href="classgnublin__module__dac.html#aeaae346b1703953e2d842b07071bc404" title="Setzt das error_flag auf &quot;false&quot;, den closemode auf &quot;1&quot; (siehe i2c für Details) und die Standard i2c ...">gnublin_module_dac</a>();
 <a name="l00026"></a>00026     <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__module__dac.html#a73daea4f60895ce1b81f3ecd3bf20d68" title="Gibt die letzte Error Nachricht zurück.">getErrorMessage</a>();
 <a name="l00027"></a>00027     <span class="keywordtype">bool</span> <a class="code" href="classgnublin__module__dac.html#a1481dfc83e8c5ef3732e349f4e2f6f2f" title="Gibt das error_flag zurück um zu überprüfen ob die vorangegangene Operation einen Fehler auweist...">fail</a>();
 <a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#a61e23424e17f3dd5cc1c301cec480016" title="Setzt die i2c slave Adresse.">setAddress</a>(<span class="keywordtype">int</span> Address);
@@ -55,10 +102,18 @@
 <a name="l00035"></a>00035     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#a9e52a2ca1badaca4e9f1fc510a04ec13" title="Bestimmt den Wert eines ausgewählten Channels. Kein EEPROM.">write</a>(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> value);                                     
 <a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="classgnublin__module__dac.html#a49773d0166f574bf090de4f4a36b2de9" title="Bestimmt den Wert eines ausgewählten Channels und schreibt den Wert in das EEPROM.">writeEeprom</a>(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> value);
 <a name="l00037"></a>00037 };
-</pre></div></div>
+</pre></div></div><!-- contents -->
 </div>
-<hr class="footer"/><address class="footer"><small>Erzeugt am Thu Sep 26 2013 08:19:30 für gnublin-api von&nbsp;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="module__dac_8h.html">module_dac.h</a>      </li>
+
+    <li class="footer">Erzeugt am Don Sep 26 2013 10:40:48 für gnublin-api von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
 </body>
 </html>
