@@ -63,7 +63,6 @@ int main (int argc, char **argv) {
 	parse_opts(argc, argv);
 
 	if(input_flag && pin > 0 && pin <= 4) {
-    pca.pinMode(pin, OUTPUT);  
     if(json_flag==1){
       printf("{\"value\" : \"%i\",\"pin\" : \"%i\", \"result\" : \"0\"}\n", relay.readState(pin), pin);
     }
