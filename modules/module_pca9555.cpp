@@ -633,7 +633,7 @@ int gnublin_module_pca9555::readState(int pin) {
     }
   }
   else if(pin >= 8 && pin <= 15){ // Port 1
-		if(i2c.receive(0x01, RxBuf, 1)>0){
+		if(i2c.receive(0x03, RxBuf, 1)>0){
 
 				RxBuf[0]<<=(15-pin); // MSB is now the pin you want to read from
 				RxBuf[0]&=128;	// set all bits to 0 except the MSB	
