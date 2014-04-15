@@ -1,4 +1,4 @@
-<map id="G" name="G">
+<map id="include/functions.h" name="include/functions.h">
 <area shape="rect" id="node3" href="$includes_8h.html" title="include/includes.h" alt="" coords="527,83,652,112"/>
 <area shape="rect" id="node43" href="$serial_8h.html" title="drivers/serial.h" alt="" coords="1128,160,1235,189"/>
 <area shape="rect" id="node5" href="$adc_8h.html" title="drivers/adc.h" alt="" coords="951,160,1047,189"/>

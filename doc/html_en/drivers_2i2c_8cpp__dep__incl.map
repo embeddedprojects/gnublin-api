@@ -1,4 +1,4 @@
-<map id="G" name="G">
+<map id="drivers/i2c.cpp" name="drivers/i2c.cpp">
 <area shape="rect" id="node3" href="$module__dac_8h.html" title="modules/module_dac.h" alt="" coords="20,83,175,112"/>
 <area shape="rect" id="node7" href="$module__pca9555_8h.html" title="modules/module_pca9555.h" alt="" coords="207,83,391,112"/>
 <area shape="rect" id="node17" href="$module__lm75_8h.html" title="modules/module_lm75.h" alt="" coords="421,83,584,112"/>

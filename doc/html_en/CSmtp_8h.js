@@ -1,5 +1,7 @@
 var CSmtp_8h =
 [
+    [ "gnublin_smtp", "classgnublin__smtp.html", "classgnublin__smtp" ],
+    [ "__CSMTP_H__", "CSmtp_8h.html#ad8908307a0259eacb5633e30d619e3c5", null ],
     [ "BUFFER_SIZE", "CSmtp_8h.html#a6b20d41d6252e9871430c242cb1a56e7", null ],
     [ "COUNTER_VALUE", "CSmtp_8h.html#ad8292657d8dd14eecdab2c44dba0a1d3", null ],
     [ "INVALID_SOCKET", "CSmtp_8h.html#a26769957ec1a2beaf223f33b66ee64ab", null ],
@@ -13,6 +15,10 @@ var CSmtp_8h =
     [ "SOCKADDR_IN", "CSmtp_8h.html#a29046dc0232f0e5c70adbc25090d77b8", null ],
     [ "SOCKET", "CSmtp_8h.html#a8dc8083897335125630f1af5dafd5831", null ],
     [ "WORD", "CSmtp_8h.html#a197942eefa7db30960ae396d68339b97", null ],
-    [ "CSmptXPriority", "CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e", null ],
+    [ "CSmptXPriority", "CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9e", [
+      [ "XPRIORITY_HIGH", "CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9eabf8f58f907c17c79411ee353ecc95f50", null ],
+      [ "XPRIORITY_NORMAL", "CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9ea7f4e97e5aee0f59cb15e739a6284176f", null ],
+      [ "XPRIORITY_LOW", "CSmtp_8h.html#aa13c2215060aef424fdaefa05714bf9eaf838b63a3181971fb9b981a331957963", null ]
+    ] ],
     [ "BOUNDARY_TEXT", "CSmtp_8h.html#a660eb6ce768604345522904ebef08b41", null ]
 ];

@@ -1,4 +1,4 @@
-<map id="G" name="G">
+<map id="modules/module_lm75.h" name="modules/module_lm75.h">
 <area shape="rect" id="node3" href="$includes_8h.html" title="../include/includes.h" alt="" coords="784,237,923,267"/>
 <area shape="rect" id="node39" href="$drivers_2i2c_8cpp.html" title="../drivers/i2c.cpp" alt="" coords="852,83,969,112"/>
 <area shape="rect" id="node37" href="$functions_8h.html" title="functions.h" alt="" coords="1528,315,1613,344"/>

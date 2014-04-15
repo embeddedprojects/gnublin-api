@@ -1,6 +1,6 @@
 //********************************************
 //GNUBLIN API -- MAIN FILE
-//build date: 11/03/13 18:42
+//build date: 04/15/14 05:29
 //******************************************** 
 
 #include "gnublin.h"
@@ -3449,7 +3449,7 @@ int gnublin_module_pca9555::readState(int pin) {
     }
   }
   else if(pin >= 8 && pin <= 15){ // Port 1
-		if(i2c.receive(0x01, RxBuf, 1)>0){
+		if(i2c.receive(0x03, RxBuf, 1)>0){
 
 				RxBuf[0]<<=(15-pin); // MSB is now the pin you want to read from
 				RxBuf[0]&=128;	// set all bits to 0 except the MSB	
@@ -4245,26 +4245,47 @@ int gnublin_module_step::setPosition(int position) {
 /** @~english
 * @brief Drive.
 *
-* This Funktion reads the actual position from the motor and adds the amount of given steps to drive. So you can let the motor drive an amount of steps, without heaving trouble with the absolute positions.
+* This Funktion reads the actual position from the motor and adds the amount of given steps to drive. So you can let the motor drive an amount of steps, without heaving trouble with the absolute positions. If the amount of given steps is higher as 32760 the movement has to be seperated in two or more single movements to avoid an overflow of the register on the TMC222. The process will be blocked until the Limit has been undershot.
 * @return success: 1, failure: -1
 *
 * @~german
 * @brief Fahre.
 *
-* Diese Funktion ließt die aktuelle Position des Motors und addiert die anzahl der übergebenen Schritte. So kann man den Motor einfach um eine bestimmte Anzahl Schritte fahren lassen, ohne sich über die absoulute Position gedanken machen zu müssen.
+* Diese Funktion ließt die aktuelle Position des Motors und addiert die anzahl der übergebenen Schritte. So kann man den Motor einfach um eine bestimmte Anzahl Schritte fahren lassen, ohne sich über die absoulute Position gedanken machen zu müssen. Wird die Anzahl von 32760 Schritten überschritten muss die Bewegung in mehrere einzelne aufgeteilt werden, um einen Überlauf des Register im TMC222 zu verhindern. Während dessen muss laufend der Bewegungsstatus abgefragt werden, dies blockiert den Thread so lange, bis das Limit unterschritten ist.
 * @return Erfolg: 1, Fehler: -1
 */
 int gnublin_module_step::drive(int steps) {
   int old_position;
   int new_position;
-
-  old_position = getActualPosition();
-  new_position = old_position + steps;
-  if(setPosition(new_position)) {
-    return 1;
-  } else {
-    return -1;
-  }
+  bool steps_limit=false; //if steps > 32760 devide it in steps < 32760!
+  #define STEP_LIMIT 32760
+  #define STEP_LIMIT_WAIT_TIME 200
+  do{
+    old_position = getActualPosition();
+    if(abs(steps)>STEP_LIMIT){
+      steps_limit=true;
+      if(steps>0){
+        new_position = old_position + STEP_LIMIT;
+        steps-=STEP_LIMIT;
+      } else{
+        new_position = old_position - STEP_LIMIT;
+        steps+=STEP_LIMIT;
+      }
+    }
+    else{
+      steps_limit=false;
+      new_position = old_position + steps;
+    }
+    if(!setPosition(new_position)) {
+      return -1;
+    }
+    if(steps_limit){
+      while(getMotionStatus() != 0) {
+        usleep(STEP_LIMIT_WAIT_TIME);
+      }
+    }
+  }while(steps_limit);
+  return 0;
 }
 
 //-------------getMotionStatus-------------

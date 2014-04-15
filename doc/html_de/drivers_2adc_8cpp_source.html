@@ -3,45 +3,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.4"/>
 <title>gnublin-api: drivers/adc.cpp Quellcode</title>
-
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript">
   $(document).ready(initResizable);
+  $(window).load(resizeHeight);
 </script>
-
-
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="top"><!-- do not remove this div! -->
-
-
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  
-  
   <td style="padding-left: 0.5em;">
    <div id="projectname">gnublin-api
    &#160;<span id="projectnumber">Version 0.4</span>
    </div>
-   
   </td>
-  
-  
-  
  </tr>
  </tbody>
 </table>
 </div>
-
-<!-- Erzeugt von Doxygen 1.7.6.1 -->
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.4 -->
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Hauptseite</span></a></li>
@@ -55,10 +47,11 @@
       <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
     </ul>
   </div>
-</div>
+</div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
     <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
     </div>
   </div>
   <div id="splitbar" style="-moz-user-select:none;" 
@@ -66,115 +59,113 @@
   </div>
 </div>
 <script type="text/javascript">
-  initNavTree('drivers_2adc_8cpp.html','');
+$(document).ready(function(){initNavTree('drivers_2adc_8cpp_source.html','');});
 </script>
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">drivers/adc.cpp</div>  </div>
+<div class="title">adc.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="drivers_2adc_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="adc_8h.html">adc.h</a>&quot;</span>
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 <span class="preprocessor">#if (BOARD != RASPBERRY_PI)</span>
-<a name="l00004"></a>00004 <span class="preprocessor"></span><span class="comment">//****************************************************************************</span>
-<a name="l00005"></a>00005 <span class="comment">// Class for easy acces to the GPAs</span>
-<a name="l00006"></a>00006 <span class="comment">//****************************************************************************</span>
-<a name="l00014"></a><a class="code" href="classgnublin__adc.html#a691a2d62e096d5e7070c214912bd280b">00014</a> <span class="comment"></span><a class="code" href="classgnublin__adc.html#a691a2d62e096d5e7070c214912bd280b" title="Erzeugt den Datei stream und lädt das Kernelmodul lpc313x_adc.">gnublin_adc::gnublin_adc</a>(){
-<a name="l00015"></a>00015 <span class="preprocessor">    #if (BOARD == BEAGLEBONE_BLACK)</span>
-<a name="l00016"></a>00016 <span class="preprocessor"></span>    std::ifstream file(<span class="stringliteral">&quot;/sys/devices/ocp.2/helper.14/AIN1&quot;</span>);
-<a name="l00017"></a>00017     <span class="keywordflow">if</span> (file.fail()) {
-<a name="l00018"></a>00018         std::ofstream file2(<span class="stringliteral">&quot;/sys/devices/bone_capemgr.14/slots&quot;</span>);
-<a name="l00019"></a>00019         file2 &lt;&lt; <span class="stringliteral">&quot;cape-bone-iio&quot;</span>;
-<a name="l00020"></a>00020         file2.close();
-<a name="l00021"></a>00021         sleep(1);
-<a name="l00022"></a>00022     }
-<a name="l00023"></a>00023 <span class="preprocessor">    #else</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span>    std::ifstream file(<span class="stringliteral">&quot;/dev/lpc313x_adc&quot;</span>);
-<a name="l00025"></a>00025     <span class="keywordflow">if</span> (file.fail()) {
-<a name="l00026"></a>00026         system(<span class="stringliteral">&quot;modprobe lpc313x_adc&quot;</span>);
-<a name="l00027"></a>00027         sleep(1);
-<a name="l00028"></a>00028     }
-<a name="l00029"></a>00029 <span class="preprocessor">    #endif</span>
-<a name="l00030"></a>00030 <span class="preprocessor"></span>    file.close();
-<a name="l00031"></a>00031     error_flag = <span class="keyword">false</span>;
-<a name="l00032"></a>00032 }
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="comment">//-------------fail-------------</span>
-<a name="l00047"></a><a class="code" href="classgnublin__adc.html#a8c3276ec8b481920fecf246a2f946509">00047</a> <span class="comment"></span><span class="keywordtype">bool</span> <a class="code" href="classgnublin__adc.html#a8c3276ec8b481920fecf246a2f946509" title="Gibt das Error Flag zurück.">gnublin_adc::fail</a>(){
-<a name="l00048"></a>00048     <span class="keywordflow">return</span> error_flag;
-<a name="l00049"></a>00049 }
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="comment">//-------------getErrorMessage-------------</span>
-<a name="l00065"></a><a class="code" href="classgnublin__adc.html#ad6a0b1fa3c832ce153624780d96ece6b">00065</a> <span class="comment"></span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__adc.html#ad6a0b1fa3c832ce153624780d96ece6b" title="Gibt die letzte Error Nachricht zurück.">gnublin_adc::getErrorMessage</a>(){
-<a name="l00066"></a>00066     <span class="keywordflow">return</span> ErrorMessage.c_str();
-<a name="l00067"></a>00067 }
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="preprocessor">#if (BOARD != BEAGLEBONE_BLACK)</span>
-<a name="l00070"></a>00070 <span class="preprocessor"></span><span class="comment">//-------------getValue-------------</span>
-<a name="l00085"></a><a class="code" href="classgnublin__adc.html#a3567d63d6c24be2fdc895183f6509d42">00085</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__adc.html#a3567d63d6c24be2fdc895183f6509d42" title="Gibt den Wert des Pins zurück.">gnublin_adc::getValue</a>(<span class="keywordtype">int</span> pin){
-<a name="l00086"></a>00086     std::string value;
-<a name="l00087"></a>00087     
-<a name="l00088"></a>00088     std::string pin_str = <a class="code" href="functions_8cpp.html#aafc780d7140c6fbaf516e9fe8158e0f2">numberToString</a>(pin);
-<a name="l00089"></a>00089     std::string device = <span class="stringliteral">&quot;/dev/lpc313x_adc&quot;</span>;
-<a name="l00090"></a>00090     std::ofstream file(device.c_str());
-<a name="l00091"></a>00091     <span class="keywordflow">if</span> (file &lt; 0) {
-<a name="l00092"></a>00092         error_flag = <span class="keyword">true</span>;
-<a name="l00093"></a>00093         <span class="keywordflow">return</span> -1;
-<a name="l00094"></a>00094     }
-<a name="l00095"></a>00095     file &lt;&lt; pin_str;
-<a name="l00096"></a>00096     file.close();
-<a name="l00097"></a>00097     std::ifstream dev_file(device.c_str());
-<a name="l00098"></a>00098     dev_file &gt;&gt; value;
-<a name="l00099"></a>00099     dev_file.close();
-<a name="l00100"></a>00100     error_flag = <span class="keyword">false</span>;
-<a name="l00101"></a>00101     <span class="keywordflow">return</span> <a class="code" href="functions_8cpp.html#a3f36e5b55c36764bdc54e525fc5ac13c">hexstringToNumber</a>(value);
-<a name="l00102"></a>00102 }
-<a name="l00103"></a>00103 <span class="preprocessor">#endif</span>
-<a name="l00104"></a>00104 <span class="preprocessor"></span>
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106 <span class="comment">//-------------getVoltage-------------</span>
-<a name="l00121"></a><a class="code" href="classgnublin__adc.html#a0e075bd9dbab25f2a265ed199a486c32">00121</a> <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__adc.html#a0e075bd9dbab25f2a265ed199a486c32" title="Ließt Spannung.">gnublin_adc::getVoltage</a>(<span class="keywordtype">int</span> pin){
-<a name="l00122"></a>00122 <span class="preprocessor">    #if (BOARD == BEAGLEBONE_BLACK)</span>
-<a name="l00123"></a>00123 <span class="preprocessor"></span>    <span class="keywordtype">int</span> value;
-<a name="l00124"></a>00124     std::stringstream ss;
-<a name="l00125"></a>00125     ss &lt;&lt; pin;
-<a name="l00126"></a>00126     std::string device = <span class="stringliteral">&quot;/sys/devices/ocp.2/helper.14/AIN&quot;</span> + ss.str();
-<a name="l00127"></a>00127     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;2; i++){
-<a name="l00128"></a>00128         std::ifstream dev_file(device.c_str());
-<a name="l00129"></a>00129         dev_file &gt;&gt; value;
-<a name="l00130"></a>00130         dev_file.close();
-<a name="l00131"></a>00131     }
-<a name="l00132"></a>00132 <span class="preprocessor">    #else</span>
-<a name="l00133"></a>00133 <span class="preprocessor"></span>    <span class="keywordtype">int</span> value = <a class="code" href="classgnublin__adc.html#a3567d63d6c24be2fdc895183f6509d42" title="Gibt den Wert des Pins zurück.">getValue</a>(pin);
-<a name="l00134"></a>00134     value = value*825/256;
-<a name="l00135"></a>00135 <span class="preprocessor">    #endif</span>
-<a name="l00136"></a>00136 <span class="preprocessor"></span>    <span class="keywordflow">return</span> value;
-<a name="l00137"></a>00137 }
-<a name="l00138"></a>00138 
-<a name="l00139"></a>00139 <span class="preprocessor">#if (BOARD != BEAGELEBONE_BLACK)</span>
-<a name="l00140"></a>00140 <span class="preprocessor"></span><span class="comment">//-------------setReference-------------</span>
-<a name="l00153"></a>00153 <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__adc.html#a6d094a0e5fef2d6c65c60a8fa3f0f441">gnublin_adc::setReference</a>(<span class="keywordtype">int</span> ref){
-<a name="l00154"></a>00154     error_flag = <span class="keyword">false</span>;
-<a name="l00155"></a>00155     <span class="keywordflow">return</span> 1;
-<a name="l00156"></a>00156 }
-<a name="l00157"></a>00157 <span class="preprocessor">#endif</span>
-<a name="l00158"></a>00158 <span class="preprocessor"></span>
-<a name="l00159"></a>00159 
-<a name="l00160"></a>00160 <span class="preprocessor">#endif</span>
-</pre></div></div><!-- contents -->
-</div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="drivers_2adc_8cpp.html">adc.cpp</a>      </li>
-
-    <li class="footer">Erzeugt am Don Sep 26 2013 11:14:26 für gnublin-api von
+<a href="drivers_2adc_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="adc_8h.html">adc.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#if (BOARD != RASPBERRY_PI)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor"></span><span class="comment">//****************************************************************************</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Class for easy acces to the GPAs</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//****************************************************************************</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classgnublin__adc.html#a691a2d62e096d5e7070c214912bd280b">   14</a></span>&#160;<span class="comment"></span><a class="code" href="classgnublin__adc.html#a691a2d62e096d5e7070c214912bd280b" title="Erzeugt den Datei stream und lädt das Kernelmodul lpc313x_adc. ">gnublin_adc::gnublin_adc</a>(){</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">    #if (BOARD == BEAGLEBONE_BLACK)</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span>    std::ifstream file(<span class="stringliteral">&quot;/sys/devices/ocp.2/helper.14/AIN1&quot;</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (file.fail()) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        std::ofstream file2(<span class="stringliteral">&quot;/sys/devices/bone_capemgr.14/slots&quot;</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        file2 &lt;&lt; <span class="stringliteral">&quot;cape-bone-iio&quot;</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        file2.close();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        sleep(1);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">    #else</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span>    std::ifstream file(<span class="stringliteral">&quot;/dev/lpc313x_adc&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span> (file.fail()) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        system(<span class="stringliteral">&quot;modprobe lpc313x_adc&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        sleep(1);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span>    file.close();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    error_flag = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//-------------fail-------------</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="classgnublin__adc.html#a8c3276ec8b481920fecf246a2f946509">   47</a></span>&#160;<span class="comment"></span><span class="keywordtype">bool</span> <a class="code" href="classgnublin__adc.html#a8c3276ec8b481920fecf246a2f946509" title="Gibt das Error Flag zurück. ">gnublin_adc::fail</a>(){</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> error_flag;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">//-------------getErrorMessage-------------</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="classgnublin__adc.html#ad6a0b1fa3c832ce153624780d96ece6b">   65</a></span>&#160;<span class="comment"></span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classgnublin__adc.html#ad6a0b1fa3c832ce153624780d96ece6b" title="Gibt die letzte Error Nachricht zurück. ">gnublin_adc::getErrorMessage</a>(){</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> ErrorMessage.c_str();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#if (BOARD != BEAGLEBONE_BLACK)</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span><span class="comment">//-------------getValue-------------</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="classgnublin__adc.html#a3567d63d6c24be2fdc895183f6509d42">   85</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__adc.html#a3567d63d6c24be2fdc895183f6509d42" title="Gibt den Wert des Pins zurück. ">gnublin_adc::getValue</a>(<span class="keywordtype">int</span> pin){</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    std::string value;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    std::string pin_str = <a class="code" href="functions_8cpp.html#aafc780d7140c6fbaf516e9fe8158e0f2">numberToString</a>(pin);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    std::string device = <span class="stringliteral">&quot;/dev/lpc313x_adc&quot;</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    std::ofstream file(device.c_str());</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (file &lt; 0) {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        error_flag = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    file &lt;&lt; pin_str;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    file.close();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    std::ifstream dev_file(device.c_str());</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    dev_file &gt;&gt; value;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    dev_file.close();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    error_flag = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="functions_8cpp.html#a3f36e5b55c36764bdc54e525fc5ac13c">hexstringToNumber</a>(value);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">//-------------getVoltage-------------</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="classgnublin__adc.html#a0e075bd9dbab25f2a265ed199a486c32">  121</a></span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__adc.html#a0e075bd9dbab25f2a265ed199a486c32" title="Ließt Spannung. ">gnublin_adc::getVoltage</a>(<span class="keywordtype">int</span> pin){</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">    #if (BOARD == BEAGLEBONE_BLACK)</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">int</span> value;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    std::stringstream ss;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    ss &lt;&lt; pin;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    std::string device = <span class="stringliteral">&quot;/sys/devices/ocp.2/helper.14/AIN&quot;</span> + ss.str();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;2; i++){</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        std::ifstream dev_file(device.c_str());</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        dev_file &gt;&gt; value;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        dev_file.close();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor">    #else</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">int</span> value = <a class="code" href="classgnublin__adc.html#a3567d63d6c24be2fdc895183f6509d42" title="Gibt den Wert des Pins zurück. ">getValue</a>(pin);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    value = value*825/256;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#if (BOARD != BEAGELEBONE_BLACK)</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor"></span><span class="comment">//-------------setReference-------------</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="classgnublin__adc.html#a6d094a0e5fef2d6c65c60a8fa3f0f441">gnublin_adc::setReference</a>(<span class="keywordtype">int</span> ref){</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    error_flag = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_14bc92f4b96c8519b376567118ac28b3.html">drivers</a></li><li class="navelem"><a class="el" href="drivers_2adc_8cpp.html">adc.cpp</a></li>
+    <li class="footer">Erzeugt am Die Apr 15 2014 05:31:24 für gnublin-api von
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
-   </ul>
- </div>
-
-
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
+  </ul>
+</div>
 </body>
 </html>
