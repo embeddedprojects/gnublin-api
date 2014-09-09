@@ -32,6 +32,7 @@ cat drivers/pwm.h >> gnublin.h
 cat modules/module_dogm.h >> gnublin.h
 cat modules/module_lm75.h >> gnublin.h
 cat modules/module_adc.h >> gnublin.h
+cat modules/module_adc_12_bit.h >> gnublin.h
 cat modules/module_pca9555.h >> gnublin.h
 cat modules/module_relay.h >> gnublin.h
 cat modules/module_step.h >> gnublin.h
@@ -69,6 +70,7 @@ cat drivers/pwm.cpp >> gnublin.cpp
 cat modules/module_dogm.cpp >> gnublin.cpp
 cat modules/module_lm75.cpp >> gnublin.cpp
 cat modules/module_adc.cpp >> gnublin.cpp
+cat modules/module_adc_12_bit.cpp >> gnublin.cpp
 cat modules/module_pca9555.cpp >> gnublin.cpp
 cat modules/module_relay.cpp >> gnublin.cpp
 cat modules/module_step.cpp >> gnublin.cpp
