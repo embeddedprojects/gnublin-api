@@ -757,7 +757,7 @@ gnublin_spi::gnublin_spi(){
 	fd = open(device.c_str(), O_RDWR);
 	if (fd < 0) {
 		#if BOARD == RASPBERRY_PI
-		system("modprobe spi-bcm2708");
+		system("modprobe spi-bcm2835");
 		#else
 		system("modprobe spidev cs_pin=11");
 		#endif
@@ -829,7 +829,7 @@ int gnublin_spi::setCS(int cs){
 	fd = open(device.c_str(), O_RDWR);
 	if (fd < 0) {
 		#if (BOARD == RASPBERRY_PI)
-		std::string command = "modprobe spi-bcm2708 cs_pin=" + cs_str;
+		std::string command = "modprobe spi-bcm2835 cs_pin=" + cs_str;
 		#else
 		std::string command = "modprobe spidev cs_pin=" + cs_str;
 		#endif
