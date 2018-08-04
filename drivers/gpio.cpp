@@ -93,7 +93,7 @@ const char *gnublin_gpio::getErrorMessage(){
 * @return Erfolg: 1, Fehler: -1
 */
 int gnublin_gpio::pinMode(int pin, std::string direction){
-	#if (BOARD != RASPBERRY_PI && BEAGLEBONE_BLACK)
+	#if (BOARD != RASPBERRY_PI || BOARD != BEAGLEBONE_BLACK)
 	if (pin == 4 && direction == "out"){
 		error_flag = true;
 		return -1;
@@ -140,7 +140,7 @@ int gnublin_gpio::pinMode(int pin, std::string direction){
 * @return Erfolg: 1, Fehler: -1
 */
 int gnublin_gpio::digitalWrite(int pin, int value){
-	#if (BOARD != RASPBERRY_PI && BEAGLEBONE_BLACK)
+	#if (BOARD != RASPBERRY_PI || BOARD != BEAGLEBONE_BLACK)
 	if (pin == 4){
 		error_flag = true;
 		return -1;
